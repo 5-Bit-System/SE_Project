@@ -1,0 +1,908 @@
+{
+  "id": "HN20-007",
+  "request": {
+    "question": "Học xong Toán tin có thể tiếp tục học lên những bậc nào?",
+    "major": "mathematics_informatics",
+    "version": "QD3567-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "lexical_reference",
+    "hybrid_legacy_signature",
+    "hybrid_optimized_signature"
+  ],
+  "modes": {
+    "lexical_reference": {
+      "seconds": 0.004141999990679324,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 0.0004992999602109194,
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics_informatics",
+            "version": null,
+            "course_code": null,
+            "field": "further_study",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "06eab91c8c35db1572e17ad73748840b",
+            "658c9ab088735ae6c0d75ff4278f5bef"
+          ]
+        }
+      ],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán Tin",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+              "locator": {
+                "start_char": 1598,
+                "end_char": 1840,
+                "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                "citation": {
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "start_char": 1598,
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "Tiến sĩ.trong",
+                    "to": "Tiến sĩ trong"
+                  }
+                ],
+                "family": "F1",
+                "field": "further_study",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics_informatics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                "source_unit_id": "238a5273824c51450006c109",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                  "citation": {
+                    "end_char": 1840,
+                    "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "1b525683101bf943",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                    "start_char": 1598,
+                    "title": "Ngành Toán Tin",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "Tiến sĩ.trong",
+                      "to": "Tiến sĩ trong"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "further_study",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics_informatics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                  "source_unit_id": "238a5273824c51450006c109",
+                  "text": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+                "document_id": "1b525683101bf943",
+                "unit_id": "238a5273824c51450006c109",
+                "title": "Ngành Toán Tin",
+                "citation_title": "Ngành Toán Tin",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "evidence_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/1b525683101bf943.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1598,
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán Tin",
+              "source_id": "1b525683101bf943",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 6.421942899993155,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 6.418566600012127,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"further_study\",\"major\":\"mathematics_informatics\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "rank": 1,
+                "raw_score": 3.2743968417544753
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "rank": 2,
+                "raw_score": 0.7429492702124364
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "rank": 1,
+                "raw_score": 0.8848026990890503
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "rank": 2,
+                "raw_score": 0.8678313493728638
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics_informatics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"06eab91c8c35db1572e17ad73748840b\",\"658c9ab088735ae6c0d75ff4278f5bef\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"further_study\"}]}",
+              "passage_ids": [
+                "06eab91c8c35db1572e17ad73748840b#p000",
+                "658c9ab088735ae6c0d75ff4278f5bef#p000"
+              ],
+              "parent_ids": [
+                "06eab91c8c35db1572e17ad73748840b",
+                "658c9ab088735ae6c0d75ff4278f5bef"
+              ]
+            },
+            "candidate_union": [
+              "06eab91c8c35db1572e17ad73748840b",
+              "658c9ab088735ae6c0d75ff4278f5bef"
+            ],
+            "fused": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "lexical_rank": 2,
+                "vector_rank": 2,
+                "rrf_score": 0.03225806451612903
+              }
+            ],
+            "final_top5": [
+              "06eab91c8c35db1572e17ad73748840b",
+              "658c9ab088735ae6c0d75ff4278f5bef"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics_informatics",
+            "version": null,
+            "course_code": null,
+            "field": "further_study",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "06eab91c8c35db1572e17ad73748840b",
+            "658c9ab088735ae6c0d75ff4278f5bef"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.5369856999604963,
+          "exclusive_seconds": 1.5369856999604963
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.1530109999584965,
+          "exclusive_seconds": 1.1530109999584965
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.03913930000271648,
+          "exclusive_seconds": 0.03913930000271648
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3704925000201911,
+          "exclusive_seconds": 0.3704925000201911
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.5575948000187054,
+          "exclusive_seconds": 0.5575948000187054
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9280873000388965,
+          "seconds": 0.9667445999803022,
+          "exclusive_seconds": 0.038657299941405654
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.01888139999937266,
+          "exclusive_seconds": 0.01888139999937266
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.006293100013863295,
+          "exclusive_seconds": 0.006293100013863295
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.1134935999871232,
+          "exclusive_seconds": 1.1134935999871232
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.5778109999955632,
+          "exclusive_seconds": 1.5778109999955632
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán Tin",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+              "locator": {
+                "start_char": 1598,
+                "end_char": 1840,
+                "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                "citation": {
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "start_char": 1598,
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "Tiến sĩ.trong",
+                    "to": "Tiến sĩ trong"
+                  }
+                ],
+                "family": "F1",
+                "field": "further_study",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics_informatics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                "source_unit_id": "238a5273824c51450006c109",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                  "citation": {
+                    "end_char": 1840,
+                    "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "1b525683101bf943",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                    "start_char": 1598,
+                    "title": "Ngành Toán Tin",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "Tiến sĩ.trong",
+                      "to": "Tiến sĩ trong"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "further_study",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics_informatics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                  "source_unit_id": "238a5273824c51450006c109",
+                  "text": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+                "document_id": "1b525683101bf943",
+                "unit_id": "238a5273824c51450006c109",
+                "title": "Ngành Toán Tin",
+                "citation_title": "Ngành Toán Tin",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "evidence_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/1b525683101bf943.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1598,
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán Tin",
+              "source_id": "1b525683101bf943",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_optimized_signature": {
+      "seconds": 3.153548700036481,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 3.147938299982343,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"further_study\",\"major\":\"mathematics_informatics\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "rank": 1,
+                "raw_score": 3.2743968417544753
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "rank": 2,
+                "raw_score": 0.7429492702124364
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "rank": 1,
+                "raw_score": 0.8848026990890503
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "rank": 2,
+                "raw_score": 0.8678313493728638
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics_informatics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"06eab91c8c35db1572e17ad73748840b\",\"658c9ab088735ae6c0d75ff4278f5bef\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"further_study\"}]}",
+              "passage_ids": [
+                "06eab91c8c35db1572e17ad73748840b#p000",
+                "658c9ab088735ae6c0d75ff4278f5bef#p000"
+              ],
+              "parent_ids": [
+                "06eab91c8c35db1572e17ad73748840b",
+                "658c9ab088735ae6c0d75ff4278f5bef"
+              ]
+            },
+            "candidate_union": [
+              "06eab91c8c35db1572e17ad73748840b",
+              "658c9ab088735ae6c0d75ff4278f5bef"
+            ],
+            "fused": [
+              {
+                "parent_id": "06eab91c8c35db1572e17ad73748840b",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              },
+              {
+                "parent_id": "658c9ab088735ae6c0d75ff4278f5bef",
+                "lexical_rank": 2,
+                "vector_rank": 2,
+                "rrf_score": 0.03225806451612903
+              }
+            ],
+            "final_top5": [
+              "06eab91c8c35db1572e17ad73748840b",
+              "658c9ab088735ae6c0d75ff4278f5bef"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics_informatics",
+            "version": null,
+            "course_code": null,
+            "field": "further_study",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "06eab91c8c35db1572e17ad73748840b",
+            "658c9ab088735ae6c0d75ff4278f5bef"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5351978999678977,
+          "exclusive_seconds": 0.5351978999678977
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.49129749997518957,
+          "exclusive_seconds": 0.49129749997518957
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.03693960001692176,
+          "exclusive_seconds": 0.03693960001692176
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3575049000210129,
+          "exclusive_seconds": 0.3575049000210129
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.6011157999746501,
+          "exclusive_seconds": 0.6011157999746501
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.958620699995663,
+          "seconds": 0.9931797000463121,
+          "exclusive_seconds": 0.03455900005064905
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.01437910000095144,
+          "exclusive_seconds": 0.01437910000095144
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.007248300011269748,
+          "exclusive_seconds": 0.007248300011269748
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5170940000098199,
+          "exclusive_seconds": 0.5170940000098199
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5462246999959461,
+          "exclusive_seconds": 0.5462246999959461
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.\nNguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán Tin",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+              "locator": {
+                "start_char": 1598,
+                "end_char": 1840,
+                "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                "citation": {
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "start_char": 1598,
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "Tiến sĩ.trong",
+                    "to": "Tiến sĩ trong"
+                  }
+                ],
+                "family": "F1",
+                "field": "further_study",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics_informatics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                "source_unit_id": "238a5273824c51450006c109",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+                  "citation": {
+                    "end_char": 1840,
+                    "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "1b525683101bf943",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                    "start_char": 1598,
+                    "title": "Ngành Toán Tin",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "Tiến sĩ.trong",
+                      "to": "Tiến sĩ trong"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "further_study",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics_informatics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+                  "source_unit_id": "238a5273824c51450006c109",
+                  "text": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+                "document_id": "1b525683101bf943",
+                "unit_id": "238a5273824c51450006c109",
+                "title": "Ngành Toán Tin",
+                "citation_title": "Ngành Toán Tin",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "evidence_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/1b525683101bf943.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "1b525683101bf943",
+                  "title": "Ngành Toán Tin",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1598,
+                  "end_char": 1840,
+                  "evidence_path": "evidence/f1/1b525683101bf943.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán Tin",
+              "source_id": "1b525683101bf943",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

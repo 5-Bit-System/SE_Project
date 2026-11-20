@@ -1,0 +1,39 @@
+{
+  "actual_model_observed": false,
+  "error_code_counts": {
+    "http_error": 24
+  },
+  "historical_attempts": 24,
+  "http_status_counts": {
+    "403": 24
+  },
+  "new_google_calls": 0,
+  "root_cause": "unknown; no retained provider error body or specific account status proves a cause",
+  "saved_provider_error_categories": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "user_banner": "You are approaching a bandwidth limit. Configure your billing to increase your limits and support the development of your projects."
+}

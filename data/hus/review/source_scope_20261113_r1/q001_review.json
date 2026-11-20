@@ -1,0 +1,29 @@
+{
+  "2012_pdf_lead": {
+    "direct_status": 404,
+    "limit": "Not a newly recovered or currently downloadable PDF; adding to programme list is not first admission.",
+    "source_id": "N03",
+    "web_extraction": "Web tool supplied indexed ten-page text with standard title/decision4115,2012 and introduction-to-list statement.",
+    "web_screenshot": "Both p1/p2 requests failed cache miss; no binary/image verified this turn."
+  },
+  "additional_2012_admission_listing": {
+    "finding": "D480105 listed for HUS 2012 admissions.",
+    "limit": "Regular full-time admissions do not by themselves equate to standard programme variant; table does not label this row standard.",
+    "source_id": "N02"
+  },
+  "decision": "keep_unknown_no_runtime_relabel_or_gold_regrade",
+  "existing_chunk_id": "f526a537e9132345485d15b065a5697b",
+  "existing_program_variant": "unknown",
+  "future_requirement": "Explicit admission-to-standard binding and review of programme identity across dates before new release integration; keep all old runs/gold/reviews immutable.",
+  "human_reviews": 0,
+  "independent_review": false,
+  "interpretation": "Additional scope bridge is useful for a future source integration review, not permission to overwrite old chunk or infer current applicability.",
+  "new_historical_scope_corroboration": {
+    "finding": "Explicit standard-program review context, 2012 trial-program approval, 2018 added high-quality programme, and nine admission cohorts by 2020.",
+    "limit": "Programme approval date and cohort count do not independently quote first standard-variant admission date; old selected quote remains unspecified variant.",
+    "publication_date": "2020-12-28",
+    "source_id": "N01"
+  },
+  "question_id": "A7V4-Q001",
+  "reviewer_kind": "ai"
+}

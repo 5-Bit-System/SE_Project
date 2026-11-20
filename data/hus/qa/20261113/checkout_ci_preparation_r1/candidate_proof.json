@@ -1,0 +1,17 @@
+{
+  "base_HEAD_plus_six_portable_files": true,
+  "other_WIP_not_included": true,
+  "python_dependencies": "Previously created clean minimal-dependency Windows venv; source imported from candidate only",
+  "passed": true,
+  "cases": 20,
+  "menu_items": 2124,
+  "profile": {
+    "retrieval": "lexical",
+    "llm_enabled": false,
+    "bind": "127.0.0.1"
+  },
+  "new_provider_calls": 0,
+  "github_actions_executed": false,
+  "other_os_verified": false,
+  "git_source": "local HEAD public RAG export, not remote clone"
+}

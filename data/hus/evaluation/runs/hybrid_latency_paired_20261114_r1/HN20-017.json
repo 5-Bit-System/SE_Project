@@ -1,0 +1,96 @@
+{
+  "id": "HN20-017",
+  "request": {
+    "question": "Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "lexical_reference",
+    "hybrid_legacy_signature",
+    "hybrid_optimized_signature"
+  ],
+  "modes": {
+    "lexical_reference": {
+      "seconds": 0.0026132999919354916,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+          "status": "needs_clarification",
+          "dataset": "f1",
+          "major": "data_science",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 0.001886199985165149,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+          "status": "needs_clarification",
+          "dataset": "f1",
+          "major": "data_science",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      }
+    },
+    "hybrid_optimized_signature": {
+      "seconds": 0.0018837999668903649,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn muốn hỏi giới thiệu/mục tiêu ngành, định hướng nghề nghiệp hay danh mục môn trong chương trình? Nếu hỏi một môn, hãy ghi tên đầy đủ hoặc mã môn.",
+          "status": "needs_clarification",
+          "dataset": "f1",
+          "major": "data_science",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

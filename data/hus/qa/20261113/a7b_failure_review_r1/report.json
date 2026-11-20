@@ -1,0 +1,143 @@
+{
+  "A7B_pin_delta": {
+    "evaluators": [
+      "tests/hus/test_a7_bounded_candidate.py"
+    ]
+  },
+  "L5r5_current": false,
+  "a7b_exposure": "Used for rootcause/repair design; keep as exposed development for futuretuning, never fresh independent acceptance.",
+  "cached_A7B_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": false,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "cached_A7R_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "completed": true,
+  "default": "v4/lexical/LLMoff",
+  "diagnostic_counts": {
+    "additional_router_probes": 14,
+    "basic_reply_probes": 6,
+    "basis_scope_probes": 4,
+    "cached_original_guard_cases": 8,
+    "edited_question_guard_probes": 7,
+    "gold_source_direct_guard_probes": 1,
+    "guard_boundary_probes": 5,
+    "router_original_cases": 11
+  },
+  "held_contracts_unchanged": [
+    "A7R-Q025",
+    "A7R-Q037",
+    "DEV-Q002"
+  ],
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "live_google_budget": "all spent",
+  "new_end_to_end_requests": 0,
+  "new_provider_calls": 0,
+  "new_repository_tests_run": false,
+  "new_search_calls": 0,
+  "next": "If implementation is selected, regression-first bounded grammar/source-locator/topic/programme-context handling with negative controls; no globalworddrop, no score/gold/scorer rewrite. Freeze different>=48/12 after fixes.",
+  "old_scores_preserved": {
+    "F2sourcefacts": "12/12",
+    "automaticcontrols": "11/12",
+    "completeness": "27/36",
+    "recall": "22/24",
+    "semanticcontrols": "10/12"
+  },
+  "old_tests_data_gold_run_review_scorer_changed": false,
+  "probe_limit": "Pure classifier/guard calls with cached hits or explicit gold diagnostic; finite edited inputs/synthetic counterexamples. Not automated regressions, new API/RAG run, fix verification, ranking experiment or new quality score.",
+  "protected_unchanged": 3014,
+  "publication": "no stage/commit/push/PR/Actions/deploy",
+  "reviewer_kind": "rootAI exposed/nonblind",
+  "root_cause_groups": [
+    {
+      "cases": [
+        "A7B-Q001"
+      ],
+      "finding": "Residual vao in bounded beginning-admission-year question; cached2018CLC target present. vao->tu diagnostic passes, not a global neutralization license."
+    },
+    {
+      "cases": [
+        "A7B-Q009",
+        "A7B-Q021",
+        "A7B-Q033",
+        "A7B-Q045"
+      ],
+      "finding": "AI_PROFILE_LOCATOR only trong/theo/tu ho so AI tham khao. Permission-in-clause then ho so mon not consumed; residual ho/so/tap varies by source. All4explicitlocator diagnostics pass without changed evidence."
+    },
+    {
+      "cases": [
+        "A7B-Q014"
+      ],
+      "finding": "Graduate-role recognition excludes gioi thieu even as source locator, falls to F1introduction. Original question passes guard if exact goldcareers source supplied diagnostically; not a retrieval success."
+    },
+    {
+      "cases": [
+        "A7B-Q015"
+      ],
+      "finding": "Router recognizes hoc tap nang cao but guard still requires residual tap absent from body."
+    },
+    {
+      "cases": [
+        "A7B-Q027"
+      ],
+      "finding": "Router accepts newfurtherstudy phrase but guard learning_basis only oldFURTHER_STUDY_TERMS; false despite positive la tien de. Residualdua/tren, not PDFproof. ExactPDFprobe with hoc tiep passes, no/negatedbasis/wrongedition rejected."
+    },
+    {
+      "cases": [
+        "A7B-Q032"
+      ],
+      "finding": "Course content title contains kiem tra; global field detector identifies assessment too, multifield guard clarifies beforesearch. Quoting title does not resolve. Do not erase independent assessment requests."
+    },
+    {
+      "cases": [
+        "A7B-Q012"
+      ],
+      "finding": "basic_reply exact-string set accepts greeting alone, not greeting+benignwish. Avoid prefix-only matching that swallows actual RAG/action requests."
+    },
+    {
+      "cases": [
+        "A7B-Q036"
+      ],
+      "finding": "Programmecomparison with noi dung routesF3content; no-course check fires before F1multivariantguard. Wrongclarificationreason despite statuspass. Preserve old unresolved enumeration contract."
+    }
+  ],
+  "runtime_bindings": {
+    "app/hus/answer_support.py": "269ad946ae8aead2f6e03680ae5119d6055db793c62dd5aa2efac0c1601b7637",
+    "app/hus/answering.py": "51ce2188970f9467830670ce7c602658c0824163802b96014a7a3dfd6658ac2c",
+    "app/hus/chat.py": "89ab48389351d30f5d4fa178a90667dd768042ec589382d325c2c3d78f37f28c",
+    "app/hus/question_routing.py": "ac65bbc61b98c9b46076f65e32cb6ee263684f7b5c05486847d6b4c904c55ad7"
+  },
+  "runtime_changed": false,
+  "task": "Read-only review9A7Brefusals and2semantically wrong controls"
+}

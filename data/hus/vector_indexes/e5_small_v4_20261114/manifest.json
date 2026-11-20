@@ -1,0 +1,497 @@
+{
+  "activation_allowed": false,
+  "collection": "hus-e5-passages-v3",
+  "contract_id": "7091615c6a2e8527e0eb6db362d8329c581d3c70dbfb4de24c3e4f6cac2433eb",
+  "contract_manifest_sha256": "3a3609dc84b94072640ffda272ca9f3f59ff776d217b57928c72e3094907586e",
+  "corpus": {
+    "dimensions": 384,
+    "family_counts": {
+      "f1": 69,
+      "f3": 1753
+    },
+    "parent_count": 1818,
+    "passage_count": 1822
+  },
+  "documents_stored": false,
+  "embedding_function": null,
+  "encoder": {
+    "artifacts_verified": {
+      "1_Pooling/config.json": {
+        "bytes": 200,
+        "sha256": "987f7a67a38fa564c849bb5d277c52ab9088a84368fc0be31a354125aebb12a0"
+      },
+      "config.json": {
+        "bytes": 655,
+        "sha256": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959"
+      },
+      "model.safetensors": {
+        "bytes": 470641600,
+        "sha256": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+      },
+      "modules.json": {
+        "bytes": 387,
+        "sha256": "c6e29747481e8b5dd2b58401966aeac910de39092f90cda9a704b1545f902b04"
+      },
+      "sentence_bert_config.json": {
+        "bytes": 57,
+        "sha256": "948201d8329907aae938fa62f9ceeed53f5694dacc2b87b9f3b78b37ee986529"
+      },
+      "sentencepiece.bpe.model": {
+        "bytes": 5069051,
+        "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+      },
+      "special_tokens_map.json": {
+        "bytes": 167,
+        "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+      },
+      "tokenizer.json": {
+        "bytes": 17082730,
+        "sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39"
+      },
+      "tokenizer_config.json": {
+        "bytes": 443,
+        "sha256": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+      }
+    },
+    "attention_implementation": "eager",
+    "auto_tokenizer_default_compatible": false,
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "dimensions": 384,
+    "dtype": "float32",
+    "inference_tokenizer": "PreTrainedTokenizerFast(pinned tokenizer.json)",
+    "model_id": "intfloat/multilingual-e5-small",
+    "normalize": "l2",
+    "packages": {
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.5",
+      "aiohttp-retry": "2.9.1",
+      "aiosignal": "1.4.0",
+      "alembic": "1.20.0",
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "argon2-cffi": "25.1.0",
+      "argon2-cffi-bindings": "26.1.0",
+      "attrs": "26.1.0",
+      "bcrypt": "5.0.0",
+      "build": "1.6.1",
+      "certifi": "2026.7.22",
+      "cffi": "2.1.1",
+      "charset-normalizer": "3.5.2",
+      "chromadb": "1.5.9",
+      "click": "8.5.0",
+      "colorama": "0.4.6",
+      "cryptography": "50.0.2",
+      "dnspython": "2.9.0",
+      "durationpy": "0.11",
+      "email-validator": "2.3.0",
+      "fastapi": "0.143.0",
+      "filelock": "4.2.9",
+      "flatbuffers": "25.12.19",
+      "frozenlist": "1.8.0",
+      "fsspec": "2026.9.0",
+      "googleapis-common-protos": "1.76.0",
+      "greenlet": "3.5.6",
+      "grpcio": "1.85.1",
+      "h11": "0.16.0",
+      "hf-xet": "1.8.0",
+      "httpcore": "1.0.9",
+      "httpcore2": "2.16.0",
+      "httptools": "0.9.0",
+      "httpx": "0.28.1",
+      "httpx2": "2.16.0",
+      "huggingface-hub": "2.4.0",
+      "idna": "3.20",
+      "importlib-resources": "7.1.0",
+      "jinja2": "3.1.6",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "kubernetes": "37.0.1",
+      "mako": "1.4.3",
+      "markdown-it-py": "4.2.0",
+      "markupsafe": "3.0.4",
+      "mdurl": "0.1.2",
+      "mmh3": "5.3.1",
+      "mpmath": "1.3.0",
+      "multidict": "7.2.1",
+      "networkx": "3.6.1",
+      "numpy": "2.4.6",
+      "oauthlib": "4.0.1",
+      "onnxruntime": "1.31.1",
+      "opentelemetry-api": "1.45.1",
+      "opentelemetry-exporter-otlp-common": "0.66b1",
+      "opentelemetry-exporter-otlp-proto-common": "1.45.1",
+      "opentelemetry-exporter-otlp-proto-grpc": "1.45.1",
+      "opentelemetry-proto": "1.45.1",
+      "opentelemetry-sdk": "1.45.1",
+      "opentelemetry-semantic-conventions": "0.66b1",
+      "orjson": "3.13.0",
+      "overrides": "7.7.0",
+      "packaging": "26.3",
+      "pdfminer-six": "20260107",
+      "pdfplumber": "0.11.10",
+      "pillow": "13.0.0",
+      "propcache": "0.5.4",
+      "protobuf": "7.36.2",
+      "psycopg2-binary": "2.9.13",
+      "pybase64": "1.5.1",
+      "pycparser": "3.12",
+      "pydantic": "2.14.1",
+      "pydantic-core": "2.50.1",
+      "pydantic-settings": "2.16.2",
+      "pygments": "2.21.0",
+      "pypdfium2": "5.14.0",
+      "pypika": "0.51.1",
+      "pyproject-hooks": "1.3.3",
+      "python-dateutil": "4.0.0",
+      "python-dotenv": "1.2.4",
+      "pyyaml": "6.0.3",
+      "referencing": "0.37.0",
+      "regex": "2026.9.29",
+      "requests": "2.34.2",
+      "requests-oauthlib": "2.0.0",
+      "rich": "15.0.0",
+      "rpds-py": "2026.9.1",
+      "safetensors": "0.8.0",
+      "setuptools": "84.2.1",
+      "shellingham": "1.5.4",
+      "sqlalchemy": "2.0.54",
+      "starlette": "1.8.0",
+      "sympy": "1.14.0",
+      "tenacity": "9.2.1",
+      "tokenizers": "0.23.3",
+      "torch": "2.15.0",
+      "tqdm": "4.70.1",
+      "transformers": "5.22.1",
+      "truststore": "0.10.5",
+      "typer": "0.27.3",
+      "typing-extensions": "4.16.0",
+      "typing-inspection": "0.4.4",
+      "tzdata": "2026.6",
+      "urllib3": "2.8.0",
+      "uvicorn": "0.54.0",
+      "watchfiles": "1.3.0",
+      "websocket-client": "1.9.2",
+      "websockets": "17.4",
+      "yarl": "1.25.1"
+    },
+    "pooling": "attention_mask_mean",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "silent_truncation": false,
+    "threads": 2,
+    "tokenizer_fast": true,
+    "transformers_inference_compatibility_tested": true
+  },
+  "hnsw": {
+    "batch_size": 100,
+    "ef_construction": 100,
+    "ef_search": 100,
+    "max_neighbors": 16,
+    "num_threads": 1,
+    "space": "cosine",
+    "sync_threshold": 100
+  },
+  "index_built": true,
+  "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+  "inference_inventory_sha256": "aa310d62a09a91e59e0ffb613edaca5e3ae94da2a34ad0227356e54eb5460fad",
+  "passage_manifest_sha256": "dc17c0da0fb43fee402079c0f72e3145e2c31f6124419a84df225ffedf764295",
+  "passage_set_id": "35bc48dd66d71d7cee040de95b1967c6d596f496addfd58f41ed9ac981085ef7",
+  "passages_sha256": "cecd9b890985edf4fb08ddab53af5bd3792e8aab9a883a961f7951bda9c686cc",
+  "probes": [
+    {
+      "hits": [
+        {
+          "distance": 2.980232238769531e-07,
+          "id": "12c82116f32f08a1ff215fc63cb8a122#p000"
+        },
+        {
+          "distance": 0.07937830686569214,
+          "id": "2f9e999a85042b779208802aac26b4bb#p000"
+        },
+        {
+          "distance": 0.08020210266113281,
+          "id": "7c20f023d64e599313eb7fb61771be75#p000"
+        },
+        {
+          "distance": 0.08042037487030029,
+          "id": "8955584f15e681b65a6f55b257e09970#p000"
+        },
+        {
+          "distance": 0.08371520042419434,
+          "id": "4a3c645ebb71689c470787ee07190461#p000"
+        }
+      ],
+      "query_passage_id": "12c82116f32f08a1ff215fc63cb8a122#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f1"
+          },
+          {
+            "major": "computer_science"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": -2.384185791015625e-07,
+          "id": "21625268a830b8656f4b5bd4f07a9f80#p000"
+        },
+        {
+          "distance": 0.050821661949157715,
+          "id": "a02e3fe443e340a42147fca61503d628#p000"
+        },
+        {
+          "distance": 0.09930253028869629,
+          "id": "940a3740794040de84617af7e9aa78fd#p000"
+        },
+        {
+          "distance": 0.10953634977340698,
+          "id": "7170857aebdc027daccc37102dd937bd#p000"
+        },
+        {
+          "distance": 0.11095112562179565,
+          "id": "2b8dd1b0bf1f5a8bd676653c1f5d5132#p000"
+        }
+      ],
+      "query_passage_id": "21625268a830b8656f4b5bd4f07a9f80#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f1"
+          },
+          {
+            "major": "data_science"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": -3.5762786865234375e-07,
+          "id": "34707fd2672e540ed3b65cfed19f5ee7#p000"
+        },
+        {
+          "distance": 0.03726792335510254,
+          "id": "3f891edef65b80a30ed9fdee73b47984#p000"
+        },
+        {
+          "distance": 0.04276090860366821,
+          "id": "f8458f2c9484aa0823f83faaa575004c#p000"
+        },
+        {
+          "distance": 0.057335734367370605,
+          "id": "4104b80c6606e7a73108d521fe73a2a1#p000"
+        },
+        {
+          "distance": 0.07079565525054932,
+          "id": "44955940d64d25b5b729f5b30d98718f#p000"
+        }
+      ],
+      "query_passage_id": "34707fd2672e540ed3b65cfed19f5ee7#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f1"
+          },
+          {
+            "major": "mathematics"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": -2.384185791015625e-07,
+          "id": "00a975c69c856787838afef7014389f7#p000"
+        },
+        {
+          "distance": 0.05650395154953003,
+          "id": "5e785e58c4baa44a416052399a937d12#p001"
+        },
+        {
+          "distance": 0.07660019397735596,
+          "id": "5e785e58c4baa44a416052399a937d12#p000"
+        },
+        {
+          "distance": 0.13920843601226807,
+          "id": "658c9ab088735ae6c0d75ff4278f5bef#p000"
+        },
+        {
+          "distance": 0.14206397533416748,
+          "id": "06eab91c8c35db1572e17ad73748840b#p000"
+        }
+      ],
+      "query_passage_id": "00a975c69c856787838afef7014389f7#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f1"
+          },
+          {
+            "major": "mathematics_informatics"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": 0.0,
+          "id": "00174851a8e821c37e371ca7a8b71cfe#p000"
+        },
+        {
+          "distance": 0.10276401042938232,
+          "id": "35df34115fbbea0e24512d7a82e82b73#p000"
+        },
+        {
+          "distance": 0.10776615142822266,
+          "id": "32c8ef4d16e3bac5baf2d81ac6d9dba1#p000"
+        },
+        {
+          "distance": 0.10809475183486938,
+          "id": "4ddb3436535eaa958f82cd5b1d888249#p000"
+        },
+        {
+          "distance": 0.11370491981506348,
+          "id": "7d4462b215c0c1f520fe52281f308ba0#p000"
+        }
+      ],
+      "query_passage_id": "00174851a8e821c37e371ca7a8b71cfe#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f3"
+          },
+          {
+            "major": "computer_science"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": 0.0,
+          "id": "004f6a62c2b6258a53b6b16b28f69017#p000"
+        },
+        {
+          "distance": 0.05998349189758301,
+          "id": "17fd7d8d2c431cb7f7e64119f1208fa9#p000"
+        },
+        {
+          "distance": 0.06174266338348389,
+          "id": "83e201b602b5ebb367e9737c140fdb60#p000"
+        },
+        {
+          "distance": 0.0707852840423584,
+          "id": "1515c753dd1fd425e005320f7932e87e#p000"
+        },
+        {
+          "distance": 0.07155662775039673,
+          "id": "90f1cd6cc583d74398a722fb5a990e07#p000"
+        }
+      ],
+      "query_passage_id": "004f6a62c2b6258a53b6b16b28f69017#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f3"
+          },
+          {
+            "major": "data_science"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": 1.1920928955078125e-07,
+          "id": "00205b1fd8c1ce9c1dc9f0e59b3bca72#p000"
+        },
+        {
+          "distance": 0.06216675043106079,
+          "id": "72be6a072232625412d87f8673b77bb2#p000"
+        },
+        {
+          "distance": 0.08846050500869751,
+          "id": "f4319fdb35acd8ae23e802f87bec3175#p000"
+        },
+        {
+          "distance": 0.10698390007019043,
+          "id": "6795dc36380d463e5eba8afc054fc05c#p000"
+        },
+        {
+          "distance": 0.10885363817214966,
+          "id": "2fbcd2651a8f98880d3c8a62b0c7ddb6#p000"
+        }
+      ],
+      "query_passage_id": "00205b1fd8c1ce9c1dc9f0e59b3bca72#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f3"
+          },
+          {
+            "major": "mathematics"
+          }
+        ]
+      }
+    },
+    {
+      "hits": [
+        {
+          "distance": -2.384185791015625e-07,
+          "id": "00be44184bb22b76aea042fac01468c6#p000"
+        },
+        {
+          "distance": 0.05937904119491577,
+          "id": "c35926ce1794e71ee72311423bf35b7c#p000"
+        },
+        {
+          "distance": 0.10239976644515991,
+          "id": "35377b93e6a7cfd774dff23db01135de#p000"
+        },
+        {
+          "distance": 0.10328030586242676,
+          "id": "51fa4cf83724d1dc97ed4afc523e0160#p000"
+        },
+        {
+          "distance": 0.10518693923950195,
+          "id": "bbe2d7869be9318223ec06577c91716f#p000"
+        }
+      ],
+      "query_passage_id": "00be44184bb22b76aea042fac01468c6#p000",
+      "where": {
+        "$and": [
+          {
+            "family": "f3"
+          },
+          {
+            "major": "mathematics_informatics"
+          }
+        ]
+      }
+    }
+  ],
+  "release": {
+    "format": "portable-2.0",
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "restart_distance_absolute_tolerance": 1e-06,
+  "runtime_retrieval": "lexical",
+  "schema_version": "hus-vector-index-3.0",
+  "stage": "index_built_not_activated",
+  "storage_vector_absolute_tolerance": 1e-06,
+  "telemetry_enabled": false,
+  "vectors_file": "vectors.jsonl",
+  "vectors_sha256": "43c2a85c43385c4d6d1ff283c6f1c1e2e0f2187d82b3ba9bd3b6fd0fcbbb480b"
+}

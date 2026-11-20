@@ -3,6 +3,8 @@ const test = require('node:test');
 const {
   citationURL,
   citationLabel,
+  displayReply,
+  generationInfo,
   escapeHtml,
   formatInlineMarkdown,
   renderSafeMarkdown,
@@ -225,4 +227,99 @@ test('extractCourseCode extracts uppercase course codes from reply and facts', (
   assert.equal(extractCourseCode('Môn học MAT3507 (Lập trình nâng cao)'), 'MAT3507');
   assert.equal(extractCourseCode('Không có mã môn ở đây'), null);
   assert.equal(extractCourseCode(null), null);
+});
+
+test('F1 shows content and reference markers without repeated source information', () => {
+  const warning = 'Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.';
+  const notice = 'Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.';
+  const reply = [warning, notice, '## 4. Nghề nghiệp [1]\n- Nếu đủ điều kiện, có thể giảng dạy. [1]',
+    'Nguồn [1]: Khoa Toán', 'Xem ký hiệu [99].'].join('\n\n');
+  const answer = {status: 'answered', dataset: 'f1', warnings: [warning, notice],
+    citations: [{citation_id: '1', evidence_kind: 'web'}]};
+  assert.equal(displayReply(reply, answer),
+    '4. Nghề nghiệp [1]\n- Nếu đủ điều kiện, có thể giảng dạy. [1]\n\nXem ký hiệu [99].');
+});
+
+test('F2 uses the direct answer and keeps meaningful prerequisite uncertainty', () => {
+  const warning = 'Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.';
+  const uncertainty = 'Có mâu thuẫn điều kiện tiên quyết giữa các dòng nguồn; chưa kết luận điều kiện đúng.';
+  const text = 'MAT1202 — Lập trình hướng đối tượng\nĐiều kiện tiên quyết theo dòng nguồn: chưa rõ.';
+  const canonical = [text, warning, uncertainty, 'Nguồn [1]: Khung chương trình'].join('\n\n');
+  const rewrite = 'Thông tin theo nguồn đã chọn:\n\n' + canonical;
+  const answer = {status: 'answered', dataset: 'f2', reply: canonical, warnings: [warning, uncertainty],
+    citations: [{...pdf(10), citation_id: '1'}]};
+  assert.equal(displayReply(rewrite, answer), text + '\n\n' + uncertainty);
+  assert.equal(answer.reply, canonical);
+});
+
+test('an answer without sources keeps its actual reply', () => {
+  const reply = 'Chưa tìm thấy môn này trong ngành đã chọn.';
+  assert.equal(displayReply(reply, {status: 'no_information', citations: []}), reply);
+  assert.equal(displayReply('Xin chào!', null), 'Xin chào!');
+});
+
+function answer(generation, status = 'answered') {
+  return {mode: 'hus_rag', hus_answer: {status}, generation};
+}
+
+test('default and non-answer replies have no generation badge', () => {
+  assert.equal(generationInfo(answer(undefined), false), null);
+  assert.equal(generationInfo(answer({used: false, fallback_reason: 'not_answered'}, 'no_information'), true), null);
+  assert.equal(generationInfo(answer({used: false}, 'needs_clarification'), true), null);
+  assert.equal(generationInfo({mode: 'basic_chat', generation: {used: false}}, true), null);
+});
+
+test('AI badge requires actual use, answered RAG and explicit request consent', () => {
+  const used = answer({used: true, model: 'actual-model', fallback_reason: null});
+  assert.equal(generationInfo(used, true).kind, 'used');
+  assert.equal(generationInfo(used, true).label, 'AI diễn đạt từ nguồn');
+  assert.throws(() => generationInfo(used, false));
+  assert.throws(() => generationInfo({...used, mode: 'basic_chat'}, true));
+  assert.throws(() => generationInfo(answer(used.generation, 'no_information'), true));
+  assert.throws(() => generationInfo(answer({used: true, model: ''}), true));
+  assert.throws(() => generationInfo(answer({used: true, model: 'm', fallback_reason: 'timeout'}), true));
+  assert.throws(() => generationInfo(answer({used: 'true'}), true));
+});
+
+test('requested canonical fallbacks use stable, safe human messages', () => {
+  const cases = [
+    [{used: false, fallback_reason: 'busy'}, /bận/],
+    [{used: false, fallback_reason: 'timeout'}, /thời gian/],
+    [{used: false, fallback_reason: 'http_error', http_status: 429}, /hạn mức/],
+    [{used: false, fallback_reason: 'http_error', http_status: 503}, /tạm thời/],
+    [{used: false, fallback_reason: 'prompt_budget'}, /giới hạn/],
+    [{used: false, fallback_reason: 'output_budget'}, /giới hạn/],
+    [{used: false, fallback_reason: 'invalid_output'}, /kiểm tra/],
+    [{used: false, fallback_reason: '<private-body-key>'}, /sẵn sàng/],
+    [undefined, /sẵn sàng/],
+  ];
+  for (const [metadata, note] of cases) {
+    const info = generationInfo(answer(metadata), true);
+    assert.equal(info.kind, 'fallback');
+    assert.equal(info.label, 'Bản trích nguồn');
+    assert.match(info.note, note);
+    assert.doesNotMatch(JSON.stringify(info), /private-body-key/);
+  }
+});
+
+test('groupCitations preserves distinct source editions and review states on a shared URL', () => {
+  const first = {
+    citation_id: '1',
+    evidence_kind: 'web',
+    source_id: 'shared',
+    source_url: 'https://example.test/source',
+    open_url: 'https://example.test/source',
+    review_status: 'reviewed',
+    metadata: {scope: {curriculum_version: '2023', program_variant: 'standard'}},
+  };
+  const otherEdition = {
+    ...first,
+    citation_id: '2',
+    metadata: {scope: {...first.metadata.scope, curriculum_version: '2024'}},
+  };
+  const otherReview = {...first, citation_id: '3', review_status: 'unreviewed'};
+  assert.deepEqual(
+    groupCitations([first, otherEdition, otherReview], origin).map(citation => citation.citation_id),
+    ['1', '2', '3'],
+  );
 });

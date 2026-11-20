@@ -7,12 +7,12 @@ from pathlib import Path
 import pytest
 
 from app.hus.answer_support import supported_hits
-from app.hus.answering import MAJOR_NAMES
+from app.hus.answering import MAJOR_NAMES, HUSAnswerer
 from app.hus.chat import chat
 from app.hus.rag_loader import RAGChunk
 from app.hus.retrieval import RetrievalHit
+from app.hus.workspace_answering import WorkspaceAnswerer
 from app.schemas.hus import HUSQuestion
-from app.services.hus_service import get_hus_answerer
 
 PACK = Path(__file__).resolve().parents[2] / 'data/hus/evaluation/diagnostic_dev_v3_support'
 
@@ -22,8 +22,9 @@ def read_rows(name):
 
 
 @pytest.fixture(scope='module')
-def answerer():
-    return get_hus_answerer()
+def answerer(historical_v3_data):
+    # These verbatim anchors belong to the immutable v3 diagnostic pack.
+    return HUSAnswerer(historical_v3_data)
 
 
 @pytest.mark.parametrize('case', read_rows('questions.jsonl'), ids=lambda q: q['question_id'])
@@ -177,7 +178,8 @@ def test_imperative_request_position_still_accepts_supported_fields(prefix):
     assert keep(f'{prefix} các nhóm nghề nghiệp.', h) == (h,)
 
 
-def test_program_framework_question_passes_support_gate(answerer):
+def test_program_framework_question_passes_support_gate(historical_v3_data):
+    answerer = WorkspaceAnswerer(historical_v3_data)
     request = HUSQuestion(
         question='Tôi cần biết khung chương trình của ngành Khoa học máy tính và thông tin',
         major='computer_science',
@@ -186,4 +188,3 @@ def test_program_framework_question_passes_support_gate(answerer):
     answer = chat(request, answerer).hus_answer
     assert answer.status == 'answered'
     assert answer.dataset == 'f1'
-

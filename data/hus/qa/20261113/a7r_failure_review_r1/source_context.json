@@ -1,0 +1,152 @@
+{
+  "bound_records": [
+    {
+      "chunk_id": "e7864b281332873d47213bf53a1bf0f7",
+      "citation": {
+        "end_char": 105,
+        "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+        "raw_original_verified": true,
+        "review_status": "include",
+        "source_id": "ce8df97fe49665e9",
+        "source_kind": "crawled_prose",
+        "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+        "start_char": 0,
+        "title": "Ngành Toán học",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+      },
+      "quote": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+      "quote_span_and_hash_verified": true,
+      "scope": {
+        "applicability_status": "descriptive_not_student_curriculum_binding",
+        "cohort_year": null,
+        "curriculum_version": "unknown",
+        "major": "mathematics",
+        "program_id": null,
+        "program_variant": "unknown",
+        "validity_status": "unknown"
+      }
+    },
+    {
+      "chunk_id": "f8458f2c9484aa0823f83faaa575004c",
+      "citation": {
+        "end_char": 654,
+        "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+        "raw_original_verified": true,
+        "review_status": "include",
+        "source_id": "ce8df97fe49665e9",
+        "source_kind": "crawled_prose",
+        "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+        "start_char": 550,
+        "title": "Ngành Toán học",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+      },
+      "quote": "Mục tiêu đào tạo Chương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học.",
+      "quote_span_and_hash_verified": true,
+      "scope": {
+        "applicability_status": "descriptive_not_student_curriculum_binding",
+        "cohort_year": null,
+        "curriculum_version": "unknown",
+        "major": "mathematics",
+        "program_id": null,
+        "program_variant": "unknown",
+        "validity_status": "unknown"
+      }
+    },
+    {
+      "chunk_id": "4104b80c6606e7a73108d521fe73a2a1",
+      "citation": {
+        "end_char": 2445,
+        "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+        "raw_original_verified": true,
+        "review_status": "include",
+        "source_id": "ce8df97fe49665e9",
+        "source_kind": "crawled_prose",
+        "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+        "start_char": 2271,
+        "title": "Ngành Toán học",
+        "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+      },
+      "quote": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+      "quote_span_and_hash_verified": true,
+      "scope": {
+        "applicability_status": "descriptive_not_student_curriculum_binding",
+        "cohort_year": null,
+        "curriculum_version": "unknown",
+        "major": "mathematics",
+        "program_id": null,
+        "program_variant": "talent",
+        "validity_status": "unknown"
+      }
+    }
+  ],
+  "data_changed": false,
+  "new_rag_requests": 0,
+  "pdf_format_metadata": [
+    {
+      "availability": "available",
+      "chunk_id": "a434674194e7e8479130328b923bf7a3",
+      "document_sha256": "49974d4ff831180faf7125853d921f74dde88a4120cd967212e0eefa1cdb4ce6",
+      "evidence_kind": "pdf",
+      "media_type": "application/pdf",
+      "note": "Resolver metadata only; no GET/visual full-document review. Do not treat filename/format as academic or edition validity.",
+      "pdf_pages": [
+        4,
+        5
+      ],
+      "raw_original_verified": false,
+      "review_status": "include_markdown",
+      "source_id": "1c16ddf8a6f1f409"
+    },
+    {
+      "availability": "available",
+      "chunk_id": "1648ebdddb5ae44b8b34dc340deff05a",
+      "document_sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f",
+      "evidence_kind": "pdf",
+      "media_type": "application/pdf",
+      "note": "Resolver metadata only; no GET/visual full-document review. Do not treat filename/format as academic or edition validity.",
+      "pdf_pages": [
+        4,
+        5
+      ],
+      "raw_original_verified": false,
+      "review_status": "include_markdown",
+      "source_id": "23a0c1df14a5708a"
+    }
+  ],
+  "provider_calls": 0,
+  "q025_legacy_surrounding_source": {
+    "interpretation": "The neighboring link label says standard2023; it is a placement cue, not verification that all following prose belongs to that curriculum edition. Keep v4 unknown; any metadata amendment needs separate source-reviewed data candidate.",
+    "lines": [
+      {
+        "line": 1,
+        "text": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học, 7 chuyên ngành đào tạo thạc sĩ và 7 chuyên ngành đào tạo tiến sĩ (bấm vào đây để xem thông tin về các chương trình đào tạo [thạc sĩ](https://mim.hus.vnu.edu.vn/vi/ctdtthacsi) và [tiến sĩ](https://mim.hus.vnu.edu.vn/vi/ctdttiensi))."
+      },
+      {
+        "line": 2,
+        "text": "[Chương trình đào tạo cử nhân ngành Toán học (hệ chuẩn) 2023:](https://mim.hus.vnu.edu.vn/sites/default/files/101.%20To%C3%83%C2%A1n%20h%C3%A1%C2%BB%C2%8Dc-chu%C3%A1%C2%BA%C2%A9n%20final%20QD%203565%20Scan.pdf)"
+      },
+      {
+        "line": 3,
+        "text": "Mục tiêu đào tạo Chương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học. Sinh viên sẽ được trang bị các kiến thức, kỹ năng, và phẩm chất cần thiết để sau khi tốt nghiệp có thể đảm nhận các công việc có sử dụng kiến thức Toán học như giảng dạy, nghiên cứu, và ứng dụng Toán học vào các lĩnh vực khoa học, công nghệ, kinh tế, xã hội. Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ."
+      },
+      {
+        "line": 4,
+        "text": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm. Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông."
+      },
+      {
+        "line": 5,
+        "text": "Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp Chương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên những kiến thức, kĩ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng, mô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để giải quyết. Những kĩ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân, của công việc và của nền kinh tế."
+      },
+      {
+        "line": 6,
+        "text": "[Chương trình đào tạo cử nhân ngành Toán học (hệ cử nhân tài năng) :](https://mim.hus.vnu.edu.vn/sites/default/files/102.%20To%C3%83%C2%A1n%20h%C3%A1%C2%BB%C2%8Dc-t%C3%83%C2%A0i%20n%C3%84%C2%83ng%20final%20QD%203566%20Scan.pdf)"
+      },
+      {
+        "line": 7,
+        "text": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao. Ngoài các kiến thức, kĩ năng, và phẩm chất chung của cử nhân Toán học chương trình đào tạo chuẩn, sinh viên chương trình đào tạo tài năng được trang bị một số kiến thức và kĩ năng nâng cao, có khả năng sáng tạo, giao tiếp và sử dụng được một ngoại ngữ (tiếng Anh) trong học tập, nghiên cứu, và trong công việc sau khi tốt nghiệp."
+      }
+    ],
+    "sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+    "source_path": "data/hus/rag/releases/hus-data-20261111-v4/evidence/f1/ce8df97fe49665e9.txt"
+  }
+}

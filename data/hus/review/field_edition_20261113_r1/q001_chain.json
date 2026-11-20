@@ -1,0 +1,44 @@
+{
+  "admissions_2021_lead": {
+    "capture": "ConnectError, no direct binary saved",
+    "source_id": "H02",
+    "web_text_only": "Web index returned an admissions table; not a verified current binary/image or adoption chain."
+  },
+  "chain_status": "Historical standard2012 curriculum now has a verified VNU binary. First-admission-to-variant binding and later adoption/amendment/cohort applicability still open.",
+  "decision": "keep_existing_unknown_no_relabel_or_regrade",
+  "human_reviews": 0,
+  "independent_review": false,
+  "new_verified_historical_document": {
+    "facts": "Standard undergraduate programme, code52480105, issuing decision4115/QD-DT dated2012-11-30.",
+    "host": "files.vnu.edu.vn",
+    "limit": "Actual VNU-hosted binary obtained, not proof of byte equality to unavailable HUS09_0.pdf. Mentions listing in2012 and admissions rules but no explicit first standard-variant intake date.",
+    "pages": 10,
+    "reviewed_physical_pages": [
+      1,
+      2
+    ],
+    "sha256": "56bad5aa1a09217baca356d8a61a5e28bb791c517133341c7376b15bae3a89d0",
+    "source_id": "H01"
+  },
+  "other_document": {
+    "finding": "2022 programme file has missing decision number/day/month in issuance line.",
+    "limit": "Do not treat this incomplete issuance line as signed adoption or current-validity proof.",
+    "pages": 14,
+    "reviewed_physical_pages": [
+      1,
+      2
+    ],
+    "source_id": "H03"
+  },
+  "preserved_runtime_scope": {
+    "applicability_status": "descriptive_not_student_curriculum_binding",
+    "cohort_year": null,
+    "curriculum_version": "unknown",
+    "major": "computer_science",
+    "program_id": null,
+    "program_variant": "unknown",
+    "validity_status": "unknown"
+  },
+  "question_id": "A7V4-Q001",
+  "runtime_quote_or_gold_changed": false
+}

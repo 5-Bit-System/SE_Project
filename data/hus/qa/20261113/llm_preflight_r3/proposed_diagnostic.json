@@ -1,0 +1,22 @@
+{
+  "authorization_granted": false,
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "cohort_calls_authorized": 0,
+  "input_tokens_and_cost": "unknown",
+  "keep_default_llm_disabled": true,
+  "key_handling": "Use existing backend key only after explicit approval; never print/edit it.",
+  "max_calls": 1,
+  "max_output_tokens": 1024,
+  "min_interval_seconds": 5,
+  "model": "gemini-3.5-flash-lite",
+  "model_switch": false,
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r3",
+  "prepared_manifest_sha256": "a18e1ca9924e71ad4bfc112f3b976dfe39c03c953dd60b04040a2cf443760587",
+  "prompt_chars": 3607,
+  "prompt_sha256": "d0acd06dae285c783aed132cef10aab754124088bc5bbc8826a979699e0fb329",
+  "provider_calls_performed": 0,
+  "purpose": "One bounded diagnostic to obtain allowlisted real provider status/category; not an L5 quality measurement.",
+  "question_id": "L5V4-Q001",
+  "raw_error_body_logged": false,
+  "retry": false
+}

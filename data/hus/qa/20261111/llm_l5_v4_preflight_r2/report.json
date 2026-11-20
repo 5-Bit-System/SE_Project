@@ -1,0 +1,200 @@
+{
+  "kind": "offline prepared v4 cohort; separate live authorization pending",
+  "prepared_artifact": "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3",
+  "source_pack": "data/hus/evaluation/llm_v4_dev_20261111_r1",
+  "prepared_manifest_sha256": "1a92bdf6fd9da21aadabe75f317f47f22da255bc706ad6db144d2c5e868b607a",
+  "cases": 36,
+  "positive_cases": 24,
+  "controls": 12,
+  "source_audits_passed": 36,
+  "ready_for_live_preflight": true,
+  "live_authorized": false,
+  "gemini_calls": 0,
+  "model_requested": "gemini-3.5-flash-lite",
+  "proposed_max_calls": 24,
+  "spacing_seconds": 5,
+  "output_tokens_per_call": 1024,
+  "max_output_tokens_all_calls": 24576,
+  "prompt_chars_min": 3521,
+  "prompt_chars_max": 6912,
+  "prompt_chars_total": 105399,
+  "input_tokens_or_cost_known": false,
+  "raw_headers_or_keys_exported": false,
+  "privacy_review": "All24 exact bodies contain only frozen public HUS program/course facts and AI reference data; no account, transcript, history, credential, header, filesystem path or tool/action.",
+  "baseline_change_before_final_freeze": [
+    "L5V4-Q002"
+  ],
+  "prior_failed_preflight_preserved": "data/hus/qa/20261111/llm_l5_v4_preflight_r1/report.json",
+  "baseline_fix": "Purpose-query expansion and explicit-aims selection within existing scope, plus dao tao nham synonym. No data/release/old gold/prompt/LLM validator/budget change.",
+  "tests_passed": 639,
+  "new_measurement_regressions": 31,
+  "training_purpose_regressions": 20,
+  "technical_review": {
+    "critical": 0,
+    "important": 3,
+    "minor": 0,
+    "important_fixed_red_green": 3,
+    "independent_rereview": false
+  },
+  "mock_only": {
+    "success_calls": 24,
+    "success_used": 24,
+    "quota_calls_before_stop": 1,
+    "new_retrieval_calls_in_B_or_replay": 0,
+    "model_quality_claim": false
+  },
+  "protected_existing_data_files_unchanged": 2516,
+  "actual_human_reviews": 0,
+  "semantic_review": "pending real responses; source integrity/target presence is not entailment proof",
+  "defaults": {
+    "retrieval": "lexical",
+    "llm_enabled": false
+  },
+  "commit_push_deploy": false,
+  "payload_inventory": [
+    {
+      "question_id": "L5V4-Q001",
+      "body_sha256": "5080763b76d0a23605532d68ed394567dfb7d046197c43f06e32d599d4225993",
+      "prompt_sha256": "8e15ae7a03c50b5ed5b06335bd8714bdfdfc824517a80998235c530a60cd2b07",
+      "prompt_chars": 4152
+    },
+    {
+      "question_id": "L5V4-Q002",
+      "body_sha256": "3de820da20461655612045602f663441b67ec5a3779c4445fefc5a8b5db372ce",
+      "prompt_sha256": "0cd9d0930cf9fe30b8cc93aab41a4f8e0608fc3e3bbd49acb4ace51ad16793dd",
+      "prompt_chars": 3750
+    },
+    {
+      "question_id": "L5V4-Q003",
+      "body_sha256": "14523eb7fe5dbfcbe29a0ab4164191390d414f4a3145d683a16e344530a2b1d6",
+      "prompt_sha256": "c6cc8232bbe240c02236964840a451b30f6b7ae508174ecdea1b9ff4ce0662cc",
+      "prompt_chars": 4004
+    },
+    {
+      "question_id": "L5V4-Q004",
+      "body_sha256": "9cf0ea70aff207f80d3e2038b86618ebc06ffcd922a5f8382291079e1615b9b0",
+      "prompt_sha256": "0c6411d9c89fd2e03f931e4fbef1a477734fd39ea51288144a51dcca9f204235",
+      "prompt_chars": 4031
+    },
+    {
+      "question_id": "L5V4-Q005",
+      "body_sha256": "e3b2df4448a0c7adc18a7ce72eb36074ccfc8186350740cb9cfd753bf8293ee9",
+      "prompt_sha256": "005be35ace1400e807aa7b6e42a737c151268871b299458c111e461cb28dd301",
+      "prompt_chars": 6597
+    },
+    {
+      "question_id": "L5V4-Q006",
+      "body_sha256": "57a13d7ae276135bb7b35244471d71827cd30f8870d19f0d01d36ad0c7b93bcf",
+      "prompt_sha256": "cb3ffec9bc59b49277eafa35e61f18120db71e0b6f3c5cc921648550fa50d51e",
+      "prompt_chars": 3705
+    },
+    {
+      "question_id": "L5V4-Q009",
+      "body_sha256": "c7b034ba0ecc5559de30eaabc50c9ebe09b5b5afb45b48f4069dcf7c98071274",
+      "prompt_sha256": "759deb745900ca4214877455cf4585d15752abb30c80cad9912b4e08b18c3964",
+      "prompt_chars": 4783
+    },
+    {
+      "question_id": "L5V4-Q010",
+      "body_sha256": "65a7cbae3aaf246fa2c618bdfba77c83f31c8a4f2d0e01a3ee22cb716f071ed5",
+      "prompt_sha256": "49e3cb9218689fa8e3c1dd2c852267f5ad818b44b536b82ecd303c0695e252da",
+      "prompt_chars": 3521
+    },
+    {
+      "question_id": "L5V4-Q011",
+      "body_sha256": "77c7dd1a5e1c748bdc9a9e97f4ccc03f4827004cef21385033531123ad66e3e8",
+      "prompt_sha256": "ab172d2d654e6f558fd8cff9bc6914367c4f025bc9662d56739962e68b2d0945",
+      "prompt_chars": 4068
+    },
+    {
+      "question_id": "L5V4-Q012",
+      "body_sha256": "4c71b0750d2cf09bae9c2799e1fdabc84d94de49214a67b4a612b023d17cb51d",
+      "prompt_sha256": "32a715d9f3809adbf9e9c0611d619271ef3a8afdafceee2f0bedd1070831b244",
+      "prompt_chars": 4031
+    },
+    {
+      "question_id": "L5V4-Q013",
+      "body_sha256": "5dce7dd8c7e4556a1e4a81d09bf0aaf1f7bb9109515a65fcc334b5d75446efa7",
+      "prompt_sha256": "f30546a855362331bf9b4b1ac3c512e3801c50e0833744fd1ff8c088b2c01e9e",
+      "prompt_chars": 6577
+    },
+    {
+      "question_id": "L5V4-Q014",
+      "body_sha256": "260191024520020b72e85a2056a1b3d2be321a8d7c547fcea4478c5e04ded10b",
+      "prompt_sha256": "70de63ea167a6a288291663167373d7c5d1312f837b8cafb993d756ebab34424",
+      "prompt_chars": 3703
+    },
+    {
+      "question_id": "L5V4-Q017",
+      "body_sha256": "dd8854e352b244fdd839f47a890ce14790d68fa86d80ac8649528f6d9d0a59d0",
+      "prompt_sha256": "afee979c7c065fee601181754b879c98e241626a5dffd5362df037fc8f0636d5",
+      "prompt_chars": 3531
+    },
+    {
+      "question_id": "L5V4-Q018",
+      "body_sha256": "c09445ab5e3b72dabe4d07b40e39ffa191b7cf73d7b0b2982bbfe1d617ef88b9",
+      "prompt_sha256": "beac6ca03de16ba603864beed7b7a0a3608fa5be0d18e9dabb17d9e5a7282b4f",
+      "prompt_chars": 3864
+    },
+    {
+      "question_id": "L5V4-Q019",
+      "body_sha256": "901ce4dc62b1d6c70d072094239ac45df4ddf1aa846caf09779c66f4cc207e7a",
+      "prompt_sha256": "378453498d3d2238f2afa4f0bbba6917caa95033a790a74e53a6078400b0c7a3",
+      "prompt_chars": 4024
+    },
+    {
+      "question_id": "L5V4-Q020",
+      "body_sha256": "62d853b4ce8a328037a31e06413bd95e16cdc5a6ee77d6c7e075a4c4504b207a",
+      "prompt_sha256": "7877baf7d4b642c2c8191e25dd5d8c3552093ffd66decb59798a8fde0e3116d9",
+      "prompt_chars": 4015
+    },
+    {
+      "question_id": "L5V4-Q021",
+      "body_sha256": "13480d214afdf5c506c81026d000492be7ebbd3d9ca82ee7668adc1ba509ec26",
+      "prompt_sha256": "a221eb0dd782bd30c70f640c54287113f4b082109f58d04c0ae10486db281ca6",
+      "prompt_chars": 6912
+    },
+    {
+      "question_id": "L5V4-Q022",
+      "body_sha256": "e792cdb2f33f18dc421d79aa92e128b0b1839c9f5f1e912de438f8f8ad50acba",
+      "prompt_sha256": "9166ab6909e6e357dd45345a71e0b230060997e681fed813685cc067f80f63ad",
+      "prompt_chars": 3683
+    },
+    {
+      "question_id": "L5V4-Q025",
+      "body_sha256": "845a108928a4fa1da9061c065c2e36c649bef3b70b57cb0d7d15be0379cf2a3e",
+      "prompt_sha256": "f420c075bebd285827d0fb6bcf368a1ce5d7451c5daa926d81f06eb024617647",
+      "prompt_chars": 3800
+    },
+    {
+      "question_id": "L5V4-Q026",
+      "body_sha256": "ef8c52168c7a364162202dd56d187fca41863443c2f81795360ff19768b8d1f7",
+      "prompt_sha256": "4f153af2eb0f0d4b2fcf9de6a2bb13aa2fcd4fd34461a3c3efcc305034944943",
+      "prompt_chars": 4199
+    },
+    {
+      "question_id": "L5V4-Q027",
+      "body_sha256": "1d03d781fafbbdfc49fc668598d6650eab55b8429e9d1ddc64716856780463c2",
+      "prompt_sha256": "c93b9ea8c17fc95f01d64c3a770084c7c658375c85bdd2a32d685e7a73d61c8b",
+      "prompt_chars": 4036
+    },
+    {
+      "question_id": "L5V4-Q028",
+      "body_sha256": "9ef6a8e8f241586c7ab1722401f223160f2d9a783d8d53a009b2afe33eaac70e",
+      "prompt_sha256": "2bc578d77fef741acdd5f9f65af5f133d123510fbf1b72c1b45105c46c5a50d1",
+      "prompt_chars": 4070
+    },
+    {
+      "question_id": "L5V4-Q029",
+      "body_sha256": "07c6a7b09614f55d048c2aeabdc656a04ff97700892ed6c002e5e0bcd753f7c8",
+      "prompt_sha256": "c8a2d513c98bdc481f7c02c21f41fc22f5f077e49c62c6fa955c7ccb30a78f4f",
+      "prompt_chars": 6632
+    },
+    {
+      "question_id": "L5V4-Q030",
+      "body_sha256": "83575f6e5ea493ae17e130a15957c15042b316420114ae1e6a5049d7c2128345",
+      "prompt_sha256": "33fcc0232cba0eaf40acc8d82987bc616e116d530c111a4cfeb2051a05665f9e",
+      "prompt_chars": 3711
+    }
+  ]
+}

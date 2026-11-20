@@ -1,0 +1,726 @@
+<!-- Page 1 -->
+ĐẠI HỌC QUỐC GIA HÀ NỘI
+TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN
+CHƯƠNG TRÌNH ĐÀO TẠO CHẤT LƯỢNG CAO
+TRÌNH ĐỘ ĐẠI HỌC
+NGÀNH: Máy tính và khoa học thông tin
+MÃ SỐ: Ngành đào tạo thí điểm
+Hà Nội, 2019
+1
+
+<!-- Page 2 -->
+MỤC LỤC
+PHẦN I: GIỚI THIỆU CHUNG VỀ CHƯƠNG TRÌNH ĐÀO TẠO ................................. 4
+1. Một số thông tin về chương trình đào tạo....................................................................... 4
+2. Mục tiêu của chương trình đào tạo ................................................................................ 4
+3. Thông tin tuyển sinh ......................................................................................................... 5
+PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO ..................................... 5
+A. Ma trận chuẩn đầu ra: .................................................................................................. 5
+B. Chuẩn đầu ra: ................................................................................................................ 5
+1. Về kiến thức ....................................................................................................................... 5
+1.1. Khối kiến thức chung ................................................................................................... 5
+1.2. Kiến thức chung theo lĩnh vực ..................................................................................... 5
+1.3. Kiến thức chung của khối ngành .................................................................................. 6
+1.4. Kiến thức chung của nhóm ngành ................................................................................ 6
+1.5. Kiến thức ngành ........................................................................................................... 6
+1.6. Kiến thức thực tập và tốt nghiệp .................................................................................. 6
+2. Về kĩ năng .......................................................................................................................... 7
+2.1. Kĩ năng chuyên môn .................................................................................................... 7
+2.1.1. Các kĩ năng nghề nghiệp ........................................................................................... 7
+2.1.2. Khả năng lập luận tư duy và giải quyết vấn đề ......................................................... 7
+2.1.3. Khả năng nghiên cứu và khám phá kiến thức ........................................................... 7
+2.1.4. Khả năng tư duy theo hệ thống ................................................................................. 7
+2.1.5. Bối cảnh xã hội và ngoại cảnh .................................................................................. 7
+2.1.6. Bối cảnh tổ chức ........................................................................................................ 8
+2.1.7. Năng lực vận dụng kiến thức, kĩ năng vào thực tiễn ................................................. 8
+2.1.8. Năng lực sáng tạo, phát triển và dẫn dắt sự thay đổi trong nghề nghiệp .................. 8
+2.2. Kĩ năng bổ trợ............................................................................................................... 8
+2.2.1. Các kĩ năng cá nhân .................................................................................................. 8
+2.2.2. Làm việc theo nhóm .................................................................................................. 8
+2.2.3. Quản lí và lãnh đạo.................................................................................................... 9
+2.2.4. Kĩ năng giao tiếp ....................................................................................................... 9
+2.2.5. Kĩ năng giao tiếp sử dụng ngoại ngữ ........................................................................ 9
+2.2.6. Các kĩ năng bổ trợ khác ............................................................................................. 9
+3. Về phẩm chất đạo đức ...................................................................................................... 9
+3.1. Phẩm chất đạo đức cá nhân ........................................................................................ 10
+3.2. Phẩm chất đạo đức nghề nghiệp ................................................................................. 10
+3.3. Phẩm chất đạo đức xã hội .......................................................................................... 10
+5. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp ............................. 10
+6. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp ............................................ 11
+PHẦN III: NỘI DUNG CHƯƠNG TRÌNH ĐÀO TẠO ..................................................... 12
+1. Tóm tắt yêu cầu chương trình đào tạo .......................................................................... 12
+2. Khung chương trình đào tạo .......................................................................................... 13
+3. Danh mục tài liệu tham khảo ............................................. Error! Bookmark not defined.
+1. Tài liệu bắt buộc ........................................................ Error! Bookmark not defined.
+2
+
+<!-- Page 3 -->
+2. Tài liệu tham khảo thêm ............................................ Error! Bookmark not defined.
+4. Đội ngũ cán bộ giảng dạy ................................................... Error! Bookmark not defined.
+5. Hướng dẫn thực hiện chương trình đào tạo ................................................................. 20
+5.1. Khác biệt so với chương trình chuẩn ......................................................................... 20
+5.2. Kế hoạch giảng dạy (dự kiến) .................................................................................... 22
+5.3. Tổ chức đào tạo .......................................................................................................... 28
+6. So sánh chương trình đào tạo đã xây dựng với chương trình đào tạo của nước ngoài
+(đã sử dụng để xây dựng chương trình) ............................................................................ 28
+a) Giới thiệu về chương trình được sử dụng để xây dựng chương trình: .......................... 28
+b) Bảng so sánh chương trình đào tạo ............................... Error! Bookmark not defined.
+7. Tóm tắt nội dung học phần ................................................ Error! Bookmark not defined.
+3
+
+<!-- Page 4 -->
+ĐẠI HỌC QUỐC GIA HÀ NỘI CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN Độc lập - Tự do - Hạnh phúc
+CHƯƠNG TRÌNH ĐÀO TẠO CHẤT LƯỢNG CAO
+TRÌNH ĐỘ ĐẠI HỌC
+NGÀNH: MÁY TÍNH VÀ KHOA HỌC THÔNG TIN
+MÃ SỐ: Ngành đào tạo thí điểm
+(Ban hành theo Quyết định số 3340/QĐ-ĐHKHTN, ngày 25 tháng 10 năm 2019
+của Hiệu trưởng Trường Đại học Khoa học Tự nhiên, ĐHQGHN)
+PHẦN I: GIỚI THIỆU CHUNG VỀ CHƯƠNG TRÌNH ĐÀO TẠO
+1. Một số thông tin về chương trình đào tạo
+- Tên ngành đào tạo:
++ Tiếng Việt: Máy tính và khoa học thông tin
++ Tiếng Anh: Computer and Information Science
+- Mã số ngành đào tạo: Ngành đào tạo thí điểm
+- Danh hiệu tốt nghiệp: Cử nhân
+- Thời gian đào tạo: 4 năm
+- Tên văn bằng tốt nghiệp:
++ Tiếng Việt: Máy tính và khoa học thông tin
+(Chương trình đào tạo chất lượng cao)
++ Tiếng Anh: The Degree of Bachelor in Computer and Information Science
+(Honors Program)
+- Đơn vị được giao nhiệm vụ đào tạo: Trường Đại học Khoa học Tự nhiên, Đại học
+Quốc gia Hà Nội.
+2. Mục tiêu của chương trình đào tạo
+Mục tiêu chung của chương trình Máy tính và Khoa học Thông tin chất lượng
+cao (MT&KHTT CLC) là đào tạo nguồn nhân lực chất lượng cao, có tính cạnh tranh
+cao trên thị trường lao động trong thời kì hội nhập kinh tế khu vực và thế giới.
+Chương trình MT&KHTT CLC là chương trình đào tạo được đầu tư ưu tiên với
+môi trường quản lý, giảng dạy, học tập hiện đại tiên tiến hiệu quả, cùng với đội ngũ
+giảng viên và trợ giảng giỏi, nhiệt tình, áp dụng phương pháp dạy - học tiên tiến, có sự
+tham gia của các chuyên gia và doanh nghiệp thuộc lĩnh vực MT&KHTT trong quá
+4
+
+<!-- Page 5 -->
+trình đào tạo, qua đó nâng cao khả năng làm việc thực tế và cơ hội tuyển dụng cho
+sinh viên sau tốt nghiệp. Đồng thời, sinh viên được trau dồi và nâng cao trình độ tiếng
+Anh trong quá trình đào tạo. Chương trình đào tạo được thiết kế linh hoạt giúp sinh
+viên chủ động và phát huy sáng tạo trong quá trình học. Từ đó, đảm bảo được mục tiêu
+đào tạo cụ thể như sau:
++ Chương trình đào tạo MT&KHTT CLC trang bị cho sinh viên kiến thức, trình
+độ chuyên môn tốt, các kiến thức và kỹ năng sâu về MT&KHTT, khả năng thực hành
+nghề nghiệp nhằm đảm bảo cho sinh viên thích ứng cao với môi trường làm việc.
++ Nâng cao trình độ tiếng Anh, đặc biệt là tiếng Anh sử dụng trong chuyên môn
+cho sinh viên. Sau khi được đào tạo, sinh viên có trình độ tiếng Anh tốt tối thiểu tương
+đương bậc 4 theo Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam, tự tin trong
+giao tiếp và có khả năng giao tiếp trong trao đổi chuyên môn.
++ Nâng cao kĩ năng thực hành, thực tập; có khả năng nắm bắt, tiếp cận và bước
+đầu ứng dụng các thành tựu khoa học tiên tiến vào thực tiễn nghề nghiệp.
++ Rèn luyện các kĩ năng việc làm nhằm hội nhập quốc tế tốt.
+3. Thông tin tuyển sinh
+Theo quy định của Đại học Quốc gia Hà Nội và theo Đề án tuyển sinh được phê
+duyệt hàng năm.
+PHẦN II: CHUẨN ĐẦU RA CỦA CHƯƠNG TRÌNH ĐÀO TẠO
+A. Ma trận chuẩn đầu ra:
+B. Chuẩn đầu ra:
+1. Chuẩn đầu ra về kiến thức
+1.1. Kiến thức chung
+- Vận dụng được các kiến thức về tư tưởng, đạo đức cách mạng của Đảng Cộng
+sản Việt Nam và tư tưởng Hồ Chí Minh vào nghề nghiệp và cuộc sống;
+- Vận dụng được kiến thức về tiếng Anh trong giao tiếp và công việc chuyên
+môn. Đạt yêu cầu về trình độ tiếng Anh bậc 4 theo Khung năng lực ngoại ngữ
+6 bậc dùng cho Việt Nam;
+- Đánh giá, phân tích được các vấn đề an ninh, quốc phòng và có ý thức cảnh
+giác với những âm mưu chống phá cách mạng của các thế lực thù địch.
+1.2. Kiến thức theo lĩnh vực
+5
+
+<!-- Page 6 -->
+Nắm vững kiến thức cơ sở văn hoá Việt Nam, làm nền tảng tri thức khoa học xã
+hội và nhân văn. Nắm vững các kiến thức cơ bản về khoa học sự sống, làm nền tảng lí
+luận và thực tiễn cho khối ngành Khoa học Tự nhiên;
+Vận dụng kiến thức về công nghệ thông tin và hiểu biết về cách mạng công
+nghiệp 4.0 đáp ứng yêu cầu công việc.
+1.3. Kiến thức của khối ngành
+Vận dụng được các kiến thức về cơ sở vật lí trong việc học tập và nghiên cứu.
+1.4. Kiến thức của nhóm ngành
+Nắm vững và biết vận dụng các mô hình toán học và thống kê để tối ưu hoá
+việc giải quyết các vấn đề phân tích dữ liệu, xử lí thông tin.
+1.5. Kiến thức ngành
+- Nắm vững kiến thức cơ bản và có khả năng vận dụng tri thức về tính toán và
+toán học, đặc biệt là toán rời rạc, xác suất và thống kê;
+- Nắm vững kiến thức về thu thập, tổ chức và lưu trữ thông tin trên máy tính;
+- Có khả năng thiết kế và triển khai thực nghiệm, phân tích và diễn giải dữ liệu;
+- Có khả năng thiết kế, cài đặt và đánh giá một hệ thống hay một thành phần
+phần mềm, đáp ứng các ràng buộc về thời gian, bộ nhớ cũng như các ràng
+buộc kinh tế, xã hội, v.v.
+- Có khả năng xác định, mô hình hoá và giải quyết các vấn đề tính toán;
+- Có khả năng sử dụng các kĩ thuật, các công cụ hiện đại cho công việc tính toán
+chuyên nghiệp;
+- Có khả năng ứng dụng cơ sở toán học, nguyên lí thuật toán và các lí thuyết tin
+học trong việc mô hình hoá và thiết kế các hệ thống trên máy tính, có tính tới
+việc cân bằng các ràng buộc;
+- Nắm vững kiến thức cơ bản về Trí tuệ nhân tạo, có khả năng vận dụng tổng
+hợp kiến thức thu được để phân tích, mô hình hoá, thiết kế và đánh giá một hệ
+thống thông tin trên nền tảng trí tuệ nhân tạo.
+1.6. Kiến thức thực tập và tốt nghiệp
+Sinh viên cử nhân chất lượng cao ngành Máy tính và Khoa học Thông tin nắm
+vững các khối kiến thức cơ bản,kỹ năng thực tập thành thạo.Có khả năng phân tích,
+thiết kế mô hình và đề xuất giải pháp cho việc xây dựng một hệ thống thông tin. Có
+khả năng tự xác định hướng nghiên cứu và hoàn thành đề tài nghiên cứu khoa học.
+6
+
+<!-- Page 7 -->
+2. Chuẩn đầu ra về kĩ năng
+2.1. Kĩ năng chuyên môn
+2.1.1. Kĩ năng nghề nghiệp
+- Có kĩ năng tổ chức và sắp xếp công việc, có khả năng làm việc độc lập;
+- Có kĩ năng sử dụng tiếng Anh chuyên ngành;
+- Có hiểu biết về trách nhiệm và đạo đức nghề nghiệp;
+- Có kĩ năng lập trình trên các hệ thống máy tính hiện đại;
+- Có kĩ năng phân tích, thiết kế, triển khai và đánh giá các hệ thống thông tin
+theo các xu hướng hiện đại trong Công nghệ phần mềm;
+- Có kĩ năng tổ chức, xử lí thông tin, phát hiện tri thức từ các kho dữ liệu bằng
+các phương pháp học máy, khai phá dữ liệu.
+2.1.2. Khả năng lập luận tư duy và giải quyết vấn đề
+- Có kĩ năng phát hiện vấn đề và đánh giá phân tích vấn đề;
+- Có kiến thức về các vấn đề hiện đại;
+- Có kĩ năng giải quyết vấn đề sử dụng kiến thức khoa học máy tính và khoa
+học thông tin;
+- Có kĩ năng đưa ra giải pháp, tối ưu hoá giải pháp để giải quyết các vấn đề cụ
+thể.
+2.1.3. Khả năng nghiên cứu và khám phá kiến thức
+- Có khả năng thực hiện các đề tài nghiên cứu dưới sự hướng dẫn của các
+chuyên gia;
+- Có khả năng đọc hiểu các tài liệu khoa học trong lĩnh vực khoa học thông tin
+và máy tính;
+- Có khả năng đề xuất, triển khai mô hình tính toán, đánh giá được hiệu quả mô
+hình.
+2.1.4. Khả năng tư duy theo hệ thống
+Có khả năng tư duy logic về toán học và phân tích, tổng hợp, xây dựng thuật
+toán và hệ thống thông tin.
+2.1.5. Bối cảnh xã hội và ngoại cảnh
+- Nhận thức rõ trách nhiệm của bản thân với xã hội và cơ quan công tác;
+- Nắm bắt được nhu cầu xã hội với kiến thức khoa học chuyên ngành;
+7
+
+<!-- Page 8 -->
+- Hiểu rõ vai trò của cử nhân Máy tính và Khoa học Thông tin trong thời đại
+thông tin với nhu cầu phát triển nền tảng trí tuệ nhân tạo trong các hệ thống
+thông tin.
+2.1.6. Bối cảnh tổ chức
+- Phân tích được đặc điểm và tình hình đơn vị;
+- Xây dựng kế hoạch và phát triển đơn vị;
+- Tạo được mối liên hệ với các đối tác chủ yếu.
+2.1.7. Năng lực vận dụng kiến thức, kĩ năng vào thực tiễn
+Vận dụng sáng tạo các kiến thức, kỹ năng đã được học vào thực tiễn nghề
+nghiệp. Có khả năng hình thành ý tưởng liên quan đến chuyên môn và triển khai
+nghiên cứu. Sử dụng thành tạo các công cụ, có kĩ năng tiếp thu nhanh công nghệ mới
+trong lĩnh vực Công nghệ thông tin. Áp dụng được các quy trình, phương pháp nghiên
+cứu vào thực tiễn nghề nghiệp.
+2.1.8. Năng lực sáng tạo, phát triển và dẫn dắt sự thay đổi trong nghề nghiệp
+- Có kĩ năng sử dụng kiến thức trong công tác;
+- Có kĩ năng thiết kế dự án chuyên ngành máy tính và khoa học thông tin;
+- Có kĩ năng sáng tạo các phương án, dự án mới;
+- Kĩ năng phản biện, phê phán và sử dụng các giải pháp thay thế trong điều kiện
+môi trường không xác định hoặc thay đổi.
+2.2. Kĩ năng bổ trợ
+2.2.1. Các kĩ năng cá nhân
+- Có kĩ năng học và tự học, chăm chỉ, nhiệt tình, tự tin, sáng tạo và say mê trong
+công việc;
+- Thích ứng nhanh với công việc và sự thay đổi trong công việc;
+- Có kĩ năng sống hòa nhập với môi trường và đồng nghiệp;
+- Có kỹ năng quản lý bản thân, sắp xếp kế hoạch công việc khoa học và hợp lý.
+2.2.2. Kĩ năng làm việc theo nhóm
+- Có kĩ năng làm việc theo nhóm;
+- Có khả năng làm việc trong các nhóm đa ngành;
+- Có kĩ năng xây dựng và điều hành nhóm làm việc hiệu quả;
+- Liên kết được các nhóm;
+8
+
+<!-- Page 9 -->
+- Biết đánh giá chất lượng công việc sau khi hoàn thành và kết quả thực hiện của
+các thành viên trong nhóm.
+2.2.3. Kĩ năng quản lí và lãnh đạo
+- Biết tổ chức, phân công công việc trong đơn vị;
+- Biết đánh giá hoạt động của cá nhân và tập thể;
+- Liên kết được các đối tác;
+- Có khả năng hình thành nhóm làm việc hiệu quả, thúc đẩy hoạt động nhóm và
+phát triển nhóm; có khả năng tham gia lãnh đạo nhóm. Kỹ năng dẫn dắt, khởi
+nghiệp, tạo việc làm cho mình và cho người khác.
+2.2.4. Kĩ năng giao tiếp
+- Sắp xếp được nội dung, ý tưởng giao tiếp;
+- Có các kỹ năng tốt trong giao tiếp bằng văn bản, qua thư điện tử và phương
+tiện truyền thông;
+- Có chiến lược giao tiếp (chủ động trong giao tiếp với đồng nghiệp, đối tác;
+luôn có thái độ thân thiện, thể hiện sự tôn trọng đối với mọi người; biết lắng nghe các
+ý kiến đóng góp);
+- Có kỹ năng thuyết trình tốt về lĩnh vực chuyên môn.
+2.2.5. Kĩ năng giao tiếp sử dụng ngoại ngữ
+Có kỹ năng tiếng Anh chuyên ngành ở mức có thể hiểu được các ý chính của
+một báo cáo hay bài phát biểu về các chủ đề quen thuộc trong công việc liên quan đến
+ngành được đào tạo; có thể sử dụng tiếng Anh để diễn đạt, xử lý một số tình huống
+chuyên môn thông thường; có thể viết được báo cáo có nội dung đơn giản, trình bày ý
+kiến liên quan đến công việc chuyên môn.
+2.2.6. Các kĩ năng bổ trợ khác
+Tự tin trong môi trường làm việc quốc tế, có kỹ năng phát triển cá nhân và sự
+nghiệp, luôn cập nhật thông tin trong lĩnh vực khoa học máy tính và thông tin.
+3. Năng lực tự chủ và trách nhiệm
+- Làm việc độc lập hoặc làm việc theo nhóm trong điều kiện làm việc thay đổi,
+chịu trách nhiệm cá nhân và trách nhiệm đối với nhóm;
+- Hướng dẫn, giám sát những người khác thực hiện nhiệm vụ xác định;
+- Tự định hướng, đưa ra kết luận chuyên môn và có thể bảo vệ được quan điểm
+cá nhân;
+9
+
+<!-- Page 10 -->
+- Lập kế hoạch, điều phối, quản lý các nguồn lực, đánh giá và cải thiện hiệu quả
+các hoạt động.
+4. Về phẩm chất đạo đức
+4.1. Phẩm chất đạo đức cá nhân
+- Có lối sống chuẩn mực và lành mạnh;
+- Sẵn sàng đương đầu với khó khăn;
+- Có tinh thần đấu tranh chống các hành vi tiêu cực trong xã hội;
+- Tôn trọng bản thân và mọi người xung quanh;
+- Sống có trách nhiệm, khiêm tốn, nhiệt tình, trung thực, chí công vô tư.
+4.2. Phẩm chất đạo đức nghề nghiệp
+- Trung thực, có trách nhiệm trong công việc;
+- Đáng tin cậy trong công việc;
+- Trung thành với tổ chức;
+- Luôn có tư tưởng học hỏi, nâng cao trình độ chuyên môn.
+4.3. Phẩm chất đạo đức xã hội
+- Tuân thủ luật pháp;
+- Có ý thức bảo vệ môi trường, tài sản chung của xã hội;
+- Có ý thức phục vụ cao, nhiệt tình tham gia các hoạt động xã hội.
+5. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp
+Sinh viên tốt nghiệp ngành Máy tính và Khoa học thông tin chất lượng cao có
+thể:
+- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển
+trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ
+nhân tạo;
+- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ
+thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;
+- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự
+án công nghệ thông tin;
+- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên
+nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.
+10
+
+<!-- Page 11 -->
+6. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp
+Sinh viên hoàn thành chương trình đào tạo chất lượng cao ngành Máy tính và
+Khoa học Thông tin được trang bị tốt các kiến thức cơ sở và chuyên ngành, có kĩ năng
+thực hành tốt, có khả năng tư duy, nghiên cứu độc lập và làm việc theo nhóm. Do vậy,
+sau khi tốt nghiệp sinh viên có khả năng theo học sau đại học tại các trường đại học uy
+tín trên thế giới cũng như trong nước, tham gia nghiên cứu, triển khai ứng dụng khoa
+học công nghệ trong các trường đại học, viện nghiên cứu và cơ sở sản xuất.
+11
+
+<!-- Page 12 -->
+PHẦN III: NỘI DUNG CHƯƠNG TRÌNH ĐÀO TẠO
+1. Tóm tắt yêu cầu chương trình đào tạo
+Tổng số tín chỉ phải tích luỹ: 148 tín chỉ
+- Khối kiến thức chung 21 tín chỉ
+(chưa tính tính các học phần GDTC, GDQP-AN)
+- Khối kiến thức theo lĩnh vực: 7 tín chỉ
++ Các học phần bắt buộc: 2 tín chỉ
++ Các học phần tự chọn: 5/15 tín chỉ
+- Khối kiến thức theo khối ngành: 6 tín chỉ
+- Khối kiến thức theo nhóm ngành: 36 tín chỉ
++ Các học phần bắt buộc: 33 tín chỉ
++ Các học phần tự chọn: 3/12 tín chỉ
+- Khối kiến thức ngành 78 tín chỉ
++ Các học phần bắt buộc: 50 tín chỉ
++ Các học phần tự chọn: 19 tín chỉ
++ Khoá luận tốt nghiệp/các học phần thay
+9 tín chỉ
+thế khoá luận tốt nghiệp:
+12
+
+<!-- Page 13 -->
+2. Khung chương trình đào tạo
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| I |  | Khối kiến thức chung<br>(chưa tính Giáo dục thể chất,<br>Giáo dục quốc phòng - an ninh) | 21 |  |  |  |  |
+| 1 | PHI1006 | Triết học Mác – Lênin<br>Marxist-Leninist Philosophy | 3 | 30 | 15 | 0 |  |
+| 2 | PEC1008 | Kinh tế chính trị Mác – Lênin<br>Marx-Lenin Political Economy | 2 | 20 | 10 | 0 | PHI1006 |
+| 3 | PHI1002 | Chủ nghĩa xã hội khoa học<br>Scientific socialism | 2 | 30 | 0 | 0 |  |
+| 4 | HIS1001 | Lịch sử Đảng Cộng sản Việt<br>Nam<br>History of the Communist Party<br>of Vietnam | 2 | 20 | 10 | 0 |  |
+| 5 | POL1001 | Tư tưởng Hồ Chí Minh<br>Ho Chi Minh Ideology | 2 | 20 | 10 | 0 |  |
+| 6 | FLF1107 | Tiếng Anh B1<br>English B1 | 5 | 20 | 35 | 20 |  |
+| 7 | FLF1108 | Tiếng Anh B2<br>English B2 | 5 | 20 | 35 | 20 | FLF1107 |
+| 8 |  | Giáo dục thể chất<br>Physical Education | 4 |  |  |  |  |
+| 9 |  | Giáo dục quốc phòng-an ninh<br>National Defence Education | 8 |  |  |  |  |
+| II |  | Khối kiến thức chung theo lĩnh<br>vực | 7 |  |  |  |  |
+| II.1 |  | Học phần bắt buộc | 2 |  |  |  |  |
+| 10 | INM1000 | Tin học cơ sở<br>Introduction to Informatics | 2 | 15 | 15 | 0 |  |
+| II.2 |  | Các học phần tự chọn | 5/15 |  |  |  |  |
+| 11 | HIS1056 | Cơ sở văn hóa Việt Nam<br>Fundamentals of Vietnamese<br>Culture | 3 | 42 | 3 | 0 |  |
+| 12 | GEO1050 | Khoa học trái đất và sự sống<br>Earth and Life Sciences | 3 | 42 | 3 | 0 |  |
+13
+
+<!-- Page 14 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 13 | THL1057 | Nhà nước và pháp luật đại<br>cương<br>General State and Law | 2 | 20 | 5 | 5 | PHI1006 |
+| 14 | MAT1060 | Nhập môn phân tích dữ liệu<br>Introduction to Data Analysis | 2 | 20 | 10 | 0 |  |
+| 15 | PHY1070 | Nhập môn Internet kết nối vạn<br>vật<br>Introduction Internet of things | 2 | 24 | 6 | 0 |  |
+| 16 | PHY1020 | Nhập môn Robotics<br>Introduction to Robotics | 3 | 30 | 10 | 5 |  |
+| III |  | Khối kiến thức chung theo<br>khối ngành | 6 |  |  |  |  |
+| 17 | PHY1100 | Cơ - Nhiệt<br>Mechanics – Thermodymiacs | 3 | 30 | 15 | 0 | MAT2501 |
+| 18 | PHY1103 | Điện - Quang<br>Electromagnetism – Optics | 3 | 30 | 15 | 0 | MAT2501 |
+| IV |  | Khối kiến thức chung theo<br>nhóm ngành | 36 |  |  |  |  |
+| IV.1 |  | Các học phần bắt buộc | 33 |  |  |  |  |
+| 19 | MAT2400 | Đại số tuyến tính<br>Linear Algebra | 5 | 50 | 25 | 0 |  |
+| 20 | MAT2501 | Giải tích 1<br>Calculus 1 | 4 | 40 | 20 | 0 |  |
+| 21 | MAT2502 | Giải tích 2<br>Calculus 2 | 4 | 40 | 20 | 0 | MAT2501<br>MAT2400 |
+| 22 | MAT2503 | Giải tích 3<br>Calculus 3 | 2 | 15 | 15 | 0 | MAT2502 |
+| 23 | MAT2403 | Phương trình vi phân<br>Differential Equations | 3 | 30 | 15 | 0 | MAT2501<br>MAT2400 |
+| 24 | MAT2034 | Giải tích số<br>Numerical Analysis | 3 | 30 | 15 | 0 | MAT2502<br>MAT2403<br>MAT3372 |
+| 25 | MAT2323 | Xác suất - Thống kê<br>Probability and Statistics | 4 | 45 | 15 | 0 | MAT2502 |
+14
+
+<!-- Page 15 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 26 | MAT2411E | Tối ưu hóa (**)<br>Optimization | 3 | 30 | 15 | 0 | MAT2400<br>MAT2502 |
+| 27 | MAT2315E | Phương pháp nghiên cứu khoa<br>học (**)<br>Research Methodology | 3 | 15 | 30 | 0 |  |
+| 28 | MAT2506 | Kĩ năng mềm<br>Soft skill | 2 | 20 | 10 | 0 |  |
+| IV.2 |  | Các học phần tự chọn | 3/12 |  |  |  |  |
+| 29 | MAT2316 | Lập trình C++<br>C++ Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 30 | MAT2317 | Lập trình Java<br>Java Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 31 | MAT2318 | Lập trình Python<br>Python Programming | 3 | 22 | 23 | 0 | INM1000 |
+| 32 | MAT2319 | Lập trình Julia<br>Julia Programming | 3 | 22 | 23 | 0 | INM1000 |
+| V |  | Khối kiến thức ngành | 81 |  |  |  |  |
+| V.1 |  | Các học phần bắt buộc | 50 |  |  |  |  |
+| 33 | MAT3500 | Toán rời rạc<br>Discrete Mathematics | 4 | 45 | 15 | 0 | MAT2400<br>MAT2501 |
+| 34 | MAT3557 | Môi trường lập trình Linux<br>Linux Programming<br>Environment | 2 | 15 | 15 | 0 |  |
+| 35 | MAT3550E | Nguyên lý hệ điều hành (**)<br>Principles of Operating Systems | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT23191 |
+| 36 | MAT3507 | Cơ sở dữ liệu<br>Databases | 4 | 40 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/ |
+1 Dấu “/” mang nghĩa “hoặc”: Một trong 4 học phần MAT2316, MAT2317, MAT2318, MAT2319.
+15
+
+<!-- Page 16 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  |  |  |  |  |  | MAT2319 |
+| 37 | MAT3551E | Cấu trúc dữ liệu và thuật toán<br>(**)<br>Data Structures and Algorithms | 4 | 40 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 38 | MAT3372 | Các thành phần phần mềm<br>Software Components | 3 | 22 | 23 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 39 | MAT3552E | Thiết kế và đánh giá thuật toán<br>(**)<br>Algorithm Design and Analysis | 3 | 30 | 15 | 0 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 40 | MAT3505 | Kiến trúc máy tính<br>Computer Architecture | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 41 | MAT3517E | Mạng máy tính (**)<br>Computer Networks | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 42 | MAT3532 | Tính toán song song<br>Parallel Computing | 3 | 30 | 15 | 0 | MAT3514<br>MAT3557 |
+| 43 | MAT3543 | Công nghệ phần mềm<br>Software Engineering | 3 | 30 | 15 | 0 | MAT3374<br>MAT3552E |
+| 44 | MAT3541E | Nguyên lý các ngôn ngữ lập<br>trình (**)<br>Principles of Programming<br>Languages | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 45 | MAT3553E | Nhập môn Trí tuệ nhân tạo (**)<br>Introduction to Artificial<br>Intelligence | 4 | 40 | 20 | 0 | MAT3507<br>MAT3372 |
+| 46 | MAT3373E | Nhập môn an toàn máy tính (**)<br>Introduction to Computer | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/ |
+16
+
+<!-- Page 17 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  | Security |  |  |  |  | MAT2318/<br>MAT2319 |
+| 47 | MAT3555 | Tiếng Anh chuyên ngành khoa<br>học máy tính (*)<br>English for Special Purpose | 2 | 25 | 5 | 0 | FLF1107 |
+| 48 | MAT3374 | Thực tập thực tế phát triển phần<br>mềm<br>Internship on software<br>development | 3 | 15 | 30 | 0 | INM1000<br>MAT3057 |
+| V.2 |  | Các học phần tự chọn | 19 |  |  |  |  |
+| V.2.1 |  | Tự chọn về kỹ năng phần mềm | 4/8 |  |  |  |  |
+| 49 | MAT3376 | Lập trình nâng cao<br>Advanced Programming | 2 | 10 | 20 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 50 | MAT3558 | Lập trình mobile (*)<br>Programming for mobile<br>platforms | 2 | 10 | 20 | 0 | MAT3551E<br>MAT3507<br>MAT3372 |
+| 51 | MAT3559 | Xây dựng hệ thống nhúng (*)<br>Embedded System Workshop | 2 | 10 | 20 | 0 | MAT3372<br>MAT3505 |
+| 52 | MAT3560 | Phát triển phần mềm trò chơi (*)<br>Introduction to game design and<br>development | 2 | 10 | 20 | 0 | MAT3376 |
+| V.2.2 |  | Tự chọn về khoa học máy tính và<br>thông tin: Trí tuệ nhân tạo và<br>phát triển phần mềm | 15/30 |  |  |  |  |
+|  |  | Chọn 3 trong 4 học phần về trí<br>tuệ nhân tạo sau | 6/9 |  |  |  |  |
+| 53 | MAT3533 | Học máy<br>Machine Learning | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323<br>MAT2034 |
+17
+
+<!-- Page 18 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+| 54 | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata | 3 | 40 | 5 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319<br>MAT3500 |
+| 55 | MAT3562E | Thị giác máy tính (**)<br>Computer Vision | 3 | 30 | 15 | 0 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| V.2.3 |  | Chọn 3 trong 7 học phần trí tuệ<br>nhân tạo và phát triển phần mềm<br>sau | 9/21 |  |  |  |  |
+| 56 | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | 15 | 30 | 0 | MAT3374 |
+| 57 | MAT3563 | Một số vấn đề chọn lọc về thị<br>giác máy tính (*)<br>Advanced Reading in Computer<br>Vision | 3 | 30 | 15 | 0 | MAT3562E |
+| 58 | MAT3566 | Xử lý ảnh 3D (*)<br>Computer Vision: From 3D<br>Reconstruction to Recognition | 3 | 30 | 15 | 0 | MAT3533<br>MAT3562E<br>MAT3376 |
+| 59 | MAT3564 | Nhập môn tương tác người máy<br>(*)<br>Introduction to Human-<br>Computer Interaction Design | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 60 | MAT3565 | Nhập môn khai phá các tập dữ<br>liệu lớn (*)<br>Mining Massive Data Sets | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323<br>MAT3507 |
+| 61 | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng<br>dụng (**)<br>Natural Language Processing<br>and applications | 3 | 35 | 10 | 0 | MAT3374<br>MAT2323 |
+| 62 | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | 30 | 15 | 0 | MAT2316/<br>MAT2317/ |
+18
+
+<!-- Page 19 -->
+
+| STT | Mã<br>học phần | Học phần | ỉ<br>h<br>c<br>n<br>í<br>t<br>ố<br>S | Số giờ tín chỉ |  |  | Mã số<br>học phần<br>tiên quyết |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  | t<br>ế<br>y<br>u<br>h<br>t<br>í<br>L | h<br>n<br>à<br>h<br>c<br>ự<br>h<br>T | c<br>ọ<br>h<br>ự<br>T |  |
+|  |  |  |  |  |  |  | MAT2318/<br>MAT2319 |
+| V.3 |  | Khối kiến thức thực tập và tốt<br>nghiệp | 9 |  |  |  |  |
+| 63 | MAT4081 | Khóa luận tốt nghiệp<br>Undergraduate Thesis | 9 |  |  |  |  |
+|  |  | Các học phần thay thế Khóa<br>luận tốt nghiệp | 9 |  |  |  |  |
+| 64 | MAT3567 | Phân tích và thiết kế hệ thống<br>thông tin<br>Analysis and Design of<br>Information Systems | 3 | 10 | 35 | 0 | MAT3374<br>MAT3552E |
+| 65 | MAT3535 | Tìm kiếm thông tin<br>Information Retrieval | 3 | 30 | 15 | 0 | MAT3551E<br>MAT2323 |
+| 66 | MAT3377 | Một số vấn đề chọn lọc về Trí<br>tuệ nhận tạo<br>Selected topics on Artificial<br>Intelligence | 3 | 30 | 15 | 0 | MAT3553E |
+|  |  | Tổng cộng | 148 |  |  |  |  |
+Ghi chú:
+Học phần Ngoại ngữ thuộc khối kiến thức chung được tính vào tổng số tín chỉ
+của chương trình đào tạo nhưng kết quả đánh giá các học phần này không tính vào
+điểm trung bình chung học kì, điểm trung bình chung các học phần và điểm trung bình
+chung tích lũy.
+19
+
+<!-- Page 20 -->
+5. Hướng dẫn thực hiện chương trình đào tạo
+5.1. Khác biệt so với chương trình chuẩn
+ Sinh viên hệ CLC được tăng cường về tiếng Anh (tối thiểu đạt bậc 4/6 theo
+khung năng lực ngoại ngữ 6 bậc dung cho Việt Nam) và được trang bị thêm
+tiếng Anh chuyên ngành.
+ Sinh viên hệ CLC được tăng cường các kiến thức thực tế, tiếp cận môi trường
+công nghiệp, nghiên cứu, thị trường việc làm. Trong chương trình có 8 học
+phần sinh viên được đi thực tập tại doanh nghiệp và 1 học phần có sự tham gia
+hướng dẫn thực hành của doanh nghiệp.
+ Chương trình giảng dạy ít nhất 20% các học phần chuyên môn bằng tiếng Anh
+do các giảng viên Khoa Toán – Cơ – Tin học và các giáo sư đối tác nước ngoài
+đảm nhiệm.
+ Đảm bảo mỗi nhóm thảo luận không quá 30 sinh viên, nhóm thực hành không
+quá 15 sinh viên, mỗi nhóm làm thí nghiệm tại phòng thí nghiệm không quá 5
+sinh viên.
+ Khóa luận tốt nghiệp tăng từ 7 TC lên 9 TC và định hướng đề tài tiếp cận thị
+trường lao động chất lượng cao.
+ Thường xuyên tổ chức các buổi gặp gỡ, giới thiệu việc làm cho sinh viên với
+các công ty, doanh nghiệp, tổ chức là đối tác của Trường, của Khoa.
+ Các điều kiện đảm bảo chất lượng được nâng cao :
+ Có Văn phòng điều hành CTĐT CLC là đơn vị đầu mối thực hiện nhiệm
+vụ vận hành CTĐT đảm bảo đi đúng mục tiêu và chuẩn đầu ra đã xây
+dựng;
+ Ngay sau khi nhập học, Nhà trường sẽ phân công cố vấn học tập cho
+từng nhóm sinh viên. Đầu khóa học CVHT trợ giúp sinh viên tìm hiểu về
+CTĐT và xây dựng “Dự kiến Kế hoạch học tập toàn khóa”, dựa vào kết
+quả học tập của mỗi học kì, CVHT sẽ cùng sinh viên điều chỉnh kế hoạch
+học tập cá nhân để cho phù hợp với từng sinh viên để đạt được mục tiêu
+và kết quả đề ra;
+ Ngoài giảng viên tham gia giảng dạy, mỗi lớp học phần sẽ có 1 trợ giảng,
+đảm bảo sinh viên được hỗ trợ giải quyết các vấn đề vướng mắc của sinh
+viên về nội dung học tập một cách thấu đáo cả ở trong và ngoài giờ lên
+lớp;
+ Mỗi lớp khóa học có cán bộ quản lý lớp, thường xuyên kiểm tra tính
+chuyên cần của sinh viên trong cả giờ học chính khóa và các hoạt động
+ngoại khóa khác; cùng với CVHT định hướng, hỗ trợ sinh viên thực hiện
+20
+
+<!-- Page 21 -->
+tốt kế hoạch học tập đã đề ra và phát huy được năng lực, sở trường của
+từng sinh viên; tạo sự gắn kết giữa các thành viên trong lớp;
+ Mỗi học kì tổ chức ít nhất một đợt lấy ý kiến phản hồi của sinh viên về
+nội dung, phương pháp giảng dạy của giảng viên, công tác quản lý, phục
+vụ, điều kiện cơ sở vật chất, …
+ Mỗi năm tổ chức 2 buổi tọa đàm trao đổi giữa lãnh đạo Nhà trường và
+người học.
+21
+
+<!-- Page 22 -->
+5.2. Kế hoạch giảng dạy (dự kiến)
+Học kì I
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | PHI1006 | Triết học Mác – Lênin | 3 |  |
+| 2. | FLF10107 | Tiếng Anh B1 | 5 |  |
+| 3. | INM1000 | Tin học cơ sở | 2 |  |
+| 4. | MAT2400 | Đại số tuyến tính | 5 |  |
+| 5. | MAT2501 | Giải tích 1 | 4 |  |
+| 6. | MAT3557 | Môi trường lập trình Linux | 2 |  |
+| 7. | MAT2506 | Kĩ năng mềm | 2 |  |
+|  |  | Tổng | 23 |  |
+Học kì II
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | PEC1008 | Kinh tế chính trị Mác - Lênin | 2 | PHI1006 |
+| 2. | FLF1108 | Tiếng Anh B2 | 5 | FLF2101 |
+| 3. | MAT2502 | Giải tích 2 | 4 | MAT2501<br>MAT2400 |
+| 4. | MAT3500 | Toán rời rạc | 4 | MAT2501<br>MAT2400 |
+|  |  | Các học phần tự chọn | 5 |  |
+| 5. | Chọn 2 trong 7 học phần sau |  | 5/18 |  |
+| 6. | MAT1060 | Nhập môn phân tích dữ liệu | 2 |  |
+| 7. | PHY1070 | Nhập môn Internet kết nối vạn vật | 2 |  |
+| 8. | THL1057 | Nhà nước và pháp luật đại cương | 2 |  |
+| 9. | MAT2316 | Lập trình C/C++ | 3 |  |
+| 10. | MAT2317 | Lập trình Java | 3 |  |
+| 11. | MAT2318 | Lập trình Python | 3 |  |
+| 12. | MAT2319 | Lập trình Julia | 3 |  |
+|  |  | Tổng | 20 |  |
+22
+
+<!-- Page 23 -->
+Học kì III
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | PHI1002 | Chủ nghĩa xã hội khoa học | 2 | PEC1008 |
+| 2. | PHY1100 | Cơ-Nhiệt | 3 | MAT2501 |
+| 3. | MAT2503 | Giải tích 3 | 2 | MAT2502 |
+| 4. | MAT2323 | Xác suất – Thống kê | 4 | MAT2502 |
+| 5. | MAT3372 | Các thành phần phần mềm | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 6. | MAT3507 | Cơ sở dữ liệu | 4 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Các học phần tự chọn | 3 |  |
+|  | Chọn 1 trong 3 học phần sau |  | 3/9 |  |
+| 7. | HIS1056 | Cơ sở văn hóa Việt Nam | 3 | PHI1006 |
+| 8. | GEO1050 | Khoa học Trái đất và sự sống | 3 |  |
+| 9. | PHY1020 | Nhập môn Robotics | 3 |  |
+|  |  | Tổng | 21 |  |
+Học kì IV
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | PEC1008 | Lịch sử Đảng Cộng sản Việt Nam | 2 |  |
+| 2. | PHY1103 | Điện - Quang | 3 | MAT2501 |
+| 3. | MAT2403 | Phương trình vi phân | 3 | MAT2501<br>MAT2400 |
+| 4. | MAT3551E | Cấu trúc dữ liệu và thuật toán (**) | 4 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 5. | MAT3517E | Mạng máy tính (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/ |
+23
+
+<!-- Page 24 -->
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  |  |  | MAT2319 |
+| 6. | MAT3555 | Tiếng Anh chuyên ngành khoa<br>học máy tính (*) | 2 | FlF1107 |
+| 7. | MAT3374 | Thực tập thực tế phát triển phần<br>mềm | 3 | INM1000<br>MAT3507 |
+|  |  | Tổng | 20 |  |
+Học kì V
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | MAT2034 | Giải tích số | 3 | MAT2502<br>MAT2403<br>MAT3372 |
+| 2. | MAT3550E | Nguyên lý hệ điều hành (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 3. | MAT3553E | Nhập môn Trí tuệ nhân tạo (**) | 4 | MAT3507<br>MAT3372 |
+| 4. | MAT3543 | Công nghệ phần mềm | 3 | MAT3374<br>MAT3504 |
+| 5. | MAT3541E | Nguyên lý của các ngôn ngữ lập<br>trình (**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Các học phần tự chọn |  |  |
+|  |  | Tự chọn 02 trong 04 học phần về<br>kĩ năng phần mềm | 4/8 |  |
+| 6. | MAT3376 | Lập trình nâng cao<br>Advanced Programming | 2 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 7. | MAT3558 | Lập trình mobile (*)<br>Programming for mobile<br>platforms | 2 | MAT3551E<br>MAT3507<br>MAT3372 |
+| 8. | MAT3559 | Xây dựng hệ thống nhúng (*) | 2 | MAT3372 |
+24
+
+<!-- Page 25 -->
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Embedded System Workshop |  | MAT3505 |
+| 9. | MAT3560 | Phát triển phần mềm trò chơi (*)<br>Introduction to game design and<br>development | 2 | MAT3376 |
+|  |  | Tổng | 20 |  |
+Học kì VI
+
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | MAT2411E | Tối ưu hoá (**) | 3 | MAT2502 |
+| 2. | MAT3552E | Thiết kế và đánh giá thuật toán<br>(**) | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 3. | MAT3505 | Kiến trúc máy tính | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 4. | MAT3140 | Tính toán song song | 3 | MAT3514<br>MAT3557 |
+| 5. | MAT3373E | Nhập môn an toàn máy tính(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 6. | MAT2315E | Phương pháp nghiên cứu khoa<br>học (**) | 3 |  |
+|  |  | Các học phần tự chọn |  |  |
+|  | Tự chọn 01 trong 04 học phần về trí tuệ nhân tạo |  | 3/9 |  |
+| 7. | MAT3533 | Học máy<br>Machine Learning | 3 | MAT3551E<br>MAT2323<br>MAT2404 |
+| 8. | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata<br>(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+25
+
+<!-- Page 26 -->
+
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  |  |  | MAT3500 |
+| 9. | MAT3562E | Thị giác máy tính (**)<br>Computer Vision: Foundations<br>and Applications | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Tổng | 21 |  |
+Học kì VII
+
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+| 1. | POL1001 | Tư tưởng Hồ Chí Minh | 2 | POL1001 |
+|  |  | Các học phần tự chọn |  |  |
+|  | Tự chọn 02 trong 04 học phần về trí tuệ nhân tạo |  | 3/9 |  |
+| 2. | MAT3533 | Học máy<br>Machine Learning | 3 | MAT3551E<br>MAT2323<br>MAT2404 |
+| 3. | MAT3554E | Ngôn ngữ hình thức và ôtômat<br>(**)<br>Formal Language and Automata<br>(**) | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319<br>MAT3500 |
+| 4. | MAT3562E | Thị giác máy tính (**)<br>Computer Vision: Foundations<br>and Applications | 3 | MAT2502<br>MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Tự chọn 3 trong 7 học phần về<br>trí tuệ nhân tạo và phát triển<br>phần mềm | 9/21 |  |
+| 5. | MAT3542 | Phát triển ứng dụng web<br>Web Applications Development | 3 | MAT3374 |
+| 6. | MAT3563 | Một số vấn đề chọn lọc về thị<br>giác máy tính (*)<br>Advanced Reading in Computer<br>Vision | 3 | MAT3562E |
+26
+
+<!-- Page 27 -->
+
+| Số TT | Mã học phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+| 7. | MAT3566 | Xử lý ảnh 3D (*)<br>Computer Vision: From 3D<br>Reconstruction to Recognition | 3 | MAT3533<br>MAT3562E<br>MAT3376 |
+| 8. | MAT3564 | Nhập môn tương tác người máy<br>(*)<br>Introduction to Human-<br>Computer Interaction Design | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+| 9. | MAT3565 | Nhập môn khai phá các tập dữ<br>liệu lớn (*)<br>Mining Massive Data Sets | 3 | MAT3551E<br>MAT2323<br>MAT3507 |
+| 10. | MAT3561E | Xử lý ngôn ngữ tự nhiên và ứng<br>dụng (**)<br>Natural Language Processing<br>and applications | 3 | MAT3374<br>MAT2323 |
+| 11. | MAT3539 | Mật mã và an toàn dữ liệu<br>Cryptography and Data Security | 3 | MAT2316/<br>MAT2317/<br>MAT2318/<br>MAT2319 |
+|  |  | Tổng | 17 |  |
+Học kì VIII
+
+| Số TT | Mã học<br>phần | Học phần | Số<br>TC | Học phần tiên<br>quyết |
+| --- | --- | --- | --- | --- |
+|  |  | Các học phần bắt buộc |  |  |
+|  |  | Khóa luận tốt nghiệp hoặc môn<br>thay thế | 9 |  |
+| 1 | MAT4081 | Khóa luận tốt nghiệp | 9 |  |
+|  |  | Các học phần thay thế tốt nghiệp | 9 |  |
+| 2 | MAT3567 | Phân tích và thiết kế hệ thống<br>thông tin | 3 | MAT3374<br>MAT3552E |
+| 3 | MAT3535 | Tìm kiếm thông tin | 3 | MAT3551E<br>MAT2323 |
+| 4 | MAT3377 | Một số vấn đề chọn lọc về Trí<br>tuệ nhân tạo | 3 | MAT3553E |
+|  |  | Tổng | 9 |  |
+27
+
+<!-- Page 28 -->
+5.3. Tổ chức đào tạo
+Chương trình đào tạo được triển khai và hoàn thành với mỗi khóa học gồm 8
+học kì chính, mỗi học kì sinh viên phải tích lũy tối thiểu 14 tín chỉ. Sinh viên được xét
+tốt nghiệp khi tích lũy đủ 154 tín chỉ có trong chương trình. Khối kiến thức chung
+(M1) và khối kiến thức theo lĩnh vực (M2), khối kiến thức chung của khối ngành (M3)
+được giảng dạy chủ yếu trong năm thứ nhất và năm thứ hai. Các học phần thuộc các
+khối kiến thức này được triển khai chung cho toàn Trường Đại học Khoa học Tự
+nhiên. Khối kiến thức nhóm ngành (M4) và một phần của khối kiến thức ngành và bổ
+trợ (M5) được giảng dạy trong năm thứ hai và ba. Các học phần còn lại của khối kiến
+thức ngành và bổ trợ (M5) và Khóa luận tốt nghiệp (M6) được triển khai vào năm thứ
+tư. Các học phần thuộc khối kiến thức (M4, M5, M6) do Khoa Toán – Cơ – Tin học
+giảng dạy. Khi đăng ký, lựa chọn các học phần và hướng chuyên sâu, sinh viên có thể
+tham khảo ý kiến của các cố vấn học tập của Khoa.
+6. So sánh chương trình đào tạo đã xây dựng với chương trình đào tạo của nước
+ngoài
+a) Giới thiệu về chương trình được sử dụng để xây dựng chương trình:
+Tên chương trình (tên ngành/chuyên ngành), tên văn bằng sau khi tốt nghiệp:
+ Computer and Information Science
+ Bachelor of Science in Computer and Information Science.
+Tên cơ sở đào tạo, nước đào tạo: The Ohio State University, United States.
+Xếp hạng của cơ sở đào tạo, ngành/chuyên ngành đào tạo: Trường thứ hạng 67,
+ngành Khoa học máy tính thứ hạng 19 trong Academic Ranking of World Universities,
+2015
+Ngoài ra, do chương trình MT&KHTT CLC định hướng Phát triển phần mềm và
+Trí tuệ nhân tạo, chương trình đào tạo của Đại học Stanford – Hoa Kì (trường thứ hạng
+2, ngành Khoa học máy tính hạng 1 trong cùng bảng xếp hạng năm 2015) cũng được
+tham khảo cho các chuyên đề trong lĩnh vực Trí tuệ nhân tạo.
+28
+
+<!-- Page 29 -->
+29

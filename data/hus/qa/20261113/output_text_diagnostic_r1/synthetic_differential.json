@@ -1,0 +1,261 @@
+{
+  "acceptance_unchanged_cases": 42,
+  "accepted": 5,
+  "decisions": [
+    {
+      "accepted": false,
+      "case": 0,
+      "decision_unchanged": true,
+      "kind": "blank"
+    },
+    {
+      "accepted": false,
+      "case": 1,
+      "decision_unchanged": true,
+      "kind": "blank"
+    },
+    {
+      "accepted": false,
+      "case": 2,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 3,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 4,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 5,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 6,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 7,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 8,
+      "decision_unchanged": true,
+      "kind": "raw_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 9,
+      "decision_unchanged": true,
+      "kind": "decoded_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 10,
+      "decision_unchanged": true,
+      "kind": "decoded_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 11,
+      "decision_unchanged": true,
+      "kind": "decoded_line_break"
+    },
+    {
+      "accepted": false,
+      "case": 12,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 13,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 14,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 15,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 16,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 17,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 18,
+      "decision_unchanged": true,
+      "kind": "structure"
+    },
+    {
+      "accepted": false,
+      "case": 19,
+      "decision_unchanged": true,
+      "kind": "link_or_html"
+    },
+    {
+      "accepted": false,
+      "case": 20,
+      "decision_unchanged": true,
+      "kind": "link_or_html"
+    },
+    {
+      "accepted": false,
+      "case": 21,
+      "decision_unchanged": true,
+      "kind": "link_or_html"
+    },
+    {
+      "accepted": false,
+      "case": 22,
+      "decision_unchanged": true,
+      "kind": "link_or_html"
+    },
+    {
+      "accepted": false,
+      "case": 23,
+      "decision_unchanged": true,
+      "kind": "restored_length"
+    },
+    {
+      "accepted": true,
+      "case": 24,
+      "decision_unchanged": true,
+      "kind": "valid"
+    },
+    {
+      "accepted": true,
+      "case": 25,
+      "decision_unchanged": true,
+      "kind": "valid"
+    },
+    {
+      "accepted": true,
+      "case": 26,
+      "decision_unchanged": true,
+      "kind": "valid"
+    },
+    {
+      "accepted": true,
+      "case": 27,
+      "decision_unchanged": true,
+      "kind": "valid"
+    },
+    {
+      "accepted": false,
+      "case": 28,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 29,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 30,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 31,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 32,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": true,
+      "case": 33,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 34,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 35,
+      "decision_unchanged": true,
+      "kind": "boundary"
+    },
+    {
+      "accepted": false,
+      "case": 36,
+      "decision_unchanged": true,
+      "kind": "json"
+    },
+    {
+      "accepted": false,
+      "case": 37,
+      "decision_unchanged": true,
+      "kind": "kind"
+    },
+    {
+      "accepted": false,
+      "case": 38,
+      "decision_unchanged": true,
+      "kind": "unknown"
+    },
+    {
+      "accepted": false,
+      "case": 39,
+      "decision_unchanged": true,
+      "kind": "duplicate"
+    },
+    {
+      "accepted": false,
+      "case": 40,
+      "decision_unchanged": true,
+      "kind": "missing"
+    },
+    {
+      "accepted": false,
+      "case": 41,
+      "decision_unchanged": true,
+      "kind": "raw_budget"
+    }
+  ],
+  "historical_cause_known": false,
+  "rejected": 37,
+  "synthetic_only": true
+}

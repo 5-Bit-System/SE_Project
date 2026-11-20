@@ -1,0 +1,26 @@
+{
+  "new_pack_and_reviews_sealed": true,
+  "new_pins_match": true,
+  "protected_changed": [
+    "tools/evaluate_hus_a7.py"
+  ],
+  "raw_evidence_sha256": {
+    "all_review_rows.json": "09fa0aa0f89c4c1b031696d01ea2bc0e17becb43ed4254ad2939e2813bff8162",
+    "collection.log": "85e58ab275708297e081a4c3d311f21629ee75c77d7572b10579794be30e76cc",
+    "computer_science_review.json": "9d7f3b9b751d3a4463de9c36fd63873047ec48070088180732d11dacfe1dc4d5",
+    "data_science_review.json": "c3805caea83fdb4c43b099c5f0de0defe6cfa606e58dca6a66bfa9ed3e7dc7c6",
+    "f3_source_choices.json": "c39c92400a7bb1599f491e713d78491e44872eaf2815e6fefb160596be17a8fd",
+    "freeze_once.py": "31d5101a3c87c5f80f95541fe3698037dde3d94b5ecfbb6e7d0b7387e946c7a9",
+    "freeze_receipt.json": "ad68940fcd0abdbd381805c9a66098840105b885542172fce3436af66ec5e666",
+    "mathematics_informatics_review.json": "f97fffc143e3300f3a5b45c2a3f6fbbed146f97425075355186072bd69f46bc3",
+    "mathematics_review.json": "0acea4f3f90c42efd831f8fa341a33720610c1aef7a281911be6815d8069f7f3",
+    "protected_before.json": "899d4c46f09ec609779b761efda05f6b83deec8bac0447a3f8079b0880d81e18",
+    "review_packets.py": "3b8b768ddbae5aeadc614b0f7a8a5bbcc17cf9a30e4362334ece924687711153",
+    "save_review_once.py": "cb635291fd97e67f0f156205cc65a664633e4d9264d1f255e1771b12280e5fd6",
+    "seal_receipt.py": "46ee076f5f99386f7424decc90af8ca499c7a20e517138061d45c72be1edbdd3",
+    "source_draft_before_inference.json": "cc2191bd6d7db44e3fceb69484e169ac1b592f4f8f2217a6dd8786b610c1c41e",
+    "tests.log": "44efe0b99fad36074a2ca3e9f45167daee6fdd6dc823e9432a51ce70adf3a049",
+    "tests.xml": "74ac623a0b15db1a5c4967935d56064a04d0c0f55b323bd2b3cde01b705e09aa",
+    "unseen_a7_f1_inventory.json": "d680ed2f0a5db303c0b2c5ec70c1316b808a8c6179d12cdfd79fd1a8292c1b48"
+  }
+}

@@ -1,0 +1,2397 @@
+{
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "f1": [
+    {
+      "chunk_id": "576a32614c1a16f7799e722bd1bd1313",
+      "major": "mathematics",
+      "version": "2015",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "standard",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 6819,
+        "end_char": 7267,
+        "evidence_path": "evidence/f1/89d4b39494d72217.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nCử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các\nviện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lý\nkinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm….;\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình\ntại các trường đại học, cao đẳng, trung học phổ thông.",
+      "quote_sha256": "4786363f65b769a096beb0cf46e60d69af18a5c5678c09c972965f8a52862346"
+    },
+    {
+      "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+      "major": "mathematics",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1313,
+        "end_char": 1447,
+        "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+      "quote_sha256": "32652a853d2ac447d27d37691b17d81d856626820f2813400c585e23517a39f8"
+    },
+    {
+      "chunk_id": "ad667609e5801d74c146610cb5ffcf00",
+      "major": "mathematics",
+      "version": "2015",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "talent",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 7340,
+        "end_char": 7857,
+        "evidence_path": "evidence/f1/d4fae066858f0b94.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nSau khi tốt nghiệp, Sinh viên Cử nhân khoa học Tài năng ngành Toán học có\nnăng lực và trình độ ở mức độ cao, có khả năng làm việc tại các trung tâm, các viện\nnghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính, các cơ sở sản xuất và\nkinh doanh, ngân hàng, tổ chức bảo hiểm… có sử dụng kiến thức Toán học.\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của\nmình tại các trường đại học, cao đẳng, trung học phổ thông.",
+      "quote_sha256": "c45c672108057f7006749e6268c9fb3f8a1e51abacab7182739890dcc05ce9e5"
+    },
+    {
+      "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+      "major": "mathematics",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1004,
+        "end_char": 1312,
+        "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+      "quote_sha256": "9a1538dd7cf19159dd974c54812c6df2e6e9a523e9a7c0ac9999f3db01600183"
+    },
+    {
+      "chunk_id": "091e59489b7bdd59594687d6a7cd1aa3",
+      "major": "mathematics_informatics",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1399,
+        "end_char": 1542,
+        "evidence_path": "evidence/f1/1b525683101bf943.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Giảng viên, giáo viên, nghiên cứu viên, chuyên viên kĩ thuật tại các tại các đơn vị trường viện trong lĩnh vực Toán học và Khoa học thông tin",
+      "quote_sha256": "6ea8eaf99e7aca0466be875e935f983fa88378ebca3c40674dfcbd68d6ba1a9f"
+    },
+    {
+      "chunk_id": "29eae8734736c0e9d8e2fe500ce56d90",
+      "major": "mathematics_informatics",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1102,
+        "end_char": 1398,
+        "evidence_path": "evidence/f1/1b525683101bf943.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+      "quote_sha256": "14c74c39d787ea7b9aad094ae467d69fe49dfaea1615e4201fabbc9250349d25"
+    },
+    {
+      "chunk_id": "8a8318039dbb5d75c52bbdc90ad37955",
+      "major": "mathematics_informatics",
+      "version": "2015",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "standard",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 10301,
+        "end_char": 10721,
+        "evidence_path": "evidence/f1/23a0c1df14a5708a.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin",
+      "quote_sha256": "f20f17ea25191e8ce40e4a37755cb01abca984cad3fdd5c4f1e06e4b43bb888a"
+    },
+    {
+      "chunk_id": "12c82116f32f08a1ff215fc63cb8a122",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "high_quality",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1313,
+        "end_char": 1454,
+        "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả.",
+      "quote_sha256": "cde7b7bb6f98c3d874be63f2481f839a7e302e28b7d2a237be3b1d2dfc3c30cf"
+    },
+    {
+      "chunk_id": "291b6949cf13e7e60e54762b0d09ae77",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "high_quality",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1455,
+        "end_char": 1561,
+        "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin.",
+      "quote_sha256": "9123256db24fdd0509c874ceeda69d417719ba3ea3ab3dd41b92e503e068e0c2"
+    },
+    {
+      "chunk_id": "2f9e999a85042b779208802aac26b4bb",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "high_quality",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1562,
+        "end_char": 1710,
+        "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+      "quote_sha256": "c5edd7538a0c3f3b0ccd26550a8eb8c31b259ad6c069df64c2dbd7ebdb55b004"
+    },
+    {
+      "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+      "major": "computer_science",
+      "version": "2023",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "standard",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 7923,
+        "end_char": 8627,
+        "evidence_path": "evidence/f1/f7f470e712738589.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+      "quote_sha256": "aa532acc50beac93564dd3ba8a6dc973f13d9e81679826596021cbcf2ced6cb1"
+    },
+    {
+      "chunk_id": "490cb4103718f52c80496be4f8d33a69",
+      "major": "computer_science",
+      "version": "2019",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "high_quality",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 17783,
+        "end_char": 18502,
+        "evidence_path": "evidence/f1/1c16ddf8a6f1f409.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "5. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nSinh viên tốt nghiệp ngành Máy tính và Khoa học thông tin chất lượng cao có\nthể:\n- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển\ntrong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ\nnhân tạo;\n- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ\nthống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự\nán công nghệ thông tin;\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+      "quote_sha256": "2801e85d3257ef84e7fdd61a4a138f01fb8873450214810c6674d9b45f8051ea"
+    },
+    {
+      "chunk_id": "4a3c645ebb71689c470787ee07190461",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1350,
+        "end_char": 1521,
+        "evidence_path": "evidence/f1/d6370261338de29f.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề và trung học phổ thông trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+      "quote_sha256": "dce553c58525674c7c44b1934b43d88a1a864f8f565ef16c365d6692849d4700"
+    },
+    {
+      "chunk_id": "7c20f023d64e599313eb7fb61771be75",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "high_quality",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1141,
+        "end_char": 1312,
+        "evidence_path": "evidence/f1/f8672cafba05d016.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo",
+      "quote_sha256": "d715f423ea3f3a062eaedc0b49e9479ad4f2e725a3b6474e0ebd769e405d0ec3"
+    },
+    {
+      "chunk_id": "8955584f15e681b65a6f55b257e09970",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1172,
+        "end_char": 1276,
+        "evidence_path": "evidence/f1/d6370261338de29f.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Làm nghiên cứu và phát triển tại các viện, các trung tâm nghiên cứu và phát triển công nghệ thông tin.",
+      "quote_sha256": "73e19676f79da232ddce90bb08e292926a0d1ab94b29b0c208dbd47e76294520"
+    },
+    {
+      "chunk_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+      "major": "computer_science",
+      "version": "2015",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "standard",
+      "review_status": "include_markdown",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 11337,
+        "end_char": 11736,
+        "evidence_path": "evidence/f1/1e3ad5f9915aa051.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm nghiên cứu và phát triển tại các Viện nghiên cứu.\n- Các cơ quan quản lý và các doanh nghiệp có hệ thống thông tin và nhu cầu\nkhai thác thông tin hiệu quả.\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực khoa học máy tính và khoa\nhọc thông tin.",
+      "quote_sha256": "2c932de5205317bc82a679fb2e09dd9e40c4c1d35eec5373a299ca93a5839560"
+    },
+    {
+      "chunk_id": "e3dc4d4d8054d927400b121d04d92bef",
+      "major": "computer_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1277,
+        "end_char": 1349,
+        "evidence_path": "evidence/f1/d6370261338de29f.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "- Phát triển phần mềm tại các cơ quan, doanh nghiệp công nghệ thông tin.",
+      "quote_sha256": "71b5a565dbe5b287ce837b6e6f664121f6dd8f7df5cc587c01e6a706511a7caf"
+    },
+    {
+      "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+      "major": "data_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 2120,
+        "end_char": 2237,
+        "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+      "quote_sha256": "49d254fb40f1397d5130f789d07506ba551df92bdd7eb5c1581435ed71110813"
+    },
+    {
+      "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+      "major": "data_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 2238,
+        "end_char": 2335,
+        "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+      "quote_sha256": "4ce8b826782fb321aa9884625b45c6be818be693f6ad84f9a2e492be991895d8"
+    },
+    {
+      "chunk_id": "940a3740794040de84617af7e9aa78fd",
+      "major": "data_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 2336,
+        "end_char": 2446,
+        "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+      "quote_sha256": "22784b4c33e771558fb5c3acee67f9a1e0e83b9e63e5d31ac020dcb166bc57e2"
+    },
+    {
+      "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+      "major": "data_science",
+      "version": "unknown",
+      "field": "careers",
+      "course_code": null,
+      "program_variant": "unknown",
+      "review_status": "include",
+      "content_origin": "crawled_source_quote",
+      "locator": {
+        "start_char": 1963,
+        "end_char": 2119,
+        "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+        "field": "content_markdown",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+      "quote_sha256": "97afc8563b45be8151d12f25386fee5bd21530b048b20c671cec43ee8b4bdae3"
+    }
+  ],
+  "f3": [
+    {
+      "chunk_id": "278542bcc0625ae1afe5ebb3b97314f7",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1002,
+        "end_char": 1544,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Ma trận và ánh xạ tuyến tính\nCác cột của ma trận là ảnh của vectơ cơ sở chuẩn, nhờ đó phép nhân ma trận biểu diễn tác động của ánh xạ lên mọi vectơ. Tích ma trận tương ứng hợp thành ánh xạ theo thứ tự, giải thích vì sao nhìn chung đổi thứ tự hai ma trận sẽ làm đổi kết quả.\nKhái niệm thành phần: cột ma trận; ánh xạ tuyến tính; hợp thành; ma trận đơn vị.\nVí dụ minh họa do AI biên soạn: Trong mặt phẳng, co theo một trục rồi quay thường cho kết quả khác quay trước rồi mới co theo trục cố định, phản ánh tính không giao hoán của tích ma trận.",
+      "quote_sha256": "2ecf04a4896046e1a1caa19fb138a1ffe37c483447bf7a8401f7a3fbe70c7571"
+    },
+    {
+      "chunk_id": "4b7caa6c46c6aa36c085561f6fe8bb21",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 2111,
+        "end_char": 2572,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Cơ sở, số chiều và tọa độ\nCơ sở vừa sinh toàn bộ không gian vừa độc lập, nên mỗi vectơ có một bộ tọa độ duy nhất theo cơ sở đó. Đổi cơ sở thay cách mô tả vectơ chứ không thay vectơ; số chiều đo số tham số độc lập cần cho biểu diễn.\nKhái niệm thành phần: cơ sở; số chiều; tọa độ; đổi cơ sở.\nVí dụ minh họa do AI biên soạn: Cùng một vectơ hình học có thể có hai cặp tọa độ khác nhau khi dùng hai hệ cơ sở, tương tự cùng vị trí được mô tả từ hai bộ trục khác nhau.",
+      "quote_sha256": "4bcc8f5c8545260c67e6f6ca01b51aecd576da434b52f12d4e7f69dea6cab695"
+    },
+    {
+      "chunk_id": "58b26ba1bbbacf4dfd618a4054b714f4",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 467,
+        "end_char": 1000,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Hệ tuyến tính và phép khử\nCác phép biến đổi hàng sơ cấp giữ nguyên tập nghiệm nhưng làm lộ cấu trúc của hệ. Vị trí phần tử trụ và biến tự do cho biết khả năng tương thích cũng như số hướng tự do của nghiệm; hệ không nhất thiết có nghiệm duy nhất chỉ vì số phương trình bằng số ẩn.\nKhái niệm thành phần: phép biến đổi hàng; phần tử trụ; biến tự do; tập nghiệm.\nVí dụ minh họa do AI biên soạn: Hai phương trình là bội của nhau chỉ mô tả cùng một ràng buộc, nên thêm phương trình thứ hai có thể không làm giảm số hướng tự do của nghiệm.",
+      "quote_sha256": "9f5d3ce40f22db9be780c72a3cc7194cefb79af715c79364023ff519a4150f4a"
+    },
+    {
+      "chunk_id": "64ff9dac2bb3fc70466d843d47c41141",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 0,
+        "end_char": 465,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Tổng quan tham khảo:\nĐại số tuyến tính 1 xây dựng ngôn ngữ cho hệ phương trình, không gian vectơ và ánh xạ tuyến tính. Nội dung tham khảo đặt phép tính ma trận trong quan hệ với không gian nghiệm, cơ sở và số chiều, giúp giải thích ý nghĩa của phép khử thay vì chỉ ghi nhớ quy tắc biến đổi ký hiệu.\nCác chủ đề tham khảo:\n- Hệ tuyến tính và phép khử\n- Ma trận và ánh xạ tuyến tính\n- Không gian con, sinh và độc lập\n- Cơ sở, số chiều và tọa độ\n- Hạt nhân, ảnh và hạng",
+      "quote_sha256": "2aa0e788dc37d7f3e28f653e52cd62e529d0724a78091f30e61e36a3b7c21be6"
+    },
+    {
+      "chunk_id": "97eb478e4994fe486e06ce8808a0e53d",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 2574,
+        "end_char": 3077,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Hạt nhân, ảnh và hạng\nHạt nhân chứa những hướng bị ánh xạ đưa về không, còn ảnh chứa các đầu ra có thể đạt được. Định lý hạng và số chiều hạt nhân liên kết phần thông tin bị mất với phần được giữ; nhờ đó tính đơn ánh và toàn ánh có thể được phân tích bằng cấu trúc không gian.\nKhái niệm thành phần: hạt nhân; ảnh; hạng; định lý hạng.\nVí dụ minh họa do AI biên soạn: Phép chiếu không gian ba chiều xuống một mặt phẳng mất thành phần theo phương vuông góc; phương bị mất tạo hạt nhân còn mặt phẳng là ảnh.",
+      "quote_sha256": "3134b1a1c72deb93f1740e3342032b5ba056efcfa3c9a501cca1f85f8045657d"
+    },
+    {
+      "chunk_id": "b4c4778e7253edf47d08d88f60e31538",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "field": "content",
+      "course_code": "MAT2300",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_hoc_7460101_2022:MAT2300",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1546,
+        "end_char": 2109,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Không gian con, sinh và độc lập\nTập sinh cho biết những vectơ có thể biểu diễn bằng tổ hợp tuyến tính, còn độc lập tuyến tính loại bỏ sự dư thừa trong biểu diễn. Không gian con phải đóng dưới cộng và nhân vô hướng; một tập có hình dạng gần đường thẳng chưa chắc là không gian con nếu không qua gốc.\nKhái niệm thành phần: không gian con; tổ hợp tuyến tính; tập sinh; độc lập tuyến tính.\nVí dụ minh họa do AI biên soạn: Các vectơ trên một đường thẳng qua gốc sinh ra không gian một chiều, còn đường thẳng song song nhưng không qua gốc không đóng dưới nhân vô hướng.",
+      "quote_sha256": "6301857eed0d70a3adbf2541b104347e02b3af637c6f679a9301633d6f08a5c3"
+    },
+    {
+      "chunk_id": "2a7593fe45600a82e5e97ee008ef7062",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_tin_7460117_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1014,
+        "end_char": 1537,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Giao diện và phân chia trách nhiệm\nGiao diện cho biết dịch vụ mà một đối tượng cung cấp mà không buộc nơi sử dụng biết chi tiết lưu trữ. Khi mỗi lớp giữ một trách nhiệm rõ, thay đổi trong một cơ chế có thể được giới hạn; liên kết chặt giữa nhiều lớp khiến tác động thay đổi lan rộng hơn.\nKhái niệm thành phần: giao diện; trách nhiệm; kết dính; phụ thuộc.\nVí dụ minh họa do AI biên soạn: Màn hình hiển thị gọi một giao diện tra cứu sách, nên chuyển kho dữ liệu từ tệp sang cơ sở dữ liệu không nhất thiết làm đổi mã hiển thị.",
+      "quote_sha256": "d149bcbfe1171f2294d38931011625bd06350b5341a02f11ac67b54052de66ca"
+    },
+    {
+      "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_tin_7460117_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1539,
+        "end_char": 2059,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+      "quote_sha256": "f1c58d1df40bb7e9410d01fb475f06f4072d6daac0c4af406ce0d7e963ed92a9"
+    },
+    {
+      "chunk_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_tin_7460117_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 2061,
+        "end_char": 2596,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+      "quote_sha256": "f04aafbca01f6820bdf0283e3c7e95f2771323add0b67dd33f0763ed3f80e65e"
+    },
+    {
+      "chunk_id": "ac957870ee51d7e485956bae14962db3",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_tin_7460117_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 0,
+        "end_char": 501,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+      "quote_sha256": "240964d645017ce95d44d0d403cf192507a454a1e3b9321de3e6ed477c9493dd"
+    },
+    {
+      "chunk_id": "aec1732cc5511ce494b74818dd12477d",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "toan_tin_7460117_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 503,
+        "end_char": 1012,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Đối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm.",
+      "quote_sha256": "d1ebe004f6c7fdcfdb7516e430dd5785bb6705bdad9143674439425da2740524"
+    },
+    {
+      "chunk_id": "5d21c3e42c367f9275cffe95f7f80a74",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khmtt_7480113qtd_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 503,
+        "end_char": 1012,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Đối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm.",
+      "quote_sha256": "d1ebe004f6c7fdcfdb7516e430dd5785bb6705bdad9143674439425da2740524"
+    },
+    {
+      "chunk_id": "b4ffc49f44ec545bb8b29ccc446c64c8",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khmtt_7480113qtd_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 0,
+        "end_char": 501,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+      "quote_sha256": "240964d645017ce95d44d0d403cf192507a454a1e3b9321de3e6ed477c9493dd"
+    },
+    {
+      "chunk_id": "b70cc96cbdc9859ee2c67e76049b3901",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khmtt_7480113qtd_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1539,
+        "end_char": 2059,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+      "quote_sha256": "f1c58d1df40bb7e9410d01fb475f06f4072d6daac0c4af406ce0d7e963ed92a9"
+    },
+    {
+      "chunk_id": "b87551a49650189f1d0395533a111f4d",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khmtt_7480113qtd_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 2061,
+        "end_char": 2596,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+      "quote_sha256": "f04aafbca01f6820bdf0283e3c7e95f2771323add0b67dd33f0763ed3f80e65e"
+    },
+    {
+      "chunk_id": "e1a1df7642688879902d31cb70741dee",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "field": "content",
+      "course_code": "MAT1202",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khmtt_7480113qtd_2022:MAT1202",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1014,
+        "end_char": 1537,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Giao diện và phân chia trách nhiệm\nGiao diện cho biết dịch vụ mà một đối tượng cung cấp mà không buộc nơi sử dụng biết chi tiết lưu trữ. Khi mỗi lớp giữ một trách nhiệm rõ, thay đổi trong một cơ chế có thể được giới hạn; liên kết chặt giữa nhiều lớp khiến tác động thay đổi lan rộng hơn.\nKhái niệm thành phần: giao diện; trách nhiệm; kết dính; phụ thuộc.\nVí dụ minh họa do AI biên soạn: Màn hình hiển thị gọi một giao diện tra cứu sách, nên chuyển kho dữ liệu từ tệp sang cơ sở dữ liệu không nhất thiết làm đổi mã hiển thị.",
+      "quote_sha256": "d149bcbfe1171f2294d38931011625bd06350b5341a02f11ac67b54052de66ca"
+    },
+    {
+      "chunk_id": "096e4f54f1338174cf06aad0e18a2da8",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "field": "content",
+      "course_code": "MAT3533",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khdl_7460108_2022:MAT3533",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 902,
+        "end_char": 1365,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Mô hình và hàm mất mát\nHàm mất mát định lượng sự khác nhau giữa dự đoán và mục tiêu theo ý nghĩa của nhiệm vụ. Tối ưu điều chỉnh tham số giảm mất mát trên mẫu, nhưng nghiệm tối ưu của mục tiêu đã chọn chưa bảo đảm phù hợp mọi quyết định thực tế.\nKhái niệm thành phần: hồi quy; phân loại; gradient; hàm mất mát.\nVí dụ minh họa do AI biên soạn: Dự đoán giá trị liên tục có thể dùng sai số bình phương, còn xác suất cho nhiều lớp cần mục tiêu gắn với phân phối nhãn.",
+      "quote_sha256": "e8bf7378cfd07e908be78d9ced4c971c02ada6f827af481451bfedf410925cc9"
+    },
+    {
+      "chunk_id": "273e8ece7e6db1f8c532c7975f9021e4",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "field": "content",
+      "course_code": "MAT3533",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khdl_7460108_2022:MAT3533",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1367,
+        "end_char": 1817,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn.",
+      "quote_sha256": "631e3afb9796e8cbd5023e8ba654b7eea9dbe213f03437b3f5de5df904258c5b"
+    },
+    {
+      "chunk_id": "a3e9d09144bd6da73e8d355722b4e7f3",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "field": "content",
+      "course_code": "MAT3533",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khdl_7460108_2022:MAT3533",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 0,
+        "end_char": 426,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Tổng quan tham khảo:\nHọc máy nghiên cứu cách xây dựng mô hình từ dữ liệu để dự đoán hoặc tìm cấu trúc trên những trường hợp chưa quan sát. Hướng tham khảo nối biểu diễn đặc trưng, tối ưu và khả năng khái quát, nhấn mạnh sự khác nhau giữa khớp dữ liệu đã thấy và hoạt động đáng tin cậy trên dữ liệu mới.\nCác chủ đề tham khảo:\n- Dữ liệu và biểu diễn\n- Mô hình và hàm mất mát\n- Khái quát và điều chuẩn\n- Phân tích hành vi mô hình",
+      "quote_sha256": "b221b478cd0345212a4709d3dc6816e5c725fdac5183534f4a5025f02f9acde4"
+    },
+    {
+      "chunk_id": "dd643c3c0c3230450d67f473878f0ddd",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "field": "content",
+      "course_code": "MAT3533",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khdl_7460108_2022:MAT3533",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 428,
+        "end_char": 900,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Dữ liệu và biểu diễn\nMô hình nhận dữ liệu qua đặc trưng nên lựa chọn biểu diễn quyết định phần thông tin có thể khai thác. Biến đổi dựa trên thống kê của dữ liệu phải học từ phần huấn luyện để không đưa thông tin tương lai vào quá trình học.\nKhái niệm thành phần: đặc trưng; nhãn; chuẩn hóa; rò rỉ dữ liệu.\nVí dụ minh họa do AI biên soạn: Trung bình dùng để chuẩn hóa một biến được tính từ tập huấn luyện rồi áp sang dữ liệu mới, thay vì tính lại trên cả bộ dữ liệu chung.",
+      "quote_sha256": "ad091c361eb51bfb04bd976681da09b8b29aa8404c9ddaaaf6e7618d6c3fa9a4"
+    },
+    {
+      "chunk_id": "e3016230b7adc54e13dfa486fd969847",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "field": "content",
+      "course_code": "MAT3533",
+      "program_variant": "standard",
+      "review_status": "needs_review",
+      "content_origin": "generated",
+      "locator": {
+        "record_id": "khdl_7460108_2022:MAT3533",
+        "field": "content",
+        "evidence_path": "f3_records.jsonl",
+        "start_char": 1819,
+        "end_char": 2291,
+        "offset_scope": "rendered_field_text_excluding_repeated_context",
+        "release_id": "hus-data-20261111-v4"
+      },
+      "quote": "Phân tích hành vi mô hình\nTách dữ liệu theo đơn vị độc lập, thời gian hoặc nhóm giúp mô phỏng cách mô hình gặp trường hợp mới. Phân tích lỗi theo từng nhóm và bối cảnh cho thấy hạn chế mà một con số trung bình có thể che khuất.\nKhái niệm thành phần: tập huấn luyện; tập kiểm chứng; dịch chuyển phân phối.\nVí dụ minh họa do AI biên soạn: Nếu cùng một người có ảnh ở cả hai phần dữ liệu, mô hình có thể nhận dạng dấu hiệu cá nhân thay vì học quy luật cần dùng cho người mới.",
+      "quote_sha256": "6461c872a257465aaca2374dbf22c86e721949716cc9c91cb9756b8a84b5f806"
+    }
+  ],
+  "f2": [
+    {
+      "course_code": "MAT2300",
+      "major": "mathematics",
+      "version": "QD3565-2023",
+      "review_status": "draft_unverified",
+      "course": {
+        "course_code": "MAT2300",
+        "course_name": "Đại số tuyến tính 1",
+        "credits": 4,
+        "difficulty_level": 2,
+        "topics": [],
+        "description": null,
+        "is_active": true
+      },
+      "curriculum": {
+        "curriculum_id": 1,
+        "major_code": "7460101",
+        "curriculum_version": "QD3565-2023",
+        "cohort_year": 2022,
+        "credits_required": 135,
+        "official_source_url": null,
+        "note": "Quyết định 3565/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 101. Toán học-chuẩn final QD 3565 Scan.pdf"
+      },
+      "membership": {
+        "curriculum_id": 1,
+        "course_code": "MAT2300",
+        "course_type": "required",
+        "suggested_semester": null,
+        "course_group": "IV.1"
+      },
+      "source_rows": [
+        {
+          "entry_id": 370,
+          "curriculum_id": 1,
+          "group_key": "IV.1",
+          "source_row_number": 18,
+          "course_code": "MAT2300",
+          "credits_in_source": 4,
+          "prerequisite_source_text": null,
+          "prerequisite_parse_status": "none",
+          "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "pdf_page": 9
+        }
+      ],
+      "groups": [
+        {
+          "curriculum_id": 1,
+          "group_key": "IV.1",
+          "group_title": "Kiến thức nhóm ngành bắt buộc",
+          "min_credits_if_selected": 48,
+          "offered_credits": 48,
+          "source_heading": "IV.1",
+          "group_note": "Kiến thức nhóm ngành bắt buộc"
+        }
+      ],
+      "prerequisites": [],
+      "course_metadata": {
+        "program_id": "toan_hoc_7460101_2022",
+        "code": "MAT2300",
+        "values": {
+          "name_en": "Linear Algebra 1",
+          "hours": {
+            "lecture": 45,
+            "practice": 30,
+            "self_study": 125
+          }
+        },
+        "field_evidence": {
+          "name_en": [
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "locator": "PDF page=9; printed page=7; row=18; code=MAT2300; column=name_en",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ],
+          "hours": [
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "locator": "PDF page=9; printed page=7; row=18; code=MAT2300; column=hours",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ]
+        }
+      },
+      "unresolved_prerequisites": [],
+      "has_prerequisite_conflict": false,
+      "provenance": {
+        "package_path": "f2/hus_source.json",
+        "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+        "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+        "source_comparison": {
+          "source": {
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+            "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+          },
+          "release_identity": {
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "format": "portable-2.0",
+            "source_state": "selected_for_local_rag_demo"
+          }
+        },
+        "metadata_source_archive": {
+          "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+          "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+          "documents": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+        },
+        "source_manifests": [
+          {
+            "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+            "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+            "decision": "QD3565-2023",
+            "cohort_year": 2022,
+            "pdf_table_pages": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "scope": [
+              "name_en",
+              "hours"
+            ],
+            "status": "draft_unverified"
+          }
+        ],
+        "prerequisite_pdf_review": {
+          "date": "2026-10-20",
+          "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+          "scope": "Prerequisite cells only; not full academic-policy certification",
+          "documents": [
+            {
+              "file": "103.pdf",
+              "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "file": "105.pdf",
+              "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "file": "104.pdf",
+              "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "file": "101.pdf",
+              "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "file": "102.pdf",
+              "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "reference_only_courses": [
+            {
+              "course_code": "MAT2320",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 20
+            },
+            {
+              "course_code": "MAT2321",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 21
+            },
+            {
+              "course_code": "MAT2322",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 24
+            },
+            {
+              "course_code": "MAT2313",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 26
+            },
+            {
+              "course_code": "MAT3340",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 11,
+              "printed_page": 9,
+              "source_row_number": 38
+            }
+          ],
+          "unresolved_codes": [
+            "MAT3402"
+          ],
+          "conflicting_courses": [
+            {
+              "major_code": "7460101",
+              "course_code": "MAT3325"
+            }
+          ],
+          "corrected_locators": [
+            {
+              "major_code": "7460117",
+              "course_code": "MAT3327",
+              "old_pdf_page": 12,
+              "pdf_page": 11
+            },
+            {
+              "major_code": "7460108",
+              "course_code": "MAT2034",
+              "old_pdf_page": 11,
+              "pdf_page": 10
+            }
+          ]
+        },
+        "source_row_pointers": [
+          "/tables/official_curriculum_entries/79"
+        ],
+        "catalog_review": {
+          "basis": null,
+          "institutional_certification": false,
+          "status": "draft_unverified"
+        },
+        "prerequisite_review": {
+          "authorizes_eligibility": false,
+          "empty_means_no_prerequisite": false,
+          "external_codes": [],
+          "has_conflict": false,
+          "options": [],
+          "parse_statuses": [
+            "none"
+          ],
+          "raw_variants": [],
+          "status": "unknown"
+        },
+        "portable_record": {
+          "catalog_review": {
+            "basis": null,
+            "institutional_certification": false,
+            "status": "draft_unverified"
+          },
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/80",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/79"
+            ],
+            "pdf_locators": [
+              {
+                "document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                "page": 9,
+                "row": 18,
+                "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán học",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "course_code": "MAT2300",
+          "course_name": "Đại số tuyến tính 1",
+          "credits": 4,
+          "current_offering": null,
+          "major": "mathematics",
+          "membership": {
+            "course_code": "MAT2300",
+            "course_group": "IV.1",
+            "course_type": "required",
+            "curriculum_id": 1,
+            "suggested_semester": null
+          },
+          "name_en": "Linear Algebra 1",
+          "official_syllabus": null,
+          "prerequisites": {
+            "authorizes_eligibility": false,
+            "empty_means_no_prerequisite": false,
+            "external_codes": [],
+            "has_conflict": false,
+            "options": [],
+            "parse_statuses": [
+              "none"
+            ],
+            "raw_variants": [],
+            "status": "unknown"
+          },
+          "program_id": "toan_hoc_7460101_2022",
+          "record_id": "toan_hoc_7460101_2022:MAT2300",
+          "scope": {
+            "applicability_status": "catalog_cohort_not_individual_account_binding",
+            "cohort_year": 2022,
+            "curriculum_version": "QD3565-2023",
+            "major": "mathematics",
+            "program_id": "toan_hoc_7460101_2022",
+            "program_variant": "standard",
+            "validity_status": "as_declared_in_canonical_F2"
+          },
+          "source_occurrences": [
+            {
+              "course_code": "MAT2300",
+              "credits_in_source": 4,
+              "curriculum_id": 1,
+              "entry_id": 370,
+              "group_key": "IV.1",
+              "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "pdf_page": 9,
+              "prerequisite_parse_status": "none",
+              "prerequisite_source_text": null,
+              "source_row_number": 18
+            }
+          ]
+        },
+        "release_identity": {
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "format": "portable-2.0",
+          "source_state": "selected_for_local_rag_demo"
+        }
+      }
+    },
+    {
+      "course_code": "MAT1202",
+      "major": "mathematics_informatics",
+      "version": "QD3567-2023",
+      "review_status": "draft_unverified",
+      "course": {
+        "course_code": "MAT1202",
+        "course_name": "Lập trình hướng đối tượng",
+        "credits": 3,
+        "difficulty_level": 2,
+        "topics": [],
+        "description": null,
+        "is_active": true
+      },
+      "curriculum": {
+        "curriculum_id": 2,
+        "major_code": "7460117",
+        "curriculum_version": "QD3567-2023",
+        "cohort_year": 2022,
+        "credits_required": 132,
+        "official_source_url": null,
+        "note": "Quyết định 3567/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 103. Toán tin-chuẩn final QD 3567 Scan.pdf"
+      },
+      "membership": {
+        "curriculum_id": 2,
+        "course_code": "MAT1202",
+        "course_type": "required",
+        "suggested_semester": null,
+        "course_group": "V.1"
+      },
+      "source_rows": [
+        {
+          "entry_id": 425,
+          "curriculum_id": 2,
+          "group_key": "V.1",
+          "source_row_number": 32,
+          "course_code": "MAT1202",
+          "credits_in_source": 3,
+          "prerequisite_source_text": "MAT2505",
+          "prerequisite_parse_status": "normalized",
+          "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+          "pdf_page": 10
+        }
+      ],
+      "groups": [
+        {
+          "curriculum_id": 2,
+          "group_key": "V.1",
+          "group_title": "Kiến thức ngành bắt buộc",
+          "min_credits_if_selected": 35,
+          "offered_credits": 35,
+          "source_heading": "V.1",
+          "group_note": "Kiến thức ngành bắt buộc"
+        }
+      ],
+      "prerequisites": [
+        {
+          "curriculum_id": 2,
+          "course_code": "MAT1202",
+          "group_no": 1,
+          "prerequisite_course_code": "MAT2505"
+        }
+      ],
+      "course_metadata": {
+        "program_id": "toan_tin_7460117_2022",
+        "code": "MAT1202",
+        "values": {
+          "name_en": "Object Oriented Programming",
+          "hours": {
+            "lecture": 22,
+            "practice": 46,
+            "self_study": 82
+          }
+        },
+        "field_evidence": {
+          "name_en": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "locator": "PDF page=10; printed page=8; row=32; code=MAT1202; column=name_en",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ],
+          "hours": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "locator": "PDF page=10; printed page=8; row=32; code=MAT1202; column=hours",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ]
+        }
+      },
+      "unresolved_prerequisites": [],
+      "has_prerequisite_conflict": false,
+      "provenance": {
+        "package_path": "f2/hus_source.json",
+        "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+        "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+        "source_comparison": {
+          "source": {
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+            "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+          },
+          "release_identity": {
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "format": "portable-2.0",
+            "source_state": "selected_for_local_rag_demo"
+          }
+        },
+        "metadata_source_archive": {
+          "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+          "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+          "documents": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+        },
+        "source_manifests": [
+          {
+            "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+            "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+            "decision": "QD3567-2023",
+            "cohort_year": 2022,
+            "pdf_table_pages": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "scope": [
+              "name_en",
+              "hours"
+            ],
+            "status": "draft_unverified"
+          }
+        ],
+        "prerequisite_pdf_review": {
+          "date": "2026-10-20",
+          "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+          "scope": "Prerequisite cells only; not full academic-policy certification",
+          "documents": [
+            {
+              "file": "103.pdf",
+              "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "file": "105.pdf",
+              "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "file": "104.pdf",
+              "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "file": "101.pdf",
+              "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "file": "102.pdf",
+              "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "reference_only_courses": [
+            {
+              "course_code": "MAT2320",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 20
+            },
+            {
+              "course_code": "MAT2321",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 21
+            },
+            {
+              "course_code": "MAT2322",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 24
+            },
+            {
+              "course_code": "MAT2313",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 26
+            },
+            {
+              "course_code": "MAT3340",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 11,
+              "printed_page": 9,
+              "source_row_number": 38
+            }
+          ],
+          "unresolved_codes": [
+            "MAT3402"
+          ],
+          "conflicting_courses": [
+            {
+              "major_code": "7460101",
+              "course_code": "MAT3325"
+            }
+          ],
+          "corrected_locators": [
+            {
+              "major_code": "7460117",
+              "course_code": "MAT3327",
+              "old_pdf_page": 12,
+              "pdf_page": 11
+            },
+            {
+              "major_code": "7460108",
+              "course_code": "MAT2034",
+              "old_pdf_page": 11,
+              "pdf_page": 10
+            }
+          ]
+        },
+        "source_row_pointers": [
+          "/tables/official_curriculum_entries/66"
+        ],
+        "catalog_review": {
+          "basis": null,
+          "institutional_certification": false,
+          "status": "draft_unverified"
+        },
+        "prerequisite_review": {
+          "authorizes_eligibility": false,
+          "empty_means_no_prerequisite": false,
+          "external_codes": [],
+          "has_conflict": false,
+          "options": [
+            {
+              "course_code": "MAT1202",
+              "curriculum_id": 2,
+              "group_no": 1,
+              "prerequisite_course_code": "MAT2505"
+            }
+          ],
+          "parse_statuses": [
+            "normalized"
+          ],
+          "raw_variants": [
+            "MAT2505"
+          ],
+          "status": "transcribed_unverified"
+        },
+        "portable_record": {
+          "catalog_review": {
+            "basis": null,
+            "institutional_certification": false,
+            "status": "draft_unverified"
+          },
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/66",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/66"
+            ],
+            "pdf_locators": [
+              {
+                "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                "page": 10,
+                "row": 32,
+                "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "course_code": "MAT1202",
+          "course_name": "Lập trình hướng đối tượng",
+          "credits": 3,
+          "current_offering": null,
+          "major": "mathematics_informatics",
+          "membership": {
+            "course_code": "MAT1202",
+            "course_group": "V.1",
+            "course_type": "required",
+            "curriculum_id": 2,
+            "suggested_semester": null
+          },
+          "name_en": "Object Oriented Programming",
+          "official_syllabus": null,
+          "prerequisites": {
+            "authorizes_eligibility": false,
+            "empty_means_no_prerequisite": false,
+            "external_codes": [],
+            "has_conflict": false,
+            "options": [
+              {
+                "course_code": "MAT1202",
+                "curriculum_id": 2,
+                "group_no": 1,
+                "prerequisite_course_code": "MAT2505"
+              }
+            ],
+            "parse_statuses": [
+              "normalized"
+            ],
+            "raw_variants": [
+              "MAT2505"
+            ],
+            "status": "transcribed_unverified"
+          },
+          "program_id": "toan_tin_7460117_2022",
+          "record_id": "toan_tin_7460117_2022:MAT1202",
+          "scope": {
+            "applicability_status": "catalog_cohort_not_individual_account_binding",
+            "cohort_year": 2022,
+            "curriculum_version": "QD3567-2023",
+            "major": "mathematics_informatics",
+            "program_id": "toan_tin_7460117_2022",
+            "program_variant": "standard",
+            "validity_status": "as_declared_in_canonical_F2"
+          },
+          "source_occurrences": [
+            {
+              "course_code": "MAT1202",
+              "credits_in_source": 3,
+              "curriculum_id": 2,
+              "entry_id": 425,
+              "group_key": "V.1",
+              "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "pdf_page": 10,
+              "prerequisite_parse_status": "normalized",
+              "prerequisite_source_text": "MAT2505",
+              "source_row_number": 32
+            }
+          ]
+        },
+        "release_identity": {
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "format": "portable-2.0",
+          "source_state": "selected_for_local_rag_demo"
+        }
+      }
+    },
+    {
+      "course_code": "MAT1202",
+      "major": "computer_science",
+      "version": "QD3568-2023",
+      "review_status": "verified",
+      "course": {
+        "course_code": "MAT1202",
+        "course_name": "Lập trình hướng đối tượng",
+        "credits": 3,
+        "difficulty_level": 2,
+        "topics": [],
+        "description": null,
+        "is_active": true
+      },
+      "curriculum": {
+        "curriculum_id": 3,
+        "major_code": "7480113QTD",
+        "curriculum_version": "QD3568-2023",
+        "cohort_year": 2022,
+        "credits_required": 129,
+        "official_source_url": null,
+        "note": "Quyết định 3568/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf"
+      },
+      "membership": {
+        "curriculum_id": 3,
+        "course_code": "MAT1202",
+        "course_type": "required",
+        "suggested_semester": null,
+        "course_group": "V.1"
+      },
+      "source_rows": [
+        {
+          "entry_id": 493,
+          "curriculum_id": 3,
+          "group_key": "V.1",
+          "source_row_number": 31,
+          "course_code": "MAT1202",
+          "credits_in_source": 3,
+          "prerequisite_source_text": "MAT2505",
+          "prerequisite_parse_status": "normalized",
+          "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+          "pdf_page": 11
+        }
+      ],
+      "groups": [
+        {
+          "curriculum_id": 3,
+          "group_key": "V.1",
+          "group_title": "Kiến thức ngành bắt buộc",
+          "min_credits_if_selected": 49,
+          "offered_credits": 49,
+          "source_heading": "V.1",
+          "group_note": "Kiến thức ngành bắt buộc"
+        }
+      ],
+      "prerequisites": [
+        {
+          "curriculum_id": 3,
+          "course_code": "MAT1202",
+          "group_no": 1,
+          "prerequisite_course_code": "MAT2505"
+        }
+      ],
+      "course_metadata": {
+        "program_id": "khmtt_7480113qtd_2022",
+        "code": "MAT1202",
+        "values": {
+          "name_en": "Object Oriented Programming",
+          "hours": {
+            "lecture": 22,
+            "practice": 46,
+            "self_study": 82
+          }
+        },
+        "field_evidence": {
+          "name_en": [
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "locator": "PDF page=11; printed page=9; row=31; code=MAT1202; column=name_en",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ],
+          "hours": [
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "locator": "PDF page=11; printed page=9; row=31; code=MAT1202; column=hours",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ]
+        }
+      },
+      "unresolved_prerequisites": [],
+      "has_prerequisite_conflict": false,
+      "provenance": {
+        "package_path": "f2/hus_source.json",
+        "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+        "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+        "source_comparison": {
+          "source": {
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+            "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+          },
+          "release_identity": {
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "format": "portable-2.0",
+            "source_state": "selected_for_local_rag_demo"
+          }
+        },
+        "metadata_source_archive": {
+          "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+          "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+          "documents": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+        },
+        "source_manifests": [
+          {
+            "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+            "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+            "decision": "QD3568-2023",
+            "cohort_year": 2022,
+            "pdf_table_pages": [
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "scope": [
+              "name_en",
+              "hours"
+            ],
+            "status": "verified",
+            "reviewed_at": "2026-10-30T20:15:35Z",
+            "reviewer": "user",
+            "review_basis": "explicit_user_attestation",
+            "review_record_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+          }
+        ],
+        "prerequisite_pdf_review": {
+          "date": "2026-10-20",
+          "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+          "scope": "Prerequisite cells only; not full academic-policy certification",
+          "documents": [
+            {
+              "file": "103.pdf",
+              "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "file": "105.pdf",
+              "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "file": "104.pdf",
+              "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "file": "101.pdf",
+              "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "file": "102.pdf",
+              "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "reference_only_courses": [
+            {
+              "course_code": "MAT2320",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 20
+            },
+            {
+              "course_code": "MAT2321",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 21
+            },
+            {
+              "course_code": "MAT2322",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 24
+            },
+            {
+              "course_code": "MAT2313",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 26
+            },
+            {
+              "course_code": "MAT3340",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 11,
+              "printed_page": 9,
+              "source_row_number": 38
+            }
+          ],
+          "unresolved_codes": [
+            "MAT3402"
+          ],
+          "conflicting_courses": [
+            {
+              "major_code": "7460101",
+              "course_code": "MAT3325"
+            }
+          ],
+          "corrected_locators": [
+            {
+              "major_code": "7460117",
+              "course_code": "MAT3327",
+              "old_pdf_page": 12,
+              "pdf_page": 11
+            },
+            {
+              "major_code": "7460108",
+              "course_code": "MAT2034",
+              "old_pdf_page": 11,
+              "pdf_page": 10
+            }
+          ]
+        },
+        "source_row_pointers": [
+          "/tables/official_curriculum_entries/67"
+        ],
+        "catalog_review": {
+          "basis": "explicit_user_attestation",
+          "institutional_certification": false,
+          "reviewed_at": "2026-10-30T20:15:35Z",
+          "reviewer": "user",
+          "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+          "status": "verified"
+        },
+        "prerequisite_review": {
+          "authorizes_eligibility": false,
+          "empty_means_no_prerequisite": false,
+          "external_codes": [],
+          "has_conflict": false,
+          "options": [
+            {
+              "course_code": "MAT1202",
+              "curriculum_id": 3,
+              "group_no": 1,
+              "prerequisite_course_code": "MAT2505"
+            }
+          ],
+          "parse_statuses": [
+            "normalized"
+          ],
+          "raw_variants": [
+            "MAT2505"
+          ],
+          "status": "catalog_verified"
+        },
+        "portable_record": {
+          "catalog_review": {
+            "basis": "explicit_user_attestation",
+            "institutional_certification": false,
+            "reviewed_at": "2026-10-30T20:15:35Z",
+            "reviewer": "user",
+            "source_sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+            "status": "verified"
+          },
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/67",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/67"
+            ],
+            "pdf_locators": [
+              {
+                "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "page": 11,
+                "row": 31,
+                "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học máy tính và thông tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "course_code": "MAT1202",
+          "course_name": "Lập trình hướng đối tượng",
+          "credits": 3,
+          "current_offering": null,
+          "major": "computer_science",
+          "membership": {
+            "course_code": "MAT1202",
+            "course_group": "V.1",
+            "course_type": "required",
+            "curriculum_id": 3,
+            "suggested_semester": null
+          },
+          "name_en": "Object Oriented Programming",
+          "official_syllabus": null,
+          "prerequisites": {
+            "authorizes_eligibility": false,
+            "empty_means_no_prerequisite": false,
+            "external_codes": [],
+            "has_conflict": false,
+            "options": [
+              {
+                "course_code": "MAT1202",
+                "curriculum_id": 3,
+                "group_no": 1,
+                "prerequisite_course_code": "MAT2505"
+              }
+            ],
+            "parse_statuses": [
+              "normalized"
+            ],
+            "raw_variants": [
+              "MAT2505"
+            ],
+            "status": "catalog_verified"
+          },
+          "program_id": "khmtt_7480113qtd_2022",
+          "record_id": "khmtt_7480113qtd_2022:MAT1202",
+          "scope": {
+            "applicability_status": "catalog_cohort_not_individual_account_binding",
+            "cohort_year": 2022,
+            "curriculum_version": "QD3568-2023",
+            "major": "computer_science",
+            "program_id": "khmtt_7480113qtd_2022",
+            "program_variant": "standard",
+            "validity_status": "as_declared_in_canonical_F2"
+          },
+          "source_occurrences": [
+            {
+              "course_code": "MAT1202",
+              "credits_in_source": 3,
+              "curriculum_id": 3,
+              "entry_id": 493,
+              "group_key": "V.1",
+              "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "pdf_page": 11,
+              "prerequisite_parse_status": "normalized",
+              "prerequisite_source_text": "MAT2505",
+              "source_row_number": 31
+            }
+          ]
+        },
+        "release_identity": {
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "format": "portable-2.0",
+          "source_state": "selected_for_local_rag_demo"
+        }
+      }
+    },
+    {
+      "course_code": "MAT3533",
+      "major": "data_science",
+      "version": "QD3569-2023",
+      "review_status": "draft_unverified",
+      "course": {
+        "course_code": "MAT3533",
+        "course_name": "Học máy",
+        "credits": 3,
+        "difficulty_level": 2,
+        "topics": [],
+        "description": null,
+        "is_active": true
+      },
+      "curriculum": {
+        "curriculum_id": 4,
+        "major_code": "7460108",
+        "curriculum_version": "QD3569-2023",
+        "cohort_year": 2022,
+        "credits_required": 127,
+        "official_source_url": null,
+        "note": "Quyết định 3569/QĐ-ĐHKHTN ngày 18/10/2023; áp dụng từ khóa tuyển sinh 2022. Nguồn: file PDF do người dùng cung cấp: 105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf"
+      },
+      "membership": {
+        "curriculum_id": 4,
+        "course_code": "MAT3533",
+        "course_type": "required",
+        "suggested_semester": null,
+        "course_group": "V.1"
+      },
+      "source_rows": [
+        {
+          "entry_id": 554,
+          "curriculum_id": 4,
+          "group_key": "V.1",
+          "source_row_number": 35,
+          "course_code": "MAT3533",
+          "credits_in_source": 3,
+          "prerequisite_source_text": "MAT2406/\nMAT2323",
+          "prerequisite_parse_status": "normalized",
+          "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+          "pdf_page": 11
+        }
+      ],
+      "groups": [
+        {
+          "curriculum_id": 4,
+          "group_key": "V.1",
+          "group_title": "Kiến thức ngành bắt buộc",
+          "min_credits_if_selected": 35,
+          "offered_credits": 35,
+          "source_heading": "V.1",
+          "group_note": "Kiến thức ngành bắt buộc"
+        }
+      ],
+      "prerequisites": [
+        {
+          "curriculum_id": 4,
+          "course_code": "MAT3533",
+          "group_no": 1,
+          "prerequisite_course_code": "MAT2323"
+        },
+        {
+          "curriculum_id": 4,
+          "course_code": "MAT3533",
+          "group_no": 1,
+          "prerequisite_course_code": "MAT2406"
+        }
+      ],
+      "course_metadata": {
+        "program_id": "khdl_7460108_2022",
+        "code": "MAT3533",
+        "values": {
+          "name_en": "Machine learning",
+          "hours": {
+            "lecture": 30,
+            "practice": 30,
+            "self_study": 90
+          }
+        },
+        "field_evidence": {
+          "name_en": [
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "locator": "PDF page=11; printed page=9; row=35; code=MAT3533; column=name_en",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ],
+          "hours": [
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "locator": "PDF page=11; printed page=9; row=35; code=MAT3533; column=hours",
+              "method": "transcription",
+              "status": "draft_unverified",
+              "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned."
+            }
+          ]
+        }
+      },
+      "unresolved_prerequisites": [
+        "MAT2406"
+      ],
+      "has_prerequisite_conflict": false,
+      "provenance": {
+        "package_path": "f2/hus_source.json",
+        "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+        "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+        "source_comparison": {
+          "source": {
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json",
+            "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e"
+          },
+          "release_identity": {
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "format": "portable-2.0",
+            "source_state": "selected_for_local_rag_demo"
+          }
+        },
+        "metadata_source_archive": {
+          "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+          "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25",
+          "documents": [
+            {
+              "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive."
+        },
+        "source_manifests": [
+          {
+            "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+            "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+            "decision": "QD3569-2023",
+            "cohort_year": 2022,
+            "pdf_table_pages": [
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "scope": [
+              "name_en",
+              "hours"
+            ],
+            "status": "draft_unverified"
+          }
+        ],
+        "prerequisite_pdf_review": {
+          "date": "2026-10-20",
+          "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+          "scope": "Prerequisite cells only; not full academic-policy certification",
+          "documents": [
+            {
+              "file": "103.pdf",
+              "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+              "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+            },
+            {
+              "file": "105.pdf",
+              "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+            },
+            {
+              "file": "104.pdf",
+              "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+              "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+            },
+            {
+              "file": "101.pdf",
+              "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+              "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+            },
+            {
+              "file": "102.pdf",
+              "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+            }
+          ],
+          "reference_only_courses": [
+            {
+              "course_code": "MAT2320",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 20
+            },
+            {
+              "course_code": "MAT2321",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 21
+            },
+            {
+              "course_code": "MAT2322",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 24
+            },
+            {
+              "course_code": "MAT2313",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 10,
+              "printed_page": 8,
+              "source_row_number": 26
+            },
+            {
+              "course_code": "MAT3340",
+              "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+              "pdf_page": 11,
+              "printed_page": 9,
+              "source_row_number": 38
+            }
+          ],
+          "unresolved_codes": [
+            "MAT3402"
+          ],
+          "conflicting_courses": [
+            {
+              "major_code": "7460101",
+              "course_code": "MAT3325"
+            }
+          ],
+          "corrected_locators": [
+            {
+              "major_code": "7460117",
+              "course_code": "MAT3327",
+              "old_pdf_page": 12,
+              "pdf_page": 11
+            },
+            {
+              "major_code": "7460108",
+              "course_code": "MAT2034",
+              "old_pdf_page": 11,
+              "pdf_page": 10
+            }
+          ]
+        },
+        "source_row_pointers": [
+          "/tables/official_curriculum_entries/240"
+        ],
+        "catalog_review": {
+          "basis": null,
+          "institutional_certification": false,
+          "status": "draft_unverified"
+        },
+        "prerequisite_review": {
+          "authorizes_eligibility": false,
+          "empty_means_no_prerequisite": false,
+          "external_codes": [
+            "MAT2406"
+          ],
+          "has_conflict": false,
+          "options": [
+            {
+              "course_code": "MAT3533",
+              "curriculum_id": 4,
+              "group_no": 1,
+              "prerequisite_course_code": "MAT2323"
+            },
+            {
+              "course_code": "MAT3533",
+              "curriculum_id": 4,
+              "group_no": 1,
+              "prerequisite_course_code": "MAT2406"
+            }
+          ],
+          "parse_statuses": [
+            "normalized"
+          ],
+          "raw_variants": [
+            "MAT2406/\nMAT2323"
+          ],
+          "status": "unresolved_external"
+        },
+        "portable_record": {
+          "catalog_review": {
+            "basis": null,
+            "institutional_certification": false,
+            "status": "draft_unverified"
+          },
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/233",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/240"
+            ],
+            "pdf_locators": [
+              {
+                "document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                "page": 11,
+                "row": 35,
+                "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học dữ liệu",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "course_code": "MAT3533",
+          "course_name": "Học máy",
+          "credits": 3,
+          "current_offering": null,
+          "major": "data_science",
+          "membership": {
+            "course_code": "MAT3533",
+            "course_group": "V.1",
+            "course_type": "required",
+            "curriculum_id": 4,
+            "suggested_semester": null
+          },
+          "name_en": "Machine learning",
+          "official_syllabus": null,
+          "prerequisites": {
+            "authorizes_eligibility": false,
+            "empty_means_no_prerequisite": false,
+            "external_codes": [
+              "MAT2406"
+            ],
+            "has_conflict": false,
+            "options": [
+              {
+                "course_code": "MAT3533",
+                "curriculum_id": 4,
+                "group_no": 1,
+                "prerequisite_course_code": "MAT2323"
+              },
+              {
+                "course_code": "MAT3533",
+                "curriculum_id": 4,
+                "group_no": 1,
+                "prerequisite_course_code": "MAT2406"
+              }
+            ],
+            "parse_statuses": [
+              "normalized"
+            ],
+            "raw_variants": [
+              "MAT2406/\nMAT2323"
+            ],
+            "status": "unresolved_external"
+          },
+          "program_id": "khdl_7460108_2022",
+          "record_id": "khdl_7460108_2022:MAT3533",
+          "scope": {
+            "applicability_status": "catalog_cohort_not_individual_account_binding",
+            "cohort_year": 2022,
+            "curriculum_version": "QD3569-2023",
+            "major": "data_science",
+            "program_id": "khdl_7460108_2022",
+            "program_variant": "standard",
+            "validity_status": "as_declared_in_canonical_F2"
+          },
+          "source_occurrences": [
+            {
+              "course_code": "MAT3533",
+              "credits_in_source": 3,
+              "curriculum_id": 4,
+              "entry_id": 554,
+              "group_key": "V.1",
+              "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+              "pdf_page": 11,
+              "prerequisite_parse_status": "normalized",
+              "prerequisite_source_text": "MAT2406/\nMAT2323",
+              "source_row_number": 35
+            }
+          ]
+        },
+        "release_identity": {
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "format": "portable-2.0",
+          "source_state": "selected_for_local_rag_demo"
+        }
+      }
+    }
+  ]
+}

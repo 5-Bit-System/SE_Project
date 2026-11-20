@@ -1,0 +1,96 @@
+{
+  "id": "HN20-020",
+  "request": {
+    "question": "Mã MAT9999 có số tín chỉ là bao nhiêu?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "hybrid_optimized_signature",
+    "hybrid_legacy_signature",
+    "lexical_reference"
+  ],
+  "modes": {
+    "hybrid_optimized_signature": {
+      "seconds": 0.014433400006964803,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+          "status": "no_information",
+          "dataset": "f2",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_unavailable"
+          }
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 0.011936100025195628,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+          "status": "no_information",
+          "dataset": "f2",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_unavailable"
+          }
+        }
+      }
+    },
+    "lexical_reference": {
+      "seconds": 0.011241900036111474,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+          "status": "no_information",
+          "dataset": "f2",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_unavailable"
+          }
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

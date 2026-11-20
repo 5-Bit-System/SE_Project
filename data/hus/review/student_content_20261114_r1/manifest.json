@@ -1,0 +1,14 @@
+{
+  "files_sha256": {
+    "README.md": "c16150747aef7e25f276a41aaf4fe6e0ea67bc852a6facc6da3315351ea20f05",
+    "answers_and_sources.md": "868be354fccf690126bff8ee50d3ab5e64e36ebde30e4434a176cb702049d136",
+    "automated_checks.json": "10734f3433b6c415f2a50c2d750718023cd8706dd91cafce574567b300abf64a",
+    "exact_observations.json": "5dad37cfeabca33144a64cead0ce56d5db1df11554740194ff78bc64874ee407",
+    "review.csv": "83482b0608c26305824213baca6b773dcfd64b4a458eddf8afcaaebb6f1ec40f",
+    "summary.json": "a48cba3d4a87eb3fcb89abd1beddc415be76ca6c3ee6091b790dc4911db92b22",
+    "team_review_template.json": "fd274ce00f710e3611f5a273e81cab4b0883045dff9479cdca584711dd8abf42"
+  },
+  "kind": "hus-student-human-review-packet-1",
+  "pack_manifest_sha256": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+  "run_manifest_sha256": "b2c65c35461341264f829a412cd9cf984270655299aa0fc15928c4a724079e71"
+}

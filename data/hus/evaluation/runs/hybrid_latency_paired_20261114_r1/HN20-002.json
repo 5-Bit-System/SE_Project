@@ -1,0 +1,1399 @@
+{
+  "id": "HN20-002",
+  "request": {
+    "question": "Tốt nghiệp Toán học thì có thể làm việc ở những đâu?",
+    "major": "mathematics",
+    "version": "QD3565-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "hybrid_optimized_signature",
+    "hybrid_legacy_signature",
+    "lexical_reference"
+  ],
+  "modes": {
+    "hybrid_optimized_signature": {
+      "seconds": 3.3185435999766923,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 3.311658799997531,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"careers\",\"major\":\"mathematics\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "rank": 1,
+                "raw_score": 0.9874148205147876
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "rank": 2,
+                "raw_score": 0.9826296303018147
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "rank": 3,
+                "raw_score": 0.914023696144932
+              },
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "rank": 4,
+                "raw_score": 0.8697328185497315
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "rank": 1,
+                "raw_score": 0.9021449685096741
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "rank": 2,
+                "raw_score": 0.8995556831359863
+              },
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "rank": 3,
+                "raw_score": 0.8984007239341736
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "rank": 4,
+                "raw_score": 0.8577581644058228
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"576a32614c1a16f7799e722bd1bd1313\",\"8a4879289cc14b5965647a6c376e2aec\",\"ad667609e5801d74c146610cb5ffcf00\",\"e10eb3bab40d2e220787788f53ab58d8\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"careers\"}]}",
+              "passage_ids": [
+                "576a32614c1a16f7799e722bd1bd1313#p000",
+                "ad667609e5801d74c146610cb5ffcf00#p000",
+                "e10eb3bab40d2e220787788f53ab58d8#p000",
+                "8a4879289cc14b5965647a6c376e2aec#p000"
+              ],
+              "parent_ids": [
+                "576a32614c1a16f7799e722bd1bd1313",
+                "ad667609e5801d74c146610cb5ffcf00",
+                "e10eb3bab40d2e220787788f53ab58d8",
+                "8a4879289cc14b5965647a6c376e2aec"
+              ]
+            },
+            "candidate_union": [
+              "576a32614c1a16f7799e722bd1bd1313",
+              "8a4879289cc14b5965647a6c376e2aec",
+              "ad667609e5801d74c146610cb5ffcf00",
+              "e10eb3bab40d2e220787788f53ab58d8"
+            ],
+            "fused": [
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "lexical_rank": 1,
+                "vector_rank": 3,
+                "rrf_score": 0.032266458495966696
+              },
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "lexical_rank": 4,
+                "vector_rank": 1,
+                "rrf_score": 0.032018442622950824
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "lexical_rank": 3,
+                "vector_rank": 2,
+                "rrf_score": 0.03200204813108039
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "lexical_rank": 2,
+                "vector_rank": 4,
+                "rrf_score": 0.031754032258064516
+              }
+            ],
+            "final_top5": [
+              "e10eb3bab40d2e220787788f53ab58d8",
+              "576a32614c1a16f7799e722bd1bd1313",
+              "ad667609e5801d74c146610cb5ffcf00",
+              "8a4879289cc14b5965647a6c376e2aec"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "e10eb3bab40d2e220787788f53ab58d8",
+            "576a32614c1a16f7799e722bd1bd1313",
+            "ad667609e5801d74c146610cb5ffcf00",
+            "8a4879289cc14b5965647a6c376e2aec"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5191294999676757,
+          "exclusive_seconds": 0.5191294999676757
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.5115410999860615,
+          "exclusive_seconds": 0.5115410999860615
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.037393399979919195,
+          "exclusive_seconds": 0.037393399979919195
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.37176739994902164,
+          "exclusive_seconds": 0.37176739994902164
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.5955867000157014,
+          "exclusive_seconds": 0.5955867000157014
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.967354099964723,
+          "seconds": 1.0054791999864392,
+          "exclusive_seconds": 0.03812510002171621
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.012679999985266477,
+          "exclusive_seconds": 0.012679999985266477
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.01114770001731813,
+          "exclusive_seconds": 0.01114770001731813
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.43161150004016235,
+          "exclusive_seconds": 0.43161150004016235
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 0.7639521999517456,
+          "exclusive_seconds": 0.7639521999517456
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+              "locator": {
+                "start_char": 1004,
+                "end_char": 1312,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "citation": {
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1004,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                "source_unit_id": "879070c22d42a5dbb8ac7079",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                  "citation": {
+                    "end_char": 1312,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1004,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                  "source_unit_id": "879070c22d42a5dbb8ac7079",
+                  "text": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "879070c22d42a5dbb8ac7079",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1004,
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+              "locator": {
+                "start_char": 1313,
+                "end_char": 1447,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                "citation": {
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1313,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                  "citation": {
+                    "end_char": 1447,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1313,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                  "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                  "text": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "7c2c8dd2e0d93b880860d010",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1313,
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 5.704301699995995,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 5.7002151000197046,
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"careers\",\"major\":\"mathematics\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "rank": 1,
+                "raw_score": 0.9874148205147876
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "rank": 2,
+                "raw_score": 0.9826296303018147
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "rank": 3,
+                "raw_score": 0.914023696144932
+              },
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "rank": 4,
+                "raw_score": 0.8697328185497315
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "rank": 1,
+                "raw_score": 0.9021449685096741
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "rank": 2,
+                "raw_score": 0.8995556831359863
+              },
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "rank": 3,
+                "raw_score": 0.8984007239341736
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "rank": 4,
+                "raw_score": 0.8577581644058228
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"576a32614c1a16f7799e722bd1bd1313\",\"8a4879289cc14b5965647a6c376e2aec\",\"ad667609e5801d74c146610cb5ffcf00\",\"e10eb3bab40d2e220787788f53ab58d8\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"careers\"}]}",
+              "passage_ids": [
+                "576a32614c1a16f7799e722bd1bd1313#p000",
+                "ad667609e5801d74c146610cb5ffcf00#p000",
+                "e10eb3bab40d2e220787788f53ab58d8#p000",
+                "8a4879289cc14b5965647a6c376e2aec#p000"
+              ],
+              "parent_ids": [
+                "576a32614c1a16f7799e722bd1bd1313",
+                "ad667609e5801d74c146610cb5ffcf00",
+                "e10eb3bab40d2e220787788f53ab58d8",
+                "8a4879289cc14b5965647a6c376e2aec"
+              ]
+            },
+            "candidate_union": [
+              "576a32614c1a16f7799e722bd1bd1313",
+              "8a4879289cc14b5965647a6c376e2aec",
+              "ad667609e5801d74c146610cb5ffcf00",
+              "e10eb3bab40d2e220787788f53ab58d8"
+            ],
+            "fused": [
+              {
+                "parent_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "lexical_rank": 1,
+                "vector_rank": 3,
+                "rrf_score": 0.032266458495966696
+              },
+              {
+                "parent_id": "576a32614c1a16f7799e722bd1bd1313",
+                "lexical_rank": 4,
+                "vector_rank": 1,
+                "rrf_score": 0.032018442622950824
+              },
+              {
+                "parent_id": "ad667609e5801d74c146610cb5ffcf00",
+                "lexical_rank": 3,
+                "vector_rank": 2,
+                "rrf_score": 0.03200204813108039
+              },
+              {
+                "parent_id": "8a4879289cc14b5965647a6c376e2aec",
+                "lexical_rank": 2,
+                "vector_rank": 4,
+                "rrf_score": 0.031754032258064516
+              }
+            ],
+            "final_top5": [
+              "e10eb3bab40d2e220787788f53ab58d8",
+              "576a32614c1a16f7799e722bd1bd1313",
+              "ad667609e5801d74c146610cb5ffcf00",
+              "8a4879289cc14b5965647a6c376e2aec"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "e10eb3bab40d2e220787788f53ab58d8",
+            "576a32614c1a16f7799e722bd1bd1313",
+            "ad667609e5801d74c146610cb5ffcf00",
+            "8a4879289cc14b5965647a6c376e2aec"
+          ]
+        }
+      ],
+      "spans": [
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.0739500000490807,
+          "exclusive_seconds": 1.0739500000490807
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.0634037999552675,
+          "exclusive_seconds": 1.0634037999552675
+        },
+        {
+          "name": "encoding",
+          "children_seconds": 0.0,
+          "seconds": 0.037390299956314266,
+          "exclusive_seconds": 0.037390299956314266
+        },
+        {
+          "name": "inventory_read",
+          "children_seconds": 0.0,
+          "seconds": 0.3438546000397764,
+          "exclusive_seconds": 0.3438546000397764
+        },
+        {
+          "name": "inventory_json_serialization",
+          "children_seconds": 0.0,
+          "seconds": 0.5579631999717094,
+          "exclusive_seconds": 0.5579631999717094
+        },
+        {
+          "name": "index_check",
+          "children_seconds": 0.9018178000114858,
+          "seconds": 0.9454293000162579,
+          "exclusive_seconds": 0.0436115000047721
+        },
+        {
+          "name": "chroma_knn_query",
+          "children_seconds": 0.0,
+          "seconds": 0.012599100009538233,
+          "exclusive_seconds": 0.012599100009538233
+        },
+        {
+          "name": "result_resolution",
+          "children_seconds": 0.0,
+          "seconds": 0.009751300036441535,
+          "exclusive_seconds": 0.009751300036441535
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.4134147000149824,
+          "exclusive_seconds": 1.4134147000149824
+        },
+        {
+          "name": "canonical_signature",
+          "children_seconds": 0.0,
+          "seconds": 1.1314608000102453,
+          "exclusive_seconds": 1.1314608000102453
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+              "locator": {
+                "start_char": 1004,
+                "end_char": 1312,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "citation": {
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1004,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                "source_unit_id": "879070c22d42a5dbb8ac7079",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                  "citation": {
+                    "end_char": 1312,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1004,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                  "source_unit_id": "879070c22d42a5dbb8ac7079",
+                  "text": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "879070c22d42a5dbb8ac7079",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1004,
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+              "locator": {
+                "start_char": 1313,
+                "end_char": 1447,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                "citation": {
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1313,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                  "citation": {
+                    "end_char": 1447,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1313,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                  "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                  "text": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "7c2c8dd2e0d93b880860d010",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1313,
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    },
+    "lexical_reference": {
+      "seconds": 0.006470399966929108,
+      "search_called": true,
+      "retrieval_calls": [
+        {
+          "seconds": 0.001406199997290969,
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "hit_ids": [
+            "e10eb3bab40d2e220787788f53ab58d8",
+            "8a4879289cc14b5965647a6c376e2aec",
+            "ad667609e5801d74c146610cb5ffcf00",
+            "576a32614c1a16f7799e722bd1bd1313"
+          ]
+        }
+      ],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.\nNguồn [1]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.\nNguồn [2]: Ngành Toán học; http://mim.hus.vnu.edu.vn/vi/toanhoc; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "mathematics",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+              "locator": {
+                "start_char": 1004,
+                "end_char": 1312,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                "citation": {
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1004,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                "source_unit_id": "879070c22d42a5dbb8ac7079",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+                  "citation": {
+                    "end_char": 1312,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1004,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+                  "source_unit_id": "879070c22d42a5dbb8ac7079",
+                  "text": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "879070c22d42a5dbb8ac7079",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1004,
+                  "end_char": 1312,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f1",
+              "label": "Ngành Toán học",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+              "locator": {
+                "start_char": 1313,
+                "end_char": 1447,
+                "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                "citation": {
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "start_char": 1313,
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "mathematics",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+                  "citation": {
+                    "end_char": 1447,
+                    "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "ce8df97fe49665e9",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                    "start_char": 1313,
+                    "title": "Ngành Toán học",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "mathematics",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+                  "source_unit_id": "7c2c8dd2e0d93b880860d010",
+                  "text": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+                "document_id": "ce8df97fe49665e9",
+                "unit_id": "7c2c8dd2e0d93b880860d010",
+                "title": "Ngành Toán học",
+                "citation_title": "Ngành Toán học",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "evidence_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/ce8df97fe49665e9.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": null,
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "ce8df97fe49665e9",
+                  "title": "Ngành Toán học",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1313,
+                  "end_char": 1447,
+                  "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Ngành Toán học",
+              "source_id": "ce8df97fe49665e9",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

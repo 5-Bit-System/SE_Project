@@ -6,17 +6,17 @@ from types import SimpleNamespace
 
 import pytest
 
-from app.hus.rag_loader import HUSRAGData, RAGDataError
+from app.hus.rag_loader import RAGDataError
 from app.hus.retrieval import HUSRAGRetriever
 from app.hus.vector_contract import ROOT
 from app.hus.vector_index import index_metadata
 
 
 @pytest.fixture(scope='module')
-def canonical():
+def canonical(historical_v3_data):
     import json
 
-    data = HUSRAGData.load_current()
+    data = historical_v3_data
     rows = [json.loads(line) for line in
             (ROOT / 'data/hus/vector_passages/e5_small_v2_20261105/passages.jsonl').read_bytes().splitlines()]
     return data, rows

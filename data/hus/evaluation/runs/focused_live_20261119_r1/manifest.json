@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "checkpoint.json": "f0cfb59c55370fbcf3e01b499be5fa2df3fdc1688b31727a80c5eef1ef53fdce",
+    "input.json": "03017c8880ce1c6f5b460a0b1acc86315d94db94f3108eb99a72542767e501a9",
+    "observations.json": "1bec9b2c1c2616844023c3214e32c3ef3f75b396656bf0031a779a18120aa876"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

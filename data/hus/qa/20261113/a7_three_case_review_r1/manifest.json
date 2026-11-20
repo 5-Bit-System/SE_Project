@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "diagnostics.json": "b63fdbb14b76cc4126f4add377a071d5d313e9f7c2aa29ac86c2af23b650c035",
+    "report.json": "5280be83a7c07f8a69ecb7dc5e96c9db86ad5f6c29f09baed327fd7e2c72ee32",
+    "review.json": "5c1543d8cf0b268806a2646b992dbee0cb90bd06733efbe1790249c6f113b76d"
+  },
+  "schema_version": "hus-a7-three-case-review-1.0"
+}

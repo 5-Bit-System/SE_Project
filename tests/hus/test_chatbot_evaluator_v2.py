@@ -58,7 +58,12 @@ def test_http_latency_excludes_json_and_trace_capture(monkeypatch):
 
 
 @pytest.fixture
-def tiny_pack(tmp_path, monkeypatch):
+def tiny_pack(tmp_path, monkeypatch, historical_v3_data, historical_v3_auditor):
+    from app.hus.answering import HUSAnswerer
+
+    answerer = HUSAnswerer(historical_v3_data)
+    monkeypatch.setattr('app.services.hus_service.get_hus_answerer', lambda: answerer)
+    monkeypatch.setattr('app.hus.demo.get_hus_answerer', lambda: answerer)
     m = runner()
     actual = Path(__file__).resolve().parents[2] / 'data/hus/evaluation/ai_reviewed_exposed_v1'
     source = {name: [json.loads(line) for line in (actual / name).read_text(encoding='utf-8').splitlines()]
@@ -150,13 +155,18 @@ def test_review_cannot_be_reused_on_another_measurement(tiny_pack):
 
 
 @pytest.mark.parametrize('tamper', ['release', 'citation_dataset', 'citation_source', 'metadata_release', 'markers', 'wrapper'])
-def test_program_integrity_checks_envelope_release_and_citation_references(tamper):
+def test_program_integrity_checks_envelope_release_and_citation_references(
+    tamper, monkeypatch, historical_v3_data, historical_v3_auditor
+):
     runner()
     from fastapi.testclient import TestClient
 
+    from app.hus.answering import HUSAnswerer
     from app.hus.demo import app
     from tools.hus_chatbot_source_audit import SourceAuditor
 
+    answerer = HUSAnswerer(historical_v3_data)
+    monkeypatch.setattr('app.hus.demo.get_hus_answerer', lambda: answerer)
     request = {'question': 'Tổng tín chỉ chương trình?', 'major': 'data_science', 'version': 'QD3569-2023'}
     target = {'category': 'f2', 'expected_field': 'program_credits'}
     with TestClient(app) as client:

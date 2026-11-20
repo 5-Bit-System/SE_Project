@@ -1,0 +1,8 @@
+{
+  "kind": "student_report_demo_documentation_receipt",
+  "files_sha256": {
+    "demo_dry_run.json": "df1c161b3d3a90fbd0045eb52dca1cbdb991ac2c430e2959f32bf569b266960b",
+    "relative_links.json": "3dfe43cd5c785e52c5486d5ea4233d33890c8620f10aa3b90a591aa69b689d5e",
+    "report.json": "4ea82c51bf4885b01c96904065df748fbc070ba89a826d4d2eae70155faed1be"
+  }
+}

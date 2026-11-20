@@ -1,0 +1,176 @@
+[
+  {
+    "guard_specific_tokens": [
+      "720",
+      "giao",
+      "qd",
+      "so"
+    ],
+    "question_id": "A7P-Q013",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "data_science",
+      "question": "Giới thiệu ngành Khoa học dữ liệu được giao đào tạo thí điểm theo QĐ số 720?",
+      "version": "QD3569-2023"
+    },
+    "response": {
+      "hus_answer": {
+        "citations": [],
+        "dataset": "f3",
+        "facts": {},
+        "generated_reference_allowed": false,
+        "major": "data_science",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "status": "needs_clarification",
+        "version": "QD3569-2023",
+        "warnings": []
+      },
+      "mode": "hus_rag",
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn."
+    },
+    "retrieval": [],
+    "routing": [
+      "f3",
+      "suggested_assessment"
+    ],
+    "tokens_missing_from_all_hits": [
+      "720",
+      "giao",
+      "qd",
+      "so"
+    ]
+  },
+  {
+    "guard_specific_tokens": [
+      "giac",
+      "hieu",
+      "kenh",
+      "tim"
+    ],
+    "question_id": "A7P-Q020",
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": false,
+      "major": "data_science",
+      "question": "Tìm hiểu nội dung AI MAT3383 về dữ liệu và kênh thị giác.",
+      "version": "QD3569-2023"
+    },
+    "response": {
+      "hus_answer": {
+        "citations": [],
+        "dataset": "f3",
+        "facts": {},
+        "generated_reference_allowed": true,
+        "major": "data_science",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+        "status": "no_information",
+        "version": "QD3569-2023",
+        "warnings": []
+      },
+      "mode": "hus_rag",
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+    },
+    "retrieval": [
+      {
+        "chunk_id": "4e1ed080b178b6479b9a66e22cd2abb6",
+        "field": "content",
+        "source_quote": "Tổng quan tham khảo:\nTrực quan hóa thông tin nghiên cứu cách chuyển dữ liệu thành vị trí, độ dài, màu và các cấu trúc hình ảnh để hỗ trợ hiểu biết. Nội dung tham khảo gắn lựa chọn biểu đồ với kiểu dữ liệu, so sánh và bất định, đồng thời giải thích những quyết định về trục hoặc màu có thể làm người đọc hiểu sai.\nCác chủ đề tham khảo:\n- Dữ liệu và kênh thị giác\n- Biểu đồ theo quan hệ cần đọc\n- Phân phối và bất định\n- Trục, màu và bối cảnh"
+      },
+      {
+        "chunk_id": "a6540cdcbe81a860f9cdfbcd799265b4",
+        "field": "content",
+        "source_quote": "Dữ liệu và kênh thị giác\nVị trí, độ dài, diện tích và màu mã hóa giá trị theo khả năng đọc khác nhau. Đại lượng có thứ tự cần thang thể hiện thứ tự, trong khi màu cho nhóm danh nghĩa nên phân biệt nhóm mà không tạo thứ tự giả.\nKhái niệm thành phần: kênh thị giác; dữ liệu danh nghĩa; dữ liệu định lượng.\nVí dụ minh họa do AI biên soạn: Dùng sắc độ sáng dần cho mức nhiệt tạo cảm giác thứ tự, còn dùng những màu khác nhau cho tên khu vực giúp tránh gợi ý khu vực nào cao hơn."
+      },
+      {
+        "chunk_id": "3480e7c6ce76098255d45914c7f451aa",
+        "field": "content",
+        "source_quote": "Biểu đồ theo quan hệ cần đọc\nCột hỗ trợ so giá trị rời rạc, đường diễn tả quan hệ theo trục có thứ tự và phân tán biểu diễn hai biến số. Chọn biểu đồ cần giữ đúng mối liên hệ, vì nối đường có thể gợi ý một sự liên tục không có trong dữ liệu.\nKhái niệm thành phần: biểu đồ cột; biểu đồ phân tán; đường xu thế.\nVí dụ minh họa do AI biên soạn: Nối tên các ngành bằng đường tạo cảm giác có lộ trình giữa ngành, trong khi biểu đồ cột phù hợp hơn khi chúng là các nhóm độc lập."
+      },
+      {
+        "chunk_id": "6196d9ae45504c2cac32c452d3b7e649",
+        "field": "content",
+        "source_quote": "Phân phối và bất định\nTrung bình không mô tả đầy đủ độ phân tán hoặc nhiều cụm của dữ liệu. Histogram, hộp và các khoảng bất định cho các góc nhìn khác nhau; chú thích cần nói rõ khoảng phản ánh dữ liệu hay bất định ước lượng.\nKhái niệm thành phần: histogram; biểu đồ hộp; khoảng bất định.\nVí dụ minh họa do AI biên soạn: Hai nhóm có cùng trung bình có thể có độ phân tán rất khác; chỉ hiển thị hai cột trung bình làm người đọc bỏ qua khác biệt quan trọng này."
+      },
+      {
+        "chunk_id": "6b96ebcf96f226fd045335dfd24b6516",
+        "field": "content",
+        "source_quote": "Trục, màu và bối cảnh\nCắt trục, thay thang hoặc đổi phạm vi màu làm thay đổi mức chênh lệch người đọc cảm nhận. Bộ lọc tương tác cần giữ đơn vị và thông tin về phần dữ liệu đang hiển thị để không làm mất bối cảnh so sánh.\nKhái niệm thành phần: thang tuyến tính; thang log; chuẩn màu.\nVí dụ minh họa do AI biên soạn: Một thay đổi từ 99 lên 100 trông rất lớn nếu trục cột bắt đầu ở 98; ghi và chọn phạm vi trục là một quyết định diễn giải cần minh bạch."
+      }
+    ],
+    "routing": [
+      "f3",
+      "content"
+    ],
+    "tokens_missing_from_all_hits": [
+      "tim"
+    ]
+  },
+  {
+    "guard_specific_tokens": [
+      "dua",
+      "duy",
+      "logic",
+      "tren"
+    ],
+    "question_id": "A7P-Q027",
+    "request": {
+      "allow_generated_reference": false,
+      "allow_llm_rewrite": false,
+      "major": "mathematics",
+      "question": "Khả năng học tiếp của ngành Toán học dựa trên tư duy logic và mô hình hóa ra sao?",
+      "version": "QD3565-2023"
+    },
+    "response": {
+      "hus_answer": {
+        "citations": [],
+        "dataset": "f1",
+        "facts": {},
+        "generated_reference_allowed": false,
+        "major": "mathematics",
+        "release_id": "hus-data-20261111-v4",
+        "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn.",
+        "status": "no_information",
+        "version": null,
+        "warnings": []
+      },
+      "mode": "hus_rag",
+      "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không tìm thấy đoạn có bằng chứng khớp câu hỏi và phạm vi đã chọn."
+    },
+    "retrieval": [
+      {
+        "chunk_id": "77255979680ee28cfa517a7704832bc3",
+        "field": "further_study",
+        "source_quote": "Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp Chương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên những kiến thức, kĩ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng, mô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để giải quyết. Những kĩ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân, của công việc và của nền kinh tế."
+      },
+      {
+        "chunk_id": "bdc3538f018be0658be658d8ccaf6e8e",
+        "field": "further_study",
+        "source_quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên\nnhững kiến thức, kỹ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic,\nphương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng,\nmô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để\ngiải quyết;\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng\ncao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân,\ncủa công việc và của nền kinh tế."
+      },
+      {
+        "chunk_id": "5576ba104d8ba5bc443df772cbb04162",
+        "field": "further_study",
+        "source_quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo Cử nhân Khoa học Tài năng ngành Toán học chủ yếu\ncung cấp cho sinh viên những kiến thức, kỹ năng cơ bản và quan trọng hơn cả là\nphương pháp tư duy logic, phương pháp lập luận, phân tích và giải quyết vấn đề;\nphương pháp tư duy trừu tượng, mô hình hóa; phân tích, thiết lập bài toán và sử\ndụng công cụ toán học để giải quyết.\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học,\nnâng cao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của\nbản thân, của công việc và của nền kinh tế."
+      },
+      {
+        "chunk_id": "44955940d64d25b5b729f5b30d98718f",
+        "field": "further_study",
+        "source_quote": "Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc Thạc sĩ, Tiến sĩ."
+      }
+    ],
+    "routing": [
+      "f1",
+      "further_study"
+    ],
+    "tokens_missing_from_all_hits": [
+      "dua",
+      "tren"
+    ]
+  }
+]

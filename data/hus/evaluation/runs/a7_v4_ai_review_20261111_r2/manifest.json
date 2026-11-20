@@ -1,0 +1,11 @@
+{
+  "files_sha256": {
+    "audits.json": "bb3954161f7483e5738864b1820375735b55fcd3d726f4b154d8b28511963965",
+    "inputs.json": "52e43a8945fb23ae2d01e8734e7d272525ebe7303847b06236f122df06cff2c8",
+    "observations.json": "a6c7487a1fccdf743770be5b29bb09e62da3d2710beb7054c0827b1896e551a2",
+    "report.json": "dd3793e33dc45fc55d55ca1ccc7efa64a4e0e963b0cf7e92a79250611ad47ab2",
+    "review.json": "07aae34c2962facb618865a89275c073219d9fd5406432ae55b3f718ccb390ee",
+    "review_template.json": "2b6077be2a0d02ddc0c2489d8f5688c78b0c9aa2eb71a7c592fcbe43024f857e"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

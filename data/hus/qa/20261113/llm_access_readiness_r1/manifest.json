@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "integrity.json": "4f40d86c7c724686f8a4043fbcc5aedbd9fcaa446d2a385ca38095f424478929",
+    "proposal.json": "b2d2b468e6c4bf3a6691a222ccf9a969f8fb78d63d20dcaaec4a9795014b184d",
+    "report.json": "d5852e1ca296d6dbd4144caa7c7a0ea32d54aadbbaff0075ae731127eb34d255"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "HN20-017",
+  "request": {
+    "question": "Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f1",
+    "field": "introduction",
+    "course_code": null,
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "21625268a830b8656f4b5bd4f07a9f80",
+      "7170857aebdc027daccc37102dd937bd",
+      "a02e3fe443e340a42147fca61503d628"
+    ]
+  },
+  "raw_question_route": [
+    "f3",
+    "content"
+  ],
+  "order": [
+    "lexical",
+    "hybrid"
+  ],
+  "modes": {
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.019588999974075705,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.025771700020413846,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

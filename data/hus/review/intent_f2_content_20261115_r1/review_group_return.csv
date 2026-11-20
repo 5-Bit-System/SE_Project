@@ -1,0 +1,13 @@
+﻿case_id,question,major,version,actual_status,interpretation_calls,generation_calls,generation_used,reviewer,review_date,correct_intent,facts_correct,list_complete,citation_correct,notes
+IF2-001,Ngành Toán học có bao nhiêu môn học?,mathematics,QD3565-2023,answered,0,1,True,,,,,,,
+IF2-002,Cho mình xem toàn bộ danh sách học phần,mathematics,QD3565-2023,api_error,1,1,False,,,,,,,
+IF2-003,Liệt kê các môn trong chương trình,mathematics_informatics,QD3567-2023,answered,0,1,True,,,,,,,
+IF2-004,Đếm học phần giúp tôi,mathematics_informatics,QD3567-2023,needs_clarification,1,0,False,,,,,,,
+IF2-005,Ngành khoa học máy tính có bao nhiêu môn học?,computer_science,QD3568-2023,answered,0,1,True,,,,,,,
+IF2-006,MAT1204 được tính mấy TC?,computer_science,QD3568-2023,answered,1,1,True,,,,,,,
+IF2-007,Liệt kê các môn trong chương trình,data_science,QD3569-2023,answered,0,1,True,,,,,,,
+IF2-008,MAT3533 được tính mấy TC?,data_science,QD3569-2023,answered,1,1,True,,,,,,,
+IF2-009,Ngành khoa học máy tính có bao nhiêu môn học?,data_science,QD3569-2023,no_information,0,0,False,,,,,,,
+IF2-010,Ngành Toán học phải học bao nhiêu môn?,mathematics,QD3565-2023,needs_clarification,0,0,False,,,,,,,
+IF2-011,Nội dung MAT3533?,data_science,QD3569-2023,needs_clarification,0,0,False,,,,,,,
+IF2-012,MAT9999 có bao nhiêu tín chỉ?,data_science,QD3569-2023,no_information,0,0,False,,,,,,,

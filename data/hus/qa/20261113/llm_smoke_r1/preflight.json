@@ -1,0 +1,18 @@
+{
+  "budget_granted": false,
+  "current_pins_match": true,
+  "key_read": false,
+  "live_calls": 0,
+  "payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r6",
+  "prepared_manifest_sha256": "d0bfe7a95addc56cbd735fb225ff0f2dcfefafa1cdd732f874f41ef8f97175ca",
+  "proposal_sha256": "d01f9c5ee2c83dc5c2cb3cf180760bc94425dd09119dbccc8d1cc6354d3c18cd",
+  "protected_unchanged_files": 3020,
+  "r5_records_changed_excluding_latency": [],
+  "records": 36,
+  "socket_provider_attempts": {
+    "provider": 0,
+    "socket": 0
+  },
+  "source_audits": 36
+}

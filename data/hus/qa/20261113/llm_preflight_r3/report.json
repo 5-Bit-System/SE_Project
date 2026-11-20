@@ -1,0 +1,60 @@
+{
+  "actual_provider_model_usage_latency": "not measured",
+  "attempts": {
+    "network": 0,
+    "provider": 0
+  },
+  "base_head": "f61b0fd",
+  "baseline_retrieval_prompt_equal_old_r2_and_live_v3": 36,
+  "branch": "hus-llm-rag",
+  "cases": 36,
+  "commit_push_PR_Actions_deploy": false,
+  "controls": 12,
+  "current_pins_match": true,
+  "date": "2026-11-13",
+  "diagnostic_one_call_proposed_not_authorized": true,
+  "google_reference": "https://aistudio.google.com/docs/troubleshooting#project-unavailable",
+  "l6": "keep_disabled",
+  "live_A_exact_equal": 36,
+  "live_budget_authorized": 0,
+  "new_google_calls": 0,
+  "next_action": "Separate explicit approval for one diagnostic provider call; then classify only fixed error metadata, no retry/model switch. Full L5 cohort needs its own budget after access is verified.",
+  "old_both_24_call_budgets_exhausted": true,
+  "old_r2_pins_match": false,
+  "output_token_cap": 1024,
+  "payloads_byte_equal_previous_privacy_review": true,
+  "pins_sha256": "a13f21c4883707ac4be51c1260e70cc5c8efbae33bf864128dad4214c3bc3982",
+  "positive_family_counts": {
+    "f1": 8,
+    "f2": 8,
+    "f3": 8
+  },
+  "positive_prompts": 24,
+  "prepare_attempts": {
+    "network": 0,
+    "provider_construction": 0
+  },
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r3",
+  "prepared_manifest_sha256": "a18e1ca9924e71ad4bfc112f3b976dfe39c03c953dd60b04040a2cf443760587",
+  "privacy_review": "Prior full public-payload review reusable only where payload bytes are identical; no backend key read.",
+  "private_account_inspection": "User asked agent to inspect; no connected Codex document sessions or authenticated browser tool available.",
+  "prompt_chars": 98268,
+  "protected_prior_files_unchanged": 2841,
+  "root_cause_403": "unknown",
+  "source_audits_passed": 36,
+  "status": "offline_preflight_passed_access_unknown_no_live_budget",
+  "test_files": [
+    "tests/hus/llm/test_v4_measurement.py",
+    "tests/hus/llm/test_access_failures.py"
+  ],
+  "tests": {
+    "errors": "0",
+    "failures": "0",
+    "hostname": "DESKTOP-T8GM5MN",
+    "name": "pytest",
+    "skipped": "0",
+    "tests": "61",
+    "time": "38.997",
+    "timestamp": "2026-11-13T15:27:04.127362+07:00"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "actual_target_verified": false,
+  "ai_consent_and_major_reset": null,
+  "browser_menu_and_natural_input": null,
+  "manual_acceptance": false,
+  "note": "Use a NEW receipt on the actual other machine; do not overwrite this local evidence.",
+  "operator": null,
+  "pdf_docx_web_ai_source_labels": null,
+  "reviewed_at": null,
+  "status": "pending_actual_target_machine",
+  "target_install_receipt_manifest_sha256": null,
+  "target_platform": "Windows64-bit/CPython3.11",
+  "transfer_manifest_sha256": "516ed1a635da08d752149c40c937d06468ae5fb1807f53774a2b135be5d9a00e",
+  "v4_v3_v4_rollback": null
+}

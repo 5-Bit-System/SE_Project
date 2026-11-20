@@ -1,0 +1,999 @@
+[
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2015",
+      "field": "careers",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-001",
+    "major_label": "Toán học",
+    "references": [
+      {
+        "chunk_id": "576a32614c1a16f7799e722bd1bd1313",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2015",
+        "field": "careers",
+        "major": "mathematics",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nCử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các\nviện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lý\nkinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm….;\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình\ntại các trường đại học, cao đẳng, trung học phổ thông.",
+        "quote_sha256": "4786363f65b769a096beb0cf46e60d69af18a5c5678c09c972965f8a52862346",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "program_variant": "standard",
+      "question": "Cho em hỏi cơ hội nghề nghiệp ngành Toán học như thế nào?",
+      "version": "2015"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2015",
+      "field": "further_study",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-002",
+    "major_label": "Toán học",
+    "references": [
+      {
+        "chunk_id": "bdc3538f018be0658be658d8ccaf6e8e",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2015",
+        "field": "further_study",
+        "major": "mathematics",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nChương trình đào tạo bậc đại học ngành Toán học chủ yếu cung cấp cho sinh viên\nnhững kiến thức, kỹ năng cơ bản và quan trọng hơn cả là phương pháp tư duy logic,\nphương pháp lập luận, phân tích và giải quyết vấn đề; phương pháp tư duy trừu tượng,\nmô hình hóa; phân tích, mô phỏng - thiết lập bài toán và sử dụng công cụ toán học để\ngiải quyết;\nNhững kỹ năng này là tiền đề để mỗi cá nhân người học có thể tiếp tục học, nâng\ncao trình độ trong lĩnh vực chuyên môn của mình, phù hợp với nhu cầu của bản thân,\ncủa công việc và của nền kinh tế.",
+        "quote_sha256": "c4178c4c02ce15fcad10468014f028c8d3fdf0c1e0dc8e16676b5033cd854f72",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "program_variant": "standard",
+      "question": "Khả năng học tiếp của sinh viên ngành Toán học ra sao?",
+      "version": "2015"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT2300",
+          "credits_in_source": 4,
+          "curriculum_id": 1,
+          "entry_id": 370,
+          "group_key": "IV.1",
+          "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "pdf_page": 9,
+          "prerequisite_parse_status": "none",
+          "prerequisite_source_text": null,
+          "source_row_number": 18
+        }
+      ],
+      "course_code": "MAT2300",
+      "course_name": "Đại số tuyến tính 1",
+      "dataset": "f2",
+      "field": "credits",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": 4
+    },
+    "family": "f2",
+    "id": "SV30-003",
+    "major_label": "Toán học",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "question": "MAT2300 có bao nhiêu tín chỉ?",
+      "version": "QD3565-2023"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT2300",
+          "credits_in_source": 4,
+          "curriculum_id": 1,
+          "entry_id": 370,
+          "group_key": "IV.1",
+          "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "pdf_page": 9,
+          "prerequisite_parse_status": "none",
+          "prerequisite_source_text": null,
+          "source_row_number": 18
+        }
+      ],
+      "course_code": "MAT2300",
+      "course_name": "Đại số tuyến tính 1",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": [
+        null
+      ]
+    },
+    "family": "f2",
+    "id": "SV30-004",
+    "major_label": "Toán học",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "question": "Theo chương trình đã lưu, tiên quyết của MAT2300 là gì?",
+      "version": "QD3565-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT2300",
+      "dataset": "f3",
+      "field": "content",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-005",
+    "major_label": "Toán học",
+    "references": [
+      {
+        "chunk_id": "278542bcc0625ae1afe5ebb3b97314f7",
+        "content_origin": "generated",
+        "course_code": "MAT2300",
+        "dataset": "f3",
+        "edition": "QD3565-2023",
+        "field": "content",
+        "major": "mathematics",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Ma trận và ánh xạ tuyến tính\nCác cột của ma trận là ảnh của vectơ cơ sở chuẩn, nhờ đó phép nhân ma trận biểu diễn tác động của ánh xạ lên mọi vectơ. Tích ma trận tương ứng hợp thành ánh xạ theo thứ tự, giải thích vì sao nhìn chung đổi thứ tự hai ma trận sẽ làm đổi kết quả.\nKhái niệm thành phần: cột ma trận; ánh xạ tuyến tính; hợp thành; ma trận đơn vị.\nVí dụ minh họa do AI biên soạn: Trong mặt phẳng, co theo một trục rồi quay thường cho kết quả khác quay trước rồi mới co theo trục cố định, phản ánh tính không giao hoán của tích ma trận.",
+        "quote_sha256": "2ecf04a4896046e1a1caa19fb138a1ffe37c483447bf7a8401f7a3fbe70c7571",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "question": "Nội dung MAT2300: Ma trận và ánh xạ tuyến tính?",
+      "version": "QD3565-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT2300",
+      "dataset": "f3",
+      "field": "objectives",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-006",
+    "major_label": "Toán học",
+    "references": [
+      {
+        "chunk_id": "769984449112d3dbc79420dabe7a33df",
+        "content_origin": "generated",
+        "course_code": "MAT2300",
+        "dataset": "f3",
+        "edition": "QD3565-2023",
+        "field": "objectives",
+        "major": "mathematics",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Mục tiêu tham khảo do AI đề xuất:\n- Giải thích cấu trúc nghiệm hệ tuyến tính bằng phần tử trụ và biến tự do.\n- Liên hệ phép nhân ma trận với tác động và hợp thành ánh xạ tuyến tính.\n- Phân biệt tập sinh, độc lập tuyến tính và cơ sở của không gian.\n- Diễn giải tọa độ theo cơ sở và ý nghĩa số chiều.\n- Phân tích hạt nhân, ảnh và hạng để nhận ra thông tin bị mất qua ánh xạ.",
+        "quote_sha256": "69f29c87120774b68f11358a8c41d971bcc077d122a50369809713fd2e2440ad",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "question": "Hồ sơ môn MAT2300 có mục tiêu học tập nào?",
+      "version": "QD3565-2023"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2015",
+      "field": "careers",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-007",
+    "major_label": "Toán tin",
+    "references": [
+      {
+        "chunk_id": "8a8318039dbb5d75c52bbdc90ad37955",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2015",
+        "field": "careers",
+        "major": "mathematics_informatics",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm việc tại các trung tâm, các việc nghiên cứu phát triển, các cơ quan quản\nlý kinh tế, tài chính, các cơ sở sản xuất, kinh doanh có sử dụng kiến thức Toán ứng\ndụng hay công nghệ thông tin\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực Toán học và Khoa học\nthông tin",
+        "quote_sha256": "f20f17ea25191e8ce40e4a37755cb01abca984cad3fdd5c4f1e06e4b43bb888a",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "program_variant": "standard",
+      "question": "Cho em hỏi cơ hội nghề nghiệp ngành Toán tin như thế nào?",
+      "version": "2015"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2015",
+      "field": "further_study",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-008",
+    "major_label": "Toán tin",
+    "references": [
+      {
+        "chunk_id": "658c9ab088735ae6c0d75ff4278f5bef",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2015",
+        "field": "further_study",
+        "major": "mathematics_informatics",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh\nvực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "quote_sha256": "c4a5953c080631636e1e4754b1e3e95a2880617013324d8005927968bb21cc3e",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "program_variant": "standard",
+      "question": "Khả năng học tiếp của sinh viên ngành Toán tin ra sao?",
+      "version": "2015"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT1202",
+          "credits_in_source": 3,
+          "curriculum_id": 2,
+          "entry_id": 425,
+          "group_key": "V.1",
+          "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT2505",
+          "source_row_number": 32
+        }
+      ],
+      "course_code": "MAT1202",
+      "course_name": "Lập trình hướng đối tượng",
+      "dataset": "f2",
+      "field": "credits",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": 3
+    },
+    "family": "f2",
+    "id": "SV30-009",
+    "major_label": "Toán tin",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "question": "MAT1202 có bao nhiêu tín chỉ?",
+      "version": "QD3567-2023"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT1202",
+          "credits_in_source": 3,
+          "curriculum_id": 2,
+          "entry_id": 425,
+          "group_key": "V.1",
+          "pdf_document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT2505",
+          "source_row_number": 32
+        }
+      ],
+      "course_code": "MAT1202",
+      "course_name": "Lập trình hướng đối tượng",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": [
+        "MAT2505"
+      ]
+    },
+    "family": "f2",
+    "id": "SV30-010",
+    "major_label": "Toán tin",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "question": "Theo chương trình đã lưu, tiên quyết của MAT1202 là gì?",
+      "version": "QD3567-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT1202",
+      "dataset": "f3",
+      "field": "content",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-011",
+    "major_label": "Toán tin",
+    "references": [
+      {
+        "chunk_id": "2a7593fe45600a82e5e97ee008ef7062",
+        "content_origin": "generated",
+        "course_code": "MAT1202",
+        "dataset": "f3",
+        "edition": "QD3567-2023",
+        "field": "content",
+        "major": "mathematics_informatics",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Giao diện và phân chia trách nhiệm\nGiao diện cho biết dịch vụ mà một đối tượng cung cấp mà không buộc nơi sử dụng biết chi tiết lưu trữ. Khi mỗi lớp giữ một trách nhiệm rõ, thay đổi trong một cơ chế có thể được giới hạn; liên kết chặt giữa nhiều lớp khiến tác động thay đổi lan rộng hơn.\nKhái niệm thành phần: giao diện; trách nhiệm; kết dính; phụ thuộc.\nVí dụ minh họa do AI biên soạn: Màn hình hiển thị gọi một giao diện tra cứu sách, nên chuyển kho dữ liệu từ tệp sang cơ sở dữ liệu không nhất thiết làm đổi mã hiển thị.",
+        "quote_sha256": "d149bcbfe1171f2294d38931011625bd06350b5341a02f11ac67b54052de66ca",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "question": "Nội dung MAT1202: Giao diện và phân chia trách nhiệm?",
+      "version": "QD3567-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT1202",
+      "dataset": "f3",
+      "field": "objectives",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-012",
+    "major_label": "Toán tin",
+    "references": [
+      {
+        "chunk_id": "a11c5aa67918002b773547a411164fca",
+        "content_origin": "generated",
+        "course_code": "MAT1202",
+        "dataset": "f3",
+        "edition": "QD3567-2023",
+        "field": "objectives",
+        "major": "mathematics_informatics",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt lớp và đối tượng, giải thích cách đóng gói duy trì bất biến.\n- Thiết kế giao diện theo trách nhiệm và nhận diện phụ thuộc giữa các lớp.\n- Giải thích đa hình cùng điều kiện để một kiểu chuyên biệt thay thế kiểu chung.\n- So sánh kế thừa với hợp thành và mô tả hành vi cần giữ khi đổi cài đặt.",
+        "quote_sha256": "b10bf51f261e68d5d4cfb37ed550356b16405892103400e48769a1476b6da8dc",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "question": "Hồ sơ môn MAT1202 có mục tiêu học tập nào?",
+      "version": "QD3567-2023"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2023",
+      "field": "careers",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-013",
+    "major_label": "KHMTTT",
+    "references": [
+      {
+        "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2023",
+        "field": "careers",
+        "major": "computer_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "quote_sha256": "aa532acc50beac93564dd3ba8a6dc973f13d9e81679826596021cbcf2ced6cb1",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "program_variant": "standard",
+      "question": "Cho em hỏi cơ hội nghề nghiệp ngành KHMTTT như thế nào?",
+      "version": "2023"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "2023",
+      "field": "further_study",
+      "program_variant": "standard",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-014",
+    "major_label": "KHMTTT",
+    "references": [
+      {
+        "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "2023",
+        "field": "further_study",
+        "major": "computer_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "standard",
+        "quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+        "quote_sha256": "0c02da82313bdcd5908fb4b91bc7e051566be62ccb575006297e06263efa6bb0",
+        "review_status": "include_markdown"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "program_variant": "standard",
+      "question": "Khả năng học tiếp của sinh viên ngành KHMTTT ra sao?",
+      "version": "2023"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT1204",
+          "credits_in_source": 3,
+          "curriculum_id": 3,
+          "entry_id": 499,
+          "group_key": "IV",
+          "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT3507\nMAT3514",
+          "source_row_number": 25
+        }
+      ],
+      "course_code": "MAT1204",
+      "course_name": "Phương pháp nghiên cứu khoa học",
+      "dataset": "f2",
+      "field": "credits",
+      "review_status": "verified",
+      "status": "answered",
+      "value": 3
+    },
+    "family": "f2",
+    "id": "SV30-015",
+    "major_label": "KHMTTT",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "MAT1204 có bao nhiêu tín chỉ?",
+      "version": "QD3568-2023"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT1204",
+          "credits_in_source": 3,
+          "curriculum_id": 3,
+          "entry_id": 499,
+          "group_key": "IV",
+          "pdf_document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT3507\nMAT3514",
+          "source_row_number": 25
+        }
+      ],
+      "course_code": "MAT1204",
+      "course_name": "Phương pháp nghiên cứu khoa học",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "review_status": "verified",
+      "status": "answered",
+      "value": [
+        "MAT3507\nMAT3514"
+      ]
+    },
+    "family": "f2",
+    "id": "SV30-016",
+    "major_label": "KHMTTT",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "Theo chương trình đã lưu, tiên quyết của MAT1204 là gì?",
+      "version": "QD3568-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT1204",
+      "dataset": "f3",
+      "field": "content",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-017",
+    "major_label": "KHMTTT",
+    "references": [
+      {
+        "chunk_id": "06a4f73df61f8a9493c5f7ee296b1824",
+        "content_origin": "generated",
+        "course_code": "MAT1204",
+        "dataset": "f3",
+        "edition": "QD3568-2023",
+        "field": "content",
+        "major": "computer_science",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.",
+        "quote_sha256": "672b8c17fbbac185174174db3f53f996dd57059f0e01ebeb94100dbeafbc74c9",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "Nội dung MAT1204: Tài liệu và cấu trúc bằng chứng?",
+      "version": "QD3568-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT1204",
+      "dataset": "f3",
+      "field": "objectives",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-018",
+    "major_label": "KHMTTT",
+    "references": [
+      {
+        "chunk_id": "d67623d24cfef0025ed78d77a87c41b1",
+        "content_origin": "generated",
+        "course_code": "MAT1204",
+        "dataset": "f3",
+        "edition": "QD3568-2023",
+        "field": "objectives",
+        "major": "computer_science",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Mục tiêu tham khảo do AI đề xuất:\n- Chuyển một mối quan tâm thành câu hỏi có đối tượng và phạm vi rõ ràng.\n- Đối chiếu tài liệu theo phương pháp, nguồn gốc và quan hệ giữa các kết quả.\n- Liên hệ thiết kế nghiên cứu với loại kết luận mà bằng chứng có thể hỗ trợ.\n- Tổ chức dữ liệu và báo cáo để giả định, kết quả và giới hạn có thể truy vết.",
+        "quote_sha256": "03fe42610ffb2cebec409f9cb820d7e7929bffb2b687256848787431aa767814",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "Hồ sơ môn MAT1204 có mục tiêu học tập nào?",
+      "version": "QD3568-2023"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "unknown",
+      "field": "careers",
+      "program_variant": "unknown",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-019",
+    "major_label": "KHDL",
+    "references": [
+      {
+        "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "unknown",
+        "field": "careers",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "unknown",
+        "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+        "quote_sha256": "49d254fb40f1397d5130f789d07506ba551df92bdd7eb5c1581435ed71110813",
+        "review_status": "include"
+      },
+      {
+        "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "unknown",
+        "field": "careers",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "unknown",
+        "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+        "quote_sha256": "4ce8b826782fb321aa9884625b45c6be818be693f6ad84f9a2e492be991895d8",
+        "review_status": "include"
+      },
+      {
+        "chunk_id": "940a3740794040de84617af7e9aa78fd",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "unknown",
+        "field": "careers",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "unknown",
+        "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+        "quote_sha256": "22784b4c33e771558fb5c3acee67f9a1e0e83b9e63e5d31ac020dcb166bc57e2",
+        "review_status": "include"
+      },
+      {
+        "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "unknown",
+        "field": "careers",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "unknown",
+        "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+        "quote_sha256": "97afc8563b45be8151d12f25386fee5bd21530b048b20c671cec43ee8b4bdae3",
+        "review_status": "include"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "program_variant": "unknown",
+      "question": "Cho em hỏi cơ hội nghề nghiệp ngành KHDL như thế nào?",
+      "version": "unknown"
+    }
+  },
+  {
+    "expected": {
+      "dataset": "f1",
+      "edition": "unknown",
+      "field": "further_study",
+      "program_variant": "unknown",
+      "status": "answered"
+    },
+    "family": "f1",
+    "id": "SV30-020",
+    "major_label": "KHDL",
+    "references": [
+      {
+        "chunk_id": "fff32c3b35802b8f2d4f999460bfe349",
+        "content_origin": "crawled_source_quote",
+        "course_code": null,
+        "dataset": "f1",
+        "edition": "unknown",
+        "field": "further_study",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+        "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e",
+        "program_variant": "unknown",
+        "quote": "Sau khi tốt nghiệp, sinh viên còn có khả năng theo học sau đại học tại các khoa hoặc các trường Đại học khác có uy tín trong nước cũng như trên thế giới, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường ĐH, viện nghiên cứu, doanh nghiệp và cơ sở sản xuất.",
+        "quote_sha256": "3cda98e9a8470875729ca0f3ee4fc7b615c0ce673e55b2fe06ecd5f2d28420d8",
+        "review_status": "include"
+      }
+    ],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "program_variant": "unknown",
+      "question": "Khả năng học tiếp của sinh viên ngành KHDL ra sao?",
+      "version": "unknown"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT2034",
+          "credits_in_source": 3,
+          "curriculum_id": 4,
+          "entry_id": 563,
+          "group_key": "V.1",
+          "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT2502\nMAT2403",
+          "source_row_number": 26
+        }
+      ],
+      "course_code": "MAT2034",
+      "course_name": "Giải tích số",
+      "dataset": "f2",
+      "field": "credits",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": 3
+    },
+    "family": "f2",
+    "id": "SV30-021",
+    "major_label": "KHDL",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "MAT2034 có bao nhiêu tín chỉ?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "canonical_source_rows": [
+        {
+          "course_code": "MAT2034",
+          "credits_in_source": 3,
+          "curriculum_id": 4,
+          "entry_id": 563,
+          "group_key": "V.1",
+          "pdf_document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+          "pdf_page": 10,
+          "prerequisite_parse_status": "normalized",
+          "prerequisite_source_text": "MAT2502\nMAT2403",
+          "source_row_number": 26
+        }
+      ],
+      "course_code": "MAT2034",
+      "course_name": "Giải tích số",
+      "dataset": "f2",
+      "field": "prerequisites",
+      "review_status": "draft_unverified",
+      "status": "answered",
+      "value": [
+        "MAT2502\nMAT2403"
+      ]
+    },
+    "family": "f2",
+    "id": "SV30-022",
+    "major_label": "KHDL",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "Theo chương trình đã lưu, tiên quyết của MAT2034 là gì?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT2034",
+      "dataset": "f3",
+      "field": "content",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-023",
+    "major_label": "KHDL",
+    "references": [
+      {
+        "chunk_id": "5b16ca4ecbf3c51d46d223c28f28607b",
+        "content_origin": "generated",
+        "course_code": "MAT2034",
+        "dataset": "f3",
+        "edition": "QD3569-2023",
+        "field": "content",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Nội suy và xấp xỉ hàm\nNội suy buộc hàm xấp xỉ đi qua các nút dữ liệu, còn chất lượng giữa các nút phụ thuộc độ trơn, vị trí nút và dạng hàm. Đa thức bậc cao trên các nút cách đều có thể dao động mạnh, nên chia khoảng và dùng đa thức từng đoạn thường là một lựa chọn quan trọng.\nKhái niệm thành phần: nút nội suy; đa thức nội suy; spline; dao động.\nVí dụ minh họa do AI biên soạn: Một đường nội suy đi chính xác qua mọi số đo vẫn có thể tạo đỉnh giả giữa hai điểm, cho thấy khớp tại nút chưa đủ bảo đảm hình dạng hợp lý.",
+        "quote_sha256": "e031fa0a4efb289c106eca53935bdf40738fb7ac4c65fde183c4392d86ebe9f8",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "Nội dung MAT2034: Nội suy và xấp xỉ hàm?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "AI_label_required": true,
+      "course_code": "MAT2034",
+      "dataset": "f3",
+      "field": "objectives",
+      "status": "answered"
+    },
+    "family": "f3",
+    "id": "SV30-024",
+    "major_label": "KHDL",
+    "references": [
+      {
+        "chunk_id": "dc3c5d60f038ff9f1b4578693d809949",
+        "content_origin": "generated",
+        "course_code": "MAT2034",
+        "dataset": "f3",
+        "edition": "QD3569-2023",
+        "field": "objectives",
+        "major": "data_science",
+        "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+        "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65",
+        "program_variant": "standard",
+        "quote": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt nguồn sai số, độ nhạy bài toán và tính ổn định thuật toán.\n- Giải thích điều kiện và hành vi hội tụ của phương pháp tìm nghiệm.\n- Liên hệ phân rã ma trận, chọn trụ và sai số dư khi giải hệ tuyến tính.\n- Phân tích ảnh hưởng của vị trí nút và độ trơn đến nội suy.\n- Diễn giải kết quả tích phân số cùng bước lưới và khả năng bỏ sót cấu trúc hàm.",
+        "quote_sha256": "e7679da516e4d665636cc842145bae1492ce87e0314391c4fcb6a92b0b9ee6fc",
+        "review_status": "needs_review"
+      }
+    ],
+    "request": {
+      "allow_generated_reference": true,
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "Hồ sơ môn MAT2034 có mục tiêu học tập nào?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "mode": "basic_chat"
+    },
+    "family": "control",
+    "id": "SV30-025",
+    "major_label": "Toán học",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics",
+      "question": "Xin chào bạn!"
+    }
+  },
+  {
+    "expected": {
+      "mode": "basic_chat"
+    },
+    "family": "control",
+    "id": "SV30-026",
+    "major_label": "KHMTTT",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "Chào bạn, chúc bạn một ngày tốt lành!"
+    }
+  },
+  {
+    "expected": {
+      "status": "needs_clarification"
+    },
+    "family": "control",
+    "id": "SV30-027",
+    "major_label": "KHDL",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "Môn đó có bao nhiêu tín chỉ?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "status": "no_information"
+    },
+    "family": "control",
+    "id": "SV30-028",
+    "major_label": "KHDL",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "data_science",
+      "question": "Số tín chỉ MAT9999?",
+      "version": "QD3569-2023"
+    }
+  },
+  {
+    "expected": {
+      "reason": "F3 permission not granted",
+      "status": "needs_clarification"
+    },
+    "family": "control",
+    "id": "SV30-029",
+    "major_label": "KHMTTT",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "computer_science",
+      "question": "Mục tiêu MAT1204?",
+      "version": "QD3568-2023"
+    }
+  },
+  {
+    "expected": {
+      "status": "no_information"
+    },
+    "family": "control",
+    "id": "SV30-030",
+    "major_label": "Toán tin",
+    "references": [],
+    "request": {
+      "allow_llm_rewrite": true,
+      "major": "mathematics_informatics",
+      "question": "Hãy chuyển tiền giúp tôi."
+    }
+  }
+]

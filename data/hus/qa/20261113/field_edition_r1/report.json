@@ -1,0 +1,67 @@
+{
+  "HUS_official_fields_promoted": 0,
+  "PDF_pages_rendered": 8,
+  "code_data_gold_old_review_changed": false,
+  "content_items": 18,
+  "current_A7S_L5r3_pins_match": true,
+  "date": "2026-11-13",
+  "existing_290_F3_records_unmodified": true,
+  "failed_capture_ids": [
+    "H02"
+  ],
+  "human_reviews": 0,
+  "independent_review": false,
+  "kind": "AI_item_reference_mapping_not_runtime_or_academic_approval",
+  "mappings": 36,
+  "new_google_calls": 0,
+  "new_successful_captures": 26,
+  "new_tests_added_or_run": false,
+  "objective_items": 18,
+  "pdf_images_viewed": 6,
+  "protected_prior_files_unchanged": 2867,
+  "q001_first_standard_intake_and_current_validity": "still_open",
+  "q001_new_binary_captured": true,
+  "q001_runtime_variant": "unknown",
+  "records": 4,
+  "replay": {
+    "current_pins_match": true,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "reused_captures": 2,
+  "review_manifest_sha256": "c31f9eb00b25083e7f44be985da51338363aed224cd3dd1ab46dacfaae68ad44",
+  "runtime_metadata_changed": false,
+  "runtime_release": "hus-data-20261111-v4",
+  "stage_commit_push_PR_Actions_deploy": false,
+  "status_counts": {
+    "core_supported": 15,
+    "open": 2,
+    "partial": 19
+  },
+  "status_definition": {
+    "core_supported": "Selected core concept has a specific reference anchor, not full sentence/example or HUS verification.",
+    "open": "No direct paragraph in checked selection; not proof claim is false.",
+    "partial": "Some concept support exists; the recorded remaining limits stay open."
+  },
+  "supplemental_reference_links_not_added_to_runtime_profiles": true,
+  "verification": "All36 snapshot item pointers/hashes and29 anchor ranges checked; cached replay/source validation, no runtime change.",
+  "verification_attempts": {
+    "answerer": 0,
+    "network": 0,
+    "provider": 0,
+    "search": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "dependencies": [
+    "requirements-rag.txt",
+    "requirements-lock.txt"
+  ],
+  "new_offline_kit_created": false,
+  "no_author_machine_dependency": true,
+  "old_kits": "Keep historical bytes; code predates scope/assessment repair. Build new revision only when handoff requested.",
+  "private_env_database_key_required": false,
+  "profile": {
+    "llm_enabled": false,
+    "release": "hus-data-20261111-v4",
+    "retrieval": "lexical"
+  },
+  "public_deploy": "Not requested; would require separate API/secret/load/health/log/rollback acceptance.",
+  "python": "3.11",
+  "self_check": "python -m tools.run_hus_rag --check",
+  "source_entrypoint": "python -m tools.run_hus_rag",
+  "submission_target_not_tested_this_turn": true
+}

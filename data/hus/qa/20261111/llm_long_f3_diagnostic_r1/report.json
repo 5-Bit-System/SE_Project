@@ -1,0 +1,759 @@
+{
+  "kind": "read-only exposed-development diagnostic; synthetic proofs, not model success",
+  "live_run": "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1",
+  "live_manifest_sha256": "37a8d2ec720c520d2ffe29f306b44792fa610be8e0ce92ce9b03c57d311ef249",
+  "stats": [
+    {
+      "id": "L5V4-Q001",
+      "major": "computer_science",
+      "field": null,
+      "stress": false,
+      "used": false,
+      "reason": "evidence_coverage",
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 631,
+        "prompt_tokens": 1061,
+        "total_tokens": 1692
+      },
+      "prompt_chars": 4152,
+      "quote_chars": 704,
+      "citations": 1,
+      "units": 7,
+      "source_sizes": [
+        704
+      ],
+      "source_unit_counts": [
+        7
+      ],
+      "whole_source_json_chars": 1505,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 708
+      },
+      "per_unit_json_chars": 2460,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 733
+      }
+    },
+    {
+      "id": "L5V4-Q002",
+      "major": "computer_science",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 208,
+        "prompt_tokens": 951,
+        "total_tokens": 1159
+      },
+      "prompt_chars": 3750,
+      "quote_chars": 324,
+      "citations": 1,
+      "units": 1,
+      "source_sizes": [
+        324
+      ],
+      "source_unit_counts": [
+        1
+      ],
+      "whole_source_json_chars": 725,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 328
+      },
+      "per_unit_json_chars": 725,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 328
+      }
+    },
+    {
+      "id": "L5V4-Q005",
+      "major": "computer_science",
+      "field": "content",
+      "stress": true,
+      "used": false,
+      "reason": "invalid_response",
+      "trace_error": "invalid_response",
+      "usage": {
+        "completion_tokens": 1020,
+        "prompt_tokens": 1853,
+        "total_tokens": 2873
+      },
+      "prompt_chars": 6597,
+      "quote_chars": 2246,
+      "citations": 4,
+      "units": 39,
+      "source_sizes": [
+        502,
+        589,
+        579,
+        576
+      ],
+      "source_unit_counts": [
+        9,
+        9,
+        10,
+        11
+      ],
+      "whole_source_json_chars": 4743,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 2268
+      },
+      "per_unit_json_chars": 12045,
+      "per_unit_check": {
+        "accepted": false,
+        "reason": "output_budget"
+      }
+    },
+    {
+      "id": "L5V4-Q006",
+      "major": "computer_science",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 191,
+        "prompt_tokens": 964,
+        "total_tokens": 1155
+      },
+      "prompt_chars": 3705,
+      "quote_chars": 254,
+      "citations": 1,
+      "units": 5,
+      "source_sizes": [
+        254
+      ],
+      "source_unit_counts": [
+        5
+      ],
+      "whole_source_json_chars": 593,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 258
+      },
+      "per_unit_json_chars": 769,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 278
+      }
+    },
+    {
+      "id": "L5V4-Q009",
+      "major": "data_science",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 495,
+        "prompt_tokens": 1326,
+        "total_tokens": 1821
+      },
+      "prompt_chars": 4783,
+      "quote_chars": 766,
+      "citations": 3,
+      "units": 4,
+      "source_sizes": [
+        354,
+        180,
+        232
+      ],
+      "source_unit_counts": [
+        2,
+        1,
+        1
+      ],
+      "whole_source_json_chars": 1705,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 782
+      },
+      "per_unit_json_chars": 1751,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 787
+      }
+    },
+    {
+      "id": "L5V4-Q010",
+      "major": "data_science",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 75,
+        "prompt_tokens": 897,
+        "total_tokens": 972
+      },
+      "prompt_chars": 3521,
+      "quote_chars": 97,
+      "citations": 1,
+      "units": 1,
+      "source_sizes": [
+        97
+      ],
+      "source_unit_counts": [
+        1
+      ],
+      "whole_source_json_chars": 271,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 101
+      },
+      "per_unit_json_chars": 271,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 101
+      }
+    },
+    {
+      "id": "L5V4-Q013",
+      "major": "data_science",
+      "field": "content",
+      "stress": true,
+      "used": false,
+      "reason": "evidence_coverage",
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 302,
+        "prompt_tokens": 1853,
+        "total_tokens": 2155
+      },
+      "prompt_chars": 6577,
+      "quote_chars": 2246,
+      "citations": 4,
+      "units": 39,
+      "source_sizes": [
+        502,
+        589,
+        579,
+        576
+      ],
+      "source_unit_counts": [
+        9,
+        9,
+        10,
+        11
+      ],
+      "whole_source_json_chars": 4743,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 2268
+      },
+      "per_unit_json_chars": 12045,
+      "per_unit_check": {
+        "accepted": false,
+        "reason": "output_budget"
+      }
+    },
+    {
+      "id": "L5V4-Q014",
+      "major": "data_science",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 284,
+        "prompt_tokens": 974,
+        "total_tokens": 1258
+      },
+      "prompt_chars": 3703,
+      "quote_chars": 262,
+      "citations": 1,
+      "units": 5,
+      "source_sizes": [
+        262
+      ],
+      "source_unit_counts": [
+        5
+      ],
+      "whole_source_json_chars": 609,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 266
+      },
+      "per_unit_json_chars": 785,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 286
+      }
+    },
+    {
+      "id": "L5V4-Q017",
+      "major": "mathematics",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 108,
+        "prompt_tokens": 896,
+        "total_tokens": 1004
+      },
+      "prompt_chars": 3531,
+      "quote_chars": 105,
+      "citations": 1,
+      "units": 1,
+      "source_sizes": [
+        105
+      ],
+      "source_unit_counts": [
+        1
+      ],
+      "whole_source_json_chars": 287,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 109
+      },
+      "per_unit_json_chars": 287,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 109
+      }
+    },
+    {
+      "id": "L5V4-Q018",
+      "major": "mathematics",
+      "field": null,
+      "stress": false,
+      "used": false,
+      "reason": "invalid_output",
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 228,
+        "prompt_tokens": 995,
+        "total_tokens": 1223
+      },
+      "prompt_chars": 3864,
+      "quote_chars": 448,
+      "citations": 1,
+      "units": 7,
+      "source_sizes": [
+        448
+      ],
+      "source_unit_counts": [
+        7
+      ],
+      "whole_source_json_chars": 983,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 452
+      },
+      "per_unit_json_chars": 1700,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 482
+      }
+    },
+    {
+      "id": "L5V4-Q021",
+      "major": "mathematics",
+      "field": "content",
+      "stress": true,
+      "used": false,
+      "reason": "invalid_response",
+      "trace_error": "invalid_response",
+      "usage": {
+        "completion_tokens": 1020,
+        "prompt_tokens": 2005,
+        "total_tokens": 3025
+      },
+      "prompt_chars": 6912,
+      "quote_chars": 2285,
+      "citations": 5,
+      "units": 41,
+      "source_sizes": [
+        395,
+        399,
+        412,
+        622,
+        457
+      ],
+      "source_unit_counts": [
+        8,
+        8,
+        8,
+        10,
+        7
+      ],
+      "whole_source_json_chars": 4875,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 2313
+      },
+      "per_unit_json_chars": 9935,
+      "per_unit_check": {
+        "accepted": false,
+        "reason": "output_budget"
+      }
+    },
+    {
+      "id": "L5V4-Q022",
+      "major": "mathematics",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 163,
+        "prompt_tokens": 964,
+        "total_tokens": 1127
+      },
+      "prompt_chars": 3683,
+      "quote_chars": 244,
+      "citations": 1,
+      "units": 5,
+      "source_sizes": [
+        244
+      ],
+      "source_unit_counts": [
+        5
+      ],
+      "whole_source_json_chars": 573,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 248
+      },
+      "per_unit_json_chars": 749,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 268
+      }
+    },
+    {
+      "id": "L5V4-Q025",
+      "major": "mathematics_informatics",
+      "field": null,
+      "stress": false,
+      "used": true,
+      "reason": null,
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 259,
+        "prompt_tokens": 960,
+        "total_tokens": 1219
+      },
+      "prompt_chars": 3800,
+      "quote_chars": 351,
+      "citations": 1,
+      "units": 2,
+      "source_sizes": [
+        351
+      ],
+      "source_unit_counts": [
+        2
+      ],
+      "whole_source_json_chars": 779,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 355
+      },
+      "per_unit_json_chars": 825,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 360
+      }
+    },
+    {
+      "id": "L5V4-Q026",
+      "major": "mathematics_informatics",
+      "field": null,
+      "stress": false,
+      "used": false,
+      "reason": "evidence_coverage",
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 166,
+        "prompt_tokens": 1092,
+        "total_tokens": 1258
+      },
+      "prompt_chars": 4199,
+      "quote_chars": 439,
+      "citations": 2,
+      "units": 2,
+      "source_sizes": [
+        296,
+        143
+      ],
+      "source_unit_counts": [
+        1,
+        1
+      ],
+      "whole_source_json_chars": 1003,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 449
+      },
+      "per_unit_json_chars": 1003,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 449
+      }
+    },
+    {
+      "id": "L5V4-Q029",
+      "major": "mathematics_informatics",
+      "field": "content",
+      "stress": true,
+      "used": false,
+      "reason": "invalid_response",
+      "trace_error": "invalid_response",
+      "usage": {
+        "completion_tokens": 1020,
+        "prompt_tokens": 1858,
+        "total_tokens": 2878
+      },
+      "prompt_chars": 6632,
+      "quote_chars": 2246,
+      "citations": 4,
+      "units": 39,
+      "source_sizes": [
+        502,
+        589,
+        579,
+        576
+      ],
+      "source_unit_counts": [
+        9,
+        9,
+        10,
+        11
+      ],
+      "whole_source_json_chars": 4743,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 2268
+      },
+      "per_unit_json_chars": 12045,
+      "per_unit_check": {
+        "accepted": false,
+        "reason": "output_budget"
+      }
+    },
+    {
+      "id": "L5V4-Q030",
+      "major": "mathematics_informatics",
+      "field": null,
+      "stress": false,
+      "used": false,
+      "reason": "evidence_coverage",
+      "trace_error": null,
+      "usage": {
+        "completion_tokens": 322,
+        "prompt_tokens": 967,
+        "total_tokens": 1289
+      },
+      "prompt_chars": 3711,
+      "quote_chars": 248,
+      "citations": 1,
+      "units": 5,
+      "source_sizes": [
+        248
+      ],
+      "source_unit_counts": [
+        5
+      ],
+      "whole_source_json_chars": 581,
+      "whole_source_check": {
+        "accepted": true,
+        "reply_chars": 252
+      },
+      "per_unit_json_chars": 757,
+      "per_unit_check": {
+        "accepted": true,
+        "reply_chars": 272
+      }
+    }
+  ],
+  "stress_proofs": [
+    {
+      "id": "L5V4-Q005",
+      "points": 39,
+      "schema_failures": [
+        {
+          "type": "too_long",
+          "loc": [
+            "points"
+          ]
+        }
+      ],
+      "all_context_exact_copy_accepted": true,
+      "omit_first_source_rejected": "evidence_coverage",
+      "summed_anchor_chars_per_unit": 7903,
+      "summed_text_chars_per_unit": 2211
+    },
+    {
+      "id": "L5V4-Q013",
+      "points": 39,
+      "schema_failures": [
+        {
+          "type": "too_long",
+          "loc": [
+            "points"
+          ]
+        }
+      ],
+      "all_context_exact_copy_accepted": true,
+      "omit_first_source_rejected": "evidence_coverage",
+      "summed_anchor_chars_per_unit": 7903,
+      "summed_text_chars_per_unit": 2211
+    },
+    {
+      "id": "L5V4-Q021",
+      "points": 41,
+      "schema_failures": [
+        {
+          "type": "too_long",
+          "loc": [
+            "points"
+          ]
+        }
+      ],
+      "all_context_exact_copy_accepted": true,
+      "omit_first_source_rejected": "evidence_coverage",
+      "summed_anchor_chars_per_unit": 5662,
+      "summed_text_chars_per_unit": 2249
+    },
+    {
+      "id": "L5V4-Q029",
+      "points": 39,
+      "schema_failures": [
+        {
+          "type": "too_long",
+          "loc": [
+            "points"
+          ]
+        }
+      ],
+      "all_context_exact_copy_accepted": true,
+      "omit_first_source_rejected": "evidence_coverage",
+      "summed_anchor_chars_per_unit": 7903,
+      "summed_text_chars_per_unit": 2211
+    }
+  ],
+  "q022": {
+    "reconstructed_saved_display_with_full_anchor_accepted": true,
+    "verbatim_bullets_accepted": true,
+    "dropped_last_bullet_rejected": "evidence_coverage",
+    "original_provider_json_retained": false,
+    "canonical_bullets": 4,
+    "no_list_shape_check_in_current_validator": true
+  },
+  "invalid_response_ambiguity_mock_proofs": [
+    {
+      "synthetic_envelope": "non_stop_finish",
+      "client_error": "invalid_response"
+    },
+    {
+      "synthetic_envelope": "empty_content",
+      "client_error": "invalid_response"
+    },
+    {
+      "synthetic_envelope": "tool_call",
+      "client_error": "invalid_response"
+    },
+    {
+      "synthetic_envelope": "missing_model",
+      "client_error": "invalid_response"
+    },
+    {
+      "synthetic_envelope": "missing_choices",
+      "client_error": "invalid_response"
+    }
+  ],
+  "new_google_calls": 0,
+  "synthetic_transport_calls": 5,
+  "new_retrieval_calls": 0,
+  "old_runs_reproduced": 2,
+  "protected_files_unchanged": 2550,
+  "prepared_r3_pins_match": true,
+  "limits": [
+    "No rejected provider raw content or finish_reason was retained in old trace.",
+    "Character measurements are not token predictions or proof of token truncation.",
+    "Per-unit JSON is one literal construction, not a minimum for all valid encodings.",
+    "Synthetic exact-copy acceptance proves contract feasibility only, not generation quality.",
+    "Cases are exposed; MAT3148 shared by three majors is not three independent concepts."
+  ],
+  "date": "2026-11-11",
+  "branch": "hus-llm-rag",
+  "sizing_sketch": {
+    "sizing_examples": [
+      {
+        "id": "L5V4-Q005",
+        "display_leaves": 19,
+        "compact_exact_copy_json_chars": 2710,
+        "scope": "sizing sketch only; not validated or generated; not a token prediction"
+      },
+      {
+        "id": "L5V4-Q013",
+        "display_leaves": 19,
+        "compact_exact_copy_json_chars": 2710,
+        "scope": "sizing sketch only; not validated or generated; not a token prediction"
+      },
+      {
+        "id": "L5V4-Q021",
+        "display_leaves": 23,
+        "compact_exact_copy_json_chars": 2842,
+        "scope": "sizing sketch only; not validated or generated; not a token prediction"
+      },
+      {
+        "id": "L5V4-Q022",
+        "display_leaves": 5,
+        "compact_exact_copy_json_chars": 383,
+        "scope": "sizing sketch only; not validated or generated; not a token prediction"
+      },
+      {
+        "id": "L5V4-Q029",
+        "display_leaves": 19,
+        "compact_exact_copy_json_chars": 2710,
+        "scope": "sizing sketch only; not validated or generated; not a token prediction"
+      }
+    ],
+    "whole_f3_record_fields": 580,
+    "max_display_leaves_whole_field": 28,
+    "max_coverage_units_whole_field": 55,
+    "no_retrieval_or_provider": true,
+    "not_prompt_budget_or_generation_acceptance": true
+  },
+  "selected_approach": "Continue rewriting with compact source IDs and preserve bullets; user selected explicitly.",
+  "design_status": "builder-reviewed proposal; detailed design awaits user approval; not implemented",
+  "design": "docs/superpowers/specs/2026-11-11-hus-llm-compact-layout-design.md",
+  "builder_review": {
+    "user_only_decisions": 0,
+    "clarifications_applied": [
+      "LF/CRLF leaf boundaries preserve full coverage units",
+      "Extended anchors do not expand allowed atom authority",
+      "Output order independent; rendered order canonical",
+      "Literal markers/indentation, text caps and per-call mapping explicit"
+    ],
+    "implementation_review_or_semantic_acceptance": false
+  },
+  "runtime_source_retrieval_prompt_changed": false,
+  "defaults": {
+    "retrieval": "lexical",
+    "llm_enabled": false
+  },
+  "old_budget_exhausted": true,
+  "new_live_cohort_or_budget_authorized": false,
+  "analysis_script_sha256": {
+    "analyze.py": "e81b1fd964cc1fbb5a295136fe3e3015c5af14fdadf87045a44730deaaa7285f",
+    "prove.py": "26ff949adbf2012702dab84fd153e4aa471cd324932e3543151de9106e28b3e9",
+    "shape_sizes.py": "4a5da35ff1b776496ba8067e9d42daa6db6c152d0d5d1387cb0874499e415df0"
+  },
+  "commit_push_deploy": false
+}

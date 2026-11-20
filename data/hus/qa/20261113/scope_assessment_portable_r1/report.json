@@ -1,0 +1,119 @@
+{
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "candidate": {
+    "attempts": {
+      "freeze_answerer": 0,
+      "freeze_retrieval": 0,
+      "network": 0,
+      "provider": 0
+    },
+    "candidate": "data/hus/evaluation/candidates/a7_scope_assessment_20261113_r1",
+    "frozen_at_utc": "2026-11-13T04:43:52.414931+00:00",
+    "human_reviews": 0,
+    "independent_acceptance": false,
+    "manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+    "prediction_runs": 0,
+    "prior_a7_target_identity_reuse": 6,
+    "prior_cohort_now_dev": {
+      "manifest_sha256": "f6dc71af1a0110a304a90d9c905b43c91875b437a68bce293c88d34075eef7bf",
+      "path": "data/hus/evaluation/a7_after_followup_20261112_r1",
+      "reason": "Used to guide scope/assessment repairs. Original frozen bytes and score remain unchanged."
+    },
+    "questions": 48,
+    "source_evidence": 36,
+    "wording_overlap": 0
+  },
+  "candidate_current_pins_match": true,
+  "candidate_new_tests": 5,
+  "changes_local_not_published": true,
+  "commit_push_deploy": false,
+  "date": "2026-11-13",
+  "dev_diagnostic_changed_only": [
+    "A7F-Q002",
+    "A7F-Q011"
+  ],
+  "dev_f2_exact_unchanged": 12,
+  "github_actions_executed": false,
+  "historical_A7_scores_not_regraded": {
+    "complete": "34/36",
+    "controls": "11/12",
+    "routed_recall_at_5": "24/24"
+  },
+  "l6": "keep_disabled",
+  "new_google_calls": 0,
+  "old_l5_prepared_r2_stale_after_runtime_fix": true,
+  "old_windows_kits_unchanged_and_pre_fix": true,
+  "other_os_verified": false,
+  "portable_windows_check": {
+    "api_cases": 20,
+    "backups_present": false,
+    "dependency_install": "25 previously verified local wheels, offline; normal quickstart can use pip index.",
+    "different_unicode_path_and_working_directory": true,
+    "environment": {
+      "fresh_venv": true,
+      "python": "3.11.9",
+      "system": "Windows",
+      "user_site": false
+    },
+    "full_regression_suite": false,
+    "git_present": false,
+    "github_actions_executed": false,
+    "inherited_bad_settings_overridden": true,
+    "menu_items": 2124,
+    "new_google_calls": 0,
+    "other_os_verified": false,
+    "pip_check_passed": true,
+    "private_env_files_present": false,
+    "runtime_external_or_provider_allowed": false,
+    "source": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_scope_assessment_fix_20261113\\fresh checkout λ",
+    "source_export_method": "Current explicit public allowlist plus quickstart; source export, not a remote Git clone.",
+    "source_files": 215
+  },
+  "profile": {
+    "llm_enabled": false,
+    "release": "hus-data-20261111-v4",
+    "retrieval": "lexical"
+  },
+  "regression_suites": [
+    {
+      "errors": "0",
+      "failures": "0",
+      "file": "runtime-r2.xml",
+      "hostname": "DESKTOP-T8GM5MN",
+      "name": "pytest",
+      "sha256": "88f8b2ccc31fc38cb5022ca4e0068829a65292a0a485c34ef73c7f1385677d37",
+      "skipped": "0",
+      "tests": "656",
+      "time": "394.232",
+      "timestamp": "2026-11-13T11:37:00.188481+07:00"
+    },
+    {
+      "errors": "0",
+      "failures": "0",
+      "file": "llm-r1.xml",
+      "hostname": "DESKTOP-T8GM5MN",
+      "name": "pytest",
+      "sha256": "f589e63064e0cd2184925244f90c6300a04b6e11518870963096bfc237c5a41a",
+      "skipped": "0",
+      "tests": "525",
+      "time": "136.463",
+      "timestamp": "2026-11-13T11:37:00.696486+07:00"
+    },
+    {
+      "errors": "0",
+      "failures": "0",
+      "file": "evaluation-portable-r1.xml",
+      "hostname": "DESKTOP-T8GM5MN",
+      "name": "pytest",
+      "sha256": "08c14537e02dd17956753fab89f23a989ac166091672232febceeb82cee06106",
+      "skipped": "0",
+      "tests": "98",
+      "time": "45.750",
+      "timestamp": "2026-11-13T11:40:27.369038+07:00"
+    }
+  ],
+  "scope_assessment_new_tests": 47,
+  "suites_overlap_do_not_sum": true,
+  "workflow_structure_checked": true
+}

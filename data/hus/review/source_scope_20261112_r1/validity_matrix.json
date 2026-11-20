@@ -1,0 +1,33 @@
+[
+  {
+    "apply_to_runtime": false,
+    "decision": "historical_year_supported_variant_pending",
+    "id": "q001"
+  },
+  {
+    "apply_to_runtime": false,
+    "cover_declares": "2385/QĐ-ĐHKHTN 31/07/2024; relates to 3568/QĐ-ĐHKHTN 18/10/2023; standard",
+    "decision": "declared_relation_reobserved_not_complete_current_validity_or_field_approval",
+    "id": "CS2024"
+  },
+  {
+    "apply_to_runtime": false,
+    "cover_declares": "Toán Tin 7460117, Hà Nội2021",
+    "decision": "separate_edition_no_verified_2021_to_2023_adoption",
+    "id": "MI2021"
+  },
+  {
+    "apply_to_runtime": false,
+    "decision": "TOC MAT1208 vs embedded header MAT1202; existing erratum persists. No automatic OOP mapping.",
+    "id": "CS-embedded-code",
+    "pages": [
+      2,
+      162
+    ]
+  },
+  {
+    "apply_to_runtime": false,
+    "decision": "catalog identity not syllabus/content/assessment/current-validity approval",
+    "id": "AI-F3"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "authorization_sha256": "352b403420497cf2c99ded6684fb08d6f2b1b17126d172faa94104d8c376352f",
+  "baseline_response_sha256": "c0daf9bab2315e1e54d299521947c8246ba2aac1e0afadada61138c264990e7b",
+  "body_sha256": "0754938a4cfa77987e6434a01b8e8ca59bef37f44b167fc5fb4e01e38180251f",
+  "current_pins_match": true,
+  "current_pins_sha256": "0cee4835cb0d5bd799b54b9ce0c8e437a220cdf371e02a9cd8963dd8a8b1baa7",
+  "key_read": false,
+  "max_calls": 1,
+  "new_cohort_live_budget": false,
+  "old_A_requests_effective_retrieval_gold_prompt_audits_identical": true,
+  "output_token_cap": 1024,
+  "payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r5",
+  "prepared_manifest_sha256": "b63724a77396f582d29a75fcf17ada48a16592ecdd3bb5b7870215aed76b35b6",
+  "prompt_chars": 3607,
+  "prompt_sha256": "d0acd06dae285c783aed132cef10aab754124088bc5bbc8826a979699e0fb329",
+  "protected_files_unchanged": 2949,
+  "question_id": "L5V4-Q001",
+  "records": 36,
+  "socket_provider_attempts": {
+    "provider": 0,
+    "socket": 0
+  },
+  "source_audits": 36
+}

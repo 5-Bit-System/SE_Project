@@ -1,0 +1,9 @@
+{
+  "files_sha256": {
+    "freeze.json": "ad68940fcd0abdbd381805c9a66098840105b885542172fce3436af66ec5e666",
+    "issues.json": "3332d5c4d1845e882f4b93bde59937b542a12a1c81ca7905eb28310dc1757eb3",
+    "report.json": "289e738b808f78dbae44f9ff899ffc0933ccd61705bd41c62094859d85e16a23",
+    "verification.json": "cc54c5dc6bdd45e9c1ccba118e91a175cf124bb63a2178d7ffa43619966a3bb1"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

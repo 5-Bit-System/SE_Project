@@ -1,0 +1,13 @@
+﻿id,major,selected_version,question,status,diagnostic,sources,reviewer,review_date,correct_intent,complete,facts_correct,sources_correct,notes
+FREE-01,mathematics,QD3565-2023,Em tốt nghiệp Toán học rồi thì có thể làm những công việc gì?,no_information,evidence_rejected,,,,,,,,
+FREE-02,mathematics_informatics,QD3567-2023,"Học xong ngành Toán tin, em có thể làm việc trong lĩnh vực nào?",answered,,Ngành Toán Tin,,,,,,,
+FREE-03,mathematics,QD3565-2023,"Trong khung Toán học, học phần Đại số tuyến tính 1 được ghi mấy tín chỉ?",answered,,101. Toán học-chuẩn final QD 3565 Scan.pdf,,,,,,,
+FREE-04,computer_science,QD3568-2023,Cho em biết số tín chỉ được ghi cho học phần MAT1204 trong chương trình KHMTTT nhé.,answered,,104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf,,,,,,,
+FREE-05,mathematics_informatics,QD3567-2023,Trước khi học Lập trình hướng đối tượng thì em cần hoàn thành môn nào?,no_information,routing_unknown,,,,,,,,
+FREE-06,data_science,QD3569-2023,"Trước khi học MAT3533, phải hoàn thành học phần nào trước?",answered,,105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf,,,,,,,
+FREE-07,mathematics_informatics,QD3567-2023,"Trong nội dung MAT1202, đóng gói giúp bảo vệ trạng thái đối tượng như thế nào?",answered,,kiến thức AI — MAT1202 — Lập trình hướng đối tượng,,,,,,,
+FREE-08,data_science,QD3569-2023,MAT3533 học gì về mô hình khớp quá sát dữ liệu huấn luyện?,answered,,kiến thức AI — MAT3533 — Học máy,,,,,,,
+FREE-09,data_science,QD3569-2023,"Trong khung KHMTTT, học phần MAT1204 được tính mấy tín chỉ?",no_information,scope_conflict,,,,,,,,
+FREE-10,mathematics_informatics,QD3567-2023,"Trong phần học MAT1202, lớp và đối tượng khác nhau như thế nào?",no_information,routing_unknown,,,,,,,,
+FREE-11,mathematics,QD3565-2023,Bài thi cuối kỳ của Đại số tuyến tính 1 chiếm mấy phần trăm?,no_information,evidence_unavailable,,,,,,,,
+FREE-12,mathematics,QD3565-2023,Khung đã lưu ghi gì về học phần cần hoàn thành trước khi học MAT2300?,answered,,101. Toán học-chuẩn final QD 3565 Scan.pdf,,,,,,,

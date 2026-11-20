@@ -1,0 +1,24 @@
+{
+  "authorship": "Codex(AI) receipt analysis, not human content acceptance",
+  "calls": 11,
+  "budget_limit": 12,
+  "unused_calls": 1,
+  "cohort_closed_no_retry_or_rollover": true,
+  "interpretation_calls": 4,
+  "generation_calls": 7,
+  "generation_used": 6,
+  "positive_api_errors": 1,
+  "positive_clarifications": 1,
+  "offline_fallback": 0,
+  "controls": 4,
+  "controls_provider_calls": 0,
+  "input_tokens": 21316,
+  "output_tokens": 653,
+  "provider_seconds_total": 15.391950400022324,
+  "models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "human_review_pending": 12,
+  "latency_note": "wall includes pacing; per-call provider_ms excludes pacing; no individual HTTP start timestamps",
+  "live_manifest_sha256": "3618cebce80c052b4969633da6f591ad2830cb2678dbab01b0a9f3a109e9c2f3"
+}

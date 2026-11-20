@@ -1,0 +1,422 @@
+{
+  "kind": "offline source preflight; no live measurement or semantic acceptance",
+  "source_prepared_artifact": "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r1",
+  "source_prepared_manifest_sha256": "aa055808a6dbcb7bbab45b041c673405b217f6e911428d7ddfba70db3d487df4",
+  "reviewed_oracle_sha256": "b41be90d9f350e1166a03ed0eeaec17c58d3049421e95f1d66172b87bd18925e",
+  "cases": 36,
+  "source_audits_passed": 35,
+  "source_audits_failed": 1,
+  "ready_for_live": false,
+  "protected_old_files_unchanged": 2516,
+  "new_provider_calls": 0,
+  "actual_human_reviews": 0,
+  "old_gold_or_runs_modified": false,
+  "rows": [
+    {
+      "question_id": "L5V4-Q001",
+      "family": "f1",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "c0daf9bab2315e1e54d299521947c8246ba2aac1e0afadada61138c264990e7b",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q002",
+      "family": "f1",
+      "major": "computer_science",
+      "audit": {
+        "passed": false,
+        "error": "AssertionError"
+      },
+      "baseline_sha256": "22a1884c6befca211dbf7dd14c4bbe540cd1f82b82924b51a11d25497ca79986",
+      "missing_pinned_chunk_targets": [
+        "4ab7e793d9bac7880f909865fbe1e67c"
+      ]
+    },
+    {
+      "question_id": "L5V4-Q003",
+      "family": "f2",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "63d2bd352ca313e500a1cc4a0d6cd2125a47fb70a62e60c6b67c1ca688d8eb26",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q004",
+      "family": "f2",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "e5f045aa4dba7b1b70e955e8f80d2c331eda0db06d10cf29a8f9baf2654a326f",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q005",
+      "family": "f3",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "15133a77f8530793947fc1b55971215ea9d5cf4d76a0cdeb3a087b99693e4537",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q006",
+      "family": "f3",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "0991e826ae791b75099d35945f31ee83fa5bb9333701a91901c775aa1d7ef1e2",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q007",
+      "family": "opt_in_required",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "0f90c371809dd03dc81f76573961147e18b59b16f9b55ef07185df5d6d78d7e2",
+      "missing_pinned_chunk_targets": [
+        "bdb9862b8c0ee1cefe0eda02367742be"
+      ]
+    },
+    {
+      "question_id": "L5V4-Q008",
+      "family": "missing_evidence",
+      "major": "computer_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "0022cded77a8fbf9986147a8bc63cbd5e86cd87e2f38c96ec6937e8867fdde0d",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q009",
+      "family": "f1",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "e31d2714c385ec23a297f0bf3722d58017d0324c3995052c10f773147b2928e0",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q010",
+      "family": "f1",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "9e58b9308b5b1f0a7812d67dade36bc3b7f861cc66c670480d9dfbcf2e0d739c",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q011",
+      "family": "f2",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "ea4f30d9a1364af5e4f206a7f6955cac730c633876f21c619204fc6b6af55d52",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q012",
+      "family": "f2",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "de1b62a12430b0d6acca0828ee33a5ac6647fb4bb1f03e10c2755546295f34c1",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q013",
+      "family": "f3",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "3b96e2237123ffa5362b336b804c05c8cd525ce751aba0a1e4fa224edbb163df",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q014",
+      "family": "f3",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "878a26a0a9d0dc461ab185b4d6185d0e8206f7caa9476b0db39430c68e7c9ca2",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q015",
+      "family": "opt_in_required",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "873313d415a522d1b78213d9de6389878de4ba84232091b43759f38928ee8f10",
+      "missing_pinned_chunk_targets": [
+        "fd841fdc43517b61933d212e9c27522e"
+      ]
+    },
+    {
+      "question_id": "L5V4-Q016",
+      "family": "missing_evidence",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "c5a918d50d3dab1beb116ad459696c800f933fcb55e57515e2149c04262ee07a",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q017",
+      "family": "f1",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "fc2c5b74e83c6c41c9f51ca1dc4b3fc2c2c747d934141941a2f8c597baba3728",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q018",
+      "family": "f1",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "5c6a0564295b8403957148500261735b33f2f89ed28e68d8037dddf6a4cb8846",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q019",
+      "family": "f2",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "e7e6273277285032a374d62207cc67993c0906c8b2f534cc0d780f2ff7917a09",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q020",
+      "family": "f2",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "6e27403244b43b23f8ca0ca949315248c2d4d058729d605a733f96359a146fd2",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q021",
+      "family": "f3",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "6039228428b18c30332f412f19d4abfef318af708150a0197dc99955667c2e08",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q022",
+      "family": "f3",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "9fe05a83e59436d851ed9fccc1ef42e6bd1ee6413a6d4209544657e62d597e58",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q023",
+      "family": "opt_in_required",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "b0369be6c4c20827dd1678d9f8c11abdfcd43c4aa34cf95ec09262fbbe7b382d",
+      "missing_pinned_chunk_targets": [
+        "c7cce301e6e42fec27b386450f36d3c7"
+      ]
+    },
+    {
+      "question_id": "L5V4-Q024",
+      "family": "out_of_scope",
+      "major": "mathematics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "dc5fa6c88ff33e4de332d20e5c77863ec8943563ea3df4c0eb7d4e671f9222ec",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q025",
+      "family": "f1",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "87996fee8214f1fc43821c95976062d345fd1a77ffeb425ba013fe24011671c6",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q026",
+      "family": "f1",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "a58ea85f423dc4b758f47902fa2ae8e344767f645723e8a2fcbd9391ceb4812b",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q027",
+      "family": "f2",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "019a9da4fbfa3f0bb64df98bbdbd34178f1248bc2dc31893d241ebff516a069b",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q028",
+      "family": "f2",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "713c80b72c26d2fa1bf4c8e04df7180c627569fd8f711e7d5688c5e0f4058013",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q029",
+      "family": "f3",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "3987fb5ee4b682627a6ceb787cc8e9a81b0d753fa4777719ae1f73692a12562c",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q030",
+      "family": "f3",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "594ab65b445407bc76324677a813c27e8f719db6be492ca0b1129950ffe63bac",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q031",
+      "family": "opt_in_required",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "ac2304d7f70ffc0b373743285e7fb1214988332aa549be81424f84fc48036c9e",
+      "missing_pinned_chunk_targets": [
+        "24e1b8299a882d81da8a61ca3a7858bf"
+      ]
+    },
+    {
+      "question_id": "L5V4-Q032",
+      "family": "out_of_scope",
+      "major": "mathematics_informatics",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "f48286b6ad72eebc42b3b28bb576e0cb7f6b301726f589e18410358926127d90",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q033",
+      "family": "clarification_required",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "99afc875893b736dc7e3080a88666c77ffa3ada8755fb5c84e83a4c0d5fa75ab",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q034",
+      "family": "clarification_required",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "124345c4b19d201f7bb0870d7d1700db4cea94bc0848af265f5269a8c85dd6cd",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q035",
+      "family": "basic_chat",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "c013c11bc7ecbb9f631b1192f859682b2694f9d703766022cd09fa572f565878",
+      "missing_pinned_chunk_targets": []
+    },
+    {
+      "question_id": "L5V4-Q036",
+      "family": "basic_chat",
+      "major": "data_science",
+      "audit": {
+        "passed": true,
+        "kind": "source_integrity_not_semantic_review"
+      },
+      "baseline_sha256": "c77914c319d4d019c12bfebacc981d94a8c68d902a7988304a006992e6667d20",
+      "missing_pinned_chunk_targets": []
+    }
+  ]
+}

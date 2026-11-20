@@ -1,0 +1,1597 @@
+{
+  "id": "HN20-009",
+  "request": {
+    "question": "Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",
+    "major": "mathematics_informatics",
+    "version": "QD3567-2023",
+    "allow_generated_reference": true,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f3",
+    "field": "content",
+    "course_code": "MAT1202",
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "571f815f9fbe0e6d32d0c4061c1273d5"
+    ]
+  },
+  "raw_question_route": [
+    "f3",
+    "content"
+  ],
+  "order": [
+    "lexical",
+    "hybrid"
+  ],
+  "modes": {
+    "lexical": {
+      "retrieval_calls": [
+        {
+          "query": "Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",
+          "scope": {
+            "dataset": "f3",
+            "major": "mathematics_informatics",
+            "version": "QD3567-2023",
+            "course_code": "MAT1202",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "seconds": 0.002769000013358891,
+          "hits": [
+            {
+              "id": "571f815f9fbe0e6d32d0c4061c1273d5",
+              "score": 2.3663348991399458,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung."
+            },
+            {
+              "id": "ac957870ee51d7e485956bae14962db3",
+              "score": 2.2808662860606934,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi"
+            },
+            {
+              "id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+              "score": 1.684731913746604,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn."
+            },
+            {
+              "id": "2a7593fe45600a82e5e97ee008ef7062",
+              "score": 0.6372040962374763,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Giao diện và phân chia trách nhiệm\nGiao diện cho biết dịch vụ mà một đối tượng cung cấp mà không buộc nơi sử dụng biết chi tiết lưu trữ. Khi mỗi lớp giữ một trách nhiệm rõ, thay đổi trong một cơ chế có thể được giới hạn; liên kết chặt giữa nhiều lớp khiến tác động thay đổi lan rộng hơn.\nKhái niệm thành phần: giao diện; trách nhiệm; kết dính; phụ thuộc.\nVí dụ minh họa do AI biên soạn: Màn hình hiển thị gọi một giao diện tra cứu sách, nên chuyển kho dữ liệu từ tệp sang cơ sở dữ liệu không nhất thiết làm đổi mã hiển thị."
+            },
+            {
+              "id": "aec1732cc5511ce494b74818dd12477d",
+              "score": 0.600990354189623,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Đối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "571f815f9fbe0e6d32d0c4061c1273d5",
+            "ac957870ee51d7e485956bae14962db3",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "2a7593fe45600a82e5e97ee008ef7062",
+            "aec1732cc5511ce494b74818dd12477d"
+          ],
+          "selected_ids": [
+            "ac957870ee51d7e485956bae14962db3",
+            "571f815f9fbe0e6d32d0c4061c1273d5",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d"
+          ],
+          "seconds": 0.002510799968149513
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi\nNguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[2] Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.\nNguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[3] Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.\nNguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi\nNguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[2] Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.\nNguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[3] Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.\nNguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f3",
+          "major": "mathematics_informatics",
+          "version": "QD3567-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 0,
+                "end_char": 501,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "ac957870ee51d7e485956bae14962db3",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 501,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 0,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": null,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "ac957870ee51d7e485956bae14962db3",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 501,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 0,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nTổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+                  "unit_index": null
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 0,
+                  "end_char": 501,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1539,
+                "end_char": 2059,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2059,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1539,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 2,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2059,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1539,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nKế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+                  "unit_index": 2
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1539,
+                  "end_char": 2059,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 2061,
+                "end_char": 2596,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2596,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 2061,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 3,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2596,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 2061,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nHợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+                  "unit_index": 3
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 2061,
+                  "end_char": 2596,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true
+        }
+      },
+      "seconds": 0.032498500018846244,
+      "search_called": true,
+      "target_raw_rank": 1,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "hybrid": {
+      "retrieval_calls": [
+        {
+          "query": "Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",
+          "scope": {
+            "dataset": "f3",
+            "major": "mathematics_informatics",
+            "version": "QD3567-2023",
+            "course_code": "MAT1202",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT1202\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"mathematics_informatics\",\"program_variant\":null,\"version\":\"QD3567-2023\"}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "rank": 1,
+                "raw_score": 2.3663348991399458
+              },
+              {
+                "parent_id": "ac957870ee51d7e485956bae14962db3",
+                "rank": 2,
+                "raw_score": 2.2808662860606934
+              },
+              {
+                "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "rank": 3,
+                "raw_score": 1.684731913746604
+              },
+              {
+                "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+                "rank": 4,
+                "raw_score": 0.6372040962374763
+              },
+              {
+                "parent_id": "aec1732cc5511ce494b74818dd12477d",
+                "rank": 5,
+                "raw_score": 0.600990354189623
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "ac957870ee51d7e485956bae14962db3",
+                "rank": 1,
+                "raw_score": 0.857120156288147
+              },
+              {
+                "parent_id": "aec1732cc5511ce494b74818dd12477d",
+                "rank": 2,
+                "raw_score": 0.8413540720939636
+              },
+              {
+                "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "rank": 3,
+                "raw_score": 0.841314971446991
+              },
+              {
+                "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "rank": 4,
+                "raw_score": 0.8086020946502686
+              },
+              {
+                "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+                "rank": 5,
+                "raw_score": 0.7854204177856445
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"mathematics_informatics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"2a7593fe45600a82e5e97ee008ef7062\",\"571f815f9fbe0e6d32d0c4061c1273d5\",\"9bdfb7fc10a3f6ae786c7579e6d60b4d\",\"ac957870ee51d7e485956bae14962db3\",\"aec1732cc5511ce494b74818dd12477d\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3567-2023\"},{\"course_code\":\"MAT1202\"},{\"field\":\"content\"}]}",
+              "passage_ids": [
+                "ac957870ee51d7e485956bae14962db3#p000",
+                "aec1732cc5511ce494b74818dd12477d#p000",
+                "571f815f9fbe0e6d32d0c4061c1273d5#p000",
+                "9bdfb7fc10a3f6ae786c7579e6d60b4d#p000",
+                "2a7593fe45600a82e5e97ee008ef7062#p000"
+              ],
+              "parent_ids": [
+                "ac957870ee51d7e485956bae14962db3",
+                "aec1732cc5511ce494b74818dd12477d",
+                "571f815f9fbe0e6d32d0c4061c1273d5",
+                "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "2a7593fe45600a82e5e97ee008ef7062"
+              ]
+            },
+            "candidate_union": [
+              "2a7593fe45600a82e5e97ee008ef7062",
+              "571f815f9fbe0e6d32d0c4061c1273d5",
+              "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+              "ac957870ee51d7e485956bae14962db3",
+              "aec1732cc5511ce494b74818dd12477d"
+            ],
+            "fused": [
+              {
+                "parent_id": "ac957870ee51d7e485956bae14962db3",
+                "lexical_rank": 2,
+                "vector_rank": 1,
+                "rrf_score": 0.03252247488101534
+              },
+              {
+                "parent_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "lexical_rank": 1,
+                "vector_rank": 3,
+                "rrf_score": 0.032266458495966696
+              },
+              {
+                "parent_id": "aec1732cc5511ce494b74818dd12477d",
+                "lexical_rank": 5,
+                "vector_rank": 2,
+                "rrf_score": 0.0315136476426799
+              },
+              {
+                "parent_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "lexical_rank": 3,
+                "vector_rank": 4,
+                "rrf_score": 0.03149801587301587
+              },
+              {
+                "parent_id": "2a7593fe45600a82e5e97ee008ef7062",
+                "lexical_rank": 4,
+                "vector_rank": 5,
+                "rrf_score": 0.031009615384615385
+              }
+            ],
+            "final_top5": [
+              "ac957870ee51d7e485956bae14962db3",
+              "571f815f9fbe0e6d32d0c4061c1273d5",
+              "aec1732cc5511ce494b74818dd12477d",
+              "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+              "2a7593fe45600a82e5e97ee008ef7062"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "seconds": 6.5217686999822035,
+          "hits": [
+            {
+              "id": "ac957870ee51d7e485956bae14962db3",
+              "score": 0.03252247488101534,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi"
+            },
+            {
+              "id": "571f815f9fbe0e6d32d0c4061c1273d5",
+              "score": 0.032266458495966696,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung."
+            },
+            {
+              "id": "aec1732cc5511ce494b74818dd12477d",
+              "score": 0.0315136476426799,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Đối tượng, lớp và bất biến\nLớp mô tả kiểu trạng thái và thao tác, còn đối tượng là một thể hiện cụ thể với vòng đời riêng. Đóng gói giúp các thay đổi đi qua những thao tác có kiểm soát, nhờ đó bất biến của đối tượng được duy trì thay vì để mọi phần chương trình sửa trực tiếp dữ liệu.\nKhái niệm thành phần: lớp; đối tượng; đóng gói; bất biến.\nVí dụ minh họa do AI biên soạn: Đối tượng giỏ hàng chỉ nhận số lượng không âm qua thao tác cập nhật, giúp các phần giao diện không vô tình tạo một giỏ có số lượng âm."
+            },
+            {
+              "id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+              "score": 0.03149801587301587,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn."
+            },
+            {
+              "id": "2a7593fe45600a82e5e97ee008ef7062",
+              "score": 0.031009615384615385,
+              "dataset": "f3",
+              "major": "mathematics_informatics",
+              "version": "QD3567-2023",
+              "field": "content",
+              "course_code": "MAT1202",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Giao diện và phân chia trách nhiệm\nGiao diện cho biết dịch vụ mà một đối tượng cung cấp mà không buộc nơi sử dụng biết chi tiết lưu trữ. Khi mỗi lớp giữ một trách nhiệm rõ, thay đổi trong một cơ chế có thể được giới hạn; liên kết chặt giữa nhiều lớp khiến tác động thay đổi lan rộng hơn.\nKhái niệm thành phần: giao diện; trách nhiệm; kết dính; phụ thuộc.\nVí dụ minh họa do AI biên soạn: Màn hình hiển thị gọi một giao diện tra cứu sách, nên chuyển kho dữ liệu từ tệp sang cơ sở dữ liệu không nhất thiết làm đổi mã hiển thị."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "ac957870ee51d7e485956bae14962db3",
+            "571f815f9fbe0e6d32d0c4061c1273d5",
+            "aec1732cc5511ce494b74818dd12477d",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+            "2a7593fe45600a82e5e97ee008ef7062"
+          ],
+          "selected_ids": [
+            "ac957870ee51d7e485956bae14962db3",
+            "571f815f9fbe0e6d32d0c4061c1273d5",
+            "9bdfb7fc10a3f6ae786c7579e6d60b4d"
+          ],
+          "seconds": 0.004175300011411309
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi\nNguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[2] Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.\nNguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[3] Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.\nNguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi\nNguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[2] Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.\nNguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard\n\n[3] Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.\nNguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f3",
+          "major": "mathematics_informatics",
+          "version": "QD3567-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Tổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 0,
+                "end_char": 501,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "ac957870ee51d7e485956bae14962db3",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 501,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 0,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": null,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "ac957870ee51d7e485956bae14962db3",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 501,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 0,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nTổng quan tham khảo:\nLập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.\nCác chủ đề tham khảo:\n- Đối tượng, lớp và bất biến\n- Giao diện và phân chia trách nhiệm\n- Kế thừa, đa hình và khả năng thay thế\n- Hợp thành và kiểm tra hành vi",
+                  "unit_index": null
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 0,
+                  "end_char": 501,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1539,
+                "end_char": 2059,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2059,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1539,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 2,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2059,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1539,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nKế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+                  "unit_index": 2
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1539,
+                  "end_char": 2059,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1202 — Lập trình hướng đối tượng",
+              "source_url": null,
+              "quote": "Hợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+              "locator": {
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 2061,
+                "end_char": 2596,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/66",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/66"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                        "page": 10,
+                        "row": 32,
+                        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Toán tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2596,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 2061,
+                  "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1202",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "toan_tin_7460117_2022:MAT1202",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3567-2023",
+                  "major": "mathematics_informatics",
+                  "program_id": "toan_tin_7460117_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 3,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "9bdfb7fc10a3f6ae786c7579e6d60b4d",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/66",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/66"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                          "page": 10,
+                          "row": 32,
+                          "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Toán tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2596,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "toan_tin_7460117_2022:MAT1202",
+                    "source_id": "generated_f3:toan_tin_7460117_2022:MAT1202",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 2061,
+                    "title": "F3 tham khảo AI v2 — MAT1202 — Toán tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1202",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3567-2023",
+                    "major": "mathematics_informatics",
+                    "program_id": "toan_tin_7460117_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1202 — Lập trình hướng đối tượng.\nNgành: Toán tin; phiên bản: QD3567-2023.\nHợp thành và kiểm tra hành vi\nHợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.\nKhái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.\nVí dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.",
+                  "unit_index": 3
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "mathematics_informatics",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Lập trình hướng đối tượng",
+                "major_name": "Toán tin",
+                "program_id": "toan_tin_7460117_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3567-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 19,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1202 — Toán tin",
+                "locator": {
+                  "record_id": "toan_tin_7460117_2022:MAT1202",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 2061,
+                  "end_char": 2596,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "toan_tin_7460117_2022:MAT1202",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true
+        }
+      },
+      "seconds": 6.555712900008075,
+      "search_called": true,
+      "target_raw_rank": 2,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "api_cases": 20,
+  "backups_present": false,
+  "dependency_install": "25 previously verified local wheels, offline; normal quickstart can use pip index.",
+  "different_unicode_path_and_working_directory": true,
+  "environment": {
+    "fresh_venv": true,
+    "python": "3.11.9",
+    "system": "Windows",
+    "user_site": false
+  },
+  "full_regression_suite": false,
+  "git_present": false,
+  "github_actions_executed": false,
+  "inherited_bad_settings_overridden": true,
+  "menu_items": 2124,
+  "new_google_calls": 0,
+  "other_os_verified": false,
+  "pip_check_passed": true,
+  "private_env_files_present": false,
+  "runtime_external_or_provider_allowed": false,
+  "source": "C:\\Users\\dtai168\\SE_Project\\backups\\hus_scope_assessment_fix_20261113\\fresh checkout λ",
+  "source_export_method": "Current explicit public allowlist plus quickstart; source export, not a remote Git clone.",
+  "source_files": 215
+}

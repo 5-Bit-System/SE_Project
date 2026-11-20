@@ -1,0 +1,9 @@
+{
+  "cohort": "data/hus/evaluation/candidates/a7_scope_assessment_20261113_r1",
+  "diagnostic_use": true,
+  "independent_acceptance": false,
+  "manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+  "new_human_reviews": 0,
+  "original_exposure_already_AI_source_runtime_seen": true,
+  "policy": "Do not use this exposed cohort to accept a future tuned implementation. Retain as dev and freeze another cohort after any fix; do not rewrite original pack/run/gold/review."
+}

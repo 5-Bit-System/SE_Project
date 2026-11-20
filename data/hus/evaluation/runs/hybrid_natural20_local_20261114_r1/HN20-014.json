@@ -1,0 +1,2385 @@
+{
+  "id": "HN20-014",
+  "request": {
+    "question": "Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?",
+    "major": "computer_science",
+    "version": "QD3568-2023",
+    "allow_generated_reference": true,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f3",
+    "field": "content",
+    "course_code": "MAT1204",
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "bb93fa28e9829ba7f5d46fc4ece9a19f"
+    ]
+  },
+  "raw_question_route": [
+    "f3",
+    "content"
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [
+        {
+          "query": "Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?",
+          "scope": {
+            "dataset": "f3",
+            "major": "computer_science",
+            "version": "QD3568-2023",
+            "course_code": "MAT1204",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":true,\"course_code\":\"MAT1204\",\"dataset\":\"f3\",\"field\":\"content\",\"major\":\"computer_science\",\"program_variant\":null,\"version\":\"QD3568-2023\"}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "rank": 1,
+                "raw_score": 4.339047031553131
+              },
+              {
+                "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                "rank": 2,
+                "raw_score": 4.216857154622196
+              },
+              {
+                "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                "rank": 3,
+                "raw_score": 3.7476628152825526
+              },
+              {
+                "parent_id": "277fe511403034379893f46341b6b429",
+                "rank": 4,
+                "raw_score": 2.998458797629469
+              },
+              {
+                "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                "rank": 5,
+                "raw_score": 0.8455711689159379
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "rank": 1,
+                "raw_score": 0.8703689575195312
+              },
+              {
+                "parent_id": "277fe511403034379893f46341b6b429",
+                "rank": 2,
+                "raw_score": 0.8529725074768066
+              },
+              {
+                "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                "rank": 3,
+                "raw_score": 0.8332118391990662
+              },
+              {
+                "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                "rank": 4,
+                "raw_score": 0.8188672065734863
+              },
+              {
+                "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                "rank": 5,
+                "raw_score": 0.7990264892578125
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f3\"},{\"major\":\"computer_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":true},{\"parent_id\":{\"$in\":[\"06a4f73df61f8a9493c5f7ee296b1824\",\"277fe511403034379893f46341b6b429\",\"34d0edb54b3722c051ba1b9e2eb07334\",\"bb93fa28e9829ba7f5d46fc4ece9a19f\",\"fbef7824e6826bc004fbc9bc02a993d9\"]}},{\"review_status\":\"needs_review\"},{\"content_origin\":\"generated\"},{\"version\":\"QD3568-2023\"},{\"course_code\":\"MAT1204\"},{\"field\":\"content\"}]}",
+              "passage_ids": [
+                "bb93fa28e9829ba7f5d46fc4ece9a19f#p000",
+                "277fe511403034379893f46341b6b429#p000",
+                "fbef7824e6826bc004fbc9bc02a993d9#p000",
+                "34d0edb54b3722c051ba1b9e2eb07334#p000",
+                "06a4f73df61f8a9493c5f7ee296b1824#p000"
+              ],
+              "parent_ids": [
+                "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "277fe511403034379893f46341b6b429",
+                "fbef7824e6826bc004fbc9bc02a993d9",
+                "34d0edb54b3722c051ba1b9e2eb07334",
+                "06a4f73df61f8a9493c5f7ee296b1824"
+              ]
+            },
+            "candidate_union": [
+              "06a4f73df61f8a9493c5f7ee296b1824",
+              "277fe511403034379893f46341b6b429",
+              "34d0edb54b3722c051ba1b9e2eb07334",
+              "bb93fa28e9829ba7f5d46fc4ece9a19f",
+              "fbef7824e6826bc004fbc9bc02a993d9"
+            ],
+            "fused": [
+              {
+                "parent_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              },
+              {
+                "parent_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                "lexical_rank": 2,
+                "vector_rank": 3,
+                "rrf_score": 0.03200204813108039
+              },
+              {
+                "parent_id": "277fe511403034379893f46341b6b429",
+                "lexical_rank": 4,
+                "vector_rank": 2,
+                "rrf_score": 0.031754032258064516
+              },
+              {
+                "parent_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                "lexical_rank": 3,
+                "vector_rank": 5,
+                "rrf_score": 0.03125763125763126
+              },
+              {
+                "parent_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                "lexical_rank": 5,
+                "vector_rank": 4,
+                "rrf_score": 0.031009615384615385
+              }
+            ],
+            "final_top5": [
+              "bb93fa28e9829ba7f5d46fc4ece9a19f",
+              "fbef7824e6826bc004fbc9bc02a993d9",
+              "277fe511403034379893f46341b6b429",
+              "06a4f73df61f8a9493c5f7ee296b1824",
+              "34d0edb54b3722c051ba1b9e2eb07334"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "seconds": 6.540175599977374,
+          "hits": [
+            {
+              "id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+              "score": 0.03278688524590164,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm."
+            },
+            {
+              "id": "fbef7824e6826bc004fbc9bc02a993d9",
+              "score": 0.03200204813108039,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi."
+            },
+            {
+              "id": "277fe511403034379893f46341b6b429",
+              "score": 0.031754032258064516,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo"
+            },
+            {
+              "id": "06a4f73df61f8a9493c5f7ee296b1824",
+              "score": 0.03125763125763126,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt."
+            },
+            {
+              "id": "34d0edb54b3722c051ba1b9e2eb07334",
+              "score": 0.031009615384615385,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "fbef7824e6826bc004fbc9bc02a993d9",
+            "277fe511403034379893f46341b6b429",
+            "06a4f73df61f8a9493c5f7ee296b1824",
+            "34d0edb54b3722c051ba1b9e2eb07334"
+          ],
+          "selected_ids": [
+            "277fe511403034379893f46341b6b429",
+            "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "06a4f73df61f8a9493c5f7ee296b1824",
+            "34d0edb54b3722c051ba1b9e2eb07334",
+            "fbef7824e6826bc004fbc9bc02a993d9"
+          ],
+          "seconds": 0.002432700013741851
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo\nNguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[2] Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.\nNguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[3] Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.\nNguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[4] Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.\nNguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[5] Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.\nNguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo\nNguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[2] Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.\nNguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[3] Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.\nNguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[4] Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.\nNguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[5] Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.\nNguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f3",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 0,
+                "end_char": 492,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "277fe511403034379893f46341b6b429",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 492,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 0,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": null,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "277fe511403034379893f46341b6b429",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 492,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 0,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nTổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo",
+                  "unit_index": null
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 0,
+                  "end_char": 492,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 494,
+                "end_char": 1042,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 1042,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 494,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 0,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 1042,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 494,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nCâu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.",
+                  "unit_index": 0
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 494,
+                  "end_char": 1042,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1044,
+                "end_char": 1596,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 1596,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1044,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 1,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 1596,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1044,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nTài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.",
+                  "unit_index": 1
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1044,
+                  "end_char": 1596,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "4",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1598,
+                "end_char": 2158,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2158,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1598,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 2,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2158,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1598,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nThiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.",
+                  "unit_index": 2
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1598,
+                  "end_char": 2158,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "5",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 2160,
+                "end_char": 2698,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2698,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 2160,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 3,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2698,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 2160,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nLập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.",
+                  "unit_index": 3
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 2160,
+                  "end_char": 2698,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true
+        }
+      },
+      "seconds": 6.566123600001447,
+      "search_called": true,
+      "target_raw_rank": 1,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [
+        {
+          "query": "Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?",
+          "scope": {
+            "dataset": "f3",
+            "major": "computer_science",
+            "version": "QD3568-2023",
+            "course_code": "MAT1204",
+            "field": "content",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": true
+          },
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "seconds": 0.0023666000342927873,
+          "hits": [
+            {
+              "id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+              "score": 4.339047031553131,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 0,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm."
+            },
+            {
+              "id": "fbef7824e6826bc004fbc9bc02a993d9",
+              "score": 4.216857154622196,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 3,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi."
+            },
+            {
+              "id": "06a4f73df61f8a9493c5f7ee296b1824",
+              "score": 3.7476628152825526,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 1,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt."
+            },
+            {
+              "id": "277fe511403034379893f46341b6b429",
+              "score": 2.998458797629469,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": null,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo"
+            },
+            {
+              "id": "34d0edb54b3722c051ba1b9e2eb07334",
+              "score": 0.8455711689159379,
+              "dataset": "f3",
+              "major": "computer_science",
+              "version": "QD3568-2023",
+              "field": "content",
+              "course_code": "MAT1204",
+              "unit_index": 2,
+              "source_url": null,
+              "review_status": "needs_review",
+              "quote": "Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả."
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "fbef7824e6826bc004fbc9bc02a993d9",
+            "06a4f73df61f8a9493c5f7ee296b1824",
+            "277fe511403034379893f46341b6b429",
+            "34d0edb54b3722c051ba1b9e2eb07334"
+          ],
+          "selected_ids": [
+            "277fe511403034379893f46341b6b429",
+            "bb93fa28e9829ba7f5d46fc4ece9a19f",
+            "06a4f73df61f8a9493c5f7ee296b1824",
+            "34d0edb54b3722c051ba1b9e2eb07334",
+            "fbef7824e6826bc004fbc9bc02a993d9"
+          ],
+          "seconds": 0.0030938999843783677
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo\nNguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[2] Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.\nNguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[3] Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.\nNguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[4] Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.\nNguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[5] Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.\nNguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard",
+        "hus_answer": {
+          "reply": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\n\n[1] Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo\nNguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[2] Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.\nNguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[3] Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.\nNguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[4] Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.\nNguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard\n\n[5] Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.\nNguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard",
+          "status": "answered",
+          "dataset": "f3",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Tổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 0,
+                "end_char": 492,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "277fe511403034379893f46341b6b429",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 492,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 0,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": null,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "277fe511403034379893f46341b6b429",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 492,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 0,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nTổng quan tham khảo:\nPhương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.\nCác chủ đề tham khảo:\n- Câu hỏi, phạm vi và khái niệm\n- Tài liệu và cấu trúc bằng chứng\n- Thiết kế phương pháp và quản lý dữ liệu\n- Lập luận và liêm chính trong báo cáo",
+                  "unit_index": null
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 0,
+                  "end_char": 492,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 494,
+                "end_char": 1042,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 1042,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 494,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 0,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 1042,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 494,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nCâu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.",
+                  "unit_index": 0
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 494,
+                  "end_char": 1042,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Tài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1044,
+                "end_char": 1596,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 1596,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1044,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 1,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "06a4f73df61f8a9493c5f7ee296b1824",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 1596,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1044,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nTài liệu và cấu trúc bằng chứng\nTổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.\nKhái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.\nVí dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.",
+                  "unit_index": 1
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1044,
+                  "end_char": 1596,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "4",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Thiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 1598,
+                "end_char": 2158,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2158,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 1598,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 2,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "34d0edb54b3722c051ba1b9e2eb07334",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2158,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 1598,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nThiết kế phương pháp và quản lý dữ liệu\nPhương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.\nKhái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.\nVí dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.",
+                  "unit_index": 2
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 1598,
+                  "end_char": 2158,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            },
+            {
+              "citation_id": "5",
+              "dataset": "f3",
+              "label": "kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học",
+              "source_url": null,
+              "quote": "Lập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.",
+              "locator": {
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "field": "content",
+                "evidence_path": "f3_records.jsonl",
+                "start_char": 2160,
+                "end_char": 2698,
+                "offset_scope": "rendered_field_text_excluding_repeated_context",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "needs_review",
+              "content_origin": "generated",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "disclosed_generated_reference",
+                "authorizes_eligibility": false,
+                "chunk_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                "citation": {
+                  "authored_by": "Codex",
+                  "canonical_identity_citation": {
+                    "evidence_path": "evidence/canonical_f2.json",
+                    "json_pointer": "/tables/curriculum_courses/70",
+                    "json_pointers": [
+                      "/tables/official_curriculum_entries/70"
+                    ],
+                    "pdf_locators": [
+                      {
+                        "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                        "page": 10,
+                        "row": 25,
+                        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                        "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                      }
+                    ],
+                    "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                    "source_id": "canonical_f2",
+                    "source_kind": "curriculum_transcription",
+                    "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                    "title": "Khoa học máy tính và thông tin",
+                    "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                  },
+                  "end_char": 2698,
+                  "evidence_path": "f3_records.jsonl",
+                  "field": "content",
+                  "method": "codex_authored_detailed_reference_v2",
+                  "official_source_citation": false,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                  "source_kind": "ai_generated_reference",
+                  "start_char": 2160,
+                  "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                  "url": null
+                },
+                "content_origin": "generated",
+                "course_code": "MAT1204",
+                "disclosure_required": true,
+                "family": "F3",
+                "field": "content",
+                "official_answer_available": false,
+                "official_assessment": null,
+                "official_content": null,
+                "official_objectives": null,
+                "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3568-2023",
+                  "major": "computer_science",
+                  "program_id": "khmtt_7480113qtd_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "unit_index": 3,
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "disclosed_generated_reference",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "fbef7824e6826bc004fbc9bc02a993d9",
+                  "citation": {
+                    "authored_by": "Codex",
+                    "canonical_identity_citation": {
+                      "evidence_path": "evidence/canonical_f2.json",
+                      "json_pointer": "/tables/curriculum_courses/70",
+                      "json_pointers": [
+                        "/tables/official_curriculum_entries/70"
+                      ],
+                      "pdf_locators": [
+                        {
+                          "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                          "page": 10,
+                          "row": 25,
+                          "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                          "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                        }
+                      ],
+                      "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                      "source_id": "canonical_f2",
+                      "source_kind": "curriculum_transcription",
+                      "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                      "title": "Khoa học máy tính và thông tin",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                    },
+                    "end_char": 2698,
+                    "evidence_path": "f3_records.jsonl",
+                    "field": "content",
+                    "method": "codex_authored_detailed_reference_v2",
+                    "official_source_citation": false,
+                    "offset_scope": "rendered_field_text_excluding_repeated_context",
+                    "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                    "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT1204",
+                    "source_kind": "ai_generated_reference",
+                    "start_char": 2160,
+                    "title": "F3 tham khảo AI v2 — MAT1204 — Khoa học máy tính và thông tin",
+                    "url": null
+                  },
+                  "content_origin": "generated",
+                  "course_code": "MAT1204",
+                  "disclosure_required": true,
+                  "family": "F3",
+                  "field": "content",
+                  "official_answer_available": false,
+                  "official_assessment": null,
+                  "official_content": null,
+                  "official_objectives": null,
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "catalog_cohort_not_individual_account_binding",
+                    "cohort_year": 2022,
+                    "curriculum_version": "QD3568-2023",
+                    "major": "computer_science",
+                    "program_id": "khmtt_7480113qtd_2022",
+                    "program_variant": "standard",
+                    "validity_status": "as_declared_in_canonical_F2"
+                  },
+                  "text": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.\nHọc phần: MAT1204 — Phương pháp nghiên cứu khoa học.\nNgành: Khoa học máy tính và thông tin; phiên bản: QD3568-2023.\nLập luận và liêm chính trong báo cáo\nBáo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.\nKhái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.\nVí dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.",
+                  "unit_index": 3
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "computer_science",
+                "program_variant": "standard",
+                "source_url": null,
+                "course_name": "Phương pháp nghiên cứu khoa học",
+                "major_name": "Khoa học máy tính và thông tin",
+                "program_id": "khmtt_7480113qtd_2022",
+                "cohort_year": 2022,
+                "curriculum_version": "QD3568-2023",
+                "review_status": "needs_review",
+                "provenance": {
+                  "identity_source_f2_sha256": "e303ae5c5e3d497d0de2c53410f780a3089a3e34a685c158d6fdd0b5c13b5daf",
+                  "identity_source_manifest_sha256": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f",
+                  "identity_source_release": "hus-data-20261031-v3",
+                  "profile_input": {
+                    "line": 21,
+                    "path": "profiles_a.jsonl",
+                    "sha256": "73638f1a944839ae3da6cedb25388f276c8ebe24f19abc8de1335562f57d6491"
+                  },
+                  "reference_role": "conceptual_grounding_only_not_HUS_syllabus_evidence"
+                },
+                "warning": "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.",
+                "dataset_kind": "generated_f3_reference_v2",
+                "usage_scope": "reference_only",
+                "citation_label": "F3 do AI sinh — MAT1204 — Khoa học máy tính và thông tin",
+                "locator": {
+                  "record_id": "khmtt_7480113qtd_2022:MAT1204",
+                  "field": "content",
+                  "evidence_path": "f3_records.jsonl",
+                  "start_char": 2160,
+                  "end_char": 2698,
+                  "offset_scope": "rendered_field_text_excluding_repeated_context",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f3_chunks.jsonl",
+                "package_sha256": "13d24658a62a40adcbcaf92170b18ccbd9507b5012ed9342d9f10f3bea776b65"
+              },
+              "evidence_kind": "ai",
+              "display_label": "kiến thức AI",
+              "source_id": "khmtt_7480113qtd_2022:MAT1204",
+              "open_url": null,
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "available",
+              "availability_note": null,
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": true
+        }
+      },
+      "seconds": 0.031757299962919205,
+      "search_called": true,
+      "target_raw_rank": 1,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

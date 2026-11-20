@@ -1,0 +1,63 @@
+{
+  "Google_calls": 24,
+  "actual_models": {
+    "gemini-3.5-flash-lite": 24
+  },
+  "automatic_flags": {
+    "SV30-003": [
+      "Live fallback: invalid_output"
+    ]
+  },
+  "budget_remaining": 0,
+  "by_family": {
+    "control": {
+      "calls": 0,
+      "fallback": 0,
+      "not_run": 0,
+      "used": 0
+    },
+    "f1": {
+      "calls": 8,
+      "fallback": 0,
+      "not_run": 0,
+      "used": 8
+    },
+    "f2": {
+      "calls": 8,
+      "fallback": 1,
+      "not_run": 0,
+      "used": 7
+    },
+    "f3": {
+      "calls": 8,
+      "fallback": 0,
+      "not_run": 0,
+      "used": 8
+    }
+  },
+  "calls_with_unknown_usage": 0,
+  "cases": 30,
+  "content_accepted": false,
+  "controls": 6,
+  "default_changed": false,
+  "fallback_reasons": {
+    "invalid_output": 1
+  },
+  "http_status": {
+    "200": 24
+  },
+  "human_pending": 30,
+  "human_reviewed": 0,
+  "live_manifest_sha256": "7790d63e69b6d46d7e58f040a1bb10123560c11f2dc627b3b2ae54bd0ff96980",
+  "live_used": 23,
+  "max_calls": 24,
+  "positive_fallback": 1,
+  "positive_not_run": 0,
+  "review_pack_manifest_sha256": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+  "stop_reason": null,
+  "token_usage_known_subtotal": {
+    "completion_tokens": 5761,
+    "prompt_tokens": 27409,
+    "total_tokens": 33170
+  }
+}

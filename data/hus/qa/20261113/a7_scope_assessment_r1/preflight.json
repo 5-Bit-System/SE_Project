@@ -1,0 +1,20 @@
+{
+  "pins_match": true,
+  "pack_manifest_sha256": "623c8d3185e6651fffddd3fc11a52fe39f5f6b9a34d0ff4c5daa192edcc19f9a",
+  "frozen_at_utc": "2026-11-13T04:43:52.414931+00:00",
+  "questions": 48,
+  "protected_files": 2819,
+  "configuration": {
+    "actual_model": null,
+    "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+    "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+    "entrypoint": "app.hus.demo:app",
+    "f1_f3_protocol": "hus-llm-document-v3",
+    "f2_protocol": "hus-llm-evidence-v1",
+    "index": null,
+    "llm_enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "model_inference": "not_run",
+    "retrieval": "lexical"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "evidence": "Target is rank1/top5 high_quality career quote; unsupported-specific tokens retain clc absent in quote body. Cached analysis only, no fix.",
+    "frozen_outcome": "no_information instead of answered",
+    "kind": "post_retrieval_false_abstention",
+    "qid": "A7F-Q002"
+  },
+  {
+    "evidence": "Answer correctly cites DOCX2023 but list differs from frozen web target (mathematical foundations for informatics). Question does not pin edition. Conservative completeness fail; no assertion that source lists are equivalent.",
+    "frozen_outcome": "answered, entailment pass, completeness fail",
+    "kind": "alternative_source_and_gold_scope_ambiguity",
+    "qid": "A7F-Q003"
+  },
+  {
+    "evidence": "Assessment request also says noi dung gi. Lexical classifier observes content+suggested_assessment. It may mean assessment content rather than two intents; needs independent contract/wording adjudication. Frozen gold remains no_information; observed clarification is not relabelled to improve score.",
+    "frozen_outcome": "needs_clarification instead of no_information",
+    "kind": "control_status_mismatch_wording_guard_ambiguity",
+    "qid": "A7F-Q011"
+  }
+]

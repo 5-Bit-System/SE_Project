@@ -1,0 +1,11 @@
+{
+  "kind": "hus-hybrid-v4-local-receipt",
+  "files_sha256": {
+    "code_bindings.json": "7fc7ad954ee76c36f9963ffe97dfb4fa810d92c20b1eeeffed38d0851fba4936",
+    "comparison.json": "f29d3332e1e36c98f0fb3baaf98435c3488d59681ccc9a67ff4eb9c92ddd5c84",
+    "lexical_rollback.json": "54babf1eed5c25cf3f1686d997fc20494424bc7c64b008bc8cebdca0ddf4936b",
+    "new_runtime_http.json": "8adebb5d7171c0f9c059f6585575616bbb554fa5ba5d4450ed2175c566338ea9",
+    "old_artifacts.json": "68eb8005ddce8dda7cb7fee29be195afab54017abb59dd1c1b3a770bb73a3792",
+    "report.json": "2b0035f95fdbc5638ec0b3aeb9d3db52c95e0a60c227b4785fd63346c5dd1f61"
+  }
+}

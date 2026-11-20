@@ -1,0 +1,78 @@
+{
+  "kind": "real_local_hybrid_v4_preparation_not_semantic_acceptance",
+  "created_utc": "2026-11-14T12:11:23.043978+00:00",
+  "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "contract_id": "7091615c6a2e8527e0eb6db362d8329c581d3c70dbfb4de24c3e4f6cac2433eb",
+  "passage_set_id": "35bc48dd66d71d7cee040de95b1967c6d596f496addfd58f41ed9ac981085ef7",
+  "parents": 1818,
+  "vectors": 1822,
+  "actual_mode": "hybrid",
+  "same_snapshot_pairs": 16,
+  "F2_exact_zero_vector": 4,
+  "F3_optout_zero_vector": 4,
+  "native_HTTP_cases": 5,
+  "wrong_pin_and_old_contract_rejected": [
+    {
+      "case": "wrong_pin",
+      "reason": "index_identity"
+    },
+    {
+      "case": "old_contract",
+      "reason": "index_identity"
+    }
+  ],
+  "cold_seconds_observed": [
+    64.749,
+    66.56,
+    156.493
+  ],
+  "warm_hybrid_seconds": {
+    "min": 2.966,
+    "median": 7.8675,
+    "max": 9.262
+  },
+  "old_artifact_files_unchanged": 13,
+  "Google_calls": 0,
+  "model_downloads": 0,
+  "environment": {
+    "kind": "local_seed_from_previously_locked_environment_not_clean_pip_install",
+    "path": ".venv-hybrid",
+    "locked_packages_verified": 112,
+    "model_files_verified": 9,
+    "pip_check": "No broken requirements found"
+  },
+  "tests": {
+    "retrieval_vector_launcher_package_group_passed": 104,
+    "later_profile_API_launcher_diagnostics_group_passed": 44,
+    "groups_overlap": true,
+    "warning": "Existing Starlette/httpx deprecation"
+  },
+  "review": "Fresh-context reviewer no important blockers; minor metadata/test coverage resolved.",
+  "lexical_rollback": {
+    "passed": true,
+    "API_cases": 20,
+    "menu_items": 2124,
+    "source_hashes": 4
+  },
+  "limits": [
+    "Same Windows machine only; not fresh clone/install/other OS.",
+    "Native model/cache/Chroma files ignored; other machines must prepare them.",
+    "No new LLM/content score; semantic routing/count operations remain pending.",
+    "Latency not optimized; native retrieval validation is substantial.",
+    "No commit/push/PR/deploy or old run/gold/review changes."
+  ],
+  "artifacts_sha256": {
+    "data/hus/vector_contracts/e5_small_v4_20261114/manifest.json": "3a3609dc84b94072640ffda272ca9f3f59ff776d217b57928c72e3094907586e",
+    "data/hus/vector_contracts/e5_small_v4_20261114/parents.jsonl": "6db634bd6c5ca48f470a638ee41fd2324e581ccd464952186d521971435edc22",
+    "data/hus/vector_passages/e5_small_v4_20261114/manifest.json": "dc17c0da0fb43fee402079c0f72e3145e2c31f6124419a84df225ffedf764295",
+    "data/hus/vector_passages/e5_small_v4_20261114/passages.jsonl": "cecd9b890985edf4fb08ddab53af5bd3792e8aab9a883a961f7951bda9c686cc",
+    "data/hus/vector_indexes/e5_small_v4_20261114/manifest.json": "acb6c7d079ae4f1ad635b4bc9ea1cbb6d7b4e44c22025cbea1129505139480c8",
+    "data/hus/vector_indexes/e5_small_v4_20261114/vectors.jsonl": "43c2a85c43385c4d6d1ff283c6f1c1e2e0f2187d82b3ba9bd3b6fd0fcbbb480b"
+  }
+}

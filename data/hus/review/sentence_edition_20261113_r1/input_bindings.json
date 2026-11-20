@@ -1,0 +1,16 @@
+{
+  "anchors_verified": 51,
+  "full_fields": 58,
+  "prior_core_items": 36,
+  "prior_review_manifest": "77b49fd7bb847b568416cd8336733055e0b467c583a80383016eee813e6f57a1",
+  "reviewed_record_ids": [
+    "khdl_7460108_2022:MAT2034",
+    "khmtt_7480113qtd_2022:MAT1204",
+    "toan_hoc_7460101_2022:MAT2300",
+    "toan_tin_7460117_2022:MAT1202"
+  ],
+  "scope": "four previously selected profiles only, not all174codes/290records",
+  "sentences": 80,
+  "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+  "source_path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl"
+}

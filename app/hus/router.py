@@ -12,7 +12,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query, Request, Response
 
 from app.hus import chat_history_repository
-from app.hus.chat import HUSChatReply, chat
+from app.hus.chat import HUSChatReply, workspace_chat
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.source_response import source_response
@@ -25,9 +25,10 @@ from app.schemas.hus import (
     HUSRetrievalBundle,
 )
 from app.services import hus_service
-from app.services.hus_service import get_hus_answerer
+from app.services.hus_service import get_hus_answerer, workspace_answerer
 
 router = APIRouter(prefix="/hus", tags=["hus"])
+support_router = APIRouter()
 
 LABELS: dict[str, str] = {
     "mathematics": "Toán học",
@@ -70,7 +71,7 @@ def config(response: Response) -> dict[str, Any]:
 def reply(request: HUSQuestion, response: Response) -> HUSChatReply:
     response.headers["Cache-Control"] = "no-store"
     try:
-        return chat(request, current_answerer())
+        return workspace_chat(request, workspace_answerer(current_answerer()))
     except RAGDataError:
         raise HTTPException(503, "Dữ liệu hỏi đáp chưa sẵn sàng.") from None
 
@@ -82,7 +83,7 @@ async def _resolve_account_id(request: Request) -> str:
     return str(principal["account_id"])
 
 
-@router.get("/chat/history", response_model=HUSChatHistoryResponse)
+@support_router.get("/chat/history", response_model=HUSChatHistoryResponse)
 async def get_chat_history(
     request: Request,
     response: Response,
@@ -98,7 +99,7 @@ async def get_chat_history(
         raise HTTPException(400, detail=str(exc)) from exc
 
 
-@router.post("/chat/history")
+@support_router.post("/chat/history")
 async def append_chat_history(
     payload: HUSChatHistoryAppend,
     request: Request,
@@ -117,7 +118,7 @@ async def append_chat_history(
         raise HTTPException(400, detail=str(exc)) from exc
 
 
-@router.delete("/chat/history")
+@support_router.delete("/chat/history")
 async def delete_chat_history(
     request: Request,
     response: Response,
@@ -133,7 +134,7 @@ async def delete_chat_history(
 
 
 
-@router.post("/retrieve", response_model=HUSRetrievalBundle)
+@support_router.post("/retrieve", response_model=HUSRetrievalBundle)
 def retrieve(
     request: HUSQuestion,
     response: Response,
@@ -169,3 +170,6 @@ def source(
     page: int | None = Query(default=None, ge=1),
 ) -> Response:
     return source_response(request, current_answerer().citation_resolver.assets, source_id, page)
+
+
+router.include_router(support_router)

@@ -1,0 +1,79 @@
+{
+  "claim_decisions": [
+    {
+      "claim": "Ngành bắt đầu tuyển sinh năm 2012 (chưa xác định hệ).",
+      "decision": "supported_historical_general_description",
+      "support": [
+        "selected_v4_chunk",
+        "S01",
+        "S04"
+      ]
+    },
+    {
+      "claim": "Đoạn tuyển sinh 2012 của snapshot được gán hệ chuẩn.",
+      "decision": "not_established_do_not_relabel_unknown",
+      "support": []
+    },
+    {
+      "claim": "Tài liệu CTĐT 2015 tự ghi hệ chuẩn/mã 52480105 và ngành vào danh mục năm 2012.",
+      "decision": "historical_program_scope_supported_not_an_admission_date_attestation",
+      "qualification": "Trang 4 để trống số/ngày quyết định; không coi là văn bản có hiệu lực đã xác minh.",
+      "support": [
+        "local_ec312_standard2015_p1_p4"
+      ]
+    },
+    {
+      "claim": "Đề án tuyển sinh 2024 ghi ngành 7480113 có năm bắt đầu đào tạo 2012.",
+      "decision": "historical_start_of_training_supported_not_variant_specific_admission",
+      "row": {
+        "decision": "2160/QĐ-ĐHQGHN",
+        "decision_date": "28/06/2022",
+        "latest_admission_training_year": 2023,
+        "program_code": "7480113",
+        "training_start_year": 2012
+      },
+      "support": [
+        "S05_physical_page_4"
+      ]
+    }
+  ],
+  "clc_control": {
+    "source_id": "S02",
+    "used_to_infer_standard_2012": false,
+    "year_in_own_page": 2018
+  },
+  "faq_excerpt": {
+    "quote": "Năm 2012, ngành Máy tính và khoa học thông tin tuyển khóa đầu tiên.",
+    "source_id": "S04",
+    "variant_named_in_excerpt": false
+  },
+  "indexed_lead": {
+    "current_binary_recovered": false,
+    "current_binary_sha256": null,
+    "direct_http_status": 404,
+    "direct_https_status": 404,
+    "index_extract_decision": "4115/QĐ-ĐT",
+    "index_extract_decision_date": "30/11/2012",
+    "index_extract_says_standard_program": true,
+    "old_program_code": "52480105",
+    "source_id": "S03",
+    "usable_as_verified_new_binary": false
+  },
+  "next_evidence": "Khôi phục tài liệu chuẩn 2012 và xác minh liên hệ định danh/hệ với khóa tuyển sinh; hoặc văn bản tuyển sinh/quyết định nêu rõ liên kết. Review trong candidate mới, không sửa chunk/gold cũ.",
+  "promotion_granted": false,
+  "question_id": "A7V4-Q001",
+  "runtime_or_gold_change": false,
+  "selected_chunk_id": "f526a537e9132345485d15b065a5697b",
+  "selected_quote_still_present_in_current_page": true,
+  "selected_scope": {
+    "applicability_status": "descriptive_not_student_curriculum_binding",
+    "cohort_year": null,
+    "curriculum_version": "unknown",
+    "major": "computer_science",
+    "program_id": null,
+    "program_variant": "unknown",
+    "validity_status": "unknown"
+  },
+  "selected_source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+  "verdict": "partial_corroboration_historical_2012_supported_explicit_variant_binding_still_open"
+}

@@ -4,11 +4,13 @@ Ensures HUS RAG achieves Recall@5 >= 90%, zero false positives on missing eviden
 100% citation integrity across all 4 majors in data/hus/evaluation/p11_holdout_v1.
 """
 
-from tools.run_final_holdout_a7 import run_a7_evaluation
+from tools import run_final_holdout_a7
 
 
-def test_prospective_holdout_a7_metrics():
-    report = run_a7_evaluation()
+def test_prospective_holdout_a7_metrics(monkeypatch, tmp_path):
+    monkeypatch.setattr(run_final_holdout_a7, "OUT_REPORT", tmp_path / "report.json")
+    monkeypatch.setattr(run_final_holdout_a7, "OUT_DOC", tmp_path / "report.md")
+    report = run_final_holdout_a7.run_a7_evaluation()
 
     metrics = report["metrics"]
     criteria = report["acceptance_criteria"]

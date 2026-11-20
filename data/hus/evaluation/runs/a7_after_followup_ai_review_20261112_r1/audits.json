@@ -1,0 +1,334 @@
+[
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q001"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q002"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q003"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q004",
+    "source_f2_contract": {
+      "course_code": "MAT3557",
+      "field": "credits",
+      "prerequisite_status": "unknown",
+      "review_status": "verified",
+      "value": 2
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q005",
+    "source_f2_contract": {
+      "course_code": "MAT1204",
+      "field": "prerequisites",
+      "prerequisite_status": "present",
+      "review_status": "verified",
+      "value": [
+        "MAT3507\nMAT3514"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q006",
+    "source_f2_contract": {
+      "course_code": "MAT2400",
+      "field": "name",
+      "prerequisite_status": "unknown",
+      "review_status": "verified",
+      "value": "Đại số tuyến tính"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q007"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q008"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q009"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q010"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q011"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q012"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q013"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q014"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q015"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q016",
+    "source_f2_contract": {
+      "course_code": "MAT1204",
+      "field": "credits",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": 3
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q017",
+    "source_f2_contract": {
+      "course_code": "MAT3557",
+      "field": "prerequisites",
+      "prerequisite_status": "unknown",
+      "review_status": "draft_unverified",
+      "value": [
+        null
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q018",
+    "source_f2_contract": {
+      "course_code": "MAT3386",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": "Phương pháp tính toán trong thống kê và khoa học dữ liệu"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q019"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q020"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q021"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q022"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q023"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q024"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q025"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q026"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q027"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q028",
+    "source_f2_contract": {
+      "course_code": "MAT2302",
+      "field": "credits",
+      "prerequisite_status": "unknown",
+      "review_status": "draft_unverified",
+      "value": 5
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q029",
+    "source_f2_contract": {
+      "course_code": "MAT3333",
+      "field": "prerequisites",
+      "prerequisite_status": "unresolved",
+      "review_status": "draft_unverified",
+      "value": [
+        "MAT2304\nMAT2308/\nMAT2405"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q030",
+    "source_f2_contract": {
+      "course_code": "MAT3326",
+      "field": "name",
+      "prerequisite_status": "present",
+      "review_status": "draft_unverified",
+      "value": "Xêmina Toán lý thuyết"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q031"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q032"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q033"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q034"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q035"
+  },
+  {
+    "kind": "basic_no_citations",
+    "passed": true,
+    "question_id": "A7F-Q036"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q037"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q038"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q039"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q040",
+    "source_f2_contract": {
+      "course_code": "MAT2314",
+      "field": "credits",
+      "prerequisite_status": "unresolved",
+      "review_status": "draft_unverified",
+      "value": 4
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q041",
+    "source_f2_contract": {
+      "course_code": "MAT3370",
+      "field": "prerequisites",
+      "prerequisite_status": "unresolved",
+      "review_status": "draft_unverified",
+      "value": [
+        "MAT2308/\nMAT2405"
+      ]
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q042",
+    "source_f2_contract": {
+      "course_code": "MAT3334",
+      "field": "name",
+      "prerequisite_status": "unresolved",
+      "review_status": "draft_unverified",
+      "value": "Các mô hình toán ứng dụng 2"
+    }
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q043"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q044"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q045"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q046"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q047"
+  },
+  {
+    "error": null,
+    "passed": true,
+    "question_id": "A7F-Q048"
+  }
+]

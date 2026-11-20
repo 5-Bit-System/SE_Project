@@ -1,0 +1,74 @@
+[
+  {
+    "id": "IF2-001",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-002",
+    "canonical_equal": null,
+    "generation_used": false,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-003",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-004",
+    "canonical_equal": false,
+    "generation_used": false,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-005",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-006",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-007",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-008",
+    "canonical_equal": true,
+    "generation_used": true,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-009",
+    "canonical_equal": true,
+    "generation_used": false,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-010",
+    "canonical_equal": true,
+    "generation_used": false,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-011",
+    "canonical_equal": true,
+    "generation_used": false,
+    "human_review": "pending"
+  },
+  {
+    "id": "IF2-012",
+    "canonical_equal": true,
+    "generation_used": false,
+    "human_review": "pending"
+  }
+]

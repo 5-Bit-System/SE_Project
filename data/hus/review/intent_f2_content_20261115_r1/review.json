@@ -1,0 +1,697 @@
+{
+  "kind": "AI-content-and-source-review-of-existing-live-run-not-new-score",
+  "created_at_utc": "2026-11-14T20:47:42.318510+00:00",
+  "google_calls_this_review": 0,
+  "historical_calls": 11,
+  "historical_generation_used": 6,
+  "historical_fallback": 0,
+  "cohort_closed_unused_call_not_reusable": true,
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "old_live_manifest_sha256": "3618cebce80c052b4969633da6f591ad2830cb2678dbab01b0a9f3a109e9c2f3",
+  "old_prepared_manifest_sha256": "48b8a53f77112054f5a46196d10308620d9413d2b0a2b3dcb41bc91a497b560e",
+  "protected_sha256": {
+    "data/hus/evaluation/intent_f2_student_20261114_r1/cases.json": "f040849a7440e67635c24dce28252df2005c2e3b530d3785a186084543f45e8a",
+    "data/hus/evaluation/intent_f2_student_20261114_r1/manifest.json": "48b8a53f77112054f5a46196d10308620d9413d2b0a2b3dcb41bc91a497b560e",
+    "data/hus/evaluation/intent_f2_student_20261114_r1/offline_observations.json": "6324e0cc6ac885f9a93d3d5a6b2e896022d6c7f40087f8ea056b3cf9305a7401",
+    "data/hus/evaluation/intent_f2_student_20261114_r1/planned_calls.json": "8864adae7c8dfa0e4b637a1322c5ced8c6a590ac97e3d97f549e8e57474acd5c",
+    "data/hus/evaluation/intent_f2_student_20261114_r1/preflight.json": "6f3f3ef61da0d4cce77a144cd2b1d6c64f147f6df4e789170626b3c41aaa5fc7",
+    "data/hus/evaluation/intent_f2_student_20261114_r1/review_template.csv": "e82a1b901eb5589b58b2c036e6d1a41ebc88ccd554865ccf3efb1a2b01426fca",
+    "data/hus/evaluation/runs/intent_f2_student_live_20261114_r1/manifest.json": "3618cebce80c052b4969633da6f591ad2830cb2678dbab01b0a9f3a109e9c2f3",
+    "data/hus/evaluation/runs/intent_f2_student_live_20261114_r1/observations.json": "9b77d3aa0874fc939ddfd7f69df6be9a14cd5c38a473b8759168b2aaad351df9",
+    "data/hus/evaluation/runs/intent_f2_student_live_20261114_r1/report.json": "cfec64c7ec806755fa67f51f07ce9ec5b7d480c8b8c659884a2e510e7f7907ca",
+    "data/hus/review/intent_f2_student_live_20261114_r1/automation_checks.json": "7a61d2ccf22b2071df9d1943ab00c2283aba7bcbc3bf94bb0d713b97c9656720",
+    "data/hus/review/intent_f2_student_live_20261114_r1/receipt.json": "96bbee3fc21c22beeeeb7bcbc0de367578a21fda7209e64f11abb1e7ce72897a",
+    "data/hus/review/intent_f2_student_live_20261114_r1/review.csv": "f619c4c43f37f455b408e1ea9171a92182b59934fef97fedfa4c11ac2b24a95b",
+    "data/hus/review/intent_f2_student_live_20261114_r1/summary.json": "c8ed35f7cae197e860ebe228ceacd096ed242cfa1371b28ee86e737a3f2e8c08",
+    "data/hus/evaluation/router_content_dev_20261115_r1/cases.json": "7a1de870ccbe9a5a6c617fabc0eca6a3fa42951743fb41914009a560d0ac41b7",
+    "data/hus/evaluation/router_content_dev_20261115_r1/manifest.json": "9aa9028e4538a00a32b80db7692b3560cbed43281d031a44b4dcf0c32fd347e7",
+    "data/hus/evaluation/router_content_dev_20261115_r1/protocol.json": "681809278ea105c9c4b9e86e553f7e258cdd4a9ded92062a8d268b21cac73e12",
+    "data/hus/evaluation/router_content_dev_20261115_r1/sources.json": "dbf0ca1b670e76f1b0cc828b4390dfd449c4f991643e1ad5393d1166073fbbcb",
+    "data/hus/evaluation/runs/router_content_dev_20261115_r1/manifest.json": "2bed42ef7d5902e85193d1d0250107521f4bed1d2bc03744950b8d3037466e2c",
+    "data/hus/evaluation/runs/router_content_dev_20261115_r1/observations.json": "3123c2cf1d7c88f64d71b63ce483bb3672120e6020ebb19d6e42c4b996aa4c7f"
+  },
+  "code_changed_since_live": [
+    "app/hus/vector_query.py"
+  ],
+  "current_code_sha256": {
+    "app/hus/__init__.py": "2afcab73c6c17babe6f4003ba601756d2f37f568a6135b9c233898ee29778aad",
+    "app/hus/allowlist.py": "5eb040688d9cf6e3a8ac84f84c996a9bb2d278f115e2c5ae9d074cb0e65b980b",
+    "app/hus/answer_support.py": "9ec9dd489d725fd205242767f2e77f86f2824c7146e6aec66b43e9f571064110",
+    "app/hus/answering.py": "e159f6bbe0c2a4c49797be5821cf7065ec1e12e1e28bd34889ab511ec67ff593",
+    "app/hus/chat.py": "23b8401745a69b43db7dec1b39b4319fe0ee3d082c67cc8bff46594ce5f5d44c",
+    "app/hus/citation_assets.py": "a4900dd110607cd5445d880d0fe1edaf0b8b451ba002231f4dadd1fe51f456e2",
+    "app/hus/citations.py": "26fc7e189d99fbcfe1ad8471d56c95aa782af1e035ed4d12bd9cfb8618273849",
+    "app/hus/cleaning.py": "9b6d49df001e1d84a2227fde6d362b783791fe0a1a98946a44ce65b10907b101",
+    "app/hus/corpus.py": "9b9f4d49a142f1d252b7a3139ce8a1f5484cf218125122ec0914893702a19c9a",
+    "app/hus/crawler.py": "4092955bf58b2134699aed3baffdc91fd7c1799feceb7c16504d034cefa7bbb2",
+    "app/hus/data_release.py": "57e42ace96ec1a2f52468841521036e116772a16bdb06a31d4608d3b0ed10f88",
+    "app/hus/demo.py": "0bfa17377261d443062161fc8f25c1b85abb7836557bde6d7260a23850b61fa8",
+    "app/hus/diagnostics.py": "b3c819f7fe154f75f9d4ac8a1198dd01b8fa974b0f37354c3fababb6df7143b3",
+    "app/hus/embedding.py": "e141333cfb0dd352d4e25bc11ede37dc9b3a6860c34c00a7d06c82bb40446482",
+    "app/hus/extractors/__init__.py": "b0e0f4446f4518bd96f6c51cd7078460cb38caf94230a4aac8d36047d57bbd73",
+    "app/hus/extractors/docx.py": "29a3bf77800adeb928b9708e36a6c62897bf6393f586f0c140ec6075fa2bd14a",
+    "app/hus/extractors/excel.py": "23f7fbe4300a2a95abd345f78543611b853ae4ff8119733c0bf94da22a640fdc",
+    "app/hus/extractors/html.py": "07be1397d3adc2282923a69bd5bd14fdb4e783e5e9494cb36b9328e9a8990186",
+    "app/hus/extractors/pdf.py": "a7c175d96c8366edef779e9c2d6f96bdab163e76ea3af8d46a78af081c5fdb46",
+    "app/hus/f1_corpus.py": "2398681d2aa60b0e8269613ee9ceb989312f92e50c2cce9e91eda48527e2fffc",
+    "app/hus/f1_markdown_review.py": "a9de8b5c6f61c6c4bdf7e436cb5e36ec00e666f003fa3a448d5effe53571b48b",
+    "app/hus/f3_detail.py": "738d5759aa6cd5d293908d33818e7aab28b10ef8ad3736e255deadbec65b9643",
+    "app/hus/f3_reference.py": "d866d45f5925559965963b68d331a5bb133fb3e46674aa774cca1b8d3a591137",
+    "app/hus/f3_runtime_release.py": "e7e7ed60d803fc1fefd6014e9f8f75638af8fd1ccca49e1759c426d5c0d0c12b",
+    "app/hus/hybrid_retrieval.py": "d3c6d9177304b0fe1f58b8c0f7fa4f31a8ad5c1a50b025fcc4b107b393a9aaec",
+    "app/hus/index.py": "03e48e210540a2c1215e5f33770d5c8a35ecb829ffa257bc532f8def129721db",
+    "app/hus/llm/__init__.py": "28388f9029c88a1e7e4f4d4123f9a3ada5042f3509e0a7804a1953a642a60497",
+    "app/hus/llm/adapter.py": "e32111f09e201729f46e346e581016ceaa2578a78db730e64184474b8bd13d73",
+    "app/hus/llm/auto.py": "0a256fb687346fb3d9faf2ad00e7db283eb46cd40d6995e579224bf2346fb2b5",
+    "app/hus/llm/capacity.py": "d2d85f20052dc40bdfba6b5e34ef032d2f2a7a04b161db8936c01ff4e9b3ebf9",
+    "app/hus/llm/client.py": "79fd5a019e21906909c2cabc72aca0cf180095f22687cc5e87953a20eebd1d78",
+    "app/hus/llm/config.py": "0b8616891284ecf110e9b0b70b27b45f7ca2e8c734e4f7e1a1e5b2cc78bff536",
+    "app/hus/llm/contracts.py": "ba33f4ad7be202fdd709ed1bf123df75e150f2abd893401250a8b21747fbae18",
+    "app/hus/llm/coverage.py": "13d9bb383b3a52a1ee55b6b99056246eac3420880028d967583077c0275ec689",
+    "app/hus/llm/diagnostics.py": "2685e05fed13ecd6de844e4ccfd72080fc385c490c3e1ab76d397ee5769bcb6d",
+    "app/hus/llm/document.py": "c31d7ee26a9fc21a061001c329806244b3813843e06b2dfaf2cf38e2e6136ab3",
+    "app/hus/llm/evidence.py": "76a2376ff31f05bee445fec51c618e620c024fd35a0e9e3a0f01f2740e4bbb9d",
+    "app/hus/llm/generation.py": "834afaeda6ecc5c5f0899311877e7e53184bbd65d2a24ba67529e8c86c39176b",
+    "app/hus/llm/intent.py": "2a3d561c768a0ed8398128baa2b166990e971c7208fe0f10408174c40e8220c4",
+    "app/hus/llm/output.py": "934fffc831cf30f7ff8633a92c102ae00a3631868204467f41c77664e8a2f432",
+    "app/hus/llm/output_v3.py": "4c5933705dd3b54c3af9b6d0681d7963d887fafe0961fc1f8e0ee6f06976b8ee",
+    "app/hus/llm/prompts.py": "58a4b80f1695927c927f6e31329d46a66012c57a1bff41716d0fbf9a78ad04bc",
+    "app/hus/llm/usage.py": "7dbff844c20803e554dfce921e9a0ff6fa189d2c85681b87042abe3df8550c1f",
+    "app/hus/metadata.py": "42f402ca3c8c4079329831f59a97456c566eb656f37ee9eaa016305adb4bb929",
+    "app/hus/models.py": "bf915475eab4d246b48e92f063a4de89f6e04a0d2a6c46cef91f47545e7c3a53",
+    "app/hus/passage_tokenizer.py": "86a16e2a70b99faf8b2d60e57b0f8883bb0b046b83806bdbc47451aba43a1369",
+    "app/hus/passages.py": "f42509e2b82b9cb8a6975412190430ce3c66c1c2c657af95d1140c70e99fb6c0",
+    "app/hus/pipeline.py": "52b556cb08cee1f7e7c8b6f65274c3889d78b19b8fa3441d4b3d4fd75e3de5f9",
+    "app/hus/portable_adapter.py": "18f8ad1c84b6209bd69eb69737b6356180a25c8177c9de7650b47ffda3a4a354",
+    "app/hus/program_catalog.py": "1a6247b957b9830977c1a351c41ed7459a5b64654dcf98b1a9fee799e6c99b8b",
+    "app/hus/provenance.py": "7b687d2d715c2eee5ccca96b5243f929c52111dc682faaf28364b76c651f8509",
+    "app/hus/quality.py": "e2f21613522999db8dc512521d9986ec881aa72afa83ba5584419d0d8475881f",
+    "app/hus/quality_models.py": "c77a7ad17cf4cef47e4a2010f582d8ae747db6da883c1e167deddd57aed13eeb",
+    "app/hus/question_catalog.py": "8733ffcd9624aa0cb6698a6ef60738e7852df705870278ac39cf3f5db1fc9e3c",
+    "app/hus/question_routing.py": "dd6116d62b089ffb5f6c629f8d51ec0e8d5b957c37b0d0af03d6c1f75ad0114d",
+    "app/hus/rag_loader.py": "8ce5c7ff7965e0b7b9b29cf2465f4ab49d994578f2aba62a97c97d6eeb0f525c",
+    "app/hus/release_reader.py": "56e93e000da616b37463cfc9d68609dcf5e610bfb9eba21f6298bceccd041a57",
+    "app/hus/release_text.py": "770a6a2c3ecc33df92b0ff57d0cf741dcee829bcee8f32cec022182c6b6bcfa9",
+    "app/hus/release_validation.py": "5de530697faaddef91f1ac8273db3b7193b853a8d70346a9ff9858e1e9109c0e",
+    "app/hus/retrieval.py": "bdcfd4b8d7e07c7ff1b242d1631a741b3a73b18f72ed189b8053eb63b54e2f1d",
+    "app/hus/retrieval_config.py": "fc8a7966fc523f72d7182e1ec270c28e5271a0080f26bdb12b09129f135c9273",
+    "app/hus/retrieval_profile.py": "2ad58569b2b445b9d986510621e5e4c12ad293ff970ed0237d9db8111593ee31",
+    "app/hus/review.py": "e0c8b910ad9894f91ae6fdedcd9f27550207c4554a1e77bb0fb2580025159dc4",
+    "app/hus/scope_audit.py": "e4058f25f762ac0e447a499fbbaa085bb9bd26d915745bf04bcb3944ce6cb0d0",
+    "app/hus/source_response.py": "981c7155520c0f7f3cc88760bdd4e3f63a509db2877b281250c656be15252ce2",
+    "app/hus/state.py": "a4f83c3fa87ab7521a9033806a654ebd0e50efd141b6eb87ae9b25a46a55d57d",
+    "app/hus/storage.py": "8113fd6a419d9f4087c03d395674d70a1f8233c423c76885fb54156deffe8056",
+    "app/hus/urls.py": "4edde88d965d577b28bba8501182e3b0deb8cfbbcc53e742521e7dca0085dcea",
+    "app/hus/vector_contract.py": "d874d777d66484e69cb37c605eb6bc03aa4d98c057d472f9788c0e82625579df",
+    "app/hus/vector_index.py": "7f27b7f2b38f1534a77d2f81637390d911bbb9bc81cef447162cd21cc8ac15e2",
+    "app/hus/vector_query.py": "8bd0b5b0e6af6ad0a847b84f1bb3ddcf4b3b25841d6278c8887965d5ec841623",
+    "app/hus/vector_runtime.py": "71b2c888e7c2012ee49fa59f81fc510b1d6b35800a0d398e262c604e1631b40d",
+    "app/schemas/hus.py": "c6cbed4d5c0d465ef9cbdbabaaa00830051cc4e16cd6880698c1018c9c77aae9",
+    "app/services/hus_service.py": "c7b5007a35b4b09ac88503d80dcd18f3122472214c8e7aae829427cbbf98e678"
+  },
+  "focus": {
+    "IF2-002": {
+      "observed_generation_validation": {
+        "stage": "output_coverage",
+        "facts_issue": "fact_keys"
+      },
+      "expected_top_level_fact_keys": [
+        "field",
+        "program_id",
+        "review_status",
+        "value"
+      ],
+      "source_ids": [
+        "1"
+      ],
+      "nested_value_keys": [
+        "catalog_course_count",
+        "courses",
+        "student_required_course_count"
+      ],
+      "backend_catalog_list_length": 90,
+      "raw_rejected_output_available": false,
+      "unknown": "Which returned fact keys differed and why; no reconstruction from character/token counts."
+    },
+    "IF2-004": {
+      "observed_status": "needs_clarification",
+      "observed_diagnostic": {
+        "code": "clarification_required"
+      },
+      "interpretation_calls": 1,
+      "generation_calls": 0,
+      "intent_json_available": false,
+      "backend_catalog_capability_count": 68,
+      "capability_is_not_actual_answer": true
+    }
+  },
+  "checks": [
+    {
+      "id": "IF2-001",
+      "request": {
+        "question": "Ngành Toán học có bao nhiêu môn học?",
+        "major": "mathematics",
+        "dataset": "auto",
+        "version": "QD3565-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_count",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": false
+      },
+      "status": "answered",
+      "interpretation_calls": 0,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "program_course_count",
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "count_equal": true,
+          "student_required_count_remains_unknown": true,
+          "scoped_unique_course_count": 90,
+          "quoted_code_list_equal": true,
+          "source_pointers_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-002",
+      "request": {
+        "question": "Cho mình xem toàn bộ danh sách học phần",
+        "major": "mathematics",
+        "dataset": "auto",
+        "version": "QD3565-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_list",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": true
+      },
+      "status": "api_error",
+      "interpretation_calls": 1,
+      "generation_calls": 1,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "output_rejected"
+      },
+      "source_checks": [],
+      "human_review": "pending"
+    },
+    {
+      "id": "IF2-003",
+      "request": {
+        "question": "Liệt kê các môn trong chương trình",
+        "major": "mathematics_informatics",
+        "dataset": "auto",
+        "version": "QD3567-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_list",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": false
+      },
+      "status": "answered",
+      "interpretation_calls": 0,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "program_course_list",
+          "major": "mathematics_informatics",
+          "version": "QD3567-2023",
+          "count_equal": true,
+          "student_required_count_remains_unknown": true,
+          "scoped_unique_course_count": 68,
+          "complete_code_name_list_equal": true,
+          "all_code_name_lines_in_reply": true,
+          "quoted_code_list_equal": true,
+          "source_pointers_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-004",
+      "request": {
+        "question": "Đếm học phần giúp tôi",
+        "major": "mathematics_informatics",
+        "dataset": "auto",
+        "version": "QD3567-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_count",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": true
+      },
+      "status": "needs_clarification",
+      "interpretation_calls": 1,
+      "generation_calls": 0,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "clarification_required"
+      },
+      "source_checks": [],
+      "human_review": "pending"
+    },
+    {
+      "id": "IF2-005",
+      "request": {
+        "question": "Ngành khoa học máy tính có bao nhiêu môn học?",
+        "major": "computer_science",
+        "dataset": "auto",
+        "version": "QD3568-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_count",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": false
+      },
+      "status": "answered",
+      "interpretation_calls": 0,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "program_course_count",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "count_equal": true,
+          "student_required_count_remains_unknown": true,
+          "scoped_unique_course_count": 67,
+          "quoted_code_list_equal": true,
+          "source_pointers_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-006",
+      "request": {
+        "question": "MAT1204 được tính mấy TC?",
+        "major": "computer_science",
+        "dataset": "auto",
+        "version": "QD3568-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "credits",
+        "course_code": "MAT1204",
+        "diagnostic": null,
+        "needs_interpretation": true
+      },
+      "status": "answered",
+      "interpretation_calls": 1,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "credits",
+          "major": "computer_science",
+          "version": "QD3568-2023",
+          "raw_credits_equal": true,
+          "raw_credits": [
+            3
+          ],
+          "course_name_equal": true,
+          "source_quote_locator_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-007",
+      "request": {
+        "question": "Liệt kê các môn trong chương trình",
+        "major": "data_science",
+        "dataset": "auto",
+        "version": "QD3569-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "program_course_list",
+        "course_code": null,
+        "diagnostic": null,
+        "needs_interpretation": false
+      },
+      "status": "answered",
+      "interpretation_calls": 0,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "program_course_list",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "count_equal": true,
+          "student_required_count_remains_unknown": true,
+          "scoped_unique_course_count": 65,
+          "complete_code_name_list_equal": true,
+          "all_code_name_lines_in_reply": true,
+          "quoted_code_list_equal": true,
+          "source_pointers_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-008",
+      "request": {
+        "question": "MAT3533 được tính mấy TC?",
+        "major": "data_science",
+        "dataset": "auto",
+        "version": "QD3569-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "answered",
+        "field": "credits",
+        "course_code": "MAT3533",
+        "diagnostic": null,
+        "needs_interpretation": true
+      },
+      "status": "answered",
+      "interpretation_calls": 1,
+      "generation_calls": 1,
+      "generation_used": true,
+      "calls_all_http200": true,
+      "diagnostic": {},
+      "source_checks": [
+        {
+          "field": "credits",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "raw_credits_equal": true,
+          "raw_credits": [
+            3
+          ],
+          "course_name_equal": true,
+          "source_quote_locator_equal": true,
+          "review_status_equal": true
+        }
+      ],
+      "human_review": "pending",
+      "canonical_equal_preflight": true,
+      "reply_equal_preflight": true
+    },
+    {
+      "id": "IF2-009",
+      "request": {
+        "question": "Ngành khoa học máy tính có bao nhiêu môn học?",
+        "major": "data_science",
+        "dataset": "auto",
+        "version": "QD3569-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "no_information",
+        "field": null,
+        "course_code": null,
+        "diagnostic": "scope_conflict",
+        "needs_interpretation": false
+      },
+      "status": "no_information",
+      "interpretation_calls": 0,
+      "generation_calls": 0,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "scope_conflict",
+        "suggested_major": "computer_science"
+      },
+      "source_checks": [],
+      "human_review": "pending",
+      "control_equal_preflight": true
+    },
+    {
+      "id": "IF2-010",
+      "request": {
+        "question": "Ngành Toán học phải học bao nhiêu môn?",
+        "major": "mathematics",
+        "dataset": "auto",
+        "version": "QD3565-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "needs_clarification",
+        "field": null,
+        "course_code": null,
+        "diagnostic": "unsupported_operation",
+        "needs_interpretation": false
+      },
+      "status": "needs_clarification",
+      "interpretation_calls": 0,
+      "generation_calls": 0,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "unsupported_operation"
+      },
+      "source_checks": [],
+      "human_review": "pending",
+      "control_equal_preflight": true
+    },
+    {
+      "id": "IF2-011",
+      "request": {
+        "question": "Nội dung MAT3533?",
+        "major": "data_science",
+        "dataset": "auto",
+        "version": "QD3569-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "needs_clarification",
+        "field": null,
+        "course_code": null,
+        "diagnostic": "permission_required",
+        "needs_interpretation": false
+      },
+      "status": "needs_clarification",
+      "interpretation_calls": 0,
+      "generation_calls": 0,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "permission_required"
+      },
+      "source_checks": [],
+      "human_review": "pending",
+      "control_equal_preflight": true
+    },
+    {
+      "id": "IF2-012",
+      "request": {
+        "question": "MAT9999 có bao nhiêu tín chỉ?",
+        "major": "data_science",
+        "dataset": "auto",
+        "version": "QD3569-2023",
+        "course_code": null,
+        "field": null,
+        "group_key": null,
+        "program_variant": null,
+        "allow_generated_reference": false
+      },
+      "expected": {
+        "status": "no_information",
+        "field": null,
+        "course_code": null,
+        "diagnostic": "evidence_unavailable",
+        "needs_interpretation": false
+      },
+      "status": "no_information",
+      "interpretation_calls": 0,
+      "generation_calls": 0,
+      "generation_used": false,
+      "calls_all_http200": true,
+      "diagnostic": {
+        "code": "evidence_unavailable"
+      },
+      "source_checks": [],
+      "human_review": "pending",
+      "control_equal_preflight": true
+    }
+  ],
+  "AI_reviews": [
+    {
+      "id": "IF2-001",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Đúng số danh mục90 mã duy nhất Toán học, giữ student_required_count unknown và cảnh báo không phải mọi sinh viên học hết. Nguồn draft_unverified."
+    },
+    {
+      "id": "IF2-002",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Chưa có đáp án.1call ý định đã qua kiểm,1call generation bị fact_keys chặn. Bundle cần4 khóa root; chưa biết khóa model trả sai, không suy thiếu/thừa/trùng hoặc nhầm khóa lồng. Không phải bằng chứng model đếm sai90."
+    },
+    {
+      "id": "IF2-003",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Danh sách68 mã/tên Toán tin khớp đầy đủ nguồn và mọi dòng xuất hiện trong reply. Nguồn draft_unverified; danh mục không là danh sách bắt buộc của một sinh viên."
+    },
+    {
+      "id": "IF2-004",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Chưa đếm được.1call hiểu ý định rồi yêu cầu làm rõ,0generation. Nguồn có danh mục68 nhưng đó là khả năng backend, không là kết quả model. Lời nhắc chung chưa nói rõ đếm toàn danh mục hay theo điều kiện."
+    },
+    {
+      "id": "IF2-005",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Đúng số danh mục67 KHMTTT, cùng scope/edition, verified là review cấp dự án; chưa xác minh hiệu lực hiện tại hoặc áp dụng cá nhân."
+    },
+    {
+      "id": "IF2-006",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "MAT1204 KHMTTT3 tín chỉ khớp dòng PDF trang10. Cảnh báo verified theo sign-off dự án, không là chứng nhận của trường được giữ."
+    },
+    {
+      "id": "IF2-007",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Danh sách65 mã/tên KHDL khớp đủ nguồn, mọi dòng trong reply. Không suy thành số môn phải học; draft_unverified được giữ."
+    },
+    {
+      "id": "IF2-008",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "MAT3533 KHDL3 tín chỉ đúng PDF trang11, giữ draft_unverified và cảnh báo unresolved MAT2406; không tự sửa dữ liệu tiên quyết."
+    },
+    {
+      "id": "IF2-009",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Sai ngành chọn KHDL nhưng hỏi KHMTTT: không gọi provider, nêu đúng ngành cần chọn, không âm thầm đổi/trộn dữ liệu."
+    },
+    {
+      "id": "IF2-010",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "Số môn phải học không đồng nghĩa tổng danh mục90; yêu cầu làm rõ điều kiện, không gọi provider hoặc đoán số."
+    },
+    {
+      "id": "IF2-011",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "F3 chưa opt-in: nhắc quyền AI, không gọi provider hoặc trả nội dung AI."
+    },
+    {
+      "id": "IF2-012",
+      "reviewer_type": "Codex(AI)",
+      "review_date": "2026-11-15",
+      "human_acceptance": "pending",
+      "note": "MAT9999 không có trong scope dữ liệu: từ chối thiếu nguồn, không gọi provider hoặc bịa tín chỉ."
+    }
+  ],
+  "human_review_pending": 12
+}

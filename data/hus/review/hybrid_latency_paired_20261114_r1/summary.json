@@ -1,0 +1,198 @@
+{
+  "kind": "local-performance-dev-not-quality-or-human-acceptance",
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo"
+  },
+  "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+  "google_calls": 0,
+  "run_manifest_sha256": "65589a3b6cee18c9d05c83ae65a805374d9369fd92a13e3afd4a71bc0ac60c6b",
+  "before_profile_manifest_sha256": "6a8814ea1fc128b8b0cc4eb5190348aab60e4e98b061b5579174f95f1d59c797",
+  "questions": 20,
+  "observations": 60,
+  "all_hybrid_pairs_exact_response_and_trace_equal": true,
+  "cold_seconds": 56.48437260003993,
+  "cold_comparison_not_causal": true,
+  "authorship": "Original exposed Codex(AI) draft, not team questions/holdout",
+  "human_review_pending": 20,
+  "protected_logical_files_unchanged": 37,
+  "modes": {
+    "lexical_reference": {
+      "search_rag_seconds": {
+        "n": 10,
+        "min": 0.004141999990679324,
+        "median": 0.010434600000735372,
+        "max": 0.03888150001876056
+      },
+      "search_retrieval_seconds": {
+        "n": 10,
+        "min": 0.00038079998921602964,
+        "median": 0.0016290000057779253,
+        "max": 0.0037443999899551272
+      },
+      "no_search_rag_seconds": {
+        "n": 10,
+        "min": 0.0019943000515922904,
+        "median": 0.03185344999656081,
+        "max": 0.07503509998787194
+      },
+      "statuses": {
+        "needs_clarification": 3,
+        "answered": 13,
+        "no_information": 4
+      },
+      "exclusive_stage_seconds": {}
+    },
+    "hybrid_legacy_signature": {
+      "search_rag_seconds": {
+        "n": 10,
+        "min": 4.199784600001294,
+        "median": 6.590863399993395,
+        "max": 7.3356653999653645
+      },
+      "search_retrieval_seconds": {
+        "n": 10,
+        "min": 4.169901799992658,
+        "median": 6.568681600008858,
+        "max": 7.302631900005508
+      },
+      "no_search_rag_seconds": {
+        "n": 10,
+        "min": 0.001886199985165149,
+        "median": 0.0225905500119552,
+        "max": 0.07649479998508468
+      },
+      "statuses": {
+        "needs_clarification": 3,
+        "answered": 13,
+        "no_information": 4
+      },
+      "exclusive_stage_seconds": {
+        "canonical_signature": {
+          "n": 10,
+          "min": 3.4587427999358624,
+          "median": 5.3771307499555405,
+          "max": 5.8447994000162
+        },
+        "chroma_knn_query": {
+          "n": 10,
+          "min": 0.009198899962939322,
+          "median": 0.016416250000474975,
+          "max": 0.03119189996505156
+        },
+        "encoding": {
+          "n": 10,
+          "min": 0.02412019995972514,
+          "median": 0.041675399988889694,
+          "max": 0.14353689999552444
+        },
+        "index_check": {
+          "n": 10,
+          "min": 0.026675500033888966,
+          "median": 0.037695399951189756,
+          "max": 0.04640359996119514
+        },
+        "inventory_json_serialization": {
+          "n": 10,
+          "min": 0.3038620000006631,
+          "median": 0.5936250000377186,
+          "max": 0.6477577000041492
+        },
+        "inventory_read": {
+          "n": 10,
+          "min": 0.18199830001685768,
+          "median": 0.37051165002048947,
+          "max": 0.619737199973315
+        },
+        "result_resolution": {
+          "n": 10,
+          "min": 0.0055053000105544925,
+          "median": 0.03188109997427091,
+          "max": 0.510279799986165
+        }
+      }
+    },
+    "hybrid_optimized_signature": {
+      "search_rag_seconds": {
+        "n": 10,
+        "min": 1.9459125000284985,
+        "median": 3.3273056999896653,
+        "max": 3.959157500008587
+      },
+      "search_retrieval_seconds": {
+        "n": 10,
+        "min": 1.9314818999846466,
+        "median": 3.321151850017486,
+        "max": 3.9241148000000976
+      },
+      "no_search_rag_seconds": {
+        "n": 10,
+        "min": 0.0018837999668903649,
+        "median": 0.026396750006824732,
+        "max": 0.061167299980297685
+      },
+      "statuses": {
+        "needs_clarification": 3,
+        "answered": 13,
+        "no_information": 4
+      },
+      "exclusive_stage_seconds": {
+        "canonical_signature": {
+          "n": 10,
+          "min": 1.2320331000373699,
+          "median": 2.193370050052181,
+          "max": 2.4818565999739803
+        },
+        "chroma_knn_query": {
+          "n": 10,
+          "min": 0.009343499958049506,
+          "median": 0.01517470000544563,
+          "max": 0.025440199999138713
+        },
+        "encoding": {
+          "n": 10,
+          "min": 0.01873619999969378,
+          "median": 0.0416100500151515,
+          "max": 0.05062489997362718
+        },
+        "index_check": {
+          "n": 10,
+          "min": 0.02171879995148629,
+          "median": 0.03861680001136847,
+          "max": 0.04637990001356229
+        },
+        "inventory_json_serialization": {
+          "n": 10,
+          "min": 0.2825891000102274,
+          "median": 0.5921989000053145,
+          "max": 0.6178872000309639
+        },
+        "inventory_read": {
+          "n": 10,
+          "min": 0.19559670001035556,
+          "median": 0.35460310001508333,
+          "max": 0.39227449998725206
+        },
+        "result_resolution": {
+          "n": 10,
+          "min": 0.001878499984741211,
+          "median": 0.02786354999989271,
+          "max": 0.7997806000057608
+        }
+      }
+    }
+  },
+  "median_search_rag_reduction_percent": 49.51639113028804,
+  "median_search_rag_speed_ratio": 1.9808409548944863,
+  "checks_not_skipped": {
+    "canonical_checks_per_hybrid_search": 4,
+    "full_persisted_inventory_reads_per_hybrid_search": 1,
+    "native_hybrid_searches": 20,
+    "scoped_result_validation": true,
+    "external_index_pin": true,
+    "inventory_json_serialization": true
+  },
+  "review_limit": "Fresh reviewer could not complete because of provider usage limit; root verification only."
+}

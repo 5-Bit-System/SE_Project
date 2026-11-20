@@ -1,0 +1,90 @@
+{
+  "id": "HN20-005",
+  "request": {
+    "question": "Nếu tính mỗi mã học phần một lần thì ngành Toán học có bao nhiêu môn trong danh mục?",
+    "major": "mathematics",
+    "version": "QD3565-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f2",
+    "field": "program_course_count",
+    "course_code": null,
+    "outcome": "unsupported_operation",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "unique_catalog_course_count": 90,
+    "note": "Count catalog membership only; not number every student must take. Runtime operation not yet implemented.",
+    "target_ids": []
+  },
+  "raw_question_route": [
+    "f3",
+    "suggested_assessment"
+  ],
+  "order": [
+    "lexical",
+    "hybrid"
+  ],
+  "modes": {
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.03444700001273304,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.",
+          "status": "needs_clarification",
+          "dataset": "f3",
+          "major": "mathematics",
+          "version": "QD3565-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "clarification_required"
+          }
+        }
+      },
+      "seconds": 0.028408899961505085,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "clarification_required",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": {
+    "dev_diagnostic.json": "047bdbabd1c27b432975b731d62e877494f1cef6858b5316bd41380102b61672",
+    "freeze_proof.json": "b937613c0e7527dc7cffce1a490fb89f5836ecfb47a802637072fef84c57f43f",
+    "integrity.json": "6f0a0ac97d2b2f17e914a8f34d463b2fa62dfb5fd968ff9261ce87fc7995b41a",
+    "portable_api.json": "1686cb70e5ff62fcda828d4cc6eef1d3ad9e7180a6171b623c7e98a28facb32b",
+    "portable_proof.json": "f0c4e7d5b97f7969ce32b8ea5810fb1bc63acbbbcde0ad48607bb26dd10cd4a7",
+    "portable_source_hashes.json": "0e1a2611799515f33ca811e698fb099039c54ce7b2847c404743c2a6d36ba9bc",
+    "report.json": "0bd677627975eb07a694bb0375da449c0544e447245033d607ababfefbd8705b"
+  },
+  "schema": "hus-scope-assessment-portable-qa-1.0"
+}

@@ -1,0 +1,1830 @@
+{
+  "id": "HN20-016",
+  "request": {
+    "question": "Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f1",
+    "field": "careers",
+    "course_code": null,
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "251ab61e0d6a58faa68914d59fa45516",
+      "52b2b2acd330744f909bc2ea49cf5fb7",
+      "940a3740794040de84617af7e9aa78fd",
+      "d844e5fa88b2bf746f918a39a67aa2bb"
+    ]
+  },
+  "raw_question_route": [
+    "f1",
+    "careers"
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [
+        {
+          "query": "Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",
+          "scope": {
+            "dataset": "f1",
+            "major": "data_science",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"careers\",\"major\":\"data_science\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "251ab61e0d6a58faa68914d59fa45516",
+                "rank": 1,
+                "raw_score": 3.289180161013955
+              },
+              {
+                "parent_id": "940a3740794040de84617af7e9aa78fd",
+                "rank": 2,
+                "raw_score": 1.1138239643214902
+              },
+              {
+                "parent_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                "rank": 3,
+                "raw_score": 0.8865910511103308
+              },
+              {
+                "parent_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                "rank": 4,
+                "raw_score": 0.480277289937706
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "940a3740794040de84617af7e9aa78fd",
+                "rank": 1,
+                "raw_score": 0.8519702553749084
+              },
+              {
+                "parent_id": "251ab61e0d6a58faa68914d59fa45516",
+                "rank": 2,
+                "raw_score": 0.8361631035804749
+              },
+              {
+                "parent_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                "rank": 3,
+                "raw_score": 0.8312748074531555
+              },
+              {
+                "parent_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                "rank": 4,
+                "raw_score": 0.8298226594924927
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"data_science\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"251ab61e0d6a58faa68914d59fa45516\",\"52b2b2acd330744f909bc2ea49cf5fb7\",\"940a3740794040de84617af7e9aa78fd\",\"d844e5fa88b2bf746f918a39a67aa2bb\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"careers\"}]}",
+              "passage_ids": [
+                "940a3740794040de84617af7e9aa78fd#p000",
+                "251ab61e0d6a58faa68914d59fa45516#p000",
+                "52b2b2acd330744f909bc2ea49cf5fb7#p000",
+                "d844e5fa88b2bf746f918a39a67aa2bb#p000"
+              ],
+              "parent_ids": [
+                "940a3740794040de84617af7e9aa78fd",
+                "251ab61e0d6a58faa68914d59fa45516",
+                "52b2b2acd330744f909bc2ea49cf5fb7",
+                "d844e5fa88b2bf746f918a39a67aa2bb"
+              ]
+            },
+            "candidate_union": [
+              "251ab61e0d6a58faa68914d59fa45516",
+              "52b2b2acd330744f909bc2ea49cf5fb7",
+              "940a3740794040de84617af7e9aa78fd",
+              "d844e5fa88b2bf746f918a39a67aa2bb"
+            ],
+            "fused": [
+              {
+                "parent_id": "251ab61e0d6a58faa68914d59fa45516",
+                "lexical_rank": 1,
+                "vector_rank": 2,
+                "rrf_score": 0.03252247488101534
+              },
+              {
+                "parent_id": "940a3740794040de84617af7e9aa78fd",
+                "lexical_rank": 2,
+                "vector_rank": 1,
+                "rrf_score": 0.03252247488101534
+              },
+              {
+                "parent_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                "lexical_rank": 3,
+                "vector_rank": 3,
+                "rrf_score": 0.031746031746031744
+              },
+              {
+                "parent_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                "lexical_rank": 4,
+                "vector_rank": 4,
+                "rrf_score": 0.03125
+              }
+            ],
+            "final_top5": [
+              "251ab61e0d6a58faa68914d59fa45516",
+              "940a3740794040de84617af7e9aa78fd",
+              "52b2b2acd330744f909bc2ea49cf5fb7",
+              "d844e5fa88b2bf746f918a39a67aa2bb"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "seconds": 6.053231499972753,
+          "hits": [
+            {
+              "id": "251ab61e0d6a58faa68914d59fa45516",
+              "score": 0.03252247488101534,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;"
+            },
+            {
+              "id": "940a3740794040de84617af7e9aa78fd",
+              "score": 0.03252247488101534,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu."
+            },
+            {
+              "id": "52b2b2acd330744f909bc2ea49cf5fb7",
+              "score": 0.031746031746031744,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;"
+            },
+            {
+              "id": "d844e5fa88b2bf746f918a39a67aa2bb",
+              "score": 0.03125,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;"
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "251ab61e0d6a58faa68914d59fa45516",
+            "940a3740794040de84617af7e9aa78fd",
+            "52b2b2acd330744f909bc2ea49cf5fb7",
+            "d844e5fa88b2bf746f918a39a67aa2bb"
+          ],
+          "selected_ids": [
+            "d844e5fa88b2bf746f918a39a67aa2bb",
+            "251ab61e0d6a58faa68914d59fa45516",
+            "52b2b2acd330744f909bc2ea49cf5fb7",
+            "940a3740794040de84617af7e9aa78fd"
+          ],
+          "seconds": 0.002622300002258271
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.\nNguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.\nNguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "data_science",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+              "locator": {
+                "start_char": 1963,
+                "end_char": 2119,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                "citation": {
+                  "end_char": 2119,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 1963,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "dữ iệu",
+                    "to": "dữ liệu"
+                  }
+                ],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+                "source_unit_id": "4f64ab4f2f29abdb620373aa",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                  "citation": {
+                    "end_char": 2119,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 1963,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "dữ iệu",
+                      "to": "dữ liệu"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+                  "source_unit_id": "4f64ab4f2f29abdb620373aa",
+                  "text": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ liệu;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "4f64ab4f2f29abdb620373aa",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1963,
+                  "end_char": 2119,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+              "locator": {
+                "start_char": 2120,
+                "end_char": 2237,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+                "citation": {
+                  "end_char": 2237,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2120,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+                "source_unit_id": "5d3feb89480f23c8f8fa6471",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+                  "citation": {
+                    "end_char": 2237,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2120,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+                  "source_unit_id": "5d3feb89480f23c8f8fa6471",
+                  "text": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "5d3feb89480f23c8f8fa6471",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2120,
+                  "end_char": 2237,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+              "locator": {
+                "start_char": 2238,
+                "end_char": 2335,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                "citation": {
+                  "end_char": 2335,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2238,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+                "source_unit_id": "555b45ae1cc02c7fb18d105f",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                  "citation": {
+                    "end_char": 2335,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2238,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+                  "source_unit_id": "555b45ae1cc02c7fb18d105f",
+                  "text": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "555b45ae1cc02c7fb18d105f",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2238,
+                  "end_char": 2335,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "4",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+              "locator": {
+                "start_char": 2336,
+                "end_char": 2446,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "940a3740794040de84617af7e9aa78fd",
+                "citation": {
+                  "end_char": 2446,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2336,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+                "source_unit_id": "095b2668e7153b17812f5d57",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "940a3740794040de84617af7e9aa78fd",
+                  "citation": {
+                    "end_char": 2446,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2336,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+                  "source_unit_id": "095b2668e7153b17812f5d57",
+                  "text": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "095b2668e7153b17812f5d57",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2336,
+                  "end_char": 2446,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      },
+      "seconds": 6.058133799990173,
+      "search_called": true,
+      "target_raw_rank": 1,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [
+        {
+          "query": "Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",
+          "scope": {
+            "dataset": "f1",
+            "major": "data_science",
+            "version": null,
+            "course_code": null,
+            "field": "careers",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "seconds": 0.0008956000092439353,
+          "hits": [
+            {
+              "id": "251ab61e0d6a58faa68914d59fa45516",
+              "score": 3.289180161013955,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;"
+            },
+            {
+              "id": "940a3740794040de84617af7e9aa78fd",
+              "score": 1.1138239643214902,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu."
+            },
+            {
+              "id": "52b2b2acd330744f909bc2ea49cf5fb7",
+              "score": 0.8865910511103308,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;"
+            },
+            {
+              "id": "d844e5fa88b2bf746f918a39a67aa2bb",
+              "score": 0.480277289937706,
+              "dataset": "f1",
+              "major": "data_science",
+              "version": "unknown",
+              "field": "careers",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "review_status": "include",
+              "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;"
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "251ab61e0d6a58faa68914d59fa45516",
+            "940a3740794040de84617af7e9aa78fd",
+            "52b2b2acd330744f909bc2ea49cf5fb7",
+            "d844e5fa88b2bf746f918a39a67aa2bb"
+          ],
+          "selected_ids": [
+            "d844e5fa88b2bf746f918a39a67aa2bb",
+            "251ab61e0d6a58faa68914d59fa45516",
+            "52b2b2acd330744f909bc2ea49cf5fb7",
+            "940a3740794040de84617af7e9aa78fd"
+          ],
+          "seconds": 0.0013546000118367374
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.\nNguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+        "hus_answer": {
+          "reply": "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.\n\n[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;\nNguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;\nNguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;\nNguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown\n\n[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.\nNguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",
+          "status": "answered",
+          "dataset": "f1",
+          "major": "data_science",
+          "version": null,
+          "citations": [
+            {
+              "citation_id": "1",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+              "locator": {
+                "start_char": 1963,
+                "end_char": 2119,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                "citation": {
+                  "end_char": 2119,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 1963,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [
+                  {
+                    "basis": "AI_editorial_display_only_source_quote_preserved",
+                    "count": 1,
+                    "from": "dữ iệu",
+                    "to": "dữ liệu"
+                  }
+                ],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+                "source_unit_id": "4f64ab4f2f29abdb620373aa",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+                  "citation": {
+                    "end_char": 2119,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 1963,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [
+                    {
+                      "basis": "AI_editorial_display_only_source_quote_preserved",
+                      "count": 1,
+                      "from": "dữ iệu",
+                      "to": "dữ liệu"
+                    }
+                  ],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+                  "source_unit_id": "4f64ab4f2f29abdb620373aa",
+                  "text": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ liệu;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "4f64ab4f2f29abdb620373aa",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 1963,
+                  "end_char": 2119,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "2",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+              "locator": {
+                "start_char": 2120,
+                "end_char": 2237,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+                "citation": {
+                  "end_char": 2237,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2120,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+                "source_unit_id": "5d3feb89480f23c8f8fa6471",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+                  "citation": {
+                    "end_char": 2237,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2120,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+                  "source_unit_id": "5d3feb89480f23c8f8fa6471",
+                  "text": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "5d3feb89480f23c8f8fa6471",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2120,
+                  "end_char": 2237,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "3",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+              "locator": {
+                "start_char": 2238,
+                "end_char": 2335,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                "citation": {
+                  "end_char": 2335,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2238,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+                "source_unit_id": "555b45ae1cc02c7fb18d105f",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+                  "citation": {
+                    "end_char": 2335,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2238,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+                  "source_unit_id": "555b45ae1cc02c7fb18d105f",
+                  "text": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;"
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "555b45ae1cc02c7fb18d105f",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2238,
+                  "end_char": 2335,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            },
+            {
+              "citation_id": "4",
+              "dataset": "f1",
+              "label": "Khoa học Dữ liệu",
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+              "locator": {
+                "start_char": 2336,
+                "end_char": 2446,
+                "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                "field": "content_markdown",
+                "release_id": "hus-data-20261111-v4"
+              },
+              "review_status": "include",
+              "content_origin": "crawled_source_quote",
+              "metadata": {
+                "academic_verified": false,
+                "answer_policy": "source_cited_description",
+                "authorizes_eligibility": false,
+                "chunk_id": "940a3740794040de84617af7e9aa78fd",
+                "citation": {
+                  "end_char": 2446,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "raw_original_verified": true,
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "source_kind": "crawled_prose",
+                  "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "start_char": 2336,
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "content_origin": "crawled_source_quote",
+                "course_code": null,
+                "disclosure_required": false,
+                "display_edits": [],
+                "family": "F1",
+                "field": "careers",
+                "record_id": null,
+                "recovered_source_comparison": {
+                  "comparison": "selected_F1_normalized_prose_match",
+                  "historical_byte_equality": "unknown",
+                  "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                  "whole_document_verified": false
+                },
+                "schema_version": "2.0",
+                "scope": {
+                  "applicability_status": "descriptive_not_student_curriculum_binding",
+                  "cohort_year": null,
+                  "curriculum_version": "unknown",
+                  "major": "data_science",
+                  "program_id": null,
+                  "program_variant": "unknown",
+                  "validity_status": "unknown"
+                },
+                "source_quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+                "source_unit_id": "095b2668e7153b17812f5d57",
+                "portable_chunk": {
+                  "academic_verified": false,
+                  "answer_policy": "source_cited_description",
+                  "authorizes_eligibility": false,
+                  "chunk_id": "940a3740794040de84617af7e9aa78fd",
+                  "citation": {
+                    "end_char": 2446,
+                    "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                    "raw_original_verified": true,
+                    "review_status": "include",
+                    "source_id": "055c47bf412172c0",
+                    "source_kind": "crawled_prose",
+                    "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                    "start_char": 2336,
+                    "title": "Khoa học Dữ liệu",
+                    "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                  },
+                  "content_origin": "crawled_source_quote",
+                  "course_code": null,
+                  "disclosure_required": false,
+                  "display_edits": [],
+                  "family": "F1",
+                  "field": "careers",
+                  "record_id": null,
+                  "recovered_source_comparison": {
+                    "comparison": "selected_F1_normalized_prose_match",
+                    "historical_byte_equality": "unknown",
+                    "raw_sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d",
+                    "whole_document_verified": false
+                  },
+                  "schema_version": "2.0",
+                  "scope": {
+                    "applicability_status": "descriptive_not_student_curriculum_binding",
+                    "cohort_year": null,
+                    "curriculum_version": "unknown",
+                    "major": "data_science",
+                    "program_id": null,
+                    "program_variant": "unknown",
+                    "validity_status": "unknown"
+                  },
+                  "source_quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+                  "source_unit_id": "095b2668e7153b17812f5d57",
+                  "text": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu."
+                },
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "format": "portable-2.0",
+                "source_state": "selected_for_local_rag_demo",
+                "major": "data_science",
+                "program_variant": "unknown",
+                "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                "document_id": "055c47bf412172c0",
+                "unit_id": "095b2668e7153b17812f5d57",
+                "title": "Khoa học Dữ liệu",
+                "citation_title": "Khoa học Dữ liệu",
+                "program_version": "unknown",
+                "admission_cohort": "unknown",
+                "source_content_hash": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                "review_status": "include",
+                "review_scope": "whole_document",
+                "review": {
+                  "status": "include"
+                },
+                "source_record": {
+                  "academic_verified": false,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "evidence_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+                  "family": "F1",
+                  "raw_available": true,
+                  "raw_evidence_encoding": "utf8-lf_archived_HTML_representation",
+                  "raw_evidence_path": "evidence/raw/055c47bf412172c0.html",
+                  "raw_original_verified": true,
+                  "recovered_capture": {
+                    "academic_verified": false,
+                    "bytes": 20117,
+                    "document_id": "055c47bf412172c0",
+                    "extractor": "beautifulsoup4-visible-text",
+                    "fetched_at": "2026-10-31T07:01:48.886985+00:00",
+                    "file_type": "html",
+                    "final_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "historical_byte_equality": "unknown",
+                    "major": "data_science",
+                    "original_binary_in_portable_release": false,
+                    "page_count": 1,
+                    "path": "files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "path_scope": "recovery_archive_root",
+                    "repository_asset_path": "data/hus/recovery/20261031/files/35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d.html",
+                    "requested_url": "https://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+                    "sha256": "35cc1f47aa5441e1e9f0ead07a2cb731c1c0b867bbc789b0e00212c2bb5b494d"
+                  },
+                  "review_scope": "whole_document",
+                  "review_status": "include",
+                  "source_id": "055c47bf412172c0",
+                  "title": "Khoa học Dữ liệu",
+                  "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+                },
+                "raw_original_verified": true,
+                "answer_eligible": true,
+                "usage_scope": "descriptive",
+                "validity_status": "unknown",
+                "locator": {
+                  "start_char": 2336,
+                  "end_char": 2446,
+                  "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+                  "field": "content_markdown",
+                  "release_id": "hus-data-20261111-v4"
+                },
+                "package_path": "releases/hus-data-20261111-v4/f1_chunks.jsonl",
+                "package_sha256": "e51582b7861eb542b2e8ac576412756122022a6263b1a4e6dc47ce634df0950e"
+              },
+              "evidence_kind": "web",
+              "display_label": "Khoa học Dữ liệu",
+              "source_id": "055c47bf412172c0",
+              "open_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+              "document_sha256": null,
+              "pdf_page": null,
+              "pdf_pages": [],
+              "availability": "unverified",
+              "availability_note": "URL web nguồn; chưa kiểm tra truy cập lại trong request.",
+              "media_type": null
+            }
+          ],
+          "facts": {},
+          "warnings": [
+            "Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại."
+          ],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false
+        }
+      },
+      "seconds": 0.004638399987015873,
+      "search_called": true,
+      "target_raw_rank": 1,
+      "target_selected": true,
+      "diagnostic": null,
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

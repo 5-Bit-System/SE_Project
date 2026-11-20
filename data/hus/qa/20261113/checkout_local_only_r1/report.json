@@ -1,0 +1,72 @@
+{
+  "status": "passed_windows_local_only",
+  "base_head": "f61b0fdf8657848e1d9b27b2340ff4d93fdd815b",
+  "profile": {
+    "retrieval": "lexical",
+    "llm_enabled": false,
+    "bind": "127.0.0.1"
+  },
+  "user_decision": "Prepare/check local only; do not put changes on GitHub",
+  "source": "Previously prepared public HEAD export plus six scoped checkout files",
+  "source_files_unchanged": 224,
+  "python": "3.11 Windows clean minimal-dependency venv reused",
+  "standard_module_CLI": true,
+  "API_check_cases": 20,
+  "menu_items": 2124,
+  "invalid_port_rejected": true,
+  "actual_loopback_HTTP": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/static/hus-rag-demo.js",
+      "status": 200
+    },
+    {
+      "path": "/static/hus-rag-demo.css",
+      "status": 200
+    },
+    {
+      "path": "/static/favicon.svg",
+      "status": 200
+    },
+    {
+      "question": "Giới thiệu ngành",
+      "consent": false,
+      "status": "answered"
+    },
+    {
+      "kind": "citation_binary",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "status": 200
+    },
+    {
+      "question": "Số tín chỉ MAT3533?",
+      "consent": false,
+      "status": "answered"
+    },
+    {
+      "question": "Nội dung MAT3533?",
+      "consent": false,
+      "status": "needs_clarification"
+    },
+    {
+      "question": "Nội dung MAT3533?",
+      "consent": true,
+      "status": "answered"
+    }
+  ],
+  "server_stopped": true,
+  "inherited_bad_settings_overridden": true,
+  "patch_sha256": "c84174d393fecc805da95298702c62ec883a0f0dfbd5ea9b6b6f5877fde41c1a",
+  "stage_commit_push_PR_Actions_deploy": false,
+  "google_calls": 0,
+  "linux_macos_verified": false,
+  "remote_clone_verified": false,
+  "limits": [
+    "Current host Windows only; local source export, not a Git clone.",
+    "Installation was verified previously; this run reuses that clean dependency venv.",
+    "HTTP smoke is not full browser/academic/LLM quality acceptance."
+  ]
+}

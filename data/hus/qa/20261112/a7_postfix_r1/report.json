@@ -1,0 +1,276 @@
+{
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "checked_prior_input_files": 22,
+  "conditional_recall_at_5_not_acceptance_gate": {
+    "denominator": 23,
+    "numerator": 23.0,
+    "value": 1.0
+  },
+  "configuration": {
+    "actual_model": null,
+    "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+    "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+    "entrypoint": "app.hus.demo:app",
+    "f1_f3_protocol": "hus-llm-document-v3",
+    "f2_protocol": "hus-llm-evidence-v1",
+    "index": null,
+    "llm_enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "model_inference": "not_run",
+    "retrieval": "lexical"
+  },
+  "controls": {
+    "audit_failures": 0,
+    "status_failures": 0,
+    "total": 12
+  },
+  "date": "2026-11-12",
+  "decision": "Recall threshold met; A7 not fully accepted because three positive answers are missing.",
+  "exposure": {
+    "author_has_seen_sources_runtime_and_families": true,
+    "human_reviews": 0,
+    "independent_holdout_accepted": false,
+    "normalized_wording_overlap": 0,
+    "prior_a7_target_identity_overlap": 0,
+    "review": {
+      "academic_or_source_correctness_certified": false,
+      "blind": false,
+      "exact_responses_read": 48,
+      "human_reviews": 0,
+      "independent": false,
+      "review_completed_utc": "2026-11-12T12:38:26.153451+00:00",
+      "reviewer_kind": "ai",
+      "source_relative_entailment_only": true
+    }
+  },
+  "f2": {
+    "by_field": {
+      "credits": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "name": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "prerequisites": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      }
+    },
+    "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+    "source_contract_success": {
+      "denominator": 12,
+      "numerator": 12,
+      "value": 1.0
+    }
+  },
+  "failed_positive_ids": [
+    "A7P-Q013",
+    "A7P-Q020",
+    "A7P-Q027"
+  ],
+  "false_abstention": {
+    "denominator": 36,
+    "numerator": 3,
+    "value": 0.08333333333333333
+  },
+  "filter_errors": {
+    "ai_opt_in": 0,
+    "course_code": 0,
+    "major": 0,
+    "program_variant": 0,
+    "review": 0,
+    "version": 0
+  },
+  "freeze": {
+    "manifest_sha256": "5fccce4eb65aad644f8775fdba11ab1147f33dd85abdd4ffb43b77258c1097bc",
+    "pack_sha256": "9d47c07b0c9999690adfd51b0758cec30ab7cd4057badf4f270bb40c88973f7c",
+    "phase": "frozen_before_inference",
+    "prerequisites": {
+      "A7P-Q005": "present",
+      "A7P-Q017": "unknown",
+      "A7P-Q029": "conflict",
+      "A7P-Q041": "unresolved"
+    },
+    "questions": 48,
+    "recorded_utc": "2026-11-12T12:34:03.433731+00:00",
+    "target_overlap": 0,
+    "wording_overlap": 0
+  },
+  "http_errors": 0,
+  "kind": "a7_post_baseline_measurement_validation",
+  "latency_scope": "Local TestClient HTTP wall time; cold first request retained; excludes source auditing/review.",
+  "limits": [
+    "AI nonblind source-relative review, not human or academic acceptance.",
+    "New question/source sample differs from old A7; not a paired causal before/after comparison.",
+    "Fresh source targets do not mean unseen intent families or source data.",
+    "No RAG/runtime/data/LLM changes after freezing; any future tuning retires this set to dev."
+  ],
+  "llm_quality_measured": false,
+  "local_testclient_latency": {
+    "count": 48,
+    "max_ms": 79.6531,
+    "min_ms": 2.3239,
+    "p50_ms": 27.9801,
+    "p95_ms": 64.4413
+  },
+  "new_cohort_tests": 13,
+  "new_provider_calls": 0,
+  "no_call_misses": 1,
+  "pack_path": "data/hus/evaluation/a7_postfix_20261112_r1",
+  "pdf_urls_byte_hash_checked": 13,
+  "per_major": 12,
+  "pins_match_current": true,
+  "preservation": {
+    "changed": [],
+    "old_run_gold_review_rewritten": false,
+    "preexisting_data_runtime_static_files": 2507
+  },
+  "questions": 48,
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "replays": {
+    "a7_postfix_ai_review_20261112_r1": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "a7_postfix_lexical_20261112_r1": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "a7_v4_ai_review_20261111_r1": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": false
+      }
+    },
+    "a7_v4_ai_review_20261111_r2": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": false
+      }
+    }
+  },
+  "review_overlay_manifest_sha256": "8873b6c16a2181b84c156b7948f45e4b29eabb01f40884a6a8a3eac327e11ec7",
+  "routed_recall_at_5": {
+    "denominator": 24,
+    "numerator": 23.0,
+    "value": 0.9583333333333334
+  },
+  "ruff": "passed",
+  "run_manifest_sha256": "8f2bf36bd2d1b214d12e69224b8b1d6ac8b96b5115356961fb45a2f3220e4238",
+  "sealed_utc": "2026-11-12T12:40:37.640778+00:00",
+  "support_and_ai_review": {
+    "actual_human_reviews": 0,
+    "ai_completeness": {
+      "denominator": 36,
+      "numerator": 33,
+      "value": 0.9166666666666666
+    },
+    "ai_end_to_end_supported_complete": {
+      "denominator": 36,
+      "numerator": 33,
+      "value": 0.9166666666666666
+    },
+    "ai_entailment": {
+      "denominator": 33,
+      "numerator": 33,
+      "value": 1.0
+    },
+    "ai_review_coverage": {
+      "denominator": 36,
+      "numerator": 36,
+      "value": 1.0
+    },
+    "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+    "gold_quote_coverage_proxy": {
+      "denominator": 24,
+      "numerator": 20,
+      "value": 0.8333333333333334
+    },
+    "integrity_among_answered_positive": {
+      "denominator": 33,
+      "numerator": 33,
+      "value": 1.0
+    },
+    "reviewer_kind": "ai"
+  },
+  "technical_gates": {
+    "ai_content_review_all_complete": false,
+    "all_technical_gates_met": false,
+    "answered_source_integrity": true,
+    "controls_all_correct": true,
+    "f2_source_facts_all_correct": true,
+    "independent_or_human_acceptance": false,
+    "no_false_abstention": false,
+    "no_http_errors": true,
+    "no_scope_filter_errors": true,
+    "recall_at_5_met": true
+  },
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 108
+  },
+  "verification_xml_sha256": "ab891adbe16036eef101fc64e9a1226d7325ab9433d2bdfd13dc8761298de0eb"
+}

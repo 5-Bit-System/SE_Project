@@ -1,0 +1,58 @@
+{
+  "acceptance_performed": false,
+  "blind": false,
+  "cases": [
+    {
+      "classification": "technical_scope_alias_and_body_guard_defect",
+      "gold_sha256": "24430bc49d72fdc6d14b801d1dc77d3f71054d418c06ed829d0ec4e73372bc43",
+      "observation_sha256": "09487aa22878a5584d8e518943994328e5d46f1a847946b70d13414cf8e191c1",
+      "observed": "Target high_quality rank1; guard-specific clc/thiet/tich, target body missing only clc. No effective program_variant filter; plain token removal could admit wrong variants.",
+      "open": "Implementation/regression and independent acceptance remain pending.",
+      "original_judgments": {
+        "completeness": "fail",
+        "entailment": "not_applicable"
+      },
+      "question_id": "A7F-Q002",
+      "recommended": "Treat CLC/full-form qualifiers as bounded scope requirements, validated against metadata; preserve body evidence requirements, unknown/version/conflict safeguards.",
+      "response_sha256": "f3c69215278b6b6afa59fae132f77535b12872b1a2eb01fa10620963316a36f3",
+      "score_disposition": "Keep original no_information/completeness fail. No rescoring."
+    },
+    {
+      "classification": "source_alternative_and_unpinned_F1_edition_contract",
+      "gold_sha256": "c9dc90b62f1847ef5154e12f846527f88279d8603a503fc9f8f22185b79d9ade",
+      "observation_sha256": "b6835816a2c55fd559d16cf4bd738ae3f2f93c2e823a15daf1beeb7e52e6e337",
+      "observed": "Source-faithful conditional DOCX2023 list differs from frozen unknown-edition web target. Original decision selector intentionally cleared for F1; target not uniquely requested.",
+      "open": "No independent specialist confirmation that academic field lists are equivalent; required only if such equivalence is to be claimed.",
+      "original_judgments": {
+        "completeness": "fail",
+        "entailment": "pass"
+      },
+      "question_id": "A7F-Q003",
+      "recommended": "Define source-specific questions or prospective alternative-source criteria before next cohort; never force ranking to a QID target, merge lists or infer equivalence.",
+      "response_sha256": "8ed7e054ec3fca2c42a258977dd6856d0d46870493ec33aa80877c446bda02ca",
+      "score_disposition": "Keep original entailment pass/completeness fail. No relabeling."
+    },
+    {
+      "classification": "assessment_modifier_vs_multiple_independent_fields",
+      "gold_sha256": "689adde73b75139619b137b42f6ad8ca4daa10b049fc106531dcb03a40d07ed3",
+      "observation_sha256": "60d0f06d85eb3b2a6e88b409909aeaae55f3c69fbe1c94a8a272898d772b779b",
+      "observed": "Classifier suggested_assessment but guard sees content+assessment; clarification before search. MAT3557 assessment absent; global F3 fields only content/objectives.",
+      "open": "Proposed language interpretation is nonindependent AI review, not implemented or human accepted.",
+      "original_judgments": {
+        "completeness": "not_applicable",
+        "entailment": "not_applicable"
+      },
+      "question_id": "A7F-Q011",
+      "recommended": "Recognize bounded content-of-assessment modifier as one field, while preserving true multi-field/negation/official/consent guards. Missing assessment stays no_information.",
+      "response_sha256": "bd227eed12969b5dd9bf9da877cf9b0111c3463f7faeddd1a2bde313336fd1c0",
+      "score_disposition": "Keep observed needs_clarification and frozen no_information control mismatch."
+    }
+  ],
+  "human_reviews": 0,
+  "independent": false,
+  "new_score_overlay": false,
+  "reviewer": "Codex root AI",
+  "reviewer_kind": "ai",
+  "runtime_changes": false,
+  "schema_version": "hus-a7-three-case-review-1.0"
+}

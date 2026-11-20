@@ -1,0 +1,88 @@
+{
+  "id": "HN20-020",
+  "request": {
+    "question": "Mã MAT9999 có số tín chỉ là bao nhiêu?",
+    "major": "data_science",
+    "version": "QD3569-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f2",
+    "field": "credits",
+    "course_code": "MAT9999",
+    "outcome": "evidence_unavailable",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": []
+  },
+  "raw_question_route": [
+    "f2",
+    "credits"
+  ],
+  "order": [
+    "hybrid",
+    "lexical"
+  ],
+  "modes": {
+    "hybrid": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+          "status": "no_information",
+          "dataset": "f2",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_unavailable"
+          }
+        }
+      },
+      "seconds": 0.019691699999384582,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "evidence_unavailable",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "lexical": {
+      "retrieval_calls": [],
+      "support_calls": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.",
+          "status": "no_information",
+          "dataset": "f2",
+          "major": "data_science",
+          "version": "QD3569-2023",
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_unavailable"
+          }
+        }
+      },
+      "seconds": 0.018677599960938096,
+      "search_called": false,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "evidence_unavailable",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

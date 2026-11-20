@@ -1,0 +1,171 @@
+{
+  "allowed_changed": {
+    "app/hus/answer_support.py": {
+      "after": "269ad946ae8aead2f6e03680ae5119d6055db793c62dd5aa2efac0c1601b7637",
+      "before": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac"
+    },
+    "app/hus/answering.py": {
+      "after": "51ce2188970f9467830670ce7c602658c0824163802b96014a7a3dfd6658ac2c",
+      "before": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d"
+    },
+    "app/hus/question_routing.py": {
+      "after": "ac65bbc61b98c9b46076f65e32cb6ee263684f7b5c05486847d6b4c904c55ad7",
+      "before": "8716c2eb090ddd2fcee700ba41c5cd848e081fbe1a8ea8d1e2258ae42424d676"
+    },
+    "tests/hus/test_bounded_request_language.py": {
+      "after": "cda764c8be815c374067e60a24c48504d8faca6e0a240fbcc8793c8924979bb9",
+      "before": "52c42e97adefafedfe1b15459c8f1c949dd04a736f679727cc87a64df74c45b6"
+    }
+  },
+  "cached_a7r_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "development_diagnostic": {
+    "exposed_requests_newly_answered": 16,
+    "held_contract_responses_unchanged": 2,
+    "legacy_status": "needs_clarification",
+    "new_provider_calls": 0,
+    "new_quality_score": null
+  },
+  "google_budget": "all spent; no new calls in repair",
+  "hus_failure_cases": [
+    {
+      "classname": "tests.hus.test_routing_diagnostic",
+      "name": "test_exposed_dev_requests_preserve_facts_scope_and_consent[DEV-Q002]"
+    }
+  ],
+  "implementation_complete": true,
+  "l5_r5_changed_entries": {
+    "artifacts": [
+      "app/hus/answer_support.py",
+      "app/hus/answering.py",
+      "app/hus/question_routing.py"
+    ]
+  },
+  "l5_r5_pins_current": false,
+  "legacy_contract_failure_preserved": true,
+  "llm_default": "off",
+  "new_quality_score": null,
+  "new_test_cases": 94,
+  "next": "Freeze different source-first >=48question/12permajor cohort on final code/config before fresh evaluation; A7S/A7R remain dev. No independent/human acceptance yet.",
+  "note": "New bounded-language test was included in initial RED snapshot; only this new test changes among protected tests. Other old tests/data/gold/runs/reviews unchanged. New source-format test added separately.",
+  "old_tests_unchanged": true,
+  "preserved": [
+    "F2 canonical name/credits/prerequisites values/types/source review",
+    "F3 AI label/opt-in/version/course/snapshot",
+    "negation/conditions/factual domain words",
+    "edition/variant/source identity/review grouping, no global neutral tokens",
+    "whole-field full eligible physical-source inventory, no mixing review/origin",
+    "trusted available hash-bound PDF/DOCX resolver with PDF locators",
+    "Q025/Q037 exact responses and DEV-Q002 clarification; no policy decision",
+    "lexical BM25/top-k/data/metadata unchanged, no QID or source-ID special cases"
+  ],
+  "protected_count": 2959,
+  "publication": "no stage/commit/push/PR/Actions/deploy",
+  "quality_acceptance": false,
+  "review": {
+    "critical": 0,
+    "declined_to_judge": [
+      "independent academic source acceptance",
+      "DOCX quote equivalence",
+      "historical quality-score gain",
+      "exact within-modified-file preservation of earlier WIP without source copy"
+    ],
+    "important": 2,
+    "important_fixed_with_red_green": [
+      "Suffix-English name/hinted-code language guard",
+      "Cross-clause negative source/profile/whole-field claims"
+    ],
+    "kind": "fresh-context AI code review",
+    "minor": 0,
+    "rulings": "No academic/equivalence/gain claims; selective patches and protected SHA audit bound changed files, not an independent proof of every earlier line inside those changed files."
+  },
+  "runtime_changed": [
+    "app/hus/answer_support.py",
+    "app/hus/answering.py",
+    "app/hus/question_routing.py"
+  ],
+  "task": "Bounded request language/routing/source selectors after A7R review",
+  "test_scope": "HUS offline suite excluding postgres/hus_postgres/full_catalog_acceptance; not whole repository.",
+  "tests": {
+    "focused.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "554531d01b1d5a1a4fb0acbc2eaeb14d31bdde4df6f5358fa1b290c4f94f40e8",
+      "skipped": 0,
+      "tests": 326
+    },
+    "format_red.xml": {
+      "errors": 0,
+      "failures": 28,
+      "sha256": "564b1c48bfa7221696a738adceb3b1ca9f5105e738141c5ca79db15dc136fef0",
+      "skipped": 0,
+      "tests": 28
+    },
+    "guard_green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "e187a03923c82ed6256837b549920e100b03c2c5da613559fd237ea9f313d2fe",
+      "skipped": 0,
+      "tests": 205
+    },
+    "guard_red.xml": {
+      "errors": 0,
+      "failures": 9,
+      "sha256": "7a385b2a6c6bcc05d0cb6bb01c38284b49976ac7a5d821992e484fc60173feeb",
+      "skipped": 0,
+      "tests": 50
+    },
+    "hus_suite.xml": {
+      "errors": 0,
+      "failures": 1,
+      "sha256": "f79d3e854ead1c30bef72ba34f1fb054636292a56fc0c49c2b99cb89e151e651",
+      "skipped": 2,
+      "tests": 2445
+    },
+    "review_green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "f9aea5bcd447f63ebea967bef59bccea8e94a57ec257a85c4082769d50e85bc9",
+      "skipped": 0,
+      "tests": 94
+    },
+    "review_red.xml": {
+      "errors": 0,
+      "failures": 9,
+      "sha256": "e3157d285e2a19d629562a05a410460ba3fed831ac08a55820ea35b2f41fd736",
+      "skipped": 0,
+      "tests": 14
+    },
+    "routing_green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "3dc8aa98ca85914b60f99db8984194cc3310eb1f0c5ff5e5439f00d13d2ae733",
+      "skipped": 0,
+      "tests": 30
+    },
+    "routing_red.xml": {
+      "errors": 0,
+      "failures": 18,
+      "sha256": "a896500ce7493e548a96b492c8eb398d654c8645d86e4e6632701afe087cedae",
+      "skipped": 0,
+      "tests": 30
+    }
+  },
+  "unchanged_protected_files": 2955
+}

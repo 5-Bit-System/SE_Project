@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Any
 
 import httpx
-from dotenv import load_dotenv
 
 from app.hus.answering import HUSAnswerer
 from app.schemas.hus import HUSAnswer, HUSCitation, HUSQuestion
@@ -30,6 +29,8 @@ class HUSLLMSettings:
 
 
 def get_hus_llm_settings() -> HUSLLMSettings:
+    from dotenv import load_dotenv
+
     load_dotenv(PROJECT_ROOT / ".env", override=False)
     rec_enabled = (
         os.getenv("RECOMMENDATION_LLM_ENABLED", "true")

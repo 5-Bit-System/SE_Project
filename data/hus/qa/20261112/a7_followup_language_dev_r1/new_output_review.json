@@ -1,0 +1,38 @@
+[
+  {
+    "academic_validity_verified": false,
+    "complete_relative_to_frozen_target": true,
+    "entailed_relative_to_quoted_evidence": true,
+    "human_reviews": 0,
+    "notes": "Decision720/date/pilot retained verbatim; extra same-source context; unknown version/variant and validity warning retained.",
+    "question_id": "A7P-Q013",
+    "readability_gain_measured": false,
+    "response_sha256": "a746d0c1bc462e9fc58ea7d37ff89ae90019b8349efa08a2d2220b11d8aa591d",
+    "reviewer_kind": "AI root nonblind/exposed",
+    "source_target_sha256": "eadbdab3e1f082abd2940ce4cbf595cc22911bc087ad1844c96b74bc72516688"
+  },
+  {
+    "academic_validity_verified": false,
+    "complete_relative_to_frozen_target": true,
+    "entailed_relative_to_quoted_evidence": true,
+    "human_reviews": 0,
+    "notes": "Complete visual-channel unit and examples; AI generated needs_review label/consent/no official assessment or external AI citation URL.",
+    "question_id": "A7P-Q020",
+    "readability_gain_measured": false,
+    "response_sha256": "6f3eef7086fdd509959010c62fa6fdbe7b26b0967352e8678b1dcf8bfe24d42f",
+    "reviewer_kind": "AI root nonblind/exposed",
+    "source_target_sha256": "6f68a22152bce9a9431120bd04719a1bef1711a627699445f4a4662a439502fa"
+  },
+  {
+    "academic_validity_verified": false,
+    "complete_relative_to_frozen_target": true,
+    "entailed_relative_to_quoted_evidence": true,
+    "human_reviews": 0,
+    "notes": "Logic/modeling and explicit prerequisite-to-further-study relationship are in the same rendered quote; no enrollment/eligibility promise.",
+    "question_id": "A7P-Q027",
+    "readability_gain_measured": false,
+    "response_sha256": "07179cb4e4043f67e3436f4ac6de304f929167097e0f6e34b8463897ffb01614",
+    "reviewer_kind": "AI root nonblind/exposed",
+    "source_target_sha256": "1dfbd91fcc0b80a6c535a1d2fd6a1c59bc50fcdcd12d42b423928053f495dbd2"
+  }
+]

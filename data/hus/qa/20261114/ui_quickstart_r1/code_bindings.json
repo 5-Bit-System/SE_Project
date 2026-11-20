@@ -1,0 +1,5 @@
+{
+  "app/static/hus-rag-demo.js": "689450f94e80c10c3df1af113add8a2ec9b7685b2eedb8b6ef235ddd652d570f",
+  "tests/hus/test_llm_rewrite_ui.py": "82579a1a7af43a8753ee5ba023a5809da8ffa3430b8ae36ee280cf8226083bd2",
+  "tools/run_hus_rag.py": "cd45c39a9e08a4969f48d78ac52aca77c7fa6ae30a73d5e94e861418dbcd5c5d"
+}

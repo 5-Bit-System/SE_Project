@@ -1,0 +1,5 @@
+{
+  "tests/hus/test_a7_bounded_candidate.py": "a880c53eb1914dfd43ca9b89dde87b17a54b727d0103436b42f114fb17ede09e",
+  "tools/evaluate_hus_a7.py": "8e2ef5a086c2482f2e4c544ee4fc045d70b01c5b5e68c2e66f956afde8f0144d",
+  "tools/hus_a7_bounded_cases.py": "273caaae274aaf92be8e0dddf292374bceb9d667d8435b493802501c422185e1"
+}

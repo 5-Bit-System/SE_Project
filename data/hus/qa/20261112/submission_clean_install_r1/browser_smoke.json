@@ -1,0 +1,26 @@
+{
+  "external_requests": [],
+  "full_a6_repeated": false,
+  "page_errors": [],
+  "passed": true,
+  "rows": [
+    {
+      "f1_after_switch": true,
+      "f3_ai_label_and_opt_in": true,
+      "keyboard_f3": true,
+      "major_switch_clears": true,
+      "menu_f2": true,
+      "no_horizontal_overflow": true,
+      "viewport_width": 1380
+    },
+    {
+      "f1_after_switch": true,
+      "f3_ai_label_and_opt_in": true,
+      "keyboard_f3": true,
+      "major_switch_clears": true,
+      "menu_f2": true,
+      "no_horizontal_overflow": true,
+      "viewport_width": 390
+    }
+  ]
+}

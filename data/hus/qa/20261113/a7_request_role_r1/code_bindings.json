@@ -1,0 +1,10 @@
+{
+  "app/hus/answer_support.py": "104c7e2850d2d318bca76755f0a08c05eb083a02ac5fea49cd2fe5604f7f5fac",
+  "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+  "app/hus/question_routing.py": "8716c2eb090ddd2fcee700ba41c5cd848e081fbe1a8ea8d1e2258ae42424d676",
+  "docs/HUS_F1_SOURCE_EDITION_POLICY.md": "cc73c54e66af9b04ff4fd00babb1bc4b3c73c00e84a4738f3e7a66d2634a5f68",
+  "tests/hus/test_a7_successor.py": "014b5d3715f63834c21c67e64206a5c20369f598e29da5fb05795d114fc2bb24",
+  "tests/hus/test_routing_diagnostic.py": "043e6cc2b324a3310b8dea57d6ead1adc8c1d546e8de11868b00caf2d5d6c7d9",
+  "tools/evaluate_hus_a7.py": "eeaeb1fa5b6b02c947707b6c5f20f62a0ae98985bb5649b7ff1b9fbd50f86d32",
+  "tools/hus_a7_successor_cases.py": "02f9164ef11ffc73580c7fed3f527e5236a919605d963bce6f0ec68fd40093f0"
+}

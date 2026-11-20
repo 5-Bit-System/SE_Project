@@ -1,0 +1,168 @@
+{
+  "summary": {
+    "kind": "AI_preliminary_diagnostic_not_group_or_independent_acceptance",
+    "authored_by": "Codex (AI)",
+    "human_reviewed": 0,
+    "human_pending": 20,
+    "pack_manifest_sha256": "124005b9776f0882bb23c80b7ed995ddd1979a35dd5085a6354ed04731d9eb74",
+    "run_manifest_sha256": "a316e67ed207af1e0bb5e5417613aa0069e45ad07df2ceab91cc526f2b9ff53d",
+    "stats": {
+      "lexical": {
+        "statuses": {
+          "no_information": 6,
+          "needs_clarification": 5,
+          "answered": 9
+        },
+        "retrieval_cases": 9,
+        "no_retrieval_cases": 11,
+        "searching_end_to_end_seconds": {
+          "n": 9,
+          "min": 0.0030403999844565988,
+          "median": 0.007481599983293563,
+          "max": 0.032498500018846244
+        },
+        "diagnostics": {
+          "evidence_rejected": 3,
+          "clarification_required": 3,
+          "answered": 9,
+          "routing_unknown": 1,
+          "permission_required": 2,
+          "scope_conflict": 1,
+          "evidence_unavailable": 1
+        }
+      },
+      "hybrid": {
+        "statuses": {
+          "no_information": 6,
+          "needs_clarification": 5,
+          "answered": 9
+        },
+        "retrieval_cases": 9,
+        "no_retrieval_cases": 11,
+        "searching_end_to_end_seconds": {
+          "n": 9,
+          "min": 5.733668099972419,
+          "median": 6.058133799990173,
+          "max": 6.566123600001447
+        },
+        "diagnostics": {
+          "evidence_rejected": 3,
+          "clarification_required": 3,
+          "answered": 9,
+          "routing_unknown": 1,
+          "permission_required": 2,
+          "scope_conflict": 1,
+          "evidence_unavailable": 1
+        }
+      }
+    },
+    "cold_preflight_seconds": 155.33281920000445,
+    "raw_top5_sets_equal_cases": [
+      "HN20-001",
+      "HN20-006",
+      "HN20-007",
+      "HN20-009",
+      "HN20-011",
+      "HN20-012",
+      "HN20-014",
+      "HN20-016",
+      "HN20-019"
+    ],
+    "raw_top5_order_changed": [
+      "HN20-009",
+      "HN20-012",
+      "HN20-014",
+      "HN20-019"
+    ],
+    "reply_changed": [
+      "HN20-012"
+    ],
+    "new_answered_due_to_hybrid": [],
+    "Google_calls": 0,
+    "runtime_or_guard_changed": false,
+    "note": "No accuracy/Recall claim. Field targets are AI-authored diagnostic references; two questions001/017 have wording ambiguity. One timing observation per question per mode.",
+    "comparison_limit": "Normal lexical top5 vs hybrid20+20->5. End-to-end operational comparison, not budget-matched semantic ablation."
+  },
+  "notes": {
+    "HN20-001": {
+      "category": "routing_review",
+      "ai_note": "Câu định hướng được kỳ vọng vào objectives nhưng router chọn introduction; cả hai lấy cùng đoạn giới thiệu rồi bị guard chặn. Wording có thể cần làm rõ; không kết luận sai nội dung chỉ từ field kỳ vọng của AI."
+    },
+    "HN20-002": {
+      "category": "routing_grammar",
+      "ai_note": "Cụm có “thì” bị route F3/suggested_assessment, đòi mã môn thay vì nghề nghiệp. Chưa search. Bỏ riêng “thì” trong diagnostic vẫn chưa nhận diện được ý nghề nghiệp; không coi sửa một token là đã chữa hết."
+    },
+    "HN20-003": {
+      "category": "answered_facts",
+      "ai_note": "Cả hai trả MAT2300/Đại số tuyến tính 1 đúng4 tín chỉ theo PDFtrang9; giữ draft_unverified. Không dùng vector, không suy hiệu lực học vụ hiện tại."
+    },
+    "HN20-004": {
+      "category": "routing_unknown",
+      "ai_note": "“Sẽ gặp các khái niệm gì” chưa được nhận diện thành nội dung môn; không search. Tên môn đã đầy đủ, nên bổ sung mã/menu chỉ là workaround, không phải giải pháp hiểu câu hỏi."
+    },
+    "HN20-005": {
+      "category": "routing_and_operation",
+      "ai_note": "Câu đếm có “thì” bị route assessment trước khi tới nhãn unsupported_operation. Sau lỗi cú pháp vẫn cần triển khai phép đếm danh mục F2. Packet có90 mã duy nhất, không có nghĩa sinh viên phải học90 môn."
+    },
+    "HN20-006": {
+      "category": "guard_after_target",
+      "ai_note": "Đã lấy đoạn introduction Toán tin được ghim ở rank1, nhưng guard từ chối cả hai. “Bức tranh khái quát” là diễn đạt cần review như request grammar/paraphrase, không thiếu vector target."
+    },
+    "HN20-007": {
+      "category": "answered_with_conditions",
+      "ai_note": "Cả hai nêu bậc Thạc sĩ/Tiến sĩ và giữ điều kiện đủ điều kiện/có nhu cầu. Quote web có lỗi khoảng trắng “Tiến sĩ.trong”; giữ source unknown, chưa xác minh học vụ."
+    },
+    "HN20-008": {
+      "category": "routing_wrong_consent",
+      "ai_note": "Hỏi tiên quyết OOP bị route assessment, rồi yêu cầu quyền F3. Đây không phải thiếu opt-in của người hỏi: F2 không cần quyền F3. Cần sửa nhận diện “thì” và cú pháp “phải hoàn thành ... trước”, không hướng người dùng bật AI để chữa route."
+    },
+    "HN20-009": {
+      "category": "answered_broad",
+      "ai_note": "Có giải thích kế thừa/đa hình; trả thêm tổng quan và hợp thành. Source target từ rank1 lexical thành rank2 hybrid; đáp án cuối giống nhau. Nhóm cần xem phần đối tượng đã đủ ý chưa, tránh coi hit target là đủ mọi ý."
+    },
+    "HN20-010": {
+      "category": "expected_scope_boundary",
+      "ai_note": "Cả hai nêu đang chọn Toán tin nhưng hỏi KHDL, hướng dẫn chọn lại; không search, không đổi ngành ngầm."
+    },
+    "HN20-011": {
+      "category": "answered_source_scoped",
+      "ai_note": "Cả hai dùng DOCX2023, nêu các vai trò kỹ thuật/tư vấn-quản lý/lập trình/nghiên cứu/giảng dạy. Có warning review Markdown/chưa xác minh hiệu lực; chưa là xác nhận học vụ độc lập."
+    },
+    "HN20-012": {
+      "category": "edition_policy_review",
+      "ai_note": "Đáp án khác duy nhất: lexical dùng DOCX2023 có bậc và các lĩnh vực học tiếp; hybrid chọn PDF2015 chỉ nêu bậc Thạc sĩ/Tiến sĩ. Câu “những hướng nào” có thể cần lĩnh vực: bản hybrid ít chi tiết hơn. Chưa ghim edition trong câu hỏi nên cần quy tắc nguồn/review, không ép ranking theo packet hoặc coi hai bản tương đương."
+    },
+    "HN20-013": {
+      "category": "answered_facts",
+      "ai_note": "Cả hai giữ MAT1204 đúng3 tín chỉ/PDFtrang10; verified theo sign-off dự án, không phải chứng nhận trường. Không gọi vector."
+    },
+    "HN20-014": {
+      "category": "answered_broad",
+      "ai_note": "Có unit câu hỏi/phạm vi/khái niệm đúng ý hỏi, nhưng trả thêm tổng quan và ba unit khác. Target rank1 cả hai; đáp án giống nhau. Cần thu gọn theo câu hỏi, không coi nhiều nguồn hơn là chất lượng cao hơn."
+    },
+    "HN20-015": {
+      "category": "expected_F3_permission",
+      "ai_note": "Cả hai yêu cầu quyền F3 trước khi dùng nội dung AI; không search. Đây là control hợp lệ, khác với008 bị nhầm F2 thành F3."
+    },
+    "HN20-016": {
+      "category": "answered_source_scoped",
+      "ai_note": "Cả hai trả bốn nhóm công việc KHDL và giữ “tùy theo năng lực”; nguồn unknown edition/hệ. Lỗi chữ “dữ iệu” đã nằm trong nguồn; không tự gán hệ chuẩn hoặc sửa dữ liệu ở lượt đo."
+    },
+    "HN20-017": {
+      "category": "routing_ambiguity",
+      "ai_note": "Câu hỏi cả ngành nhưng “học những” dẫn vào F3/content, rồi đòi mã môn. Có thể đang hỏi khái quát ngành hoặc nội dung chương trình; cần làm rõ đối tượng, không kết luận sai chỉ từ kỳ vọng F1 của AI."
+    },
+    "HN20-018": {
+      "category": "answered_facts",
+      "ai_note": "Cả hai giữ MAT3533/Học máy đúng3 tín chỉ/PDFtrang11; còn cảnh báo mã tiên quyết MAT2406 chưa giải quyết. Không dùng vector và không suy đủ điều kiện đăng ký."
+    },
+    "HN20-019": {
+      "category": "guard_after_target",
+      "ai_note": "Cả hai đã lấy unit Khái quát và điều chuẩn ở rank3 nhưng guard từ chối câu diễn đạt “học thuộc dữ liệu cũ/dự đoán kém”. Unit liên quan không tự chứng minh entailment toàn câu; đây là ca cần review guard/paraphrase, không phải mất target."
+    },
+    "HN20-020": {
+      "category": "expected_missing_course",
+      "ai_note": "Cả hai báo không có MAT9999 trong ngành/phiên bản đã chọn, không dựng dữ kiện/nguồn và không search vector."
+    }
+  }
+}

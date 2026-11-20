@@ -1,0 +1,1520 @@
+{
+  "actual_code_identity": "Existing WIP; exact runtime/data/evaluator/config in pack pins.",
+  "actual_human_reviews": 0,
+  "ai_exact_displays_read": 48,
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "by_major": {
+    "computer_science": {
+      "abstention": {
+        "control_failures": 1,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 2,
+          "numerator": 1,
+          "value": 0.5
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 1,
+          "value": 0.1111111111111111
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 7,
+          "value": 0.7777777777777778
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 7,
+          "value": 0.7777777777777778
+        },
+        "ai_entailment": {
+          "denominator": 8,
+          "numerator": 8,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 4,
+          "value": 0.6666666666666666
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 8,
+          "numerator": 8,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 3,
+          "value": 1.0
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 6
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 68.1517,
+          "min_ms": 8.3242,
+          "p50_ms": 23.2094,
+          "p95_ms": 68.1517
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 1,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "data_science": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_entailment": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 3,
+          "value": 1.0
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 6
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 60.3743,
+          "min_ms": 2.3138,
+          "p50_ms": 26.3203,
+          "p95_ms": 60.3743
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 0,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "mathematics": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_entailment": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 3,
+          "value": 1.0
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 6
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 73.4321,
+          "min_ms": 3.5464,
+          "p50_ms": 35.6545,
+          "p95_ms": 73.4321
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 0,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "mathematics_informatics": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 2,
+          "numerator": 2,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_entailment": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 3,
+          "value": 1.0
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 6
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 98.7145,
+          "min_ms": 12.211,
+          "p50_ms": 30.0023,
+          "p95_ms": 98.7145
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 0,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    }
+  },
+  "cases_per_major": 12,
+  "checked_prior_input_files": 25,
+  "chronology": {
+    "checked_prior_files": 25,
+    "inference_disabled_during_freeze": true,
+    "manifest_sha256": "f6dc71af1a0110a304a90d9c905b43c91875b437a68bce293c88d34075eef7bf",
+    "pack": "data/hus/evaluation/a7_after_followup_20261112_r1",
+    "pack_frozen_at_utc": "2026-11-12T17:08:38.480633+00:00",
+    "pack_sha256": "ffd439c74a0959b53e652b9af95fa0215b92c3b1ae9be706fdb4c385efe7a5be",
+    "planned_reviewer": {
+      "blind": false,
+      "identity": "root",
+      "independent": false,
+      "kind": "ai"
+    },
+    "recorded_at_utc": "2026-11-12T17:08:38.934666+00:00",
+    "same_gold_as_preinference_source_draft": true,
+    "stage": "frozen_before_inference",
+    "structure": {
+      "by_major": {
+        "computer_science": 12,
+        "data_science": 12,
+        "mathematics": 12,
+        "mathematics_informatics": 12
+      },
+      "controls": 12,
+      "f2_lookups": 12,
+      "questions": 48,
+      "retrieval_eligible": 24
+    }
+  },
+  "cohort_cases": 48,
+  "cohort_if_later_used_for_tuning": "Retire to dev; next acceptance needs another new set.",
+  "collection_cli_wrapper": {
+    "all_48_http_errors": 0,
+    "exit_code": 1,
+    "known_stderr": "Existing Starlette/httpx warning rendered as PowerShell NativeCommandError.",
+    "rerun_inference_to_clean_warning": false,
+    "response_collection_sealed_and_replayed": true
+  },
+  "collection_finished_at_utc": "2026-11-12T17:09:05.372025+00:00",
+  "collection_started_at_utc": "2026-11-12T17:08:47.268483+00:00",
+  "commit_push_deploy_performed": false,
+  "controls": 12,
+  "created_at": "2026-11-12T17:17:55.380430+00:00",
+  "db_account_advisor_accessed": false,
+  "external_transport_attempts": 0,
+  "frozen_before_inference": true,
+  "independent_acceptance": false,
+  "issues": [
+    {
+      "evidence": "Target is rank1/top5 high_quality career quote; unsupported-specific tokens retain clc absent in quote body. Cached analysis only, no fix.",
+      "frozen_outcome": "no_information instead of answered",
+      "kind": "post_retrieval_false_abstention",
+      "qid": "A7F-Q002"
+    },
+    {
+      "evidence": "Answer correctly cites DOCX2023 but list differs from frozen web target (mathematical foundations for informatics). Question does not pin edition. Conservative completeness fail; no assertion that source lists are equivalent.",
+      "frozen_outcome": "answered, entailment pass, completeness fail",
+      "kind": "alternative_source_and_gold_scope_ambiguity",
+      "qid": "A7F-Q003"
+    },
+    {
+      "evidence": "Assessment request also says noi dung gi. Lexical classifier observes content+suggested_assessment. It may mean assessment content rather than two intents; needs independent contract/wording adjudication. Frozen gold remains no_information; observed clarification is not relabelled to improve score.",
+      "frozen_outcome": "needs_clarification instead of no_information",
+      "kind": "control_status_mismatch_wording_guard_ambiguity",
+      "qid": "A7F-Q011"
+    }
+  ],
+  "kind": "A7_after_followup_frozen_evaluation",
+  "l6_enabled": false,
+  "latency_scope": "Local TestClient after service/config load, first chat retained, no explicit chat warmup, excludes source audit/review; not network/UI/target-machine SLO.",
+  "llm_calls": 0,
+  "manifest_sha256": {
+    "ai_review": "6372465cba3b8802bbdbac975fca5074dda82c8a044bcaa3b6e29bc190a9a04a",
+    "pack": "f6dc71af1a0110a304a90d9c905b43c91875b437a68bce293c88d34075eef7bf",
+    "run": "c73e3c7ffad8516b5418729f089234b3ce852e205fcf07bc9f51d2ad662e98d2"
+  },
+  "metrics": {
+    "abstention": {
+      "control_audit_failures": 0,
+      "control_failures": 1,
+      "correct_contract_clarification": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "correct_missing_or_out_of_scope": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "correct_opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "false_abstention": {
+        "denominator": 36,
+        "numerator": 1,
+        "value": 0.027777777777777776
+      },
+      "http_errors": 0
+    },
+    "cases": 48,
+    "citation_source_support": {
+      "actual_human_reviews": 0,
+      "ai_completeness": {
+        "denominator": 36,
+        "numerator": 34,
+        "value": 0.9444444444444444
+      },
+      "ai_end_to_end_supported_complete": {
+        "denominator": 36,
+        "numerator": 34,
+        "value": 0.9444444444444444
+      },
+      "ai_entailment": {
+        "denominator": 35,
+        "numerator": 35,
+        "value": 1.0
+      },
+      "ai_review_coverage": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+      "gold_quote_coverage_proxy": {
+        "denominator": 24,
+        "numerator": 22,
+        "value": 0.9166666666666666
+      },
+      "integrity_among_answered_positive": {
+        "denominator": 35,
+        "numerator": 35,
+        "value": 1.0
+      },
+      "reviewer_kind": "ai"
+    },
+    "f2": {
+      "by_field": {
+        "credits": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "name": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "prerequisites": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        }
+      },
+      "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+      "source_contract_success": {
+        "denominator": 12,
+        "numerator": 12,
+        "value": 1.0
+      }
+    },
+    "filters": {
+      "anchor_excluded_by_observed_filter": 0,
+      "errors": {
+        "ai_opt_in": 0,
+        "course_code": 0,
+        "major": 0,
+        "program_variant": 0,
+        "review": 0,
+        "version": 0
+      },
+      "observed_search_cases": 24
+    },
+    "latency": {
+      "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+      "http_ms": {
+        "count": 48,
+        "max_ms": 98.7145,
+        "min_ms": 2.3138,
+        "p50_ms": 27.6521,
+        "p95_ms": 68.1517
+      }
+    },
+    "raw_legacy": null,
+    "retrieval": {
+      "conditional_recall_at_5": {
+        "denominator": 24,
+        "numerator": 24.0,
+        "value": 1.0
+      },
+      "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+      "no_call_misses": 0,
+      "post_retrieval_false_abstention": 1,
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 24.0,
+        "value": 1.0
+      },
+      "search_call_coverage": {
+        "denominator": 24,
+        "numerator": 24,
+        "value": 1.0
+      }
+    },
+    "routing": {
+      "missing_observation_cases": 0,
+      "positive_dataset_and_field": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "stage": "classifier_before_scope_and_evidence_guards"
+    }
+  },
+  "new_wording_or_target_identity_overlap_in_checked_inputs": 0,
+  "overall": "Recall target met; full acceptance not met.",
+  "pack_sha256": "ffd439c74a0959b53e652b9af95fa0215b92c3b1ae9be706fdb4c385efe7a5be",
+  "paths": {
+    "ai_review": "data/hus/evaluation/runs/a7_after_followup_ai_review_20261112_r1",
+    "pack": "data/hus/evaluation/a7_after_followup_20261112_r1",
+    "review": "data/hus/evaluation/reviews/a7_after_followup_ai_20261112_r1.json",
+    "run": "data/hus/evaluation/runs/a7_after_followup_lexical_20261112_r1"
+  },
+  "positive_per_family": 12,
+  "preservation": {
+    "changed": [
+      "tools/evaluate_hus_a7.py"
+    ],
+    "protected_inventory_sha256": "899d4c46f09ec609779b761efda05f6b83deec8bac0447a3f8079b0880d81e18",
+    "protected_preexisting_files": 2589,
+    "runtime_data_ui_dependency_old_pack_gold_run_review_receipt_zip_unchanged": true,
+    "unchanged_files": 2588
+  },
+  "private_env_or_key_read": false,
+  "profile": {
+    "actual_model": null,
+    "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+    "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+    "entrypoint": "app.hus.demo:app",
+    "f1_f3_protocol": "hus-llm-document-v3",
+    "f2_protocol": "hus-llm-evidence-v1",
+    "index": null,
+    "llm_enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "model_inference": "not_run",
+    "retrieval": "lexical"
+  },
+  "replay": {
+    "new_measurement": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": false,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "new_review": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": false,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "old_l5_reproduced_metrics": {
+      "metrics": {
+        "actual_models": {
+          "gemini-3.5-flash-lite": 24
+        },
+        "baseline_false_refusals": 0,
+        "by_family": {
+          "basic_chat": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "clarification_required": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "f1": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 5
+          },
+          "f2": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 8
+          },
+          "f3": {
+            "cases": 8,
+            "eligible": 8,
+            "provider_requests": 8,
+            "used": 3
+          },
+          "missing_evidence": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "opt_in_required": {
+            "cases": 4,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          },
+          "out_of_scope": {
+            "cases": 2,
+            "eligible": 0,
+            "provider_requests": 0,
+            "used": 0
+          }
+        },
+        "by_major": {
+          "computer_science": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 4
+          },
+          "data_science": {
+            "cases": 12,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 5
+          },
+          "mathematics": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 4
+          },
+          "mathematics_informatics": {
+            "cases": 8,
+            "eligible": 6,
+            "provider_requests": 6,
+            "used": 3
+          }
+        },
+        "cases": 36,
+        "control_status_mismatches": 0,
+        "eligible": 24,
+        "eligible_not_attempted": 0,
+        "errors": {
+          "invalid_response": 3
+        },
+        "fallback": 8,
+        "fallback_reasons": {
+          "evidence_coverage": 4,
+          "invalid_output": 1,
+          "invalid_response": 3
+        },
+        "guard_skipped": 12,
+        "http_status": {
+          "200": 24
+        },
+        "latency": {
+          "baseline": {
+            "count": 36,
+            "max_ms": 72.55579996854067,
+            "min_ms": 0.054900068789720535,
+            "p50_ms": 24.627499980852008,
+            "p95_ms": 63.56080016121268
+          },
+          "provider": {
+            "count": 24,
+            "max_ms": 6453.525000018999,
+            "min_ms": 1432.1498998906463,
+            "p50_ms": 4075.3665999509394,
+            "p95_ms": 6444.636899977922
+          },
+          "rewrite_fallback": {
+            "count": 8,
+            "max_ms": 6410.314100096002,
+            "min_ms": 2175.4379998892546,
+            "p50_ms": 3388.5981999337673,
+            "p95_ms": 6410.314100096002
+          },
+          "rewrite_used": {
+            "count": 16,
+            "max_ms": 6456.259700004011,
+            "min_ms": 1433.6196000222117,
+            "p50_ms": 4086.5055001340806,
+            "p95_ms": 6456.259700004011
+          }
+        },
+        "provider_requests": 24,
+        "source_audit_failures": 0,
+        "token_counter_unknown_requests": {
+          "completion_tokens": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0
+        },
+        "token_usage": {
+          "completion_tokens": 6916,
+          "prompt_tokens": 28349,
+          "total_tokens": 35265
+        },
+        "token_usage_known_subtotal": {
+          "completion_tokens": 6916,
+          "prompt_tokens": 28349,
+          "total_tokens": 35265
+        },
+        "usage_known_requests": 24,
+        "usage_unknown_requests": 0,
+        "used": 16,
+        "used_rate_among_eligible": 0.6666666666666666
+      },
+      "new_provider_calls": 0,
+      "new_retrieval_calls": 0,
+      "reproduced": true
+    },
+    "old_postfix_a7": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "oldest_a7_r2": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": false
+      }
+    }
+  },
+  "reviewer": {
+    "blind": false,
+    "identity": "root",
+    "independent": false,
+    "kind": "ai"
+  },
+  "runtime_tuning_during_evaluation": false,
+  "selection_and_exposure": {
+    "actual_human_reviews": 0,
+    "author_kind": "ai",
+    "cases": [
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q001",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q002",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q003",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q004",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q005",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q006",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q007",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q008",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q009",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q010",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q011",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q012",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q013",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q014",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q015",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q016",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q017",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q018",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q019",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q020",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q021",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q022",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q023",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q024",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q025",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q026",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q027",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q028",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q029",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q030",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q031",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q032",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q033",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q034",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q035",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q036",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q037",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q038",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q039",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q040",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q041",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q042",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q043",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q044",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q045",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q046",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q047",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7F-Q048",
+        "source_and_family_seen_by_author": true
+      }
+    ],
+    "cohort_id": "a7-after-followup-20261112",
+    "coverage_limits": "No unused F1 introduction targets remain; DS F1 covers three career roles. No remaining unused conflict F2 record selected. Existing editions/intent families/source text are exposed.",
+    "eligible_for_independent_acceptance": false,
+    "if_used_for_tuning": "Retire to dev; freeze a different evaluation set.",
+    "inputs_sha256": {
+      "data/hus/evaluation/a2_contracts_v1/questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6",
+      "data/hus/evaluation/a7_postfix_20261112_r1/pack.json": "9d47c07b0c9999690adfd51b0758cec30ab7cd4057badf4f270bb40c88973f7c",
+      "data/hus/evaluation/a7_v4_candidate_20261111_r1/pack.json": "07b958a320983a43d65f759c25b5d9c712a363a3bce0475c0e6318a94d724397",
+      "data/hus/evaluation/a7_v4_candidate_20261111_r2/pack.json": "52e43a8945fb23ae2d01e8734e7d272525ebe7303847b06236f122df06cff2c8",
+      "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+      "data/hus/evaluation/diagnostic_dev_v2_routing/questions.jsonl": "413ed018b1a6bb1ad681d6c6c4ff5837b623c564337cd90252770be502073bc9",
+      "data/hus/evaluation/diagnostic_dev_v3_support/questions.jsonl": "a670c77d58b247cf35034944e939373b72f5e29da725094af7618d586ab5bc93",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context/questions.jsonl": "383f7ac60f306132d9f0b59587fef5db8686d90fc989574eba9aa7e4971a9123",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context_r2/questions.jsonl": "40d12a422b7ed8bcb9f43ec850724f3d43e7c7b914382524008e81e58364908e",
+      "data/hus/evaluation/diagnostic_dev_v7_role_exclusion/questions.jsonl": "13261079386ad19131cdee8a02ff9d7431e52bc72c593c29714b033d5fb35483",
+      "data/hus/evaluation/holdout_v2_candidate/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/hybrid_v5_dev_20261110/questions.jsonl": "cd7cfb8e022deffa3822538ffa95c8240943328c0b7e8d8592fa5978590ce0a4",
+      "data/hus/evaluation/llm_v3_v4_dev_20261112_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/llm_v4_dev_20261111_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+      "data/hus/evaluation/runs/llm_l5_ai_review_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_google_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_prepared_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_v4_ai_review_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r1/prepared.json": "d0adc047741d5debdfcfe0787682be33e7ad4c598b1ef9c23c43ed4da0d4d2ea",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r2/prepared.json": "1cafc7c64e0cc7ca666da02ef4dcc217106aad29ed00ea843958dda3b40ebe9f",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261112_r1/prepared.json": "8ac80396dbb36fde5db3ac040268095dcecad2cae36a933dc6b5a5c1b132ea5f"
+    },
+    "limits": "Normalized exact wording checked only against pinned evaluation inputs. Different IDs do not prove semantic novelty. AI source/runtime exposed, not independent holdout.",
+    "planned_reviewer": {
+      "blind": false,
+      "identity": "root",
+      "independent": false,
+      "kind": "ai"
+    },
+    "runtime_and_sources_seen": true,
+    "selection_policy": "Fixed 3F1/3F2/3F3+3controls per major; unused A7 source identities; no prediction-based selection."
+  },
+  "source_binary_checks": {
+    "checks": {
+      "/hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517": {
+        "bytes": 404363,
+        "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517"
+      },
+      "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=12#page=12": {
+        "bytes": 18438317,
+        "content_type": "application/pdf",
+        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+      },
+      "/hus/sources/6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8?page=9#page=9": {
+        "bytes": 18438317,
+        "content_type": "application/pdf",
+        "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+      },
+      "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=10#page=10": {
+        "bytes": 19334830,
+        "content_type": "application/pdf",
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+      },
+      "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=11#page=11": {
+        "bytes": 19334830,
+        "content_type": "application/pdf",
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+      },
+      "/hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=12#page=12": {
+        "bytes": 19334830,
+        "content_type": "application/pdf",
+        "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+      },
+      "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10": {
+        "bytes": 19361810,
+        "content_type": "application/pdf",
+        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+      },
+      "/hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=11#page=11": {
+        "bytes": 19361810,
+        "content_type": "application/pdf",
+        "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+      },
+      "/hus/sources/cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1?page=8#page=8": {
+        "bytes": 460939,
+        "content_type": "application/pdf",
+        "sha256": "cc0a8f7171957bab8a74e72e95a30925106d2777a7c1b408d6ff0b47643026b1"
+      },
+      "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=12#page=12": {
+        "bytes": 21509533,
+        "content_type": "application/pdf",
+        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+      },
+      "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9": {
+        "bytes": 21509533,
+        "content_type": "application/pdf",
+        "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+      },
+      "/hus/sources/e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f?page=9#page=9": {
+        "bytes": 483700,
+        "content_type": "application/pdf",
+        "sha256": "e8a9524ff81bfec2038760970327650c005f31cbadb7be8ad2abe2f141c8978f"
+      }
+    },
+    "distinct_sha256": 7,
+    "url_checks": 12
+  },
+  "submission_target_machine_verified": false,
+  "technical_gates": {
+    "ai_content_review_all_complete": false,
+    "all_technical_gates_met": false,
+    "answered_source_integrity": true,
+    "controls_all_correct": false,
+    "f2_source_facts_all_correct": true,
+    "independent_or_human_acceptance": false,
+    "no_false_abstention": false,
+    "no_http_errors": true,
+    "no_scope_filter_errors": true,
+    "recall_at_5_met": true
+  },
+  "tests": {
+    "full_runtime_suite_repeated": false,
+    "junit_sha256": "74ac623a0b15db1a5c4967935d56064a04d0c0f55b323bd2b3cde01b705e09aa",
+    "new_contract_tests": 13,
+    "passed": 101,
+    "ruff": "passed"
+  }
+}

@@ -1,0 +1,21 @@
+﻿id,question,search,lexical_status,hybrid_status,lexical_rag_s,hybrid_rag_s,lexical_retrieval_s,hybrid_retrieval_s,lexical_target_rank,hybrid_target_rank,same_top5_set,same_top5_order,same_response,lexical_citations,hybrid_citations
+HN20-001,Ngành Toán học đào tạo người học theo định hướng nào?,False,needs_clarification,needs_clarification,0.00296,0.00102,,,,,,,True,,
+HN20-002,Tốt nghiệp Toán học thì có thể làm việc ở những đâu?,True,answered,answered,0.00263,1.55386,0.00064,1.55117,1,1,True,False,True,Ngành Toán học,Ngành Toán học
+HN20-003,Môn Đại số tuyến tính 1 có số tín chỉ là mấy?,False,answered,answered,0.02715,0.02467,,,,,,,True,101. Toán học-chuẩn final QD 3565 Scan.pdf,101. Toán học-chuẩn final QD 3565 Scan.pdf
+HN20-004,Tôi muốn biết trong môn Đại số tuyến tính 1 sẽ gặp các khái niệm gì?,True,answered,answered,0.01652,1.68243,0.0014,1.66748,1,1,False,False,False,kiến thức AI — MAT2300 — Đại số tuyến tính 1,kiến thức AI — MAT2300 — Đại số tuyến tính 1
+HN20-005,Nếu tính mỗi mã học phần một lần thì ngành Toán học có bao nhiêu môn trong danh mục?,False,answered,answered,0.07114,0.0092,,,,,,,True,Toán học,Toán học
+HN20-006,Cho mình một bức tranh khái quát về ngành Toán tin.,True,no_information,no_information,0.0023,1.41777,0.00018,1.41558,1,1,True,True,True,,
+HN20-007,Học xong Toán tin có thể tiếp tục học lên những bậc nào?,True,answered,answered,0.00196,1.41775,0.00029,1.4159,1,1,True,True,True,Ngành Toán Tin,Ngành Toán Tin
+HN20-008,Muốn học Lập trình hướng đối tượng thì phải hoàn thành môn nào trước?,False,answered,answered,0.01912,0.02168,,,,,,,True,103. Toán tin-chuẩn final QD 3567 Scan.pdf,103. Toán tin-chuẩn final QD 3567 Scan.pdf
+HN20-009,"Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",True,answered,answered,0.0137,1.62192,0.0011,1.60902,1,2,True,False,True,kiến thức AI — MAT1202 — Lập trình hướng đối tượng,kiến thức AI — MAT1202 — Lập trình hướng đối tượng
+HN20-010,Ngành Khoa học dữ liệu có định hướng nghề nghiệp nào?,False,no_information,no_information,0.00076,0.0008,,,,,,,True,,
+HN20-011,Người tốt nghiệp KHMTTT có thể đảm nhiệm những công việc gì?,True,answered,answered,0.00574,1.45307,0.00129,1.44993,1,1,True,True,True,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx
+HN20-012,Nếu muốn học tiếp sau KHMTTT thì có những hướng nào?,True,answered,answered,0.00286,1.43698,0.0007,1.42176,1,1,True,False,False,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx,Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf
+HN20-013,Cho mình biết số tín chỉ của môn Phương pháp nghiên cứu khoa học.,False,answered,answered,0.02321,0.02117,,,,,,,True,104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf,104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf
+HN20-014,Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?,True,answered,answered,0.01417,1.65147,0.0011,1.63764,1,1,True,False,True,kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học,kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học
+HN20-015,Giải thích nội dung MAT1204 giúp mình.,False,needs_clarification,needs_clarification,0.01028,0.00998,,,,,,,True,,
+HN20-016,"Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",True,answered,answered,0.00249,1.43717,0.00041,1.43459,1,1,True,True,True,Khoa học Dữ liệu,Khoa học Dữ liệu
+HN20-017,Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?,False,needs_clarification,needs_clarification,0.00129,0.00114,,,,,,,True,,
+HN20-018,MAT3533 được ghi nhận bao nhiêu tín chỉ trong khung chương trình?,False,answered,answered,0.01966,0.02612,,,,,,,True,105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf,105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf
+HN20-019,Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?,True,no_information,no_information,0.01697,1.62303,0.00108,1.61004,3,3,True,False,True,,
+HN20-020,Mã MAT9999 có số tín chỉ là bao nhiêu?,False,no_information,no_information,0.00961,0.00947,,,,,,,True,,

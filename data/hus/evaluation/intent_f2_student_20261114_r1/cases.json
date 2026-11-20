@@ -1,0 +1,254 @@
+[
+  {
+    "id": "IF2-001",
+    "request": {
+      "question": "Ngành Toán học có bao nhiêu môn học?",
+      "major": "mathematics",
+      "dataset": "auto",
+      "version": "QD3565-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_count",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-002",
+    "request": {
+      "question": "Cho mình xem toàn bộ danh sách học phần",
+      "major": "mathematics",
+      "dataset": "auto",
+      "version": "QD3565-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_list",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": true
+    }
+  },
+  {
+    "id": "IF2-003",
+    "request": {
+      "question": "Liệt kê các môn trong chương trình",
+      "major": "mathematics_informatics",
+      "dataset": "auto",
+      "version": "QD3567-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_list",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-004",
+    "request": {
+      "question": "Đếm học phần giúp tôi",
+      "major": "mathematics_informatics",
+      "dataset": "auto",
+      "version": "QD3567-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_count",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": true
+    }
+  },
+  {
+    "id": "IF2-005",
+    "request": {
+      "question": "Ngành khoa học máy tính có bao nhiêu môn học?",
+      "major": "computer_science",
+      "dataset": "auto",
+      "version": "QD3568-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_count",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-006",
+    "request": {
+      "question": "MAT1204 được tính mấy TC?",
+      "major": "computer_science",
+      "dataset": "auto",
+      "version": "QD3568-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "credits",
+      "course_code": "MAT1204",
+      "diagnostic": null,
+      "needs_interpretation": true
+    }
+  },
+  {
+    "id": "IF2-007",
+    "request": {
+      "question": "Liệt kê các môn trong chương trình",
+      "major": "data_science",
+      "dataset": "auto",
+      "version": "QD3569-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "program_course_list",
+      "course_code": null,
+      "diagnostic": null,
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-008",
+    "request": {
+      "question": "MAT3533 được tính mấy TC?",
+      "major": "data_science",
+      "dataset": "auto",
+      "version": "QD3569-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "answered",
+      "field": "credits",
+      "course_code": "MAT3533",
+      "diagnostic": null,
+      "needs_interpretation": true
+    }
+  },
+  {
+    "id": "IF2-009",
+    "request": {
+      "question": "Ngành khoa học máy tính có bao nhiêu môn học?",
+      "major": "data_science",
+      "dataset": "auto",
+      "version": "QD3569-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "no_information",
+      "field": null,
+      "course_code": null,
+      "diagnostic": "scope_conflict",
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-010",
+    "request": {
+      "question": "Ngành Toán học phải học bao nhiêu môn?",
+      "major": "mathematics",
+      "dataset": "auto",
+      "version": "QD3565-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "needs_clarification",
+      "field": null,
+      "course_code": null,
+      "diagnostic": "unsupported_operation",
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-011",
+    "request": {
+      "question": "Nội dung MAT3533?",
+      "major": "data_science",
+      "dataset": "auto",
+      "version": "QD3569-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "needs_clarification",
+      "field": null,
+      "course_code": null,
+      "diagnostic": "permission_required",
+      "needs_interpretation": false
+    }
+  },
+  {
+    "id": "IF2-012",
+    "request": {
+      "question": "MAT9999 có bao nhiêu tín chỉ?",
+      "major": "data_science",
+      "dataset": "auto",
+      "version": "QD3569-2023",
+      "course_code": null,
+      "field": null,
+      "group_key": null,
+      "program_variant": null,
+      "allow_generated_reference": false
+    },
+    "expected": {
+      "status": "no_information",
+      "field": null,
+      "course_code": null,
+      "diagnostic": "evidence_unavailable",
+      "needs_interpretation": false
+    }
+  }
+]

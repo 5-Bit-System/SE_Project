@@ -3,13 +3,13 @@ from __future__ import annotations
 
 import logging
 import math
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, fields
 from threading import Lock
 from typing import Callable
 
 from app.hus.passages import parent_chunk
 from app.hus.rag_loader import MAJOR_CODES, HUSRAGData, RAGDataError
-from app.hus.retrieval import COURSE_CODE, HUSRAGRetriever, RetrievalHit, _tokens
+from app.hus.retrieval import COURSE_CODE, HUSRAGRetriever, RetrievalHit, _tokens, restrict_parents
 from app.hus.vector_contract import digest_json, encoded
 from app.hus.vector_index import index_metadata
 
@@ -41,11 +41,20 @@ class VectorSearchResult:
     trace: VectorTrace
 
 
+def _canonical_payload(data: HUSRAGData) -> dict:
+    # chunks() already returns independent deep copies. A recursive asdict()
+    # would clone their large nested metadata a second time on every check.
+    # Map all dataclass fields while retaining those already-owned nested values;
+    # still serialize the complete snapshot afresh before AND after each search.
+    chunks = [{field.name: getattr(c, field.name) for field in fields(c)}
+              for family in ('f1', 'f3') for major in sorted(MAJOR_CODES.values())
+              for c in data.chunks(family, major=major, allow_generated=True)]
+    return {'release': data.release_identity, 'chunks': chunks}
+
+
 def _canonical_signature(data: HUSRAGData) -> str:
     try:
-        chunks = [asdict(c) for family in ('f1', 'f3') for major in sorted(MAJOR_CODES.values())
-                  for c in data.chunks(family, major=major, allow_generated=True)]
-        return digest_json({'release': data.release_identity, 'chunks': chunks})
+        return digest_json(_canonical_payload(data))
     except (ValueError, TypeError, KeyError, AttributeError, OSError) as exc:
         raise RAGDataError('Invalid canonical snapshot') from exc
 
@@ -78,6 +87,7 @@ class HUSVectorRetriever:
         self, query: str, *, dataset: str, major: str, version: str | None = None,
         course_code: str | None = None, field: str | None = None,
         program_variant: str | None = None, top_k: int = 5, allow_generated: bool = False,
+        parent_ids: tuple[str, ...] | None = None,
     ) -> VectorSearchResult:
         if not isinstance(query, str):
             raise RAGDataError('query must be a string')
@@ -86,7 +96,9 @@ class HUSVectorRetriever:
         self._check_canonical()  # Outside the vector exception boundary.
         options = dict(dataset=dataset, major=major, version=version, course_code=course_code,
                        field=field, program_variant=program_variant, allow_generated=allow_generated)
-        candidates = self._data.chunks(**options)
+        candidates = restrict_parents(self._data.chunks(**options), parent_ids)
+        if parent_ids is not None:
+            options['parent_ids'] = parent_ids
         codes = {term.upper() for term in _tokens(query) if COURSE_CODE.fullmatch(term)}
         candidates = tuple(c for c in candidates if not codes or c.metadata.get('course_code') in codes)
         # F3 requires opt-in even if an incorrectly labelled candidate were supplied.

@@ -1,0 +1,7 @@
+# Standalone F1/F2/F3 RAG. Install with -c requirements-lock.txt on Python 3.11.
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+pydantic>=2,<3
+httpx>=0.27,<1
+python-dotenv>=1.0,<2
+pdfplumber>=0.11,<1

@@ -1,0 +1,82 @@
+[
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/H01-p1.png",
+    "image_sha256": "bbf83fe7aafc4c75eab4548bbcce03d644174b981ecf117df4cb7417bf577acc",
+    "image_viewed_by_root_AI": true,
+    "page": 1,
+    "source_id": "H01",
+    "source_sha256": "56bad5aa1a09217baca356d8a61a5e28bb791c517133341c7376b15bae3a89d0",
+    "text_path": "backups/hus_field_edition_review_20261113/H01-p1.txt",
+    "text_sha256": "5edd7e3af7d69fb2c9c2669b2db6da77d331f0495886288edf0ddc39b8773b40"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/H01-p2.png",
+    "image_sha256": "194cdd163f699fda3660bab2490c2dc0ad6ce0fa14a931f93caf72ddb3cb695d",
+    "image_viewed_by_root_AI": true,
+    "page": 2,
+    "source_id": "H01",
+    "source_sha256": "56bad5aa1a09217baca356d8a61a5e28bb791c517133341c7376b15bae3a89d0",
+    "text_path": "backups/hus_field_edition_review_20261113/H01-p2.txt",
+    "text_sha256": "f9859e3660b992372539f0236aa30650b5fcb07ed83a1ab7779cc1323dda4098"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/H03-p1.png",
+    "image_sha256": "aece016f4c877f610c4491b53b3d569d915083a6170d977de62ecd5394457a73",
+    "image_viewed_by_root_AI": true,
+    "page": 1,
+    "source_id": "H03",
+    "source_sha256": "a4e05e40c97aa0136e2a4d8f19946d2836451434288c90b69464c4717aec2794",
+    "text_path": "backups/hus_field_edition_review_20261113/H03-p1.txt",
+    "text_sha256": "e4c9b435199b79dcb6106272185b8dd94d5b4c439580d66673cb1f64f0989d05"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/H03-p2.png",
+    "image_sha256": "7a6116d2fdcc85497f412651dd44d00d50c84d751d1bb43285405ea5b7404f6a",
+    "image_viewed_by_root_AI": true,
+    "page": 2,
+    "source_id": "H03",
+    "source_sha256": "a4e05e40c97aa0136e2a4d8f19946d2836451434288c90b69464c4717aec2794",
+    "text_path": "backups/hus_field_edition_review_20261113/H03-p2.txt",
+    "text_sha256": "7d773b499396a21168bdddd6a368f86d660ee6dfba79ef3050b10a84ae9f9ab9"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/L07-p1.png",
+    "image_sha256": "3e4c4793598af236e56adb47bd17b9b5f31094d7f6c52e1ae65c1462537bf463",
+    "image_viewed_by_root_AI": true,
+    "page": 1,
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "text_path": "backups/hus_field_edition_review_20261113/L07-p1.txt",
+    "text_sha256": "c58f3135eea0cc8075fb0cabce41712496799b2c40515d6c0d641a3ec0e2c095"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/L07-p2.png",
+    "image_sha256": "47624de34b16f28b38b8bb0f18ea49b849a6adce7a338377b6ec0b61dea36d6d",
+    "image_viewed_by_root_AI": false,
+    "page": 2,
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "text_path": "backups/hus_field_edition_review_20261113/L07-p2.txt",
+    "text_sha256": "d88e35bff8e7da9a1540ea9aa2083350bb14b685e504c692060ec2422abe2cbb"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/L07-p3.png",
+    "image_sha256": "e99a08f6b4ee45467576046a494ff6143407ce52b9d4cfc229faaba3156a646e",
+    "image_viewed_by_root_AI": true,
+    "page": 3,
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "text_path": "backups/hus_field_edition_review_20261113/L07-p3.txt",
+    "text_sha256": "532aeb3c23324cc2c3b59b9e4d0db1db0df187aa337ab180bd9a81dcb64cf75d"
+  },
+  {
+    "image_path": "backups/hus_field_edition_review_20261113/L07-p4.png",
+    "image_sha256": "a8d43ef1357433d3e164f60abe09ec0b19ef2093b3df98cb4e3dabb94fe357b1",
+    "image_viewed_by_root_AI": false,
+    "page": 4,
+    "source_id": "L07",
+    "source_sha256": "fbde117b7b213293cbf4957266ac6ba953a44ce7101afc45c794bbfb157ca53f",
+    "text_path": "backups/hus_field_edition_review_20261113/L07-p4.txt",
+    "text_sha256": "d962e32d49f2b978a6ab03ada665cfee375d65d564dd113d7b54f2cb71a3f061"
+  }
+]

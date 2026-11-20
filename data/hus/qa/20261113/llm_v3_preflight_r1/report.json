@@ -1,0 +1,621 @@
+{
+  "base_head": "f61b0fd",
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "branch": "hus-llm-rag",
+  "comparison_to_prior_prepared": {
+    "additional_full_manual_read_of_changed_payloads": 0,
+    "artifact_hash_changes": {
+      "app/hus/answer_support.py": {
+        "new": "ba9d31d27dfda14e708f0c51e6ad462f52c22a5cdae8bcee8c2403e6362610e1",
+        "old": "be02fc7b0908ef09bf3ea4752950d21fe890b561557fe33d938ca57a15fe6609"
+      },
+      "app/hus/question_routing.py": {
+        "new": "90208afad0d38de8e2684de64ffc0c1dbcc001813ce80d9e2d706c0416bff104",
+        "old": "455812a1eef4ef96556b2aa8bd8f416d83cad724e995b9711d8a92e94c7965f4"
+      }
+    },
+    "baseline_and_prompts_differences": {
+      "baseline": [],
+      "effective_request": [],
+      "prompt": [],
+      "retrieval_calls": []
+    },
+    "environment_identical": true,
+    "fresh_pins_match": true,
+    "new_payload_privacy_binding_rechecked": 24,
+    "new_provider_calls": 0,
+    "old_prepared_pins_match_current": false,
+    "other_pin_change": "Source pack is a fresh path with unchanged deterministic source content; see full prepared pins.",
+    "pins_sha256": "c8b580a7630e5e37891ff734e667f9e7a55772a1daaf2a667359d14f13b1edc3",
+    "prior_payloads_byte_identical": true,
+    "prior_privacy_review": "data/hus/qa/20261112/llm_v3_preflight_r1/report.json",
+    "prior_reviewed_payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+    "same_exposed_cohort": true,
+    "semantic_or_live_quality_acceptance": false
+  },
+  "created_at": "2026-11-12T17:30:48.172044+00:00",
+  "exposure": {
+    "actual_human_reviews": 0,
+    "fresh_questions": false,
+    "holdout_eligible": false,
+    "new_pack_and_pins": true,
+    "note": "Repeated exposed development diagnostic; not independent acceptance or causal comparison to old live run.",
+    "reviewer_kind": "ai",
+    "same_cases_as_old_v4": true
+  },
+  "index": null,
+  "kind": "offline_preflight",
+  "manual_payload_review": {
+    "changed_payloads_requiring_new_full_read": 0,
+    "credentials_read_or_compared": false,
+    "prior_exact_payloads_read": 24,
+    "purpose": "All24 payload bindings/allowlist rechecked; byte-identical prior24 reviewed payloads reused; not generated semantic acceptance",
+    "reviewer": "root AI",
+    "root_env_or_template_read": false
+  },
+  "model": "gemini-3.5-flash-lite",
+  "pack_manifest_sha256": "8e8b0c0a8fb73c840685c756a3216e578072640b71260c452a2ef828464d69ca",
+  "paired_execution_contract": {
+    "a": "Frozen lexical baseline with exact retrieval calls and source audit",
+    "actual_model_tokens_latency_errors": "pending; never infer success from mock or fallback",
+    "b": "Rewrite this same frozen A; no second retrieval or snapshot change",
+    "exact_output_fallback_review": "pending live collection",
+    "pre_and_post_collection_pins_must_match": true
+  },
+  "payload_export": "backups/hus_l5_v3_prepare_20261113/payloads_r1",
+  "payload_manifest_sha256": "860dca2adecd6b352ef0055a66336fa0f092d1ee1ae807393bde2ccdc2839f5b",
+  "per_case": [
+    {
+      "exact_copy_json_chars": 866,
+      "family": "f1",
+      "leaves": 6,
+      "long_unit": null,
+      "major": "computer_science",
+      "prompt_chars": 3607,
+      "prompt_sha256": "d0acd06dae285c783aed132cef10aab754124088bc5bbc8826a979699e0fb329",
+      "question": "Ra trường KHMTTT có những hướng công việc nào trong bản chương trình đã lưu?",
+      "question_id": "L5V4-Q001",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 7
+    },
+    {
+      "exact_copy_json_chars": 379,
+      "family": "f1",
+      "leaves": 1,
+      "long_unit": null,
+      "major": "computer_science",
+      "prompt_chars": 2940,
+      "prompt_sha256": "4bb1e1035ea6ccd0225214a5f61c59f7eb4533bae5d37e3717a8db6a064f262e",
+      "question": "Ngành KHMTTT đào tạo để xử lý những vấn đề thông tin và dữ liệu nào?",
+      "question_id": "L5V4-Q002",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 1
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "computer_science",
+      "prompt_chars": 4004,
+      "prompt_sha256": "c6cc8232bbe240c02236964840a451b30f6b7ae508174ecdea1b9ff4ce0662cc",
+      "question": "Môn Lập trình mobile trong bản chương trình KHMTTT đã chọn có khối lượng bao nhiêu tín chỉ?",
+      "question_id": "L5V4-Q003",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "computer_science",
+      "prompt_chars": 4031,
+      "prompt_sha256": "0c6411d9c89fd2e03f931e4fbef1a477734fd39ea51288144a51dcca9f204235",
+      "question": "Trước môn MAT3563 của KHMTTT, bảng nguồn ghi phải học những mã nào?",
+      "question_id": "L5V4-Q004",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": 2710,
+      "family": "f3",
+      "leaves": 19,
+      "long_unit": {
+        "record_id": "khmtt_7480113qtd_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "major": "computer_science",
+      "prompt_chars": 6789,
+      "prompt_sha256": "8ba96ef97b25b928706541af9c4aa7086a6edf84ecb4c5d53d4d7fe20e9efe2a",
+      "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+      "question_id": "L5V4-Q005",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 4,
+      "units": 39
+    },
+    {
+      "exact_copy_json_chars": 393,
+      "family": "f3",
+      "leaves": 5,
+      "long_unit": null,
+      "major": "computer_science",
+      "prompt_chars": 3115,
+      "prompt_sha256": "ec34f0466c27c1c0e611fe3c96093891f01f7316908a2387bff9b643e984b0a2",
+      "question": "Với phần AI tham khảo đã bật, MAT3552E hướng người học tới các năng lực gì?",
+      "question_id": "L5V4-Q006",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 5
+    },
+    {
+      "exact_copy_json_chars": 869,
+      "family": "f1",
+      "leaves": 3,
+      "long_unit": null,
+      "major": "data_science",
+      "prompt_chars": 4091,
+      "prompt_sha256": "d91df2f9e6f1b82d01816a89c432fefddde7599acb2eebf9a38a45f047e743b0",
+      "question": "KHDL kết hợp ba nền tảng nào và nhằm làm gì theo mô tả ngành?",
+      "question_id": "L5V4-Q009",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 3,
+      "units": 4
+    },
+    {
+      "exact_copy_json_chars": 152,
+      "family": "f1",
+      "leaves": 1,
+      "long_unit": null,
+      "major": "data_science",
+      "prompt_chars": 2711,
+      "prompt_sha256": "1a7851dc458a88575a5fa98179d3584245900d0600628e7ebd9d6560c75c01da",
+      "question": "Học KHDL xong có thể làm nghiên cứu phát triển ở đâu theo nguồn chương trình?",
+      "question_id": "L5V4-Q010",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 1
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "data_science",
+      "prompt_chars": 4068,
+      "prompt_sha256": "ab172d2d654e6f558fd8cff9bc6914367c4f025bc9662d56739962e68b2d0945",
+      "question": "Môn Một số vấn đề ứng dụng của khoa học dữ liệu trong bản chương trình KHDL đã chọn có khối lượng bao nhiêu tín chỉ?",
+      "question_id": "L5V4-Q011",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "data_science",
+      "prompt_chars": 4031,
+      "prompt_sha256": "32a715d9f3809adbf9e9c0611d619271ef3a8afdafceee2f0bedd1070831b244",
+      "question": "Trước môn MAT3534 của KHDL, bảng nguồn ghi phải học những mã nào?",
+      "question_id": "L5V4-Q012",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": 2710,
+      "family": "f3",
+      "leaves": 19,
+      "long_unit": {
+        "record_id": "khdl_7460108_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "major": "data_science",
+      "prompt_chars": 6769,
+      "prompt_sha256": "afa611e985d9b5f7bbde45eca231eac843cbb6e3b701337e202b234ece95e04f",
+      "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+      "question_id": "L5V4-Q013",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 4,
+      "units": 39
+    },
+    {
+      "exact_copy_json_chars": 401,
+      "family": "f3",
+      "leaves": 5,
+      "long_unit": null,
+      "major": "data_science",
+      "prompt_chars": 3113,
+      "prompt_sha256": "fc40a9d9e9cf4016ca7bd987cc621b94fff0aaf9f5a786be0ef074cee566c1eb",
+      "question": "Với phần AI tham khảo đã bật, MAT3398 hướng người học tới các năng lực gì?",
+      "question_id": "L5V4-Q014",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 5
+    },
+    {
+      "exact_copy_json_chars": 160,
+      "family": "f1",
+      "leaves": 1,
+      "long_unit": null,
+      "major": "mathematics",
+      "prompt_chars": 2721,
+      "prompt_sha256": "03b7deedf3d8c164b4ca952684c496d7141f96d60d003e5ffcb0c3d2de59151a",
+      "question": "Bạn kể giúp các hệ đào tạo cử nhân ngành Toán mà khoa giới thiệu được không?",
+      "question_id": "L5V4-Q017",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 1
+    },
+    {
+      "exact_copy_json_chars": 615,
+      "family": "f1",
+      "leaves": 6,
+      "long_unit": null,
+      "major": "mathematics",
+      "prompt_chars": 3329,
+      "prompt_sha256": "df129d49062d0fac209ca1fd6ac108851cf7a4f64d38d94ba0a0b3bf4ef368b7",
+      "question": "Ra trường ngành Toán có thể làm ở đâu theo tài liệu đã lưu?",
+      "question_id": "L5V4-Q018",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 7
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "mathematics",
+      "prompt_chars": 4024,
+      "prompt_sha256": "378453498d3d2238f2afa4f0bbba6917caa95033a790a74e53a6078400b0c7a3",
+      "question": "Môn Lý thuyết bản và vỏ mỏng trong bản chương trình Toán học đã chọn có khối lượng bao nhiêu tín chỉ?",
+      "question_id": "L5V4-Q019",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "mathematics",
+      "prompt_chars": 4015,
+      "prompt_sha256": "7877baf7d4b642c2c8191e25dd5d8c3552093ffd66decb59798a8fde0e3116d9",
+      "question": "Trước môn MAT3415 của Toán học, bảng nguồn ghi phải học những mã nào?",
+      "question_id": "L5V4-Q020",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": 2842,
+      "family": "f3",
+      "leaves": 23,
+      "long_unit": {
+        "record_id": "toan_hoc_7460101_2022:MAT3311",
+        "source_chars": 622,
+        "title": "Biểu diễn và không gian bất biến",
+        "unit_index": 2
+      },
+      "major": "mathematics",
+      "prompt_chars": 7328,
+      "prompt_sha256": "45d635567033db73fe94abecda9ec48ecbca0e290ae87c8ca6515fce372d1b0d",
+      "question": "Nội dung MAT3311: Biểu diễn và không gian bất biến?",
+      "question_id": "L5V4-Q021",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 5,
+      "units": 41
+    },
+    {
+      "exact_copy_json_chars": 383,
+      "family": "f3",
+      "leaves": 5,
+      "long_unit": null,
+      "major": "mathematics",
+      "prompt_chars": 3093,
+      "prompt_sha256": "6475cff467d41213eb8c1a5f37f7e027803e37fd2299d64610ee390f9c061dba",
+      "question": "Với phần AI tham khảo đã bật, MAT3418 hướng người học tới các năng lực gì?",
+      "question_id": "L5V4-Q022",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 5
+    },
+    {
+      "exact_copy_json_chars": 406,
+      "family": "f1",
+      "leaves": 1,
+      "long_unit": null,
+      "major": "mathematics_informatics",
+      "prompt_chars": 2990,
+      "prompt_sha256": "579f715567dd34c793af79d2497d6a6238926e6c8efa099be709f829b7c65530",
+      "question": "Ngành Toán tin được mở từ khi nào và tên gọi ban đầu là gì theo trang khoa?",
+      "question_id": "L5V4-Q025",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 2
+    },
+    {
+      "exact_copy_json_chars": 514,
+      "family": "f1",
+      "leaves": 2,
+      "long_unit": null,
+      "major": "mathematics_informatics",
+      "prompt_chars": 3448,
+      "prompt_sha256": "fbd89ff915b97d943e2bee3c2a1d8daec09ae19d51ad732c3f66f189209d689d",
+      "question": "Ra trường Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp theo tài liệu?",
+      "question_id": "L5V4-Q026",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 2,
+      "units": 2
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "mathematics_informatics",
+      "prompt_chars": 4036,
+      "prompt_sha256": "c93b9ea8c17fc95f01d64c3a770084c7c658375c85bdd2a32d685e7a73d61c8b",
+      "question": "Môn Thực hành tính toán trong bản chương trình Toán tin đã chọn có khối lượng bao nhiêu tín chỉ?",
+      "question_id": "L5V4-Q027",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": null,
+      "family": "f2",
+      "leaves": null,
+      "long_unit": null,
+      "major": "mathematics_informatics",
+      "prompt_chars": 4070,
+      "prompt_sha256": "2bc578d77fef741acdd5f9f65af5f133d123510fbf1b72c1b45105c46c5a50d1",
+      "question": "Trước môn MAT3565 của Toán tin, bảng nguồn ghi phải học những mã nào?",
+      "question_id": "L5V4-Q028",
+      "schema": "hus-llm-evidence-v1",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": null
+    },
+    {
+      "exact_copy_json_chars": 2710,
+      "family": "f3",
+      "leaves": 19,
+      "long_unit": {
+        "record_id": "toan_tin_7460117_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "major": "mathematics_informatics",
+      "prompt_chars": 6824,
+      "prompt_sha256": "ac17bc9500334c6e66d53c4cdc6f5c7344e1272c1e4e1e277d59874767ab3b67",
+      "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+      "question_id": "L5V4-Q029",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 4,
+      "units": 39
+    },
+    {
+      "exact_copy_json_chars": 387,
+      "family": "f3",
+      "leaves": 5,
+      "long_unit": null,
+      "major": "mathematics_informatics",
+      "prompt_chars": 3121,
+      "prompt_sha256": "d17de91206ec6763133585081dad7afc2f0de68df3eaadffddbdc2180472c802",
+      "question": "Với phần AI tham khảo đã bật, MAT3545 hướng người học tới các năng lực gì?",
+      "question_id": "L5V4-Q030",
+      "schema": "hus-llm-document-v3",
+      "source_audit": {
+        "kind": "source_integrity_not_semantic_review",
+        "passed": true
+      },
+      "source_count": 1,
+      "units": 5
+    }
+  ],
+  "pins_sha256": "c8b580a7630e5e37891ff734e667f9e7a55772a1daaf2a667359d14f13b1edc3",
+  "preflight": {
+    "actual_google_calls": 0,
+    "changed": [],
+    "controls": 12,
+    "eligible": 24,
+    "families": {
+      "f1": 8,
+      "f2": 8,
+      "f3": 8
+    },
+    "fresh_pins_match": true,
+    "input_tokens_and_cost": "unknown; no provider tokenizer or network call",
+    "l6_action": "keep_disabled",
+    "l6_old_reasons": [
+      "pins_changed",
+      "readability_regressed"
+    ],
+    "majors": {
+      "computer_science": 6,
+      "data_science": 6,
+      "mathematics": 6,
+      "mathematics_informatics": 6
+    },
+    "max_output_tokens_per_call": 1024,
+    "max_total_output_tokens": 24576,
+    "network_attempts": 0,
+    "prepared_cases": 36,
+    "privacy": {
+      "actual_secret_comparison": false,
+      "exact_allowlisted_public_evidence_match": true,
+      "no_accounts_grades_history_keys_or_tools": true,
+      "system_user_messages_only": true
+    },
+    "prompt_chars_max": 7328,
+    "prompt_chars_min": 2711,
+    "prompt_chars_total": 98268,
+    "protected_files": 2603,
+    "source_audit_passed": 36
+  },
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r1",
+  "prepared_manifest_sha256": "0e111799ed0e172653c1bfe6bb6bedb0f3ff9e79aa8ffa020d12e15399afe2a6",
+  "preservation": {
+    "changed": [],
+    "new_a7_cached_replay": "reproduces",
+    "old_l5_cached_replay": "reproduces",
+    "protected_inventory_sha256": "d1d35d00127b218cacb7b08db3010646f7847ca45259a9cf1ffba1b80c266e42",
+    "protected_preexisting_files": 2603
+  },
+  "proposed_live_budget": {
+    "authorization": "pending; old 24-call budget exhausted",
+    "control_calls": 0,
+    "controls": 12,
+    "family_caps": {
+      "f1": 8,
+      "f2": 8,
+      "f3": 8
+    },
+    "input_tokens_and_cost": "unknown",
+    "max_calls": 24,
+    "max_output_tokens_per_call": 1024,
+    "max_total_output_tokens": 24576,
+    "min_interval_seconds": 5,
+    "model_switch": false,
+    "one_concurrent_call_per_process": true,
+    "prompt_chars_total": 98268,
+    "retry": false,
+    "stop_after_http_429": true,
+    "timeout": "20 seconds per HTTPX phase; not a total 20-second deadline"
+  },
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "retrieval": "lexical",
+  "schema_version": "hus-llm-v3-offline-preflight-1.0",
+  "source_pack": "data/hus/evaluation/llm_v3_v4_dev_20261113_r1",
+  "status": {
+    "activation_performed": false,
+    "google_calls": 0,
+    "l5_live": "awaiting_budget",
+    "l6": "keep_disabled",
+    "llm_enabled": false,
+    "operator_acceptance": "pending"
+  },
+  "tests": {
+    "duration_seconds": 75.695,
+    "errors": 0,
+    "failures": 0,
+    "full_repository_suite": false,
+    "junit_sha256": "c90384c91e30603a3e925f5b72b5103a22aa6211902af7f1be8383f16490d73e",
+    "log": "backups/hus_l5_v3_prepare_20261113/pytest.log",
+    "passed": 67,
+    "scope": [
+      "test_v4_measurement.py",
+      "test_readiness_v4.py",
+      "test_evaluation.py"
+    ]
+  },
+  "worktree": "existing WIP; effective source hashes in prepared pins"
+}

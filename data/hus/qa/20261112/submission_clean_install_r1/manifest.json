@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "api_check.json": "9bd5d2ecbb2e03818d00db3436863e3fede651e0ecb18f90ad08b1a1046af84f",
+    "browser_smoke.json": "16c0c6a6e1411f4570b60976482c66c2a874424e9e1c5fe13271179999f809ab",
+    "environment.json": "74e7340ceb0c0dd8fdcb84d818a9e6a6af2984ec0308dff61377fdc80bc6e69e",
+    "exact_response_check.json": "2e2a2bb2440efff2409f73bf97f331afeb5b77834123c439446a23dc0b30f84f",
+    "report.json": "bfcc7603464160e4bdc831ddde9ac0508686b2ab6c8d5ac90e9cade5eb525e48",
+    "verification.json": "7d2606ec56ac76aa92bcd5fde55a5b008f096ac025aa1991f1fb7d90a2a72675",
+    "wheel_inventory.json": "902d77c7fe619ba49e3895d99608b3b2e45538f685d1f438a64b682058fea373"
+  },
+  "schema_version": "hus-llm-paired-1.0"
+}

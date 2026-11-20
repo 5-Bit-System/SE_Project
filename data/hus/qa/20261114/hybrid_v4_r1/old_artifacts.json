@@ -1,0 +1,15 @@
+{
+  "data/hus/vector_contracts/e5_small_v1_20261105/manifest.json": "501f4252a2287ce35910d48062b57b9b0f808186b3b61c1a98eca0c6c254b574",
+  "data/hus/vector_contracts/e5_small_v1_20261105/parents.jsonl": "71075f1762e2370dad0335067a1b26e668ec1d8067edb9b5726fcd3290ae996d",
+  "data/hus/vector_passages/e5_small_v2_20261105/manifest.json": "8b33d90381ff1fedee061baca3de08de476bea90b0b32b01da0059a90b06d5e7",
+  "data/hus/vector_passages/e5_small_v2_20261105/passages.jsonl": "ac47324d8f788a8a9f835db2c321b54ee2d5f850a62e0589635b2ac68197d14c",
+  "data/hus/vector_indexes/e5_small_v3_20261109/manifest.json": "5006e23a3fcd1f84f081fc4d2629d832da0750e86182eac73de3f534883b33cb",
+  "data/hus/vector_indexes/e5_small_v3_20261109/vectors.jsonl": "d989dc4dbcb9a3efbbbfc41bc2675486b605cbc767e872055c7b25a7d1f31f29",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/chroma.sqlite3": "7b9da2d3820f7c401a75d6ea6648932887fd1d137f89de60ac64c693ac8a7845",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/2fd1f3f8-b0e3-44aa-b9f1-b9955e717379/data_level0.bin": "316e5ab32a55f548cd453722a69eddecef537d384b5ef5f722fce02882fe44ef",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/2fd1f3f8-b0e3-44aa-b9f1-b9955e717379/header.bin": "8aa19ce9b8891157e63dc0fa96d1c6a057217ce76466b2c1cabedf2299d6a460",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/2fd1f3f8-b0e3-44aa-b9f1-b9955e717379/index_metadata.pickle": "c041ffa607f702c563c8c81fa65a417fe5268412c4531b0ced6bf55e3884527c",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/2fd1f3f8-b0e3-44aa-b9f1-b9955e717379/length.bin": "fc8aa470003ff17e0e0c0a5df01ded6d7b4da701033a496b3b55ab3b89d7cd6a",
+  "data/hus/vector_indexes/e5_small_v3_20261109/chroma/2fd1f3f8-b0e3-44aa-b9f1-b9955e717379/link_lists.bin": "e68d69363b58ee39ca9388614b6715d1d692c6fadf3f2c1e8fd69336c6f90a7e",
+  "data/hus/rag/CURRENT.json": "6924808bec6e3e6e3af065d0ded89c5764f7f6eb2b29fb1aa70042edb1fe4d94"
+}

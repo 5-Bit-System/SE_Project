@@ -1,0 +1,1286 @@
+{
+  "artifacts_sha256": {
+    "data/hus/evaluation/candidates/a7_request_role_20261113_r1/manifest.json": "771b0722f3d2983ea17c700f0e7545a184cf17197ed15169ab9daeff9a1263f8",
+    "data/hus/evaluation/reviews/a7_request_role_ai_20261113_r1.json": "0b038cf6b53606012f89a54d254f12c7725d6140f1e3995c64997d2f57a2d9e5",
+    "data/hus/evaluation/runs/a7_request_role_ai_review_20261113_r1/manifest.json": "f7d3c0baee840c86329df4ea504a1b1e7a13a10500a6d3a90ef4e5b6c3a3048a",
+    "data/hus/evaluation/runs/a7_request_role_lexical_20261113_r1/manifest.json": "b22f58ebd3e9577bb25e1364a65641a6601bdfebde300757192aadaf471aecfb",
+    "data/hus/evaluation/runs/a7_request_role_lexical_20261113_r2/manifest.json": "dbc4e28a876b727041dbd4dbd1b7423cefc1b79d2fb160863414d04d97efd8af"
+  },
+  "binary_routes_checked": 6,
+  "by_major": {
+    "computer_science": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 5,
+          "value": 0.5555555555555556
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 5,
+          "value": 0.5555555555555556
+        },
+        "ai_entailment": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 3,
+          "value": 0.5
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 2,
+          "value": 0.6666666666666666
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 6
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 65.7998,
+          "min_ms": 5.1721,
+          "p50_ms": 25.7751,
+          "p95_ms": 65.7998
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 0,
+        "post_retrieval_false_abstention": 3,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 6.0,
+          "value": 1.0
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 6,
+          "value": 1.0
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 8,
+          "value": 0.8888888888888888
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "data_science": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 0,
+          "numerator": 0,
+          "value": null
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 2,
+          "numerator": 2,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 5,
+          "value": 0.5555555555555556
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 5,
+          "value": 0.5555555555555556
+        },
+        "ai_entailment": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 3,
+          "value": 0.5
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 2,
+          "value": 0.6666666666666666
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 5
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 64.9523,
+          "min_ms": 4.7232,
+          "p50_ms": 23.0228,
+          "p95_ms": 64.9523
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 5,
+          "numerator": 5.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 1,
+        "post_retrieval_false_abstention": 2,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 5.0,
+          "value": 0.8333333333333334
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 5,
+          "value": 0.8333333333333334
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 7,
+          "value": 0.7777777777777778
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "mathematics": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "ai_entailment": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 2,
+          "value": 0.3333333333333333
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 5,
+          "numerator": 5,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 2,
+          "value": 0.6666666666666666
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 1,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 5
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 69.5222,
+          "min_ms": 3.663,
+          "p50_ms": 33.2989,
+          "p95_ms": 69.5222
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 5,
+          "numerator": 4.0,
+          "value": 0.8
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 1,
+        "post_retrieval_false_abstention": 2,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 4.0,
+          "value": 0.6666666666666666
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 5,
+          "value": 0.8333333333333334
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 6,
+          "value": 0.6666666666666666
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    },
+    "mathematics_informatics": {
+      "abstention": {
+        "control_failures": 0,
+        "correct_contract_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_missing_or_out_of_scope": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "correct_opt_in_clarification": {
+          "denominator": 1,
+          "numerator": 1,
+          "value": 1.0
+        },
+        "false_abstention": {
+          "denominator": 9,
+          "numerator": 5,
+          "value": 0.5555555555555556
+        },
+        "http_errors": 0
+      },
+      "cases": 12,
+      "citation_source_support": {
+        "actual_human_reviews": 0,
+        "ai_completeness": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "ai_end_to_end_supported_complete": {
+          "denominator": 9,
+          "numerator": 4,
+          "value": 0.4444444444444444
+        },
+        "ai_entailment": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "ai_review_coverage": {
+          "denominator": 9,
+          "numerator": 9,
+          "value": 1.0
+        },
+        "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+        "gold_quote_coverage_proxy": {
+          "denominator": 6,
+          "numerator": 2,
+          "value": 0.3333333333333333
+        },
+        "integrity_among_answered_positive": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "reviewer_kind": "ai"
+      },
+      "f2": {
+        "by_field": {
+          "credits": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "name": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "prerequisites": {
+            "denominator": 1,
+            "numerator": 1,
+            "value": 1.0
+          }
+        },
+        "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+        "source_contract_success": {
+          "denominator": 3,
+          "numerator": 2,
+          "value": 0.6666666666666666
+        }
+      },
+      "filters": {
+        "anchor_excluded_by_observed_filter": 0,
+        "errors": {
+          "ai_opt_in": 0,
+          "course_code": 0,
+          "major": 0,
+          "program_variant": 0,
+          "review": 0,
+          "version": 0
+        },
+        "observed_search_cases": 5
+      },
+      "latency": {
+        "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+        "http_ms": {
+          "count": 12,
+          "max_ms": 64.2258,
+          "min_ms": 3.363,
+          "p50_ms": 27.1063,
+          "p95_ms": 64.2258
+        }
+      },
+      "raw_legacy": null,
+      "retrieval": {
+        "conditional_recall_at_5": {
+          "denominator": 5,
+          "numerator": 5.0,
+          "value": 1.0
+        },
+        "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+        "no_call_misses": 1,
+        "post_retrieval_false_abstention": 3,
+        "routed_recall_at_5": {
+          "denominator": 6,
+          "numerator": 5.0,
+          "value": 0.8333333333333334
+        },
+        "search_call_coverage": {
+          "denominator": 6,
+          "numerator": 5,
+          "value": 0.8333333333333334
+        }
+      },
+      "routing": {
+        "missing_observation_cases": 0,
+        "positive_dataset_and_field": {
+          "denominator": 9,
+          "numerator": 7,
+          "value": 0.7777777777777778
+        },
+        "stage": "classifier_before_scope_and_evidence_guards"
+      }
+    }
+  },
+  "cached_verification_inference": false,
+  "case_groups": {
+    "answered_branch_scope_review": [
+      "A7R-Q025"
+    ],
+    "f1_no_search": [
+      "A7R-Q014",
+      "A7R-Q026",
+      "A7R-Q039"
+    ],
+    "f1_wrong_field_empty_search": [
+      "A7R-Q027"
+    ],
+    "f2_name_refusal": [
+      "A7R-Q006",
+      "A7R-Q018",
+      "A7R-Q030",
+      "A7R-Q042"
+    ],
+    "target_retrieved_then_refused": [
+      "A7R-Q002",
+      "A7R-Q003",
+      "A7R-Q009",
+      "A7R-Q015",
+      "A7R-Q021",
+      "A7R-Q033",
+      "A7R-Q037",
+      "A7R-Q038",
+      "A7R-Q045"
+    ]
+  },
+  "code_review": {
+    "finding": "Same-cohort pack skip concealed repeated wording/exposure hashes.",
+    "fixed_before_freeze": 1,
+    "important_findings": 1,
+    "kind": "fresh-context AI read-only code review, not academic acceptance",
+    "resolution": "Include same-cohort files/wording/targets; regression asserted failure then pass. Production duplicate freeze tested rejected against frozen r1."
+  },
+  "collection_finished_at_utc": "2026-11-13T11:18:47.865110+00:00",
+  "collection_started_at_utc": "2026-11-13T11:18:28.829976+00:00",
+  "configuration": {
+    "actual_model": null,
+    "dormant_legacy_f2_prompt_sha256": "61c071ed0834d45f6555c9b12e7d5d4e10ae7f99a61457017a657a7537637a0a",
+    "dormant_prompt_sha256": "0584fcd688c674d1b2f7d4f52146678b6098014fc61f244db0a6a48a74dfabbe",
+    "entrypoint": "app.hus.demo:app",
+    "f1_f3_protocol": "hus-llm-document-v3",
+    "f2_protocol": "hus-llm-evidence-v1",
+    "index": null,
+    "llm_enabled": false,
+    "model": "gemini-3.5-flash-lite",
+    "model_inference": "not_run",
+    "retrieval": "lexical"
+  },
+  "exposure": {
+    "actual_human_reviews": 0,
+    "author_kind": "ai",
+    "cases": [
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q001",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q002",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q003",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q004",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q005",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q006",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q007",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q008",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q009",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q010",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q011",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q012",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q013",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q014",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q015",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q016",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q017",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q018",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q019",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q020",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q021",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q022",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q023",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q024",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q025",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q026",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q027",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q028",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q029",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q030",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q031",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q032",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q033",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q034",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q035",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q036",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q037",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q038",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": true,
+        "question_id": "A7R-Q039",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q040",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q041",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q042",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q043",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q044",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q045",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q046",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q047",
+        "source_and_family_seen_by_author": true
+      },
+      {
+        "normalized_exact_overlap_in_checked_inputs": false,
+        "prediction_seen_before_freeze": false,
+        "prior_a7_target_identity_overlap": false,
+        "question_id": "A7R-Q048",
+        "source_and_family_seen_by_author": true
+      }
+    ],
+    "cohort_id": "a7-request-role-20261113",
+    "coverage_limits": "F1 source/concept reuse declared; DS has no unused rich F1 targets. Shared course concepts across majors are not independent samples. Includes F1 introductions but no affirmative multi-variant enumeration acceptance; DEV-Q002 remains a separate unresolved contract review.",
+    "eligible_for_independent_acceptance": false,
+    "if_used_for_tuning": "Retire to dev and freeze another set; do not regrade historical runs.",
+    "inputs_sha256": {
+      "data/hus/evaluation/a2_contracts_v1/questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6",
+      "data/hus/evaluation/a7_after_followup_20261112_r1/pack.json": "ffd439c74a0959b53e652b9af95fa0215b92c3b1ae9be706fdb4c385efe7a5be",
+      "data/hus/evaluation/a7_postfix_20261112_r1/pack.json": "9d47c07b0c9999690adfd51b0758cec30ab7cd4057badf4f270bb40c88973f7c",
+      "data/hus/evaluation/a7_v4_candidate_20261111_r1/pack.json": "07b958a320983a43d65f759c25b5d9c712a363a3bce0475c0e6318a94d724397",
+      "data/hus/evaluation/a7_v4_candidate_20261111_r2/pack.json": "52e43a8945fb23ae2d01e8734e7d272525ebe7303847b06236f122df06cff2c8",
+      "data/hus/evaluation/ai_reviewed_exposed_v1/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/candidates/a7_scope_assessment_20261113_r1/pack.json": "ae2da33bb268788035819af1037a3da66a4de3c155dcd778382d22a21e88fb6d",
+      "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+      "data/hus/evaluation/diagnostic_dev_v2_routing/questions.jsonl": "413ed018b1a6bb1ad681d6c6c4ff5837b623c564337cd90252770be502073bc9",
+      "data/hus/evaluation/diagnostic_dev_v3_support/questions.jsonl": "a670c77d58b247cf35034944e939373b72f5e29da725094af7618d586ab5bc93",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context/questions.jsonl": "383f7ac60f306132d9f0b59587fef5db8686d90fc989574eba9aa7e4971a9123",
+      "data/hus/evaluation/diagnostic_dev_v6_career_context_r2/questions.jsonl": "40d12a422b7ed8bcb9f43ec850724f3d43e7c7b914382524008e81e58364908e",
+      "data/hus/evaluation/diagnostic_dev_v7_role_exclusion/questions.jsonl": "13261079386ad19131cdee8a02ff9d7431e52bc72c593c29714b033d5fb35483",
+      "data/hus/evaluation/holdout_v2_candidate/questions.jsonl": "f87686da543e95d2dfd025d476bf15fe567ef671dcc0c2ba8a4163ffa24f5aa1",
+      "data/hus/evaluation/hybrid_v5_dev_20261110/questions.jsonl": "cd7cfb8e022deffa3822538ffa95c8240943328c0b7e8d8592fa5978590ce0a4",
+      "data/hus/evaluation/llm_v3_v4_dev_20261112_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/llm_v3_v4_dev_20261113_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/llm_v4_dev_20261111_r1/pack.json": "51ab0c7da4d795614ecb353d583ce75514b1e9ed280a482df68d62bac4a31e6d",
+      "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+      "data/hus/evaluation/runs/llm_l5_ai_review_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_google_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_prepared_20261110_r1/prepared.json": "43683ca8ac6c5629dbda0ea7a360f973a66458bf4825728ece9ba371f6111b68",
+      "data/hus/evaluation/runs/llm_l5_v3_ai_review_20261113_r1/prepared.json": "630394aa8fac7509402a3463b651725e8d8ba709ce4eab13dff9ef1c230105cb",
+      "data/hus/evaluation/runs/llm_l5_v3_google_20261113_r1/prepared.json": "630394aa8fac7509402a3463b651725e8d8ba709ce4eab13dff9ef1c230105cb",
+      "data/hus/evaluation/runs/llm_l5_v4_ai_review_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r1/prepared.json": "d0adc047741d5debdfcfe0787682be33e7ad4c598b1ef9c23c43ed4da0d4d2ea",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r2/prepared.json": "1cafc7c64e0cc7ca666da02ef4dcc217106aad29ed00ea843958dda3b40ebe9f",
+      "data/hus/evaluation/runs/llm_l5_v4_prepared_20261111_r3/prepared.json": "789509ab2768d78d8e9f72aca841352d718c43644b45853f5a009bff0d8855a5",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261112_r1/prepared.json": "8ac80396dbb36fde5db3ac040268095dcecad2cae36a933dc6b5a5c1b132ea5f",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r1/prepared.json": "630394aa8fac7509402a3463b651725e8d8ba709ce4eab13dff9ef1c230105cb",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r2/prepared.json": "8316c5648cf1c890fc09c75491dbb56ea14687022dfc24dec070ce027735fe02",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r3/prepared.json": "d3e25d39a734a0eefa48971c2953d96f19e846648f5d3c34e3372dc2abe62393",
+      "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r4/prepared.json": "1e0c759ba1b13d8dc7603b5cff58e3ce411092642cbcb2592f5c83c796862e27"
+    },
+    "limits": "Different wording is not semantic novelty; source/runtime exposed AI, not independent holdout.",
+    "planned_reviewer": {
+      "blind": false,
+      "identity": "root",
+      "independent": false,
+      "kind": "ai"
+    },
+    "runtime_and_sources_seen": true,
+    "selection_policy": "3F1/3F2/3F3+3controls per major; F1 source-scoped declarations; unused F2/F3 identities selected by source order, no inference."
+  },
+  "external_http_calls": 0,
+  "freeze": {
+    "exposure_inputs_count": 34,
+    "frozen_at_utc": "2026-11-13T11:16:21.738920+00:00",
+    "overlap_count": 0,
+    "pack_manifest_sha256": "771b0722f3d2983ea17c700f0e7545a184cf17197ed15169ab9daeff9a1263f8",
+    "pins_stable": true,
+    "provider_calls": 0,
+    "rag_inference": false,
+    "reused_target_count": 8,
+    "structure": {
+      "by_major": {
+        "computer_science": 12,
+        "data_science": 12,
+        "mathematics": 12,
+        "mathematics_informatics": 12
+      },
+      "controls": 12,
+      "f2_lookups": 12,
+      "questions": 48,
+      "retrieval_eligible": 24
+    }
+  },
+  "frozen_at_utc": "2026-11-13T11:16:21.738920+00:00",
+  "known_full_suite": "Historical 3058passed/1failed/2skipped/90deselected/3warnings; not rerun. Fresh targeted legacy assertion still fails unchanged.",
+  "limitations": [
+    "AI author/reviewer exposed/nonblind, human0; not independent holdout.",
+    "Source-relative entailment19/19 does not mean relevance/scope/complete19/19; Q025 fails completeness.",
+    "Q025 wording does not uniquely distinguish two same-page unknown-edition objective paragraphs. Keep frozen score, review contract; do not force ranking to gold.",
+    "A7S used for tuning remains dev; old23/24–32/36–12/12 unchanged. Different cohorts are not paired before/after evidence.",
+    "17refusals and Q025 retained, no runtime tuning during this evaluation.",
+    "Aborted r1 before startup/API preserved separately; successful r2 uses same original frozen pack.",
+    "Latency is local TestClient API wall time; excludes initialization/audit/review, not browser/network demo latency."
+  ],
+  "lint": {
+    "new_test_minor_issue": "I001: missing blank line between local json/tools imports, line46; retained in frozen code, no functional impact. Not an all-clean lint claim.",
+    "runtime_and_evaluator_files": "Ruff passed"
+  },
+  "llm_r4_current_pins_match": true,
+  "metrics": {
+    "abstention": {
+      "control_audit_failures": 0,
+      "control_failures": 0,
+      "correct_contract_clarification": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "correct_missing_or_out_of_scope": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "correct_opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "false_abstention": {
+        "denominator": 36,
+        "numerator": 17,
+        "value": 0.4722222222222222
+      },
+      "http_errors": 0
+    },
+    "cases": 48,
+    "citation_source_support": {
+      "actual_human_reviews": 0,
+      "ai_completeness": {
+        "denominator": 36,
+        "numerator": 18,
+        "value": 0.5
+      },
+      "ai_end_to_end_supported_complete": {
+        "denominator": 36,
+        "numerator": 18,
+        "value": 0.5
+      },
+      "ai_entailment": {
+        "denominator": 19,
+        "numerator": 19,
+        "value": 1.0
+      },
+      "ai_review_coverage": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+      "gold_quote_coverage_proxy": {
+        "denominator": 24,
+        "numerator": 10,
+        "value": 0.4166666666666667
+      },
+      "integrity_among_answered_positive": {
+        "denominator": 19,
+        "numerator": 19,
+        "value": 1.0
+      },
+      "reviewer_kind": "ai"
+    },
+    "f2": {
+      "by_field": {
+        "credits": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "name": {
+          "denominator": 4,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "prerequisites": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        }
+      },
+      "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+      "source_contract_success": {
+        "denominator": 12,
+        "numerator": 8,
+        "value": 0.6666666666666666
+      }
+    },
+    "filters": {
+      "anchor_excluded_by_observed_filter": 1,
+      "errors": {
+        "ai_opt_in": 0,
+        "course_code": 0,
+        "major": 0,
+        "program_variant": 0,
+        "review": 0,
+        "version": 0
+      },
+      "observed_search_cases": 21
+    },
+    "latency": {
+      "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+      "http_ms": {
+        "count": 48,
+        "max_ms": 69.5222,
+        "min_ms": 3.363,
+        "p50_ms": 27.1063,
+        "p95_ms": 64.9523
+      }
+    },
+    "raw_legacy": null,
+    "retrieval": {
+      "conditional_recall_at_5": {
+        "denominator": 21,
+        "numerator": 20.0,
+        "value": 0.9523809523809523
+      },
+      "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+      "no_call_misses": 3,
+      "post_retrieval_false_abstention": 10,
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 20.0,
+        "value": 0.8333333333333334
+      },
+      "search_call_coverage": {
+        "denominator": 24,
+        "numerator": 21,
+        "value": 0.875
+      }
+    },
+    "routing": {
+      "missing_observation_cases": 0,
+      "positive_dataset_and_field": {
+        "denominator": 36,
+        "numerator": 28,
+        "value": 0.7777777777777778
+      },
+      "stage": "classifier_before_scope_and_evidence_guards"
+    }
+  },
+  "new_provider_calls": 0,
+  "quality_accepted": false,
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "repeated_same_cohort_freeze_rejected_before_output": true,
+  "replays": {
+    "a7_request_role_ai_review_20261113_r1": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": false,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": false
+      }
+    },
+    "a7_request_role_lexical_20261113_r2": {
+      "current_pins_match": true,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": false,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": false
+      }
+    },
+    "a7_scope_assessment_ai_review_20261113_r1": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    }
+  },
+  "task": "DEV-Q002 contract review and source-first A7 successor",
+  "task_review_and_measurement_complete": true,
+  "technical_gates": {
+    "ai_content_review_all_complete": false,
+    "all_technical_gates_met": false,
+    "answered_source_integrity": true,
+    "controls_all_correct": true,
+    "f2_source_facts_all_correct": false,
+    "independent_or_human_acceptance": false,
+    "no_false_abstention": false,
+    "no_http_errors": true,
+    "no_scope_filter_errors": true,
+    "recall_at_5_met": false
+  },
+  "transport": {
+    "external_socket_attempts": 0,
+    "socketpair_loopback_connections": 1
+  },
+  "verification": {
+    "evaluator_final.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "d297f0024859ddf7c6ff4e4ee551bfd1cef0c8461834e4fe5a39dd61c81044b9",
+      "tests": 105
+    },
+    "legacy.xml": {
+      "errors": 0,
+      "failures": 1,
+      "sha256": "20fcfbe1f9870a12b4524fe4252f78094359868f21d4d81b7b337f0a64e9a5db",
+      "tests": 1
+    }
+  }
+}

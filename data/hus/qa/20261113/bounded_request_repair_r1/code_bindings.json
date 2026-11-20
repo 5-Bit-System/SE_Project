@@ -1,0 +1,7 @@
+{
+  "app/hus/answer_support.py": "269ad946ae8aead2f6e03680ae5119d6055db793c62dd5aa2efac0c1601b7637",
+  "app/hus/answering.py": "51ce2188970f9467830670ce7c602658c0824163802b96014a7a3dfd6658ac2c",
+  "app/hus/question_routing.py": "ac65bbc61b98c9b46076f65e32cb6ee263684f7b5c05486847d6b4c904c55ad7",
+  "tests/hus/test_bounded_request_language.py": "cda764c8be815c374067e60a24c48504d8faca6e0a240fbcc8793c8924979bb9",
+  "tests/hus/test_source_format_coverage.py": "4f943a354767b4199221780324323da63d47685419ea79586f120fee5ce3d258"
+}

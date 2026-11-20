@@ -1,0 +1,124 @@
+{
+  "allowed_changed": {
+    "app/hus/llm/diagnostics.py": {
+      "after": "6405cf1f2a71574ab079e5b007a1891c3ce96d3ebe3240634232910308f68a02",
+      "before": "83bfda42ed6e809e00ccdc35ff6ac9f171b063b5b744d325601048981c347309"
+    },
+    "app/hus/llm/output_v3.py": {
+      "after": "4c5933705dd3b54c3af9b6d0681d7963d887fafe0961fc1f8e0ee6f06976b8ee",
+      "before": "04dcee69be77aac74410695e5881939041cd4dcb9ba786f3b7282f135c3e855e"
+    }
+  },
+  "cached_a7r_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "differential": {
+    "acceptance_unchanged_cases": 42,
+    "accepted": 5,
+    "historical_cause_known": false,
+    "rejected": 37,
+    "synthetic_only": true
+  },
+  "google_budget": "all spent",
+  "historical_output_text_b001_cause": "unknown; historical raw output not retained",
+  "implementation_complete": true,
+  "l5_r5_changed_entries": {
+    "artifacts": [
+      "app/hus/answer_support.py",
+      "app/hus/answering.py",
+      "app/hus/llm/diagnostics.py",
+      "app/hus/llm/output_v3.py",
+      "app/hus/question_routing.py"
+    ]
+  },
+  "l5_r5_pins_current": false,
+  "live_google_calls": 0,
+  "llm_default": "off",
+  "metadata_contract": "Optional fixed labels, output_text stage only; legacy exclude_none serialization unchanged. First failure in existing order, not all defects or entailment.",
+  "new_cohort_or_prepare": false,
+  "new_quality_score": null,
+  "new_test_cases": 43,
+  "next": "Future Google calls/cohort require new budget and current pins/fresh prepare/preflight; A/B same baseline/retrieval/snapshot, exact outputs and used/fallback/token/latency review before L6/operator acceptance.",
+  "old_hus_suite": "Previous bounded repair2442pass/1DEV-Q002fail/2Windows-symlinkskip; not rerun in this diagnostic-only task.",
+  "old_tests_data_gold_runs_reviews_unchanged": true,
+  "preserved": [
+    "normalization/strip/doubleHTMLdecode and predicate order",
+    "code/stage/known leaf IDs",
+    "canonical fallback/facts/citations and public response",
+    "F2 presentation and budgets",
+    "prompt/data/retrieval/source and historical artifacts"
+  ],
+  "privacy": "No rejected provider text, headers, key or project IDs in diagnostic/trace/public response. No real key/env access.",
+  "protected_count": 2965,
+  "publication": "no stage/commit/push/PR/Actions/deploy",
+  "quality_acceptance": false,
+  "review": {
+    "critical": 0,
+    "declined_to_judge": [
+      "independently rerun tests or unrelated integration code",
+      "unavailable historical cause",
+      "live provider behavior",
+      "answer quality",
+      "default activation"
+    ],
+    "important": 0,
+    "kind": "fresh-context read-only AI code review",
+    "minor": 0,
+    "ruling": "Local checks/MockTransport test observed trace and fallback; no live/academic/quality/default-activation claims."
+  },
+  "runtime_changed": [
+    "app/hus/llm/diagnostics.py",
+    "app/hus/llm/output_v3.py"
+  ],
+  "task": "Offline output_text subreason diagnostic",
+  "test_scope": "Full affected tests/hus/llm plus test_llm_rewrite_ui.py, offline. Not whole HUS/repository.",
+  "tests": {
+    "affected.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "d12d1f8c2c7f39f876a7b4f3bbb5154986ff4a5edd1266f1ed4b8d99e9ccf253",
+      "skipped": 0,
+      "tests": 607
+    },
+    "green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "c6860638489f050e10e4cc2dd4824f52f4468f06cf33fbdabe3750e6df2f5ecb",
+      "skipped": 0,
+      "tests": 43
+    },
+    "red.xml": {
+      "errors": 0,
+      "failures": 29,
+      "sha256": "7bd38a5b783c52ce7aefc1b9108c381f9ae5fd358634572bb682cbb99ad3af67",
+      "skipped": 0,
+      "tests": 43
+    }
+  },
+  "text_issue_labels": [
+    "blank",
+    "raw_line_break",
+    "decoded_line_break",
+    "structure",
+    "link_or_html",
+    "restored_length"
+  ],
+  "unchanged_protected_files": 2963,
+  "validation_policy_changed": false,
+  "warnings": "One existing Starlette TestClient/httpx deprecation in affected suite."
+}

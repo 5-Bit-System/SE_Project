@@ -1,0 +1,9 @@
+{
+  "files": {
+    "AI_review.csv": "e4ae8806076b6c39f96f70f4e977a5a9246539f65d3c8245ce13120e7afb173a",
+    "responses_and_sources.json": "4e7a3a3eac431cf9b242cae159ec68f1e90964b89a62fb3273c86970a74364c0",
+    "review.json": "03d90efc4d27d3a1a92cd13aabaaea39a5eab7daa1f9ed16a08559afacffc30d"
+  },
+  "human_csv_editable": true,
+  "human_csv_creation_sha256": "4327f5d49453eaf95a072b5ea414b7a60edb85eb4ac748023bc1c6166e6a060c"
+}

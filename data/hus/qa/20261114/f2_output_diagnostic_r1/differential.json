@@ -1,0 +1,338 @@
+{
+  "accepted": 4,
+  "cases": 61,
+  "note": "Synthetic differential only; historical provider response unavailable.",
+  "rejected": 57,
+  "results": [
+    {
+      "accepted": false,
+      "case": "json",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fence",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "duplicate_json",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "nonfinite",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "missing",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "extra",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "id_type",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "list_type",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "duplicate_fact_keys",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "duplicate_citation_ids",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "budget",
+      "error": "output_budget"
+    },
+    {
+      "accepted": true,
+      "case": "valid-directFalse",
+      "value": {
+        "kind": "facts",
+        "model": "synthetic-model",
+        "prompt_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "style": "direct",
+        "usage": null
+      }
+    },
+    {
+      "accepted": true,
+      "case": "valid-directTrue",
+      "value": {
+        "kind": "facts",
+        "model": "synthetic-model",
+        "prompt_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "style": "direct",
+        "usage": null
+      }
+    },
+    {
+      "accepted": true,
+      "case": "valid-explain_sourceFalse",
+      "value": {
+        "kind": "facts",
+        "model": "synthetic-model",
+        "prompt_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "style": "explain_source",
+        "usage": null
+      }
+    },
+    {
+      "accepted": true,
+      "case": "valid-explain_sourceTrue",
+      "value": {
+        "kind": "facts",
+        "model": "synthetic-model",
+        "prompt_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "style": "explain_source",
+        "usage": null
+      }
+    },
+    {
+      "accepted": false,
+      "case": "kind-NoneType",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind-bool",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind-int",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind-list",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind-dict",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "kind-str",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "missing-kind",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-NoneType",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-bool",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-int",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-list",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-dict",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "style-str",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "missing-style",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-NoneType",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-bool",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-int",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-list",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-dict",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-str",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "missing-fact_keys",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-NoneType",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-bool",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-int",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-list",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-dict",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-str",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "missing-citation_ids",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-NoneType",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-list",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-list",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-int",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-bool",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "root-str",
+      "error": "invalid_output"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-empty",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-missing",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-extra",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "fact_keys-duplicate",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-empty",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-missing",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-extra",
+      "error": "evidence_coverage"
+    },
+    {
+      "accepted": false,
+      "case": "citation_ids-duplicate",
+      "error": "evidence_coverage"
+    }
+  ],
+  "unchanged": 61
+}

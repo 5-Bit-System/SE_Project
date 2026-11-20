@@ -1,0 +1,255 @@
+﻿id,major,question,expected_family_field,actual_route,lexical_status,hybrid_status,lexical_diagnostic,hybrid_diagnostic,search_called,lexical_target_rank,hybrid_target_rank,lexical_seconds,hybrid_seconds,lexical_sources,hybrid_sources,lexical_reply,hybrid_reply,ai_category,ai_note,human_review,reviewer,review_date,correct,complete,facts,sources,notes
+HN20-001,mathematics,Ngành Toán học đào tạo người học theo định hướng nào?,f1/objectives,f1/introduction,no_information,no_information,evidence_rejected,evidence_rejected,True,,,0.007482,5.813042,,,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,routing_review,Câu định hướng được kỳ vọng vào objectives nhưng router chọn introduction; cả hai lấy cùng đoạn giới thiệu rồi bị guard chặn. Wording có thể cần làm rõ; không kết luận sai nội dung chỉ từ field kỳ vọng của AI.,pending,,,,,,,
+HN20-002,mathematics,Tốt nghiệp Toán học thì có thể làm việc ở những đâu?,f1/careers,f3/suggested_assessment,needs_clarification,needs_clarification,clarification_required,clarification_required,False,,,0.032315,0.029859,,,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,routing_grammar,"Cụm có “thì” bị route F3/suggested_assessment, đòi mã môn thay vì nghề nghiệp. Chưa search. Bỏ riêng “thì” trong diagnostic vẫn chưa nhận diện được ý nghề nghiệp; không coi sửa một token là đã chữa hết.",pending,,,,,,,
+HN20-003,mathematics,Môn Đại số tuyến tính 1 có số tín chỉ là mấy?,f2/credits,f2/credits,answered,answered,,,False,,,0.114058,0.069559,101. Toán học-chuẩn final QD 3565 Scan.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf | QD3565-2023,101. Toán học-chuẩn final QD 3565 Scan.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf | QD3565-2023,"MAT2300 — Đại số tuyến tính 1 (QD3565-2023)
+Số tín chỉ: 4
+
+Trạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.
+
+Nguồn [1]: 101. Toán học-chuẩn final QD 3565 Scan.pdf; trang PDF 9; /hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.","MAT2300 — Đại số tuyến tính 1 (QD3565-2023)
+Số tín chỉ: 4
+
+Trạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.
+
+Nguồn [1]: 101. Toán học-chuẩn final QD 3565 Scan.pdf; trang PDF 9; /hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",answered_facts,"Cả hai trả MAT2300/Đại số tuyến tính 1 đúng4 tín chỉ theo PDFtrang9; giữ draft_unverified. Không dùng vector, không suy hiệu lực học vụ hiện tại.",pending,,,,,,,
+HN20-004,mathematics,Tôi muốn biết trong môn Đại số tuyến tính 1 sẽ gặp các khái niệm gì?,f3/content,?/?,no_information,no_information,routing_unknown,routing_unknown,False,,,0.001733,0.001999,,,Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.,Chưa có thông tin đủ căn cứ để trả lời. Chưa hiểu loại thông tin bạn muốn hỏi. Hãy nêu rõ ngành/môn và nội dung cần biết.,routing_unknown,"“Sẽ gặp các khái niệm gì” chưa được nhận diện thành nội dung môn; không search. Tên môn đã đầy đủ, nên bổ sung mã/menu chỉ là workaround, không phải giải pháp hiểu câu hỏi.",pending,,,,,,,
+HN20-005,mathematics,Nếu tính mỗi mã học phần một lần thì ngành Toán học có bao nhiêu môn trong danh mục?,f2/program_course_count,f3/suggested_assessment,needs_clarification,needs_clarification,clarification_required,clarification_required,False,,,0.034447,0.028409,,,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,routing_and_operation,"Câu đếm có “thì” bị route assessment trước khi tới nhãn unsupported_operation. Sau lỗi cú pháp vẫn cần triển khai phép đếm danh mục F2. Packet có90 mã duy nhất, không có nghĩa sinh viên phải học90 môn.",pending,,,,,,,
+HN20-006,mathematics_informatics,Cho mình một bức tranh khái quát về ngành Toán tin.,f1/introduction,f1/introduction,no_information,no_information,evidence_rejected,evidence_rejected,True,1,1,0.00304,6.351574,,,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,guard_after_target,"Đã lấy đoạn introduction Toán tin được ghim ở rank1, nhưng guard từ chối cả hai. “Bức tranh khái quát” là diễn đạt cần review như request grammar/paraphrase, không thiếu vector target.",pending,,,,,,,
+HN20-007,mathematics_informatics,Học xong Toán tin có thể tiếp tục học lên những bậc nào?,f1/further_study,f1/further_study,answered,answered,,,True,1,1,0.004351,5.816829,Ngành Toán Tin | http://mim.hus.vnu.edu.vn/vi/toantin | unknown,Ngành Toán Tin | http://mim.hus.vnu.edu.vn/vi/toantin | unknown,"Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.
+Nguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown","Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] - Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.
+Nguồn [1]: Ngành Toán Tin; http://mim.hus.vnu.edu.vn/vi/toantin; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",answered_with_conditions,"Cả hai nêu bậc Thạc sĩ/Tiến sĩ và giữ điều kiện đủ điều kiện/có nhu cầu. Quote web có lỗi khoảng trắng “Tiến sĩ.trong”; giữ source unknown, chưa xác minh học vụ.",pending,,,,,,,
+HN20-008,mathematics_informatics,Muốn học Lập trình hướng đối tượng thì phải hoàn thành môn nào trước?,f2/prerequisites,f3/suggested_assessment,needs_clarification,needs_clarification,permission_required,permission_required,False,,,0.029037,0.01969,,,Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh.,Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh.,routing_wrong_consent,"Hỏi tiên quyết OOP bị route assessment, rồi yêu cầu quyền F3. Đây không phải thiếu opt-in của người hỏi: F2 không cần quyền F3. Cần sửa nhận diện “thì” và cú pháp “phải hoàn thành ... trước”, không hướng người dùng bật AI để chữa route.",pending,,,,,,,
+HN20-009,mathematics_informatics,"Trong nội dung MAT1202, các đối tượng và kế thừa được giải thích thế nào?",f3/content,f3/content,answered,answered,,,True,1,2,0.032499,6.555713,"kiến thức AI | AI reference; no official URL | QD3567-2023
+kiến thức AI | AI reference; no official URL | QD3567-2023
+kiến thức AI | AI reference; no official URL | QD3567-2023","kiến thức AI | AI reference; no official URL | QD3567-2023
+kiến thức AI | AI reference; no official URL | QD3567-2023
+kiến thức AI | AI reference; no official URL | QD3567-2023","Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.
+
+[1] Tổng quan tham khảo:
+Lập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.
+Các chủ đề tham khảo:
+- Đối tượng, lớp và bất biến
+- Giao diện và phân chia trách nhiệm
+- Kế thừa, đa hình và khả năng thay thế
+- Hợp thành và kiểm tra hành vi
+Nguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard
+
+[2] Kế thừa, đa hình và khả năng thay thế
+Kế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.
+Khái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.
+Ví dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.
+Nguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard
+
+[3] Hợp thành và kiểm tra hành vi
+Hợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.
+Khái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.
+Ví dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.
+Nguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard","Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.
+
+[1] Tổng quan tham khảo:
+Lập trình hướng đối tượng tổ chức phần mềm thành các đối tượng có trạng thái và hành vi, giao tiếp qua những giao diện xác định. Nội dung tham khảo tập trung vào cách giữ bất biến dữ liệu, phân chia trách nhiệm và thay thế cách cài đặt; kế thừa và đa hình được xem trong quan hệ với thiết kế có thể mở rộng và hiểu được.
+Các chủ đề tham khảo:
+- Đối tượng, lớp và bất biến
+- Giao diện và phân chia trách nhiệm
+- Kế thừa, đa hình và khả năng thay thế
+- Hợp thành và kiểm tra hành vi
+Nguồn [1]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard
+
+[2] Kế thừa, đa hình và khả năng thay thế
+Kế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.
+Khái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.
+Ví dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.
+Nguồn [2]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard
+
+[3] Hợp thành và kiểm tra hành vi
+Hợp thành tạo hành vi phức tạp bằng cách kết nối các đối tượng nhỏ, thường làm rõ sự phụ thuộc hơn một cây kế thừa sâu. Kiểm tra tập trung vào hành vi quan sát được, trạng thái biên và tương tác, nhờ đó có thể thay cài đặt mà vẫn giữ ý nghĩa dịch vụ.
+Khái niệm thành phần: hợp thành; ủy quyền; hành vi quan sát được; trạng thái biên.
+Ví dụ minh họa do AI biên soạn: Một dịch vụ mượn sách dùng riêng đối tượng kiểm tra tồn kho và đối tượng ghi giao dịch, nên có thể thay cơ chế ghi mà vẫn giữ quy tắc mượn.
+Nguồn [3]: kiến thức AI — MAT1202 — Lập trình hướng đối tượng; phiên bản: QD3567-2023; hệ: standard",answered_broad,"Có giải thích kế thừa/đa hình; trả thêm tổng quan và hợp thành. Source target từ rank1 lexical thành rank2 hybrid; đáp án cuối giống nhau. Nhóm cần xem phần đối tượng đã đủ ý chưa, tránh coi hit target là đủ mọi ý.",pending,,,,,,,
+HN20-010,mathematics_informatics,Ngành Khoa học dữ liệu có định hướng nghề nghiệp nào?,f1/careers,f1/careers,no_information,no_information,scope_conflict,scope_conflict,False,,,0.001869,0.002177,,,Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.,Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.,expected_scope_boundary,"Cả hai nêu đang chọn Toán tin nhưng hỏi KHDL, hướng dẫn chọn lại; không search, không đổi ngành ngầm.",pending,,,,,,,
+HN20-011,computer_science,Người tốt nghiệp KHMTTT có thể đảm nhiệm những công việc gì?,f1/careers,f1/careers,answered,answered,,,True,1,1,0.032472,5.836858,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx | http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx | 2023,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx | http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx | 2023,"Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.
+
+Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp
+
+Sinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:
+
+Làm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;
+
+Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;
+
+Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;
+
+Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.
+Nguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard","Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.
+
+Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] ## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp
+
+Sinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:
+
+Làm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;
+
+Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;
+
+Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;
+
+Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.
+Nguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard",answered_source_scoped,"Cả hai dùng DOCX2023, nêu các vai trò kỹ thuật/tư vấn-quản lý/lập trình/nghiên cứu/giảng dạy. Có warning review Markdown/chưa xác minh hiệu lực; chưa là xác nhận học vụ độc lập.",pending,,,,,,,
+HN20-012,computer_science,Nếu muốn học tiếp sau KHMTTT thì có những hướng nào?,f1/further_study,f1/further_study,answered,answered,,,True,1,1,0.006415,5.733668,Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx | http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx | 2023,Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf | http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf | 2015,"Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.
+
+Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] ## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp
+
+Sinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.
+Nguồn [1]: Tệp DOCX — Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx; /hus/sources/4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517; Tệp DOCX nguồn; không phải PDF.; phiên bản: 2023; hệ: standard","Nguồn được duyệt trên Markdown; chưa đối chiếu PDF/DOCX gốc.
+
+Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp
+- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực
+chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.
+Nguồn [1]: Tài liệu đính kèm: CTDT-MT&KHTT-130815.pdf; trang PDF 10; /hus/sources/ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212?page=10#page=10; Bản PDF khôi phục; chưa xác minh tương đương bản gốc lịch sử.; phiên bản: 2015; hệ: standard",edition_policy_review,"Đáp án khác duy nhất: lexical dùng DOCX2023 có bậc và các lĩnh vực học tiếp; hybrid chọn PDF2015 chỉ nêu bậc Thạc sĩ/Tiến sĩ. Câu “những hướng nào” có thể cần lĩnh vực: bản hybrid ít chi tiết hơn. Chưa ghim edition trong câu hỏi nên cần quy tắc nguồn/review, không ép ranking theo packet hoặc coi hai bản tương đương.",pending,,,,,,,
+HN20-013,computer_science,Cho mình biết số tín chỉ của môn Phương pháp nghiên cứu khoa học.,f2/credits,f2/credits,answered,answered,,,False,,,0.090184,0.055113,104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf | QD3568-2023,104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf | QD3568-2023,"MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)
+Số tín chỉ: 3
+
+Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.
+
+Nguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.","MAT1204 — Phương pháp nghiên cứu khoa học (QD3568-2023)
+Số tín chỉ: 3
+
+Trạng thái: verified theo sign-off cấp dự án đã ghi trong nguồn; không phải chứng nhận của trường.
+
+Nguồn [1]: 104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf; trang PDF 10; /hus/sources/bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab?page=10#page=10; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",answered_facts,"Cả hai giữ MAT1204 đúng3 tín chỉ/PDFtrang10; verified theo sign-off dự án, không phải chứng nhận trường. Không gọi vector.",pending,,,,,,,
+HN20-014,computer_science,Nội dung MAT1204 hướng dẫn đặt câu hỏi nghiên cứu và giới hạn phạm vi ra sao?,f3/content,f3/content,answered,answered,,,True,1,1,0.031757,6.566124,"kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023","kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023
+kiến thức AI | AI reference; no official URL | QD3568-2023","Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.
+
+[1] Tổng quan tham khảo:
+Phương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.
+Các chủ đề tham khảo:
+- Câu hỏi, phạm vi và khái niệm
+- Tài liệu và cấu trúc bằng chứng
+- Thiết kế phương pháp và quản lý dữ liệu
+- Lập luận và liêm chính trong báo cáo
+Nguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[2] Câu hỏi, phạm vi và khái niệm
+Câu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.
+Khái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.
+Ví dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.
+Nguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[3] Tài liệu và cấu trúc bằng chứng
+Tổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.
+Khái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.
+Ví dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.
+Nguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[4] Thiết kế phương pháp và quản lý dữ liệu
+Phương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.
+Khái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.
+Ví dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.
+Nguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[5] Lập luận và liêm chính trong báo cáo
+Báo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.
+Khái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.
+Ví dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.
+Nguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard","Nội dung tham khảo do AI biên soạn; chưa đối chiếu đề cương chính thức HUS. Ví dụ chỉ minh họa kiến thức, không phải yêu cầu học hoặc thi của trường.
+
+[1] Tổng quan tham khảo:
+Phương pháp nghiên cứu khoa học tiếp cận việc tạo tri thức bằng một chuỗi có thể truy vết từ câu hỏi đến bằng chứng và kết luận. Nội dung tham khảo phân biệt mục tiêu mô tả, giải thích và so sánh; nhấn mạnh vai trò của tài liệu, thiết kế phương pháp, quản lý dữ liệu và trình bày giới hạn của lập luận.
+Các chủ đề tham khảo:
+- Câu hỏi, phạm vi và khái niệm
+- Tài liệu và cấu trúc bằng chứng
+- Thiết kế phương pháp và quản lý dữ liệu
+- Lập luận và liêm chính trong báo cáo
+Nguồn [1]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[2] Câu hỏi, phạm vi và khái niệm
+Câu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.
+Khái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.
+Ví dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.
+Nguồn [2]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[3] Tài liệu và cấu trúc bằng chứng
+Tổng quan tài liệu đặt các công trình trong quan hệ về câu hỏi, phương pháp và kết quả thay vì nối các bản tóm tắt rời nhau. Phân biệt công trình gốc với lời dẫn lại giúp truy nguồn một phát biểu và nhận diện chỗ còn bất đồng hoặc thiếu dữ liệu.
+Khái niệm thành phần: công trình gốc; tổng quan tài liệu; trích dẫn; khoảng trống tri thức.
+Ví dụ minh họa do AI biên soạn: Hai bài cùng nghiên cứu một hiện tượng có kết quả khác nhau vì dùng nhóm đối tượng và cách đo khác; bảng đối chiếu phương pháp làm rõ nguồn khác biệt.
+Nguồn [3]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[4] Thiết kế phương pháp và quản lý dữ liệu
+Phương pháp phải liên kết câu hỏi với cách tạo và phân tích bằng chứng, đồng thời chỉ rõ giả định. Lưu dữ liệu gốc, phiên bản xử lý và quyết định loại bỏ giúp người khác hiểu quá trình hình thành kết quả; kết luận không thể mạnh hơn thiết kế cho phép.
+Khái niệm thành phần: thiết kế nghiên cứu; giả định; dữ liệu gốc; khả năng tái lập.
+Ví dụ minh họa do AI biên soạn: Một nghiên cứu quan sát ghi nhận quan hệ giữa hai biến vẫn cần nêu các yếu tố chưa kiểm soát, vì dữ liệu tương quan chưa xác lập được tác động nhân quả.
+Nguồn [4]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard
+
+[5] Lập luận và liêm chính trong báo cáo
+Báo cáo tách câu hỏi, phương pháp, kết quả và diễn giải để người đọc nhận ra điều đã quan sát và điều được suy ra. Trích nguồn chính xác, mô tả giới hạn và không lược bỏ kết quả trái mong đợi là các cách bảo vệ tính kiểm tra được của tri thức.
+Khái niệm thành phần: kết quả; diễn giải; liêm chính; giới hạn nghiên cứu.
+Ví dụ minh họa do AI biên soạn: Một phép đo không khớp giả thuyết ban đầu vẫn được báo cáo cùng điều kiện thực hiện, nhờ vậy người đọc thấy cả bằng chứng thuận và bằng chứng bất lợi.
+Nguồn [5]: kiến thức AI — MAT1204 — Phương pháp nghiên cứu khoa học; phiên bản: QD3568-2023; hệ: standard",answered_broad,"Có unit câu hỏi/phạm vi/khái niệm đúng ý hỏi, nhưng trả thêm tổng quan và ba unit khác. Target rank1 cả hai; đáp án giống nhau. Cần thu gọn theo câu hỏi, không coi nhiều nguồn hơn là chất lượng cao hơn.",pending,,,,,,,
+HN20-015,computer_science,Giải thích nội dung MAT1204 giúp mình.,f3/content,f3/content,needs_clarification,needs_clarification,permission_required,permission_required,False,,,0.020289,0.018056,,,Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh.,Chưa có thông tin đủ căn cứ để trả lời. Cần bật cho phép kiến thức AI tham khảo để dùng dữ liệu F3 AI sinh.,expected_F3_permission,"Cả hai yêu cầu quyền F3 trước khi dùng nội dung AI; không search. Đây là control hợp lệ, khác với008 bị nhầm F2 thành F3.",pending,,,,,,,
+HN20-016,data_science,"Theo tài liệu ngành, sinh viên KHDL có thể làm những loại công việc nào?",f1/careers,f1/careers,answered,answered,,,True,1,1,0.004638,6.058134,"Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown","Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown
+Khoa học Dữ liệu | http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu | unknown","Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;
+Nguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;
+Nguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;
+Nguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.
+Nguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown","Chỉ mô tả theo nguồn đã lưu; chưa xác minh hiệu lực hiện tại.
+
+[1] nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;
+Nguồn [1]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[2] Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;
+Nguồn [2]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[3] Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;
+Nguồn [3]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown
+
+[4] Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.
+Nguồn [4]: Khoa học Dữ liệu; http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu; URL web nguồn; chưa kiểm tra truy cập lại trong request.; phiên bản: unknown; hệ: unknown",answered_source_scoped,Cả hai trả bốn nhóm công việc KHDL và giữ “tùy theo năng lực”; nguồn unknown edition/hệ. Lỗi chữ “dữ iệu” đã nằm trong nguồn; không tự gán hệ chuẩn hoặc sửa dữ liệu ở lượt đo.,pending,,,,,,,
+HN20-017,data_science,Bạn mô tả ngắn gọn ngành Khoa học dữ liệu đang học những lĩnh vực gì được không?,f1/introduction,f3/content,needs_clarification,needs_clarification,clarification_required,clarification_required,False,,,0.019589,0.025772,,,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,Chưa có thông tin đủ căn cứ để trả lời. Cần mã học phần để tránh nhầm nội dung giữa các môn.,routing_ambiguity,"Câu hỏi cả ngành nhưng “học những” dẫn vào F3/content, rồi đòi mã môn. Có thể đang hỏi khái quát ngành hoặc nội dung chương trình; cần làm rõ đối tượng, không kết luận sai chỉ từ kỳ vọng F1 của AI.",pending,,,,,,,
+HN20-018,data_science,MAT3533 được ghi nhận bao nhiêu tín chỉ trong khung chương trình?,f2/credits,f2/credits,answered,answered,,,False,,,0.051553,0.096896,105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf | QD3569-2023,105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf | https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf | QD3569-2023,"MAT3533 — Học máy (QD3569-2023)
+Số tín chỉ: 3
+
+Trạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.
+
+Mã tiên quyết chưa giải quyết: MAT2406
+
+Nguồn [1]: 105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf; trang PDF 11; /hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=11#page=11; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.","MAT3533 — Học máy (QD3569-2023)
+Số tín chỉ: 3
+
+Trạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.
+
+Mã tiên quyết chưa giải quyết: MAT2406
+
+Nguồn [1]: 105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf; trang PDF 11; /hus/sources/b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2?page=11#page=11; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",answered_facts,Cả hai giữ MAT3533/Học máy đúng3 tín chỉ/PDFtrang11; còn cảnh báo mã tiên quyết MAT2406 chưa giải quyết. Không dùng vector và không suy đủ điều kiện đăng ký.,pending,,,,,,,
+HN20-019,data_science,Nội dung MAT3533 lý giải chuyện mô hình học thuộc dữ liệu cũ nhưng dự đoán kém trên dữ liệu mới như thế nào?,f3/content,f3/content,no_information,no_information,evidence_rejected,evidence_rejected,True,3,3,0.032145,6.290706,,,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.,guard_after_target,"Cả hai đã lấy unit Khái quát và điều chuẩn ở rank3 nhưng guard từ chối câu diễn đạt “học thuộc dữ liệu cũ/dự đoán kém”. Unit liên quan không tự chứng minh entailment toàn câu; đây là ca cần review guard/paraphrase, không phải mất target.",pending,,,,,,,
+HN20-020,data_science,Mã MAT9999 có số tín chỉ là bao nhiêu?,f2/credits,f2/credits,no_information,no_information,evidence_unavailable,evidence_unavailable,False,,,0.018678,0.019692,,,Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.,Chưa có thông tin đủ căn cứ để trả lời. Không có môn này trong ngành và phiên bản đã chọn.,expected_missing_course,"Cả hai báo không có MAT9999 trong ngành/phiên bản đã chọn, không dựng dữ kiện/nguồn và không search vector.",pending,,,,,,,

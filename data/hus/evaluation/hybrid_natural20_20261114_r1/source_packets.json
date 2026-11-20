@@ -1,0 +1,679 @@
+[
+  {
+    "id": "HN20-001",
+    "sources": [
+      {
+        "chunk_id": "34707fd2672e540ed3b65cfed19f5ee7",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "2015",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "2. Mục tiêu đào tạo\nChương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về\nToán học. Sinh viên sẽ được trang bị các kiến thức, kỹ năng, và phẩm chất cần thiết để\nsau khi tốt nghiệp có thể đảm nhận các công việc có sử dụng kiến thức Toán học như\ngiảng dạy, nghiên cứu, và ứng dụng Toán học vào các lĩnh vực khoa học, công nghệ,\nkinh tế, xã hội. Nếu có đủ điều kiện, cử nhân Toán học có thể đăng kí đào tạo tiếp ở bậc\nThạc sĩ, Tiến sĩ.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "a70c8ec78290050491ab661fc29cd9c46f8dd89c047bcc1c181668d966622d8d"
+      },
+      {
+        "chunk_id": "3f891edef65b80a30ed9fdee73b47984",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "2015",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "2. Mục tiêu đào tạo\nChương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân\nkhoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp\ndụng Toán học ở trình độ cao. Ngoài các kiến thức, kỹ năng, và phẩm chất chung\ncủa cử nhân Toán học chương trình đào tạo chuẩn, sinh viên chương trình đào tạo\ntài năng được trang bị một số kiến thức và kĩ năng nâng cao, có khả năng sáng tạo,\ngiao tiếp và sử dụng được một ngoại ngữ (tiếng Anh) trong học tập, nghiên cứu, và\ntrong công việc sau khi tốt nghiệp. Nếu có đủ điều kiện, cử nhân khoa học tài năng\nToán học được chuyển tiếp hay đăng kí đào tạo tiếp ở bậc sau đại học, đặc biệt có\nthể tiếp tục học tập ở các chương trình đào tạo sau đại học quốc tế ở trong nước và\nnước ngoài.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "bb08e2633e11840d6e4bb48b9b38fe3328c6b7c3542ceb67ee4d58c2a8c9da54"
+      },
+      {
+        "chunk_id": "4104b80c6606e7a73108d521fe73a2a1",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Chương trình đào tạo tài năng ngành Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học với định hướng giảng dạy, nghiên cứu và áp dụng Toán học ở trình độ cao.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "4032252d0d82cb39d6ea7132655597dc1a171dadf0e830bff9e32428799e98fe"
+      },
+      {
+        "chunk_id": "adad11c3c68978324eda714ffc880d40",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Ngoài các kiến thức, kĩ năng, và phẩm chất chung của cử nhân Toán học chương trình đào tạo chuẩn, sinh viên chương trình đào tạo tài năng được trang bị một số kiến thức và kĩ năng nâng cao, có khả năng sáng tạo, giao tiếp và sử dụng được một ngoại ngữ (tiếng Anh) trong học tập, nghiên cứu, và trong công việc sau khi tốt nghiệp.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "29e5b371ca50272737ca768d1df503f5a80ac88dbb912d62a58c847367935ebd"
+      },
+      {
+        "chunk_id": "ba1b006436207d86df58106033a3edf4",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "2008",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "1. MỤC TIÊU ĐÀO TẠO - Educational Objectives\nĐào tạo cử nhân Toán học đạt chất lƣợng Quốc tế với những năng lực và phẩm\nchất chủ yếu sau đây :\n- Trung thực.\n- Nắm vững các kiến thức cơ bản, cơ sở của chuyên ngành.\n- Có năng lực nghiên cứu khoa học; có khả năng tự học; nắm vững một số kỹ\nnăng “mềm” cần thiết nhƣ làm việc nhóm, giao tiếp, lãnh đạo….\n- Có kỹ năng thực hành tốt, sử dụng thành thạo một số thiết bị hiện đại trong\nnghiên cứu khoa học.\n- Sử dụng thành thạo Tiếng Anh trong chuyên môn và giao tiếp quốc tế, đồng\nthời đáp ứng yêu cầu làm việc cao ở trong và ngoài nƣớc.\nIt is expected that students who graduate from this program have the following\nqualifications:\n- Maintain the highest academic standards of honesty.\n- Obtain firm background knowledge in the fundamentals of mathematics.\n- Obtain essential skills in scientific research; improving the ability to self-study;\nand possess essential “soft skills” such as team work, communication,\nleadership… to excel in later career life.\n6\n\n<!-- Page 7 -->\n- Obtain essential knowledge of the basic of scientific computing.\n- Communicate effectively, in writing and orally in Vietnamese as well as\nEnglish, meeting the demand for skilled workforce.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/KCT_TTToan_Final.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "7d7881393cea8f7acb92e9a775b6fbcdd723e4ccb63617abe8f4b2928e4057ab"
+      },
+      {
+        "chunk_id": "ee98f5ea44906381ac1ed747fbeb89c2",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Sinh viên sẽ được trang bị các kiến thức, kỹ năng, và phẩm chất cần thiết để sau khi tốt nghiệp có thể đảm nhận các công việc có sử dụng kiến thức Toán học như giảng dạy, nghiên cứu, và ứng dụng Toán học vào các lĩnh vực khoa học, công nghệ, kinh tế, xã hội.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "01c6086576dc56c032a64b77979334f3ce10185fc65ac90e0c722bf8d9e6f963"
+      },
+      {
+        "chunk_id": "f8458f2c9484aa0823f83faaa575004c",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "objectives",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Mục tiêu đào tạo Chương trình đào tạo Toán học nhằm đào tạo các cử nhân khoa học chuyên sâu về Toán học.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "7a92af48c4125e16eced2aa7c01e8ed84438c8396c0001c0ecff5af3d7829617"
+      }
+    ]
+  },
+  {
+    "id": "HN20-002",
+    "sources": [
+      {
+        "chunk_id": "576a32614c1a16f7799e722bd1bd1313",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "2015",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nCử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các\nviện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lý\nkinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm….;\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình\ntại các trường đại học, cao đẳng, trung học phổ thông.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "4786363f65b769a096beb0cf46e60d69af18a5c5678c09c972965f8a52862346"
+      },
+      {
+        "chunk_id": "8a4879289cc14b5965647a6c376e2aec",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Sinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình tại các trường đại học, cao đẳng, trung học phổ thông.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "32652a853d2ac447d27d37691b17d81d856626820f2813400c585e23517a39f8"
+      },
+      {
+        "chunk_id": "ad667609e5801d74c146610cb5ffcf00",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "2015",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nSau khi tốt nghiệp, Sinh viên Cử nhân khoa học Tài năng ngành Toán học có\nnăng lực và trình độ ở mức độ cao, có khả năng làm việc tại các trung tâm, các viện\nnghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính, các cơ sở sản xuất và\nkinh doanh, ngân hàng, tổ chức bảo hiểm… có sử dụng kiến thức Toán học.\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của\nmình tại các trường đại học, cao đẳng, trung học phổ thông.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-CNKHTN-Toanhoc-13815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "c45c672108057f7006749e6268c9fb3f8a1e51abacab7182739890dcc05ce9e5"
+      },
+      {
+        "chunk_id": "e10eb3bab40d2e220787788f53ab58d8",
+        "dataset": "f1",
+        "major": "mathematics",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp Cử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các viện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lí kinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+        "review_status": "include",
+        "body_sha256": "9a1538dd7cf19159dd974c54812c6df2e6e9a523e9a7c0ac9999f3db01600183"
+      }
+    ]
+  },
+  {
+    "id": "HN20-003",
+    "sources": []
+  },
+  {
+    "id": "HN20-004",
+    "sources": [
+      {
+        "chunk_id": "278542bcc0625ae1afe5ebb3b97314f7",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": 1,
+        "quote": "Ma trận và ánh xạ tuyến tính\nCác cột của ma trận là ảnh của vectơ cơ sở chuẩn, nhờ đó phép nhân ma trận biểu diễn tác động của ánh xạ lên mọi vectơ. Tích ma trận tương ứng hợp thành ánh xạ theo thứ tự, giải thích vì sao nhìn chung đổi thứ tự hai ma trận sẽ làm đổi kết quả.\nKhái niệm thành phần: cột ma trận; ánh xạ tuyến tính; hợp thành; ma trận đơn vị.\nVí dụ minh họa do AI biên soạn: Trong mặt phẳng, co theo một trục rồi quay thường cho kết quả khác quay trước rồi mới co theo trục cố định, phản ánh tính không giao hoán của tích ma trận.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "2ecf04a4896046e1a1caa19fb138a1ffe37c483447bf7a8401f7a3fbe70c7571"
+      },
+      {
+        "chunk_id": "4b7caa6c46c6aa36c085561f6fe8bb21",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": 3,
+        "quote": "Cơ sở, số chiều và tọa độ\nCơ sở vừa sinh toàn bộ không gian vừa độc lập, nên mỗi vectơ có một bộ tọa độ duy nhất theo cơ sở đó. Đổi cơ sở thay cách mô tả vectơ chứ không thay vectơ; số chiều đo số tham số độc lập cần cho biểu diễn.\nKhái niệm thành phần: cơ sở; số chiều; tọa độ; đổi cơ sở.\nVí dụ minh họa do AI biên soạn: Cùng một vectơ hình học có thể có hai cặp tọa độ khác nhau khi dùng hai hệ cơ sở, tương tự cùng vị trí được mô tả từ hai bộ trục khác nhau.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "4bcc8f5c8545260c67e6f6ca01b51aecd576da434b52f12d4e7f69dea6cab695"
+      },
+      {
+        "chunk_id": "58b26ba1bbbacf4dfd618a4054b714f4",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": 0,
+        "quote": "Hệ tuyến tính và phép khử\nCác phép biến đổi hàng sơ cấp giữ nguyên tập nghiệm nhưng làm lộ cấu trúc của hệ. Vị trí phần tử trụ và biến tự do cho biết khả năng tương thích cũng như số hướng tự do của nghiệm; hệ không nhất thiết có nghiệm duy nhất chỉ vì số phương trình bằng số ẩn.\nKhái niệm thành phần: phép biến đổi hàng; phần tử trụ; biến tự do; tập nghiệm.\nVí dụ minh họa do AI biên soạn: Hai phương trình là bội của nhau chỉ mô tả cùng một ràng buộc, nên thêm phương trình thứ hai có thể không làm giảm số hướng tự do của nghiệm.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "9f5d3ce40f22db9be780c72a3cc7194cefb79af715c79364023ff519a4150f4a"
+      },
+      {
+        "chunk_id": "64ff9dac2bb3fc70466d843d47c41141",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": null,
+        "quote": "Tổng quan tham khảo:\nĐại số tuyến tính 1 xây dựng ngôn ngữ cho hệ phương trình, không gian vectơ và ánh xạ tuyến tính. Nội dung tham khảo đặt phép tính ma trận trong quan hệ với không gian nghiệm, cơ sở và số chiều, giúp giải thích ý nghĩa của phép khử thay vì chỉ ghi nhớ quy tắc biến đổi ký hiệu.\nCác chủ đề tham khảo:\n- Hệ tuyến tính và phép khử\n- Ma trận và ánh xạ tuyến tính\n- Không gian con, sinh và độc lập\n- Cơ sở, số chiều và tọa độ\n- Hạt nhân, ảnh và hạng",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "2aa0e788dc37d7f3e28f653e52cd62e529d0724a78091f30e61e36a3b7c21be6"
+      },
+      {
+        "chunk_id": "97eb478e4994fe486e06ce8808a0e53d",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": 4,
+        "quote": "Hạt nhân, ảnh và hạng\nHạt nhân chứa những hướng bị ánh xạ đưa về không, còn ảnh chứa các đầu ra có thể đạt được. Định lý hạng và số chiều hạt nhân liên kết phần thông tin bị mất với phần được giữ; nhờ đó tính đơn ánh và toàn ánh có thể được phân tích bằng cấu trúc không gian.\nKhái niệm thành phần: hạt nhân; ảnh; hạng; định lý hạng.\nVí dụ minh họa do AI biên soạn: Phép chiếu không gian ba chiều xuống một mặt phẳng mất thành phần theo phương vuông góc; phương bị mất tạo hạt nhân còn mặt phẳng là ảnh.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "3134b1a1c72deb93f1740e3342032b5ba056efcfa3c9a501cca1f85f8045657d"
+      },
+      {
+        "chunk_id": "b4c4778e7253edf47d08d88f60e31538",
+        "dataset": "f3",
+        "major": "mathematics",
+        "version": "QD3565-2023",
+        "field": "content",
+        "course_code": "MAT2300",
+        "unit_index": 2,
+        "quote": "Không gian con, sinh và độc lập\nTập sinh cho biết những vectơ có thể biểu diễn bằng tổ hợp tuyến tính, còn độc lập tuyến tính loại bỏ sự dư thừa trong biểu diễn. Không gian con phải đóng dưới cộng và nhân vô hướng; một tập có hình dạng gần đường thẳng chưa chắc là không gian con nếu không qua gốc.\nKhái niệm thành phần: không gian con; tổ hợp tuyến tính; tập sinh; độc lập tuyến tính.\nVí dụ minh họa do AI biên soạn: Các vectơ trên một đường thẳng qua gốc sinh ra không gian một chiều, còn đường thẳng song song nhưng không qua gốc không đóng dưới nhân vô hướng.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "6301857eed0d70a3adbf2541b104347e02b3af637c6f679a9301633d6f08a5c3"
+      }
+    ]
+  },
+  {
+    "id": "HN20-005",
+    "sources": []
+  },
+  {
+    "id": "HN20-006",
+    "sources": [
+      {
+        "chunk_id": "44d598308d53629fef5b3c8a7ec61495",
+        "dataset": "f1",
+        "major": "mathematics_informatics",
+        "version": "unknown",
+        "field": "introduction",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+        "review_status": "include",
+        "body_sha256": "cfbf9f14c44dd45b1c07bd2cc60b07807ba7cbc906e22a09b7bef5e3da205383"
+      }
+    ]
+  },
+  {
+    "id": "HN20-007",
+    "sources": [
+      {
+        "chunk_id": "06eab91c8c35db1572e17ad73748840b",
+        "dataset": "f1",
+        "major": "mathematics_informatics",
+        "version": "unknown",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu hoặc Toán ứng dụng.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/toantin",
+        "review_status": "include",
+        "body_sha256": "b9934be99c4c84fd05e91e6716510854dbca4c824f2d460022021f13d4b4262e"
+      },
+      {
+        "chunk_id": "658c9ab088735ae6c0d75ff4278f5bef",
+        "dataset": "f1",
+        "major": "mathematics_informatics",
+        "version": "2015",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh\nvực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-TTUD-130815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "c4a5953c080631636e1e4754b1e3e95a2880617013324d8005927968bb21cc3e"
+      }
+    ]
+  },
+  {
+    "id": "HN20-008",
+    "sources": []
+  },
+  {
+    "id": "HN20-009",
+    "sources": [
+      {
+        "chunk_id": "571f815f9fbe0e6d32d0c4061c1273d5",
+        "dataset": "f3",
+        "major": "mathematics_informatics",
+        "version": "QD3567-2023",
+        "field": "content",
+        "course_code": "MAT1202",
+        "unit_index": 2,
+        "quote": "Kế thừa, đa hình và khả năng thay thế\nKế thừa biểu diễn quan hệ chuyên biệt hóa, còn đa hình cho phép cùng lời gọi được xử lý theo kiểu đối tượng thực tế. Khả năng thay thế đòi hỏi lớp con giữ được những cam kết mà nơi sử dụng mong đợi, chứ không chỉ có cùng tên phương thức.\nKhái niệm thành phần: kế thừa; đa hình; ghi đè; khả năng thay thế.\nVí dụ minh họa do AI biên soạn: Các loại bộ xuất tài liệu cùng nhận nội dung và tạo kết quả; nơi gọi không cần phân nhánh theo từng loại nếu mọi bộ xuất giữ đúng hợp đồng chung.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "f1c58d1df40bb7e9410d01fb475f06f4072d6daac0c4af406ce0d7e963ed92a9"
+      }
+    ]
+  },
+  {
+    "id": "HN20-010",
+    "sources": []
+  },
+  {
+    "id": "HN20-011",
+    "sources": [
+      {
+        "chunk_id": "12c82116f32f08a1ff215fc63cb8a122",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc",
+        "review_status": "include",
+        "body_sha256": "cde7b7bb6f98c3d874be63f2481f839a7e302e28b7d2a237be3b1d2dfc3c30cf"
+      },
+      {
+        "chunk_id": "291b6949cf13e7e60e54762b0d09ae77",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc",
+        "review_status": "include",
+        "body_sha256": "9123256db24fdd0509c874ceeda69d417719ba3ea3ab3dd41b92e503e068e0c2"
+      },
+      {
+        "chunk_id": "2f9e999a85042b779208802aac26b4bb",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc",
+        "review_status": "include",
+        "body_sha256": "c5edd7538a0c3f3b0ccd26550a8eb8c31b259ad6c069df64c2dbd7ebdb55b004"
+      },
+      {
+        "chunk_id": "3d5549c23ea06616555c5f6917ccfa12",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2023",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+        "review_status": "include_markdown",
+        "body_sha256": "aa532acc50beac93564dd3ba8a6dc973f13d9e81679826596021cbcf2ced6cb1"
+      },
+      {
+        "chunk_id": "490cb4103718f52c80496be4f8d33a69",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2019",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "5. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nSinh viên tốt nghiệp ngành Máy tính và Khoa học thông tin chất lượng cao có\nthể:\n- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển\ntrong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ\nnhân tạo;\n- Làm chuyên gia kĩ thuật tại các cơ quan quản lý và các doanh nghiệp có hệ\nthống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n- Đảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự\nán công nghệ thông tin;\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "2801e85d3257ef84e7fdd61a4a138f01fb8873450214810c6674d9b45f8051ea"
+      },
+      {
+        "chunk_id": "4a3c645ebb71689c470787ee07190461",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề và trung học phổ thông trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "review_status": "include",
+        "body_sha256": "dce553c58525674c7c44b1934b43d88a1a864f8f565ef16c365d6692849d4700"
+      },
+      {
+        "chunk_id": "7c20f023d64e599313eb7fb61771be75",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Làm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc",
+        "review_status": "include",
+        "body_sha256": "d715f423ea3f3a062eaedc0b49e9479ad4f2e725a3b6474e0ebd769e405d0ec3"
+      },
+      {
+        "chunk_id": "8955584f15e681b65a6f55b257e09970",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Làm nghiên cứu và phát triển tại các viện, các trung tâm nghiên cứu và phát triển công nghệ thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "review_status": "include",
+        "body_sha256": "73e19676f79da232ddce90bb08e292926a0d1ab94b29b0c208dbd47e76294520"
+      },
+      {
+        "chunk_id": "cc9519ceb5c2b5eb461ebfbd3e813e6f",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2015",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "4. Vị trí việc làm mà sinh viên có thể đảm nhận sau khi tốt nghiệp\n- Làm nghiên cứu và phát triển tại các Viện nghiên cứu.\n- Các cơ quan quản lý và các doanh nghiệp có hệ thống thông tin và nhu cầu\nkhai thác thông tin hiệu quả.\n- Làm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên\nnghiệp, dạy nghề và trung học phổ thông trong lĩnh vực khoa học máy tính và khoa\nhọc thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "2c932de5205317bc82a679fb2e09dd9e40c4c1d35eec5373a299ca93a5839560"
+      },
+      {
+        "chunk_id": "e3dc4d4d8054d927400b121d04d92bef",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Phát triển phần mềm tại các cơ quan, doanh nghiệp công nghệ thông tin.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "review_status": "include",
+        "body_sha256": "71b5a565dbe5b287ce837b6e6f664121f6dd8f7df5cc587c01e6a706511a7caf"
+      }
+    ]
+  },
+  {
+    "id": "HN20-012",
+    "sources": [
+      {
+        "chunk_id": "56dc11d1be420dbfde4bcc3786d1276b",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Sinh viên sau khi tốt nghiệp sinh viên có khả năng theo học sau đại học tại các trường đại học uy tín trên thế giới cũng như trong nước, tham gia nghiên cứu, triển khai ứng dụng khoa học công nghệ trong các trường đại học, viện nghiên cứu và cơ sở sản xuất.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/mt-khtt-clc",
+        "review_status": "include",
+        "body_sha256": "3e50b9e948faa5f4d0f7675ca721939bcb40ae23fff261bca0f90a77c74250a5"
+      },
+      {
+        "chunk_id": "7770981a0105a0e83d57880b591dd3b7",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2019",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "6. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\nSinh viên hoàn thành chương trình đào tạo chất lượng cao ngành Máy tính và\nKhoa học Thông tin được trang bị tốt các kiến thức cơ sở và chuyên ngành, có kĩ năng\nthực hành tốt, có khả năng tư duy, nghiên cứu độc lập và làm việc theo nhóm. Do vậy,\nsau khi tốt nghiệp sinh viên có khả năng theo học sau đại học tại các trường đại học uy\ntín trên thế giới cũng như trong nước, tham gia nghiên cứu, triển khai ứng dụng khoa\nhọc công nghệ trong các trường đại học, viện nghiên cứu và cơ sở sản xuất.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/4.%20KCT%C4%90T-CLC%20MTKHTT%2010082020.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "83f716225788d6fb27ae875a1fbc2b47210de089f84c1803c5483eab13a49b24"
+      },
+      {
+        "chunk_id": "b45d00fe80539319273406967ae12a65",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2015",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực\nchuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-MT%26KHTT-130815.pdf",
+        "review_status": "include_markdown",
+        "body_sha256": "46cc4dac1b779a26f1bff06e32f01e77de9b321a054af4fc2c224a1c30f29271"
+      },
+      {
+        "chunk_id": "e29e0cbb74eb7a68f3992ec91f5dd4e9",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "unknown",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "- Sinh viên đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ trong lĩnh vực Công nghệ thông tin, Cơ sở toán học cho Tin học, Khoa học dữ liệu.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt",
+        "review_status": "include",
+        "body_sha256": "33ce8fe8c4e2f7a26a7478f4ea472c9ed6c4c347e1456a2e6e824404360c7e91"
+      },
+      {
+        "chunk_id": "e5a82ded76438ecd8803b9c5e5d2e9c1",
+        "dataset": "f1",
+        "major": "computer_science",
+        "version": "2023",
+        "field": "further_study",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "## 5. Khả năng học tập, nâng cao trình độ sau khi tốt nghiệp\n\nSinh viên tốt nghiệp đủ điều kiện và có nhu cầu học tập nâng cao trình độ trong lĩnh vực chuyên môn của mình sẽ có thể học tiếp ở bậc Thạc sĩ, Tiến sĩ các chuyên ngành thuộc các lĩnh vực Khoa học Máy tính và Thông tin, Khoa học dữ liệu, Trí tuệ nhân tạo, Toán ứng dụng và các lĩnh vực khác liên quan.",
+        "source_url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx",
+        "review_status": "include_markdown",
+        "body_sha256": "0c02da82313bdcd5908fb4b91bc7e051566be62ccb575006297e06263efa6bb0"
+      }
+    ]
+  },
+  {
+    "id": "HN20-013",
+    "sources": []
+  },
+  {
+    "id": "HN20-014",
+    "sources": [
+      {
+        "chunk_id": "bb93fa28e9829ba7f5d46fc4ece9a19f",
+        "dataset": "f3",
+        "major": "computer_science",
+        "version": "QD3568-2023",
+        "field": "content",
+        "course_code": "MAT1204",
+        "unit_index": 0,
+        "quote": "Câu hỏi, phạm vi và khái niệm\nCâu hỏi nghiên cứu xác định hiện tượng, đối tượng và kiểu hiểu biết cần đạt, còn phạm vi giới hạn điều có thể kết luận. Một khái niệm trừu tượng cần được định nghĩa và gắn với dấu hiệu quan sát phù hợp để tránh thu thập dữ liệu không trả lời được câu hỏi ban đầu.\nKhái niệm thành phần: câu hỏi nghiên cứu; phạm vi; khái niệm; thao tác hóa.\nVí dụ minh họa do AI biên soạn: Nghiên cứu về thói quen đọc phân biệt số lần mượn sách với thời gian đọc thực tế vì hai chỉ báo biểu diễn những khía cạnh khác nhau của khái niệm.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "32758e60181a010ceac881f1f4c30db718acb8f00a42dae8031f0ce62cc4985d"
+      }
+    ]
+  },
+  {
+    "id": "HN20-015",
+    "sources": []
+  },
+  {
+    "id": "HN20-016",
+    "sources": [
+      {
+        "chunk_id": "251ab61e0d6a58faa68914d59fa45516",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Lập trình viên, quản trị dự án, trưởng phòng (tùy theo năng lực) tại các doanh nghiệp, trung tâm công nghệ thông tin;",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "49d254fb40f1397d5130f789d07506ba551df92bdd7eb5c1581435ed71110813"
+      },
+      {
+        "chunk_id": "52b2b2acd330744f909bc2ea49cf5fb7",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "4ce8b826782fb321aa9884625b45c6be818be693f6ad84f9a2e492be991895d8"
+      },
+      {
+        "chunk_id": "940a3740794040de84617af7e9aa78fd",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Giảng viên, nghiên cứu viên, chuyên viên kỹ thuật tại các đơn vị trường, viện trong lĩnh vực khoa học dữ liệu.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "22784b4c33e771558fb5c3acee67f9a1e0e83b9e63e5d31ac020dcb166bc57e2"
+      },
+      {
+        "chunk_id": "d844e5fa88b2bf746f918a39a67aa2bb",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "careers",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "nhà quản lý dữ liệu, chuyên gia phân tích dữ liệu, chuyên gia dữ liệu lớn, chuyên gia tư vấn tại các doanh nghiệp cho các dự án quản lý và khai thác dữ iệu;",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "97afc8563b45be8151d12f25386fee5bd21530b048b20c671cec43ee8b4bdae3"
+      }
+    ]
+  },
+  {
+    "id": "HN20-017",
+    "sources": [
+      {
+        "chunk_id": "21625268a830b8656f4b5bd4f07a9f80",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "introduction",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "bae4fee6f8adcbe2105e0a75781248d73d4b9c59c57421247785e31c4efc25e9"
+      },
+      {
+        "chunk_id": "7170857aebdc027daccc37102dd937bd",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "introduction",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Cụ thể, theo QĐ số 720/QĐ-ĐHQGHN ngày 6/3/2020, Đại học Quốc gia Hà Nội giao trường ĐH Khoa học Tự nhiên tổ chức tổ chức đào tạo thí điểm trình độ đại học ngành Khoa học dữ liệu. Mục tiêu chung của chương trình Khoa học dữ liệu là đào tạo nguồn nhân lực, có tính cạnh tranh cao trên thị trường lao động trong thời kỳ hội nhập kinh tế khu vực và thế giới.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "1729b298b02ecc5e3a3b57fbaed0017de84a6a5eebc6044abac0b8ebc499d055"
+      },
+      {
+        "chunk_id": "a02e3fe443e340a42147fca61503d628",
+        "dataset": "f1",
+        "major": "data_science",
+        "version": "unknown",
+        "field": "introduction",
+        "course_code": null,
+        "unit_index": null,
+        "quote": "Sinh viên ngành Khoa học dữ liệu sẽ được trang bị kiến thức về lập trình máy tính, hệ quản trị cơ sở dữ iệu, các mô hình học máy, phân tích thống kê, các phương pháp tính toán trong khoa học dữ liệu và phương pháp biểu diễn dữ liệu.",
+        "source_url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu",
+        "review_status": "include",
+        "body_sha256": "1febf24a26352da4c9bd126f911e4c8f99f86c720b95b3a52f6d421006989adf"
+      }
+    ]
+  },
+  {
+    "id": "HN20-018",
+    "sources": []
+  },
+  {
+    "id": "HN20-019",
+    "sources": [
+      {
+        "chunk_id": "273e8ece7e6db1f8c532c7975f9021e4",
+        "dataset": "f3",
+        "major": "data_science",
+        "version": "QD3569-2023",
+        "field": "content",
+        "course_code": "MAT3533",
+        "unit_index": 2,
+        "quote": "Khái quát và điều chuẩn\nMô hình quá linh hoạt có thể ghi nhớ nhiễu trong mẫu huấn luyện, làm sai khác tăng trên dữ liệu mới. Điều chuẩn và kiểm soát độ phức tạp thay đổi sự cân bằng giữa độ khớp dữ liệu với mức nhạy trước biến động mẫu.\nKhái niệm thành phần: quá khớp; điều chuẩn; độ phức tạp.\nVí dụ minh họa do AI biên soạn: Một đường cong đi qua mọi điểm đo có nhiễu có thể dao động mạnh giữa các điểm, trong khi đường trơn hơn dự đoán ổn định hơn.",
+        "source_url": null,
+        "review_status": "needs_review",
+        "body_sha256": "631e3afb9796e8cbd5023e8ba654b7eea9dbe213f03437b3f5de5df904258c5b"
+      }
+    ]
+  },
+  {
+    "id": "HN20-020",
+    "sources": []
+  }
+]

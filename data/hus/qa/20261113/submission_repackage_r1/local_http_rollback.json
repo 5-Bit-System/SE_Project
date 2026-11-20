@@ -1,0 +1,76 @@
+{
+  "a7_semantic_review_or_new_score": false,
+  "actual_target_platform": "Windows64/CPython3.11",
+  "api_cases": 20,
+  "browser_smoke": {
+    "exit_code": 0,
+    "passed": true
+  },
+  "current_machine_is_actual_target": false,
+  "different_machine_verified": false,
+  "external_or_provider_attempts": 0,
+  "extracted_payload_hashes_restored": true,
+  "fresh_venv_installed_and_pip_check_passed": true,
+  "latest_a7_exact_response_matches": 48,
+  "menu_items": 2124,
+  "public_deployment_or_load_accepted": false,
+  "rollback_real_http": [
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v4-before",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261111-v4",
+      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+      "source_get_hashes_and_heads_passed": true
+    },
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v3-rollback",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261031-v3",
+      "release_sha256": "27bdf3714216292af6d6c6da10e7edd164fa6cf8a286fca7338d18bcb05501f4",
+      "source_get_hashes_and_heads_passed": true
+    },
+    {
+      "downloaded": {
+        "docx": 2,
+        "pdf": 12
+      },
+      "f2_credits": 3,
+      "llm_enabled": false,
+      "phase": "v4-restored",
+      "real_loopback_http": true,
+      "release_id": "hus-data-20261111-v4",
+      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+      "source_get_hashes_and_heads_passed": true
+    }
+  ],
+  "selector_restored": true,
+  "three_known_issues_preserved": [
+    {
+      "exact_response_equal": true,
+      "question_id": "A7F-Q002",
+      "status": "no_information"
+    },
+    {
+      "exact_response_equal": true,
+      "question_id": "A7F-Q003",
+      "status": "answered"
+    },
+    {
+      "exact_response_equal": true,
+      "question_id": "A7F-Q011",
+      "status": "needs_clarification"
+    }
+  ]
+}

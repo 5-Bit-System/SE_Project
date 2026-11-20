@@ -1,0 +1,47 @@
+{
+  "kind": "student_report_demo_documentation_local_verification",
+  "verified_at_utc": "2026-11-14T10:32:33.895907+00:00",
+  "documents_sha256_at_creation": {
+    "docs/HUS_RAG_PROJECT_REPORT.md": "6e0cc20bdf05c52fdcb0cf1ddd641302ff96166946989cd41871d554a853a7ba",
+    "docs/HUS_RAG_MANUAL_DEMO.md": "3ae86fbf14232ece8696c715f239e0c8dcfbe17722bebff95155786e5be1d1e8",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "c41ccf3860773b782aa62bc25e3f57dde4b303716968c674393b4131c8cb57e7",
+    "README.md": "7f7336a701053c8bebda52b0bedc1d3041f4090163f9228ff51378110de725e8"
+  },
+  "source_manifests_sha256": {
+    "data/hus/evaluation/student_content_20261114_r1/manifest.json": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+    "data/hus/evaluation/runs/student_content_live_20261114_r1/manifest.json": "7790d63e69b6d46d7e58f040a1bb10123560c11f2dc627b3b2ae54bd0ff96980",
+    "data/hus/qa/20261114/f2_prompt_confirmation_r1/manifest.json": "67569dcd6aa77fcc1e8366dbf577e9e1260b65cf2f6b44e042511d33f2264a92",
+    "data/hus/qa/20261114/ui_quickstart_r1/manifest.json": "6560d2ffddeda6118e745f36493236ffb68eff1fb9dd4b0cc198e9db98874e8e",
+    "data/hus/qa/20261114/student_content_ai_review_r1/manifest.json": "e43dcc03dae7f6014ad95761a19cf6ebccf39fbb5a28ecc276e58e32b11f8f16"
+  },
+  "protected_existing_files_unchanged": 3101,
+  "relative_links_checked": 39,
+  "PowerShell_blocks_parsed": 2,
+  "offline_demo_cases_passed": 6,
+  "new_Google_calls": 0,
+  "backend_key_or_secret_files_read": false,
+  "runtime_or_default_changed": false,
+  "test_suite_rerun": false,
+  "historical_student30": {
+    "calls": 24,
+    "used": 23,
+    "fallback": 1,
+    "controls": 6
+  },
+  "F2_success_confirmation_separate_from_historical_run": true,
+  "team_review_current_observation": {
+    "pending": 30,
+    "reviewed": 0,
+    "csv_sha256": "acaa445c66a73dbae0c130c08fdf63c0cab032f4a1b5baf722189dbc60f26e5f"
+  },
+  "pending": [
+    "Real course/member/contribution details",
+    "Human content review",
+    "Another member installation and demo checklist"
+  ],
+  "limits": [
+    "Direct chat dry run only, not a fresh browser test.",
+    "Same Windows machine, not another machine or remote clone.",
+    "No stage/commit/push/PR/Actions/deployment."
+  ]
+}

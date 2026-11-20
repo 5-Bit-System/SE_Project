@@ -47,6 +47,16 @@ def test_main_app_exposes_all_hus_rag_endpoints_with_cache_control_no_store():
     assert chat_res.headers.get("cache-control") == "no-store"
     assert chat_res.json()["mode"] == "basic_chat"
 
+    credit_res = client.post("/hus/chat", json={
+        "question": "Môn CSDL bao nhiêu tín?",
+        "major": "computer_science", "version": "QD3568-2023",
+    })
+    assert credit_res.status_code == 200
+    credit_answer = credit_res.json()["hus_answer"]
+    assert credit_answer["status"] == "answered"
+    assert credit_answer["facts"]["course_code"] == "MAT3507"
+    assert credit_answer["facts"]["value"] == 4
+
     # 3. POST /hus/retrieve
     ret_res = client.post("/hus/retrieve", json={"question": "MAT3533 tín chỉ", "major": "data_science"})
     assert ret_res.status_code == 200

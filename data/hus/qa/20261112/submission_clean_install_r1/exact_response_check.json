@@ -1,0 +1,242 @@
+[
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q001",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q002",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q003",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q004",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q005",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q006",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q007",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q008",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q009",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q010",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q011",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q012",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q013",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q014",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q015",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q016",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q017",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q018",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q019",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q020",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q021",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q022",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q023",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q024",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q025",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q026",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q027",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q028",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q029",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q030",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q031",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q032",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q033",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q034",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q035",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q036",
+    "status": null
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q037",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q038",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q039",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q040",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q041",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q042",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q043",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q044",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q045",
+    "status": "answered"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q046",
+    "status": "needs_clarification"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q047",
+    "status": "no_information"
+  },
+  {
+    "exact_response_equal": true,
+    "question_id": "A7P-Q048",
+    "status": "no_information"
+  }
+]

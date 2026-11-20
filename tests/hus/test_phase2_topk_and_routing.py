@@ -9,14 +9,15 @@ from fastapi.testclient import TestClient
 
 from app.hus.chat import chat
 from app.hus.demo import app
+from app.hus.workspace_answering import WorkspaceAnswerer
 from app.schemas.hus import HUSQuestion, HUSRetrievalBundle
-from app.services.hus_service import get_hus_answerer
 from tools import inspect_hus_topk
 
 
 @pytest.fixture(scope="module")
-def answerer():
-    return get_hus_answerer()
+def answerer(historical_v3_data):
+    # Workspace's original coverage includes legacy F3 assessment evidence.
+    return WorkspaceAnswerer(historical_v3_data)
 
 
 @pytest.fixture(scope="module")
@@ -286,4 +287,3 @@ def test_natural_course_overview_queries_route_to_f3_content(answerer, question,
     assert ans.status == "answered"
     assert ans.dataset == "f3"
     assert expected_code in ans.reply
-

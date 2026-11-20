@@ -1,0 +1,37 @@
+{
+  "HUS_official_fields_promoted": 0,
+  "PDF_pages_rendered": 8,
+  "code_data_gold_old_review_changed": false,
+  "content_items": 18,
+  "date": "2026-11-13",
+  "existing_290_F3_records_unmodified": true,
+  "failed_capture_ids": [
+    "H02"
+  ],
+  "human_reviews": 0,
+  "independent_review": false,
+  "kind": "AI_item_reference_mapping_not_runtime_or_academic_approval",
+  "mappings": 36,
+  "new_google_calls": 0,
+  "new_successful_captures": 26,
+  "objective_items": 18,
+  "pdf_images_viewed": 6,
+  "q001_first_standard_intake_and_current_validity": "still_open",
+  "q001_new_binary_captured": true,
+  "q001_runtime_variant": "unknown",
+  "records": 4,
+  "reused_captures": 2,
+  "runtime_metadata_changed": false,
+  "runtime_release": "hus-data-20261111-v4",
+  "status_counts": {
+    "core_supported": 15,
+    "open": 2,
+    "partial": 19
+  },
+  "status_definition": {
+    "core_supported": "Selected core concept has a specific reference anchor, not full sentence/example or HUS verification.",
+    "open": "No direct paragraph in checked selection; not proof claim is false.",
+    "partial": "Some concept support exists; the recorded remaining limits stay open."
+  },
+  "supplemental_reference_links_not_added_to_runtime_profiles": true
+}

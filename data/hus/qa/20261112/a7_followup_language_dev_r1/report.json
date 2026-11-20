@@ -1,0 +1,158 @@
+{
+  "base_head": "f61b0fd",
+  "branch": "hus-llm-rag",
+  "cohort": "data/hus/evaluation/a7_postfix_20261112_r1",
+  "cohort_manifest_sha256": "5fccce4eb65aad644f8775fdba11ab1147f33dd85abdd4ffb43b77258c1097bc",
+  "commit_push_deploy_performed": false,
+  "created_at": "2026-11-12T16:47:04.170052+00:00",
+  "db_account_advisor_accessed": false,
+  "dev_results": {
+    "cases": 48,
+    "changed_responses": [
+      "A7P-Q013",
+      "A7P-Q020",
+      "A7P-Q027"
+    ],
+    "cohort_is_dev": true,
+    "controls_exact_unchanged": 12,
+    "f2_exact_unchanged": 12,
+    "independent_acceptance": false,
+    "kind": "exposed_development_diagnostic_after_tuning",
+    "next_a7": "Freeze new source-authored cohort after final baseline; current cohort is dev.",
+    "old_a7_replay": {
+      "current_pins_match": false,
+      "new_provider_calls": 0,
+      "new_rag_inference": false,
+      "reproduced": true,
+      "technical_gates": {
+        "ai_content_review_all_complete": false,
+        "all_technical_gates_met": false,
+        "answered_source_integrity": true,
+        "controls_all_correct": true,
+        "f2_source_facts_all_correct": true,
+        "independent_or_human_acceptance": false,
+        "no_false_abstention": false,
+        "no_http_errors": true,
+        "no_scope_filter_errors": true,
+        "recall_at_5_met": true
+      }
+    },
+    "old_a7_scores_unchanged": {
+      "completeness": "33/36",
+      "routed_recall": "23/24"
+    },
+    "positive_answered": 36,
+    "prepared_l5_v3_current_pins_match": false,
+    "provider_attempts": 0,
+    "retrieval_calls_unchanged_except_previously_no_call": true,
+    "source_audits_passed": 48,
+    "submission_kit_r2": "Immutable pre-fix baseline; repackage/recheck newer code separately."
+  },
+  "exposure": {
+    "human_reviews": 0,
+    "independent_acceptance": false,
+    "old_pack_and_gold_unchanged": true,
+    "retired_to_dev_after_tuning": true,
+    "runtime_and_sources_seen": true
+  },
+  "fixes": [
+    "Bounded pilot training/program contexts do not imply examination/grades.",
+    "Clause-initial learning imperative is grammar; skill and topic requirements retained.",
+    "Further-study based-on requests need positive explicit basis relation in same source scope, rendered with subjects.",
+    "Ambiguous scientific compounds require contiguous source-body words, not scattered tokens, title or cross-passage stitching."
+  ],
+  "full_repo_suite": false,
+  "future_artifacts": {
+    "a7": "New frozen cohort required; historical23/24Recall33/36completeness unchanged.",
+    "a8_r2": "Original pre-fix ZIP/checker preserved; package/recheck newer code separately if selected.",
+    "l5_v3": "Prepared r1 no longer matches runtime pins; prepare/preflight again, separate budget required."
+  },
+  "kind": "exposed_development_after_tuning",
+  "new_provider_calls": 0,
+  "new_regression_count": 39,
+  "new_regressions_included_in_593": true,
+  "preservation": {
+    "all_preexisting_data_files_unchanged": true,
+    "bm25_and_retrieval_ranking_code_unchanged": true,
+    "changed_only": [
+      "app/hus/answer_support.py",
+      "app/hus/question_routing.py"
+    ],
+    "old_packs_runs_golds_reviews_receipts_and_zip_files_unchanged": true,
+    "protected_before_sha256": "f1ef9ccaad8b8db4efaaa6a2cdf60cdec10c9145c669919aee906e1e7a7918ca",
+    "protected_preexisting_files": 2583,
+    "unchanged": 2581
+  },
+  "private_env_or_key_read": false,
+  "profile": {
+    "llm_enabled": false,
+    "release": "hus-data-20261111-v4",
+    "retrieval": "lexical"
+  },
+  "ruff": "passed two runtime modules and new test file",
+  "runtime_and_test_sha256": {
+    "app/hus/answer_support.py": "ba9d31d27dfda14e708f0c51e6ad462f52c22a5cdae8bcee8c2403e6362610e1",
+    "app/hus/question_routing.py": "90208afad0d38de8e2684de64ffc0c1dbcc001813ce80d9e2d706c0416bff104",
+    "tests/hus/test_followup_language.py": "1df8843d9e5d646fa6c7f0379e387f6720fb3bf9ecb874c620bad21bc7128856"
+  },
+  "schema_version": "hus-a7-language-dev-1.0",
+  "source_identity": "Effective WIP bytes bound by runtime/test/pins hashes, not HEAD alone.",
+  "tests": {
+    "green-r2": {
+      "duration_seconds": 15.558,
+      "junit_sha256": "06b3191a9ede0d98e4e94dda5e1ddaea60655c1ef2fc7bf7f93fe90658211ccd",
+      "log_sha256": "1390fe5f5c13a1743f40b6627fb9c5a4887dc28217721613daf7390b9adcd2dc",
+      "passed": 39
+    },
+    "llm": {
+      "duration_seconds": 124.709,
+      "junit_sha256": "7d69649ca41b02e7b455738793b6729d08b30f2853dcc4c597d2d237fed5e2ee",
+      "log_sha256": "3d4975864715c32b242d92331b60782b3d729fc416237ed78215178c1837f934",
+      "passed": 489
+    },
+    "regression": {
+      "duration_seconds": 478.72,
+      "junit_sha256": "f44cf6c93758f8c2c68b6ec60fe57cf305fd03f34f24d71764354d2f533f7ce7",
+      "log_sha256": "3c3a483113b6e227f42679d4e7694879c07f7f03ba5d1e4b6e57828fff0fc7f9",
+      "passed": 593
+    }
+  },
+  "three_new_outputs_reviewed": [
+    {
+      "academic_validity_verified": false,
+      "complete_relative_to_frozen_target": true,
+      "entailed_relative_to_quoted_evidence": true,
+      "human_reviews": 0,
+      "notes": "Decision720/date/pilot retained verbatim; extra same-source context; unknown version/variant and validity warning retained.",
+      "question_id": "A7P-Q013",
+      "readability_gain_measured": false,
+      "response_sha256": "a746d0c1bc462e9fc58ea7d37ff89ae90019b8349efa08a2d2220b11d8aa591d",
+      "reviewer_kind": "AI root nonblind/exposed",
+      "source_target_sha256": "eadbdab3e1f082abd2940ce4cbf595cc22911bc087ad1844c96b74bc72516688"
+    },
+    {
+      "academic_validity_verified": false,
+      "complete_relative_to_frozen_target": true,
+      "entailed_relative_to_quoted_evidence": true,
+      "human_reviews": 0,
+      "notes": "Complete visual-channel unit and examples; AI generated needs_review label/consent/no official assessment or external AI citation URL.",
+      "question_id": "A7P-Q020",
+      "readability_gain_measured": false,
+      "response_sha256": "6f3eef7086fdd509959010c62fa6fdbe7b26b0967352e8678b1dcf8bfe24d42f",
+      "reviewer_kind": "AI root nonblind/exposed",
+      "source_target_sha256": "6f68a22152bce9a9431120bd04719a1bef1711a627699445f4a4662a439502fa"
+    },
+    {
+      "academic_validity_verified": false,
+      "complete_relative_to_frozen_target": true,
+      "entailed_relative_to_quoted_evidence": true,
+      "human_reviews": 0,
+      "notes": "Logic/modeling and explicit prerequisite-to-further-study relationship are in the same rendered quote; no enrollment/eligibility promise.",
+      "question_id": "A7P-Q027",
+      "readability_gain_measured": false,
+      "response_sha256": "07179cb4e4043f67e3436f4ac6de304f929167097e0f6e34b8463897ffb01614",
+      "reviewer_kind": "AI root nonblind/exposed",
+      "source_target_sha256": "1dfbd91fcc0b80a6c535a1d2fd6a1c59bc50fcdcd12d42b423928053f495dbd2"
+    }
+  ]
+}

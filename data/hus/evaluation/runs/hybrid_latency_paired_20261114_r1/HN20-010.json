@@ -1,0 +1,99 @@
+{
+  "id": "HN20-010",
+  "request": {
+    "question": "Ngành Khoa học dữ liệu có định hướng nghề nghiệp nào?",
+    "major": "mathematics_informatics",
+    "version": "QD3567-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "order": [
+    "hybrid_optimized_signature",
+    "hybrid_legacy_signature",
+    "lexical_reference"
+  ],
+  "modes": {
+    "hybrid_optimized_signature": {
+      "seconds": 0.0026903999969363213,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "scope_conflict",
+            "suggested_major": "data_science"
+          }
+        }
+      }
+    },
+    "hybrid_legacy_signature": {
+      "seconds": 0.0021303000394254923,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "scope_conflict",
+            "suggested_major": "data_science"
+          }
+        }
+      }
+    },
+    "lexical_reference": {
+      "seconds": 0.0019943000515922904,
+      "search_called": false,
+      "retrieval_calls": [],
+      "spans": [],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Bạn đang chọn Toán tin nhưng câu hỏi nhắc đến Khoa học dữ liệu. Hãy chọn Khoa học dữ liệu ở ô ngành rồi hỏi lại.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics_informatics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "scope_conflict",
+            "suggested_major": "data_science"
+          }
+        }
+      }
+    }
+  },
+  "legacy_optimized_exact_response_and_trace_equal": true
+}

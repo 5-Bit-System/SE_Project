@@ -1,0 +1,28 @@
+{
+  "F2_canonical_values_checked": 8,
+  "Google_calls": 0,
+  "controls_no_call": 6,
+  "exact_source_quotes_checked": 32,
+  "example_assumption_notes_cases": [
+    "SV30-005",
+    "SV30-017"
+  ],
+  "focus_findings_cases": [
+    "SV30-005",
+    "SV30-011",
+    "SV30-017",
+    "SV30-023"
+  ],
+  "historical_live_used": 23,
+  "historical_positive_fallback": 1,
+  "kind": "AI_preliminary_student30_review_not_team_acceptance",
+  "new_accuracy_score": null,
+  "note": "Comments authored after reading all30 replies; source/hash assertions support integrity, not semantic truth. Human columns intentionally blank.",
+  "original_review_csv_sha256": "58b3d3843ad70ddcaac888f6e26a964d74bf343cda6301f9969fe11a073921a6",
+  "pack_manifest_sha256": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+  "reviewed_by_AI": 30,
+  "run_manifest_sha256": "7790d63e69b6d46d7e58f040a1bb10123560c11f2dc627b3b2ae54bd0ff96980",
+  "runtime_changed": false,
+  "team_pending": 30,
+  "team_reviewed": 0
+}

@@ -1,0 +1,41 @@
+{
+  "access_observed_successfully": true,
+  "actual_model": "gemini-3.5-flash-lite",
+  "budget_remaining": 0,
+  "completion_tokens_below1024": true,
+  "fallback_exact_canonical": true,
+  "generated_rewrite_used": false,
+  "generation_error": "invalid_output",
+  "google_calls_this_grant": 1,
+  "http_status": 200,
+  "independent_old_key_revocation_verified": false,
+  "kind": "cached_verification_of_single_access_check",
+  "l5_quality_or_l6_acceptance": false,
+  "limitation": "output_text groups blank/linebreak/structure/link-HTML/restored-length checks. Without raw output, the exact failing subcheck cannot be identified; do not guess or relax guards.",
+  "live_manifest_sha256": "48432218a7e8d6abbfb382b7ed5179fba9b9492e65597768eae25ea1d6ad7017",
+  "new_verification_calls": 0,
+  "next_steps": [
+    "Offline investigation of output_text/b001 with bounded synthetic diagnostics; do not claim source facts/coverage were evaluated after this early reject.",
+    "Any further Google call needs a new budget, including retry/smoke/tokenizer/model-list.",
+    "L5 A/B needs separately authorized cohort and same A/retrieval/snapshot/pins; L6 remains off."
+  ],
+  "old_A_requests_retrieval_snapshot_prompt_gold_audits_identical_to_r4": true,
+  "persistent_default_changed": false,
+  "prepared_current_pins_match": true,
+  "prepared_manifest_sha256": "b63724a77396f582d29a75fcf17ada48a16592ecdd3bb5b7870215aed76b35b6",
+  "protected_files_unchanged": 2949,
+  "provider_ms": 2738.059399998747,
+  "raw_model_or_error_output_retained": false,
+  "runtime_data_old_gold_runs_reviews_unchanged": true,
+  "source_audits": 36,
+  "tests": "No repository suite rerun; previous564LLM/UI tests historical, code bindings unchanged.",
+  "usage": {
+    "completion_tokens": 245,
+    "prompt_tokens": 934,
+    "total_tokens": 1179
+  },
+  "validation": {
+    "leaf_id": "b001",
+    "stage": "output_text"
+  }
+}

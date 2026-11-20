@@ -10,6 +10,8 @@ class HUSRetrievalSettings:
     index_path: str | None = None
     model_cache: str | None = None
     expected_index_id: str | None = None
+    contract_path: str | None = None
+    passage_path: str | None = None
 
     @classmethod
     def from_env(cls, environ: Mapping | None = None):
@@ -20,7 +22,8 @@ class HUSRetrievalSettings:
         if value == 'lexical':
             return cls(value)
         paths = [env.get(key) for key in ('HUS_VECTOR_INDEX_PATH', 'HUS_VECTOR_MODEL_CACHE',
-                                         'HUS_VECTOR_EXPECTED_INDEX_ID')]
+                                         'HUS_VECTOR_EXPECTED_INDEX_ID', 'HUS_VECTOR_CONTRACT_PATH',
+                                         'HUS_VECTOR_PASSAGE_PATH')]
         if any(path is not None and type(path) is not str for path in paths):
             raise ValueError('Vector configuration values must be strings')
         return cls(value, *paths)

@@ -1,0 +1,194 @@
+[
+  {
+    "field_or_control": "careers",
+    "id": "FREE-01",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics",
+      "program_variant": null,
+      "question": "Em tốt nghiệp Toán học rồi thì có thể làm những công việc gì?",
+      "version": "QD3565-2023"
+    },
+    "requested_course": null
+  },
+  {
+    "field_or_control": "careers",
+    "id": "FREE-02",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics_informatics",
+      "program_variant": null,
+      "question": "Học xong ngành Toán tin, em có thể làm việc trong lĩnh vực nào?",
+      "version": "QD3567-2023"
+    },
+    "requested_course": null
+  },
+  {
+    "field_or_control": "credits",
+    "id": "FREE-03",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics",
+      "program_variant": null,
+      "question": "Trong khung Toán học, học phần Đại số tuyến tính 1 được ghi mấy tín chỉ?",
+      "version": "QD3565-2023"
+    },
+    "requested_course": "MAT2300"
+  },
+  {
+    "field_or_control": "credits",
+    "id": "FREE-04",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "computer_science",
+      "program_variant": null,
+      "question": "Cho em biết số tín chỉ được ghi cho học phần MAT1204 trong chương trình KHMTTT nhé.",
+      "version": "QD3568-2023"
+    },
+    "requested_course": "MAT1204"
+  },
+  {
+    "field_or_control": "prerequisites",
+    "id": "FREE-05",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics_informatics",
+      "program_variant": null,
+      "question": "Trước khi học Lập trình hướng đối tượng thì em cần hoàn thành môn nào?",
+      "version": "QD3567-2023"
+    },
+    "requested_course": "MAT1202"
+  },
+  {
+    "field_or_control": "prerequisites",
+    "id": "FREE-06",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "data_science",
+      "program_variant": null,
+      "question": "Trước khi học MAT3533, phải hoàn thành học phần nào trước?",
+      "version": "QD3569-2023"
+    },
+    "requested_course": "MAT3533"
+  },
+  {
+    "field_or_control": "content",
+    "id": "FREE-07",
+    "request": {
+      "allow_generated_reference": true,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics_informatics",
+      "program_variant": null,
+      "question": "Trong nội dung MAT1202, đóng gói giúp bảo vệ trạng thái đối tượng như thế nào?",
+      "version": "QD3567-2023"
+    },
+    "requested_course": "MAT1202"
+  },
+  {
+    "field_or_control": "content",
+    "id": "FREE-08",
+    "request": {
+      "allow_generated_reference": true,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "data_science",
+      "program_variant": null,
+      "question": "MAT3533 học gì về mô hình khớp quá sát dữ liệu huấn luyện?",
+      "version": "QD3569-2023"
+    },
+    "requested_course": "MAT3533"
+  },
+  {
+    "field_or_control": "scope_conflict",
+    "id": "FREE-09",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "data_science",
+      "program_variant": null,
+      "question": "Trong khung KHMTTT, học phần MAT1204 được tính mấy tín chỉ?",
+      "version": "QD3569-2023"
+    },
+    "requested_course": null
+  },
+  {
+    "field_or_control": "permission_required",
+    "id": "FREE-10",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics_informatics",
+      "program_variant": null,
+      "question": "Trong phần học MAT1202, lớp và đối tượng khác nhau như thế nào?",
+      "version": "QD3567-2023"
+    },
+    "requested_course": null
+  },
+  {
+    "field_or_control": "official_assessment",
+    "id": "FREE-11",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics",
+      "program_variant": null,
+      "question": "Bài thi cuối kỳ của Đại số tuyến tính 1 chiếm mấy phần trăm?",
+      "version": "QD3565-2023"
+    },
+    "requested_course": null
+  },
+  {
+    "field_or_control": "prerequisites",
+    "id": "FREE-12",
+    "request": {
+      "allow_generated_reference": false,
+      "course_code": null,
+      "dataset": "auto",
+      "field": null,
+      "group_key": null,
+      "major": "mathematics",
+      "program_variant": null,
+      "question": "Khung đã lưu ghi gì về học phần cần hoàn thành trước khi học MAT2300?",
+      "version": "QD3565-2023"
+    },
+    "requested_course": "MAT2300"
+  }
+]

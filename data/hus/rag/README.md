@@ -21,9 +21,19 @@ web qua URL gốc, F3 hiện “kiến thức AI”; DOCX tải đúng loại, n
 Xem [hướng dẫn P0-2](../../../docs/RAG_P02_CITATIONS.md). Binary có registry ghim với
 v3 riêng, không thay đổi payload/manifest release hay nâng trạng thái review.
 
-## Nguồn runtime hiện tại — P0-1
+## Nguồn runtime hiện tại — F3 v2 / v4 (11/11/2026)
 
-Runtime local chọn **`CURRENT.json` → `releases/hus-data-20261031-v3`**. Adapter kiểm
+`CURRENT.json` chọn **`releases/hus-data-20261111-v4`** cho demo local: 65 F1,
+336 F2 và 1.753 F3 chunks. F3 chỉ có `content`/`objectives`, giữ opt-in/nhãn AI;
+F1/F2 và dữ kiện/review kế thừa nguyên trạng. Giữ lexical, LLM tắt; index v3
+không dùng cho v4. Snapshot v3 được giữ để rollback. Process cũ cần restart/
+clear cache và reload UI; `HUS_RAG_ROOT` riêng sẽ ưu tiên root đó.
+Xem [lựa chọn/rollback](../../../docs/HUS_F3_V2_INTEGRATION.md) và
+[receipt mới](../qa/20261111/f3_runtime_selection_r1/report.json).
+
+## Nguồn portable v3 — lịch sử P0-1
+
+Tại mốc P0-1, runtime local chọn **`CURRENT.json` → `releases/hus-data-20261031-v3`**. Adapter kiểm
 46 payload, ghim một snapshot cho mỗi request và không fallback về legacy nếu pointer/
 hash sai. Có 65 F1, 336 F2 và 870 F3 chunks; F2 vẫn được API tra cấu trúc, không nạp
 lặp text chunks. Canonical F2 giữ 67 membership KHMTTT có sign-off cấp dự án và 223

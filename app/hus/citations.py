@@ -36,7 +36,8 @@ class CitationResolver:
         allowed = {p["sha256"] for p in self.pdfs.values()}
         allowed.update(c["sha256"] for s in self.sources.values()
                        if (c := s.get("recovered_capture")) and c["file_type"] in {"pdf", "docx"})
-        self.assets = CitationAssets(asset_root, data.release_identity["release_sha256"], allowed)
+        asset_release = context.get('asset_release_sha256', data.release_identity['release_sha256'])
+        self.assets = CitationAssets(asset_root, asset_release, allowed)
         pages = defaultdict(list)
         for page in context["recovered_pages"]:
             pages[page["document_id"]].append(page)

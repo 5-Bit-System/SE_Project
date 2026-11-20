@@ -1,0 +1,73 @@
+{
+  "A7S_cached_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "L5_prepared_r4_pins_match": true,
+  "all_anchor_ranges_verified": 53,
+  "all_snapshot_item_pointers_verified": 36,
+  "current_core_concept_status_counts": {
+    "core_supported": 36,
+    "open": 0,
+    "partial": 0
+  },
+  "date": "2026-11-13",
+  "failed_HTTP_captures": [
+    {
+      "http_status": 404,
+      "requested_url": "https://guides.library.cornell.edu/critically_analyzing/sources",
+      "source_id": "R12"
+    },
+    {
+      "http_status": 502,
+      "requested_url": "https://writingcenter.gmu.edu/writing-resources/research-based-writing/how-to-write-a-research-question",
+      "source_id": "R14"
+    },
+    {
+      "http_status": 404,
+      "requested_url": "https://textbooks.math.gatech.edu/ila/coordinates.html",
+      "source_id": "L14"
+    }
+  ],
+  "full_item_or_example_coverage_verified": false,
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "kind": "supplemental_reference_gap_review_not_HUS_academic_approval",
+  "mappings": 36,
+  "new_Google_inference_for_source_review": 0,
+  "new_anchors": 24,
+  "new_repository_tests_added_or_run": false,
+  "new_successful_HTTP_captures": 21,
+  "newly_mapped_prior_gaps": 21,
+  "official_HUS_promotions": 0,
+  "old_290_F3_records_generated_needs_review": true,
+  "pdf_images_viewed": 6,
+  "pdf_pages_rendered": 12,
+  "prior_status_counts": {
+    "core_supported": 15,
+    "open": 2,
+    "partial": 19
+  },
+  "q001_standard_first_intake_and_applicability": "still_open_keep_unknown",
+  "records": 4,
+  "runtime_changed": false,
+  "selected_arithmetic_checks": 3,
+  "separately_user_authorized_diagnostic_during_turn": "google_diagnostic_r2: one call, provider reports key_reported_leaked; no more calls authorized",
+  "stage_commit_push_PR_Actions_deploy": false,
+  "status_definitions_unchanged": true,
+  "v4_source_gold_old_reviews_changed": false
+}

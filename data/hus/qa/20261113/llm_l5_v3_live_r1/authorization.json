@@ -1,0 +1,27 @@
+{
+  "allowed_live_run": "data/hus/evaluation/runs/llm_l5_v3_google_20261113_r1",
+  "authorization": "Explicit user reply: Cho phep toi da 24 loi goi Google moi",
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "controls": 12,
+  "enable_default_llm": false,
+  "input_token_cost": "unknown",
+  "key_handling": "Existing backend root .env loaded internally by approved runner only; no print/edit/template read.",
+  "max_calls": 24,
+  "max_output_tokens_per_call": 1024,
+  "max_total_output_tokens": 24576,
+  "min_interval_seconds": 5,
+  "model": "gemini-3.5-flash-lite",
+  "model_switch": false,
+  "per_family": {
+    "f1": 8,
+    "f2": 8,
+    "f3": 8
+  },
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r1",
+  "prepared_manifest_sha256": "0e111799ed0e172653c1bfe6bb6bedb0f3ff9e79aa8ffa020d12e15399afe2a6",
+  "prompt_chars": 98268,
+  "question_item": "call_01ab4caa543d4e99b839e05a96fa2932:0",
+  "recorded_at_utc": "2026-11-12T17:55:35.249479+00:00",
+  "retries": 0,
+  "stop_after_429": true
+}

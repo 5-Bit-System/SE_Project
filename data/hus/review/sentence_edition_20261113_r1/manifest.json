@@ -1,0 +1,17 @@
+{
+  "files_sha256": {
+    "captures.json": "8d565af370c560f27fced04db02a5acc54328e2e0d407efd05e3ade2409dc03f",
+    "fields.json": "ee7b834db2f14579f6626a95fae305304930d205d1ac66e05411c6c0043ef08b",
+    "glossary.json": "5793833ffb5eac9c5ba208451c145a10e87f8d530f0e27adfd0039da647bf625",
+    "human_review_template.json": "ae3f3eec1a5716be25f60db2c956712ac35dd660624cf9492514db932bfda00c",
+    "illustration_checks.json": "bd80fe6febd274c1d3d2e231faa12b8b2b02e6eada45ab39b2408659fab88a69",
+    "input_bindings.json": "a42fe6f40cc4863543638ef428e595808f09ba0617af218c8f56a06eba025a14",
+    "q001_chain.json": "43d48b0d9bf3d16cc8c73925eb1907e06aa2618019b3b151c6ed36882d33b065",
+    "reference_anchors.json": "0da0528420986a5f2986446690245760e77aa0ba485744431a954988d62f3fea",
+    "reference_registry.json": "6b63ef3840fd3573833f422bfdcad65040e0d8c198ced516b2fbd197b67e4d61",
+    "report.json": "cc277627a07a895183986c02f3feee37c740e967be78e4955c247147a00f9c65",
+    "sentences.json": "b33606cfd0c7312d356a53399e0241217216aa1a7a5d22ae1f7767d1226f7889",
+    "syllabus_comparison.json": "25cf658fcc3eb12a9929b3231bb2cf71e7b77fb9365e0ed699c8a6cfb8135aab"
+  },
+  "schema_version": "hus-sentence-edition-review-1.0"
+}

@@ -1,0 +1,353 @@
+{
+  "L5_r5_pins_current": false,
+  "allowed_changed": {
+    "tools/evaluate_hus_a7.py": {
+      "after": "8e2ef5a086c2482f2e4c544ee4fc045d70b01c5b5e68c2e66f956afde8f0144d",
+      "before": "eeaeb1fa5b6b02c947707b6c5f20f62a0ae98985bb5649b7ff1b9fbd50f86d32"
+    }
+  },
+  "binary_evidence": "15local source route byte/hash/content-type checks across9physical files(8PDF1DOCX); not newexternal downloads or visualacademic review.",
+  "by_major": [
+    {
+      "complete": 7,
+      "controls_contract_correct": 2,
+      "f2_correct": 3,
+      "major": "computer_science",
+      "positive_denominator": 9,
+      "retrieval_denominator": 6,
+      "routed_recall": 6.0
+    },
+    {
+      "complete": 6,
+      "controls_contract_correct": 3,
+      "f2_correct": 3,
+      "major": "data_science",
+      "positive_denominator": 9,
+      "retrieval_denominator": 6,
+      "routed_recall": 5.0
+    },
+    {
+      "complete": 6,
+      "controls_contract_correct": 3,
+      "f2_correct": 3,
+      "major": "mathematics",
+      "positive_denominator": 9,
+      "retrieval_denominator": 6,
+      "routed_recall": 5.0
+    },
+    {
+      "complete": 8,
+      "controls_contract_correct": 3,
+      "f2_correct": 3,
+      "major": "mathematics_informatics",
+      "positive_denominator": 9,
+      "retrieval_denominator": 6,
+      "routed_recall": 6.0
+    }
+  ],
+  "code_bindings": {
+    "tests/hus/test_a7_bounded_candidate.py": "20b03ca03b10f61b32e6014f615a5f36e0926836f2aa4575a4ecc47c4a22b592",
+    "tools/evaluate_hus_a7.py": "8e2ef5a086c2482f2e4c544ee4fc045d70b01c5b5e68c2e66f956afde8f0144d",
+    "tools/hus_a7_bounded_cases.py": "273caaae274aaf92be8e0dddf292374bceb9d667d8435b493802501c422185e1"
+  },
+  "code_review": {
+    "completed_review": "author self-review beforefreeze",
+    "findings": [],
+    "fresh_context_attempt": "failed usage limit before review evidence",
+    "independent": false,
+    "no_fresh_reviewer_success_claim": true
+  },
+  "completed": true,
+  "coverage_limits": "Unresolved old enumeration/branch/orientation cases remain held; new source-scoped/narrow history request is not old case success.10F1target reuse, zero F2/F3record reuse in scanned priorA7targets; concepts/sources exposed.",
+  "default": "v4/lexical/LLMoff",
+  "exact_requests": 48,
+  "false_abstention_qids": [
+    "A7B-Q001",
+    "A7B-Q009",
+    "A7B-Q014",
+    "A7B-Q015",
+    "A7B-Q021",
+    "A7B-Q027",
+    "A7B-Q032",
+    "A7B-Q033",
+    "A7B-Q045"
+  ],
+  "freeze": {
+    "exposure_inputs_count": 131,
+    "frozen_at_utc": "2026-11-13T16:36:58.820858+00:00",
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "overlap_count": 0,
+    "pack_manifest_sha256": "d3bf687366e7e07e60f8b9499535679ffae2510275647737a3ca3413ed556d81",
+    "pins_stable": true,
+    "regression_literal_inputs_count": 95,
+    "reused_record_count": 0,
+    "reused_target_count": 10,
+    "review": "author self-review after fresh-context reviewer failed usage limit; not independent code review",
+    "structure": {
+      "by_major": {
+        "computer_science": 12,
+        "data_science": 12,
+        "mathematics": 12,
+        "mathematics_informatics": 12
+      },
+      "controls": 12,
+      "f2_lookups": 12,
+      "questions": 48,
+      "retrieval_eligible": 24
+    }
+  },
+  "held_contract_disposition": {
+    "A7R-Q025": "unresolved_source_branch; no new runtime behavior",
+    "A7R-Q037": "history_plus_orientation_not_proven; no dropped_requirement",
+    "DEV-Q002": "enumeration_vs_comparison_unresolved; old assertion preserved"
+  },
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "kind": "A7B_exposed_source_first_lexical_measurement_and_AI_review",
+  "latency_scope": "Local TestClient HTTP wall time; cold first request retained; excludes source auditing/review.",
+  "live_google_budgets": "all spent; no newpermission",
+  "measurement_manifest_sha256": "f86649c3fddbd51443d3f5b2247f3a8c992bf8ca065e314d647327d03c364e18",
+  "metrics": {
+    "abstention": {
+      "control_audit_failures": 1,
+      "control_failures": 1,
+      "correct_contract_clarification": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "correct_missing_or_out_of_scope": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "correct_opt_in_clarification": {
+        "denominator": 4,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "false_abstention": {
+        "denominator": 36,
+        "numerator": 9,
+        "value": 0.25
+      },
+      "http_errors": 0
+    },
+    "cases": 48,
+    "citation_source_support": {
+      "actual_human_reviews": 0,
+      "ai_completeness": {
+        "denominator": 36,
+        "numerator": 27,
+        "value": 0.75
+      },
+      "ai_end_to_end_supported_complete": {
+        "denominator": 36,
+        "numerator": 27,
+        "value": 0.75
+      },
+      "ai_entailment": {
+        "denominator": 27,
+        "numerator": 27,
+        "value": 1.0
+      },
+      "ai_review_coverage": {
+        "denominator": 36,
+        "numerator": 36,
+        "value": 1.0
+      },
+      "definition": "Quote/anchor coverage is not entailment. Semantic judgments require a separate exact-response-bound AI review.",
+      "gold_quote_coverage_proxy": {
+        "denominator": 24,
+        "numerator": 15,
+        "value": 0.625
+      },
+      "integrity_among_answered_positive": {
+        "denominator": 27,
+        "numerator": 27,
+        "value": 1.0
+      },
+      "reviewer_kind": "ai"
+    },
+    "f2": {
+      "by_field": {
+        "credits": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "name": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        },
+        "prerequisites": {
+          "denominator": 4,
+          "numerator": 4,
+          "value": 1.0
+        }
+      },
+      "definition": "Exact source facts/status and intent, independent audit and scope; raw values never normalized into empty lists.",
+      "source_contract_success": {
+        "denominator": 12,
+        "numerator": 12,
+        "value": 1.0
+      }
+    },
+    "filters": {
+      "anchor_excluded_by_observed_filter": 1,
+      "errors": {
+        "ai_opt_in": 0,
+        "course_code": 0,
+        "major": 0,
+        "program_variant": 0,
+        "review": 0,
+        "version": 0
+      },
+      "observed_search_cases": 23
+    },
+    "latency": {
+      "definition": "Nearest-rank p50/p95 of recorded local warmed TestClient HTTP wall time; excludes source auditing/review.",
+      "http_ms": {
+        "count": 48,
+        "max_ms": 83.4518,
+        "min_ms": 4.8515,
+        "p50_ms": 35.7327,
+        "p95_ms": 74.2241
+      }
+    },
+    "raw_legacy": null,
+    "retrieval": {
+      "conditional_recall_at_5": {
+        "denominator": 23,
+        "numerator": 22.0,
+        "value": 0.9565217391304348
+      },
+      "definition": "Macro recall over all F1/F3 positives, first actual search top5 and anchor scope; no-call is zero.",
+      "no_call_misses": 1,
+      "post_retrieval_false_abstention": 8,
+      "routed_recall_at_5": {
+        "denominator": 24,
+        "numerator": 22.0,
+        "value": 0.9166666666666666
+      },
+      "search_call_coverage": {
+        "denominator": 24,
+        "numerator": 23,
+        "value": 0.9583333333333334
+      }
+    },
+    "routing": {
+      "missing_observation_cases": 0,
+      "positive_dataset_and_field": {
+        "denominator": 36,
+        "numerator": 34,
+        "value": 0.9444444444444444
+      },
+      "stage": "classifier_before_scope_and_evidence_guards"
+    }
+  },
+  "new_LLM_quality_measurement": false,
+  "new_replay": {
+    "current_pins_match": true,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": false,
+      "f2_source_facts_all_correct": true,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": true
+    }
+  },
+  "new_retrieval_measurement": true,
+  "next": "Review9refusals and2semantically wrong controls before selecting bounded repair; no runtime fixes in measurement. If used for tuning, retireA7B todev and freeze another source-first cohort.",
+  "old_a7r_cached_replay": {
+    "current_pins_match": false,
+    "new_provider_calls": 0,
+    "new_rag_inference": false,
+    "reproduced": true,
+    "technical_gates": {
+      "ai_content_review_all_complete": false,
+      "all_technical_gates_met": false,
+      "answered_source_integrity": true,
+      "controls_all_correct": true,
+      "f2_source_facts_all_correct": false,
+      "independent_or_human_acceptance": false,
+      "no_false_abstention": false,
+      "no_http_errors": true,
+      "no_scope_filter_errors": true,
+      "recall_at_5_met": false
+    }
+  },
+  "old_hus_failure": "DEV-Q002 remains unresolved and old test unchanged; no whole HUS/repository rerun.",
+  "overlay_manifest_sha256": "52850c206bda6c786d19f941417dccefe887c9e6e53f01fd9fe8ee71e14e9025",
+  "pack_manifest_sha256": "d3bf687366e7e07e60f8b9499535679ffae2510275647737a3ca3413ed556d81",
+  "protected_count": 2988,
+  "provider_calls": 0,
+  "publication": "no stage/commit/push/PR/Actions/deploy",
+  "quality_acceptance": false,
+  "review": "Root AI read every exact response/gold/quote/audit; bound hashes in separate overlay. Relative-source entailment27/27, not academic truth, current validity or official alignment.",
+  "runtime_old_tests_data_gold_runs_reviews_unchanged": true,
+  "semantic_controls": {
+    "automatic_contract_failures": [
+      "A7B-Q012"
+    ],
+    "automatic_contract_passed": 11,
+    "failures": [
+      "A7B-Q012",
+      "A7B-Q036"
+    ],
+    "meaning": "Separate rootAI judgment: Q036 status clarifies but asks a course code for programme comparison. Existing scorer intentionally unchanged, no new automatic score definition.",
+    "passed": 10,
+    "total": 12
+  },
+  "technical_gates": {
+    "ai_content_review_all_complete": false,
+    "all_technical_gates_met": false,
+    "answered_source_integrity": true,
+    "controls_all_correct": false,
+    "f2_source_facts_all_correct": true,
+    "independent_or_human_acceptance": false,
+    "no_false_abstention": false,
+    "no_http_errors": true,
+    "no_scope_filter_errors": true,
+    "recall_at_5_met": true
+  },
+  "tests": {
+    "affected.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "c1661d074406a1aab502a0be7169673c236dfbbb1921dbeb41d9261432018f9a",
+      "skipped": 0,
+      "tests": 113
+    },
+    "green.xml": {
+      "errors": 0,
+      "failures": 0,
+      "sha256": "538a71f61f0e766b4c167b957213ec90772a6050a9c4f2c3665896ddf7016484",
+      "skipped": 0,
+      "tests": 8
+    },
+    "red.xml": {
+      "errors": 0,
+      "failures": 8,
+      "sha256": "c0366254e6dd7dfbfd52dd59f4a97450161089672443ad453ad5c12d14e24872",
+      "skipped": 0,
+      "tests": 8
+    }
+  },
+  "transport_guard": {
+    "external_socket_attempts": 0,
+    "socketpair_loopback_connections": 1
+  },
+  "unchanged_protected_files": 2987,
+  "warning": "One existing Starlette/TestClient warning in affected suite"
+}

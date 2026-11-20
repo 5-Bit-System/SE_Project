@@ -1,0 +1,227 @@
+{
+  "id": "HN20-001",
+  "request": {
+    "question": "Ngành Toán học đào tạo người học theo định hướng nào?",
+    "major": "mathematics",
+    "version": "QD3565-2023",
+    "allow_generated_reference": false,
+    "allow_llm_rewrite": false
+  },
+  "expected": {
+    "dataset": "f1",
+    "field": "objectives",
+    "course_code": null,
+    "outcome": "answer",
+    "target_policy": "any listed canonical field target; diagnostic only, not expert gold",
+    "target_ids": [
+      "34707fd2672e540ed3b65cfed19f5ee7",
+      "3f891edef65b80a30ed9fdee73b47984",
+      "4104b80c6606e7a73108d521fe73a2a1",
+      "adad11c3c68978324eda714ffc880d40",
+      "ba1b006436207d86df58106033a3edf4",
+      "ee98f5ea44906381ac1ed747fbeb89c2",
+      "f8458f2c9484aa0823f83faaa575004c"
+    ]
+  },
+  "raw_question_route": [
+    "f1",
+    "introduction"
+  ],
+  "order": [
+    "lexical",
+    "hybrid"
+  ],
+  "modes": {
+    "lexical": {
+      "retrieval_calls": [
+        {
+          "query": "Ngành Toán học đào tạo người học theo định hướng nào?",
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics",
+            "version": null,
+            "course_code": null,
+            "field": "introduction",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "trace": {
+            "actual_mode": "lexical"
+          },
+          "seconds": 0.0006259999936446548,
+          "hits": [
+            {
+              "id": "e7864b281332873d47213bf53a1bf0f7",
+              "score": 2.0830180829138873,
+              "dataset": "f1",
+              "major": "mathematics",
+              "version": "unknown",
+              "field": "introduction",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "review_status": "include",
+              "quote": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học"
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "e7864b281332873d47213bf53a1bf0f7"
+          ],
+          "selected_ids": [],
+          "seconds": 0.00236169999698177
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_rejected"
+          }
+        }
+      },
+      "seconds": 0.007481599983293563,
+      "search_called": true,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "evidence_rejected",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    },
+    "hybrid": {
+      "retrieval_calls": [
+        {
+          "query": "Ngành Toán học đào tạo người học theo định hướng nào?",
+          "scope": {
+            "dataset": "f1",
+            "major": "mathematics",
+            "version": null,
+            "course_code": null,
+            "field": "introduction",
+            "program_variant": null,
+            "top_k": 5,
+            "allow_generated": false
+          },
+          "trace": {
+            "requested_mode": "hybrid",
+            "actual_mode": "hybrid",
+            "release_id": "hus-data-20261111-v4",
+            "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+            "filter_json": "{\"allow_generated\":false,\"course_code\":null,\"dataset\":\"f1\",\"field\":\"introduction\",\"major\":\"mathematics\",\"program_variant\":null,\"version\":null}",
+            "policy_json": "{\"final_k\":5,\"lexical_k\":20,\"lexical_weight\":1,\"rank_basis\":\"one_based_compact_parent_after_dedup\",\"rrf_constant\":60,\"schema_version\":\"hus-hybrid-policy-5.0\",\"tie_break\":\"canonical_parent_id\",\"vector_passage_k\":20,\"vector_weight\":1}",
+            "policy_sha256": "d35d3845739ba68cfea8399ccdcb99009604f4b22f1c6d7565c1aca11bfb768e",
+            "lexical": [
+              {
+                "parent_id": "e7864b281332873d47213bf53a1bf0f7",
+                "rank": 1,
+                "raw_score": 2.0830180829138873
+              }
+            ],
+            "vector": [
+              {
+                "parent_id": "e7864b281332873d47213bf53a1bf0f7",
+                "rank": 1,
+                "raw_score": 0.8745022416114807
+              }
+            ],
+            "vector_trace": {
+              "mode_requested": "vector",
+              "mode_used": "vector",
+              "fallback_reason": null,
+              "index_id": "1188901040ec83539b3c0ffe72991bd6feb8cf2737610d9ece922ebaa60d43c6",
+              "filter_json": "{\"$and\":[{\"family\":\"f1\"},{\"major\":\"mathematics\"},{\"release_id\":\"hus-data-20261111-v4\"},{\"release_sha256\":\"ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463\"},{\"ai_opt_in_required\":false},{\"parent_id\":{\"$in\":[\"e7864b281332873d47213bf53a1bf0f7\"]}},{\"review_status\":{\"$in\":[\"include\",\"include_markdown\"]}},{\"field\":\"introduction\"}]}",
+              "passage_ids": [
+                "e7864b281332873d47213bf53a1bf0f7#p000"
+              ],
+              "parent_ids": [
+                "e7864b281332873d47213bf53a1bf0f7"
+              ]
+            },
+            "candidate_union": [
+              "e7864b281332873d47213bf53a1bf0f7"
+            ],
+            "fused": [
+              {
+                "parent_id": "e7864b281332873d47213bf53a1bf0f7",
+                "lexical_rank": 1,
+                "vector_rank": 1,
+                "rrf_score": 0.03278688524590164
+              }
+            ],
+            "final_top5": [
+              "e7864b281332873d47213bf53a1bf0f7"
+            ],
+            "fallback_reason": null,
+            "declared_model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+          },
+          "seconds": 5.809154200018384,
+          "hits": [
+            {
+              "id": "e7864b281332873d47213bf53a1bf0f7",
+              "score": 0.03278688524590164,
+              "dataset": "f1",
+              "major": "mathematics",
+              "version": "unknown",
+              "field": "introduction",
+              "course_code": null,
+              "unit_index": null,
+              "source_url": "http://mim.hus.vnu.edu.vn/vi/toanhoc",
+              "review_status": "include",
+              "quote": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học"
+            }
+          ]
+        }
+      ],
+      "support_calls": [
+        {
+          "input_ids": [
+            "e7864b281332873d47213bf53a1bf0f7"
+          ],
+          "selected_ids": [],
+          "seconds": 0.0015980000025592744
+        }
+      ],
+      "response": {
+        "mode": "hus_rag",
+        "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+        "hus_answer": {
+          "reply": "Chưa có thông tin đủ căn cứ để trả lời. Đã tìm thấy đoạn liên quan nhưng chưa đủ căn cứ cho đúng yêu cầu/điều kiện trong câu hỏi. Hãy làm rõ ý cần hỏi.",
+          "status": "no_information",
+          "dataset": "f1",
+          "major": "mathematics",
+          "version": null,
+          "citations": [],
+          "facts": {},
+          "warnings": [],
+          "release_id": "hus-data-20261111-v4",
+          "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+          "generated_reference_allowed": false,
+          "diagnostic": {
+            "code": "evidence_rejected"
+          }
+        }
+      },
+      "seconds": 5.813042399997357,
+      "search_called": true,
+      "target_raw_rank": null,
+      "target_selected": false,
+      "diagnostic": "evidence_rejected",
+      "note": "Target hit measures a frozen canonical span, not entailment/full coverage."
+    }
+  }
+}

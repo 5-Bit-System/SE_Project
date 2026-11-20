@@ -1,0 +1,8 @@
+{
+  "files_sha256": {
+    "operator_acceptance_template.json": "190aad9a83faabd18587cfdf6b9a5a66f14bad6d2ec315fa8f622ed34e4bf0ba",
+    "report.json": "3b76d77ec127dead8b87e7ceee2bef6e34d1b44076db90e9e6494d962698c279",
+    "reported_ai_studio_banner.json": "c79b1d37a96f03d512ae867b3b7b150089c6bd13bfb0385d47a3ea9093f39f38"
+  },
+  "schema_version": "hus-l6-keep-disabled-receipt-1.0"
+}

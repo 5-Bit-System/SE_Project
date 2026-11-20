@@ -43,8 +43,8 @@ def _rows(path):
 class EvidenceOracle:
     """Read original artifacts directly; do not call loader/retriever to derive expected facts."""
 
-    def __init__(self):
-        self.package = ROOT / "data/hus/rag"
+    def __init__(self, package=None, asset_root=None):
+        self.package = Path(package) if package is not None else ROOT / "data/hus/rag"
         self.current = _read(self.package / "CURRENT.json")
         self.root = self.package / self.current["release_path"]
         self.bundle = _read(self.root / "evidence/canonical_f2.json")
@@ -59,10 +59,10 @@ class EvidenceOracle:
         self.curricula = {(PROGRAMS[c["major_code"]][0], c["curriculum_version"]): c["curriculum_id"]
                           for c in self.tables["curricula"]}
         self.f2_url = next(iter(self.records.values()))["citation"]["url"]
-        self.asset_root = ROOT / "data/hus/citation_assets"
+        self.asset_root = Path(asset_root) if asset_root is not None else ROOT / "data/hus/citation_assets"
         self.asset_registry = _read(self.asset_root / "registry.json")
         self.sources = {s["source_id"]: s for s in _rows(self.root / "sources.jsonl")}
-        assert self.asset_registry["release_sha256"] == self.current["release_sha256"]
+        self.check_asset_binding()
         unsigned = {k: v for k, v in self.asset_registry.items() if k != "registry_sha256"}
         registry_bytes = (json.dumps(unsigned, ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode()
         assert hashlib.sha256(registry_bytes).hexdigest() == self.asset_registry["registry_sha256"]
@@ -73,6 +73,12 @@ class EvidenceOracle:
             loc = chunk["citation"]
             source = (self.root / loc["evidence_path"]).read_text(encoding="utf-8")
             assert source[loc["start_char"]:loc["end_char"]] == chunk["source_quote"]
+
+    def check_asset_binding(self):
+        assert self.asset_registry["release_sha256"] == self.current["release_sha256"]
+
+    def check_f3_quote(self, citation, original):
+        assert citation["quote"] == original["text"]
 
     def expected_f1_pages(self, source_id, quote):
         """Independent character ownership oracle; never call CitationResolver._quote_pages.
@@ -186,7 +192,7 @@ class EvidenceOracle:
                     assert kind == "web" and citation["availability"] == "unverified"
             else:
                 assert original["course_code"] == code and original["scope"]["curriculum_version"] == version
-                assert citation["quote"] == original["text"]
+                self.check_f3_quote(citation, original)
                 record = self.f3_records[original["record_id"]]
                 assert citation["review_status"] == record["review_status"]
                 assert meta["warning"] == record["warning"] and record["warning"] in answer["warnings"]

@@ -1,0 +1,130 @@
+{
+  "auto_contract_controls": 11,
+  "bound_to_exact_saved_responses": true,
+  "human_reviews": 0,
+  "rows": [
+    {
+      "decision": "pass",
+      "gold_sha256": "f5e1f8ae43d0eba5f8ba4b6b947763d898e6de9d1f7c4c3284dab13b92f0f1cd",
+      "not_independent_or_human": true,
+      "notes": "Quyền AI false: needs_clarification đúng yêu cầu bật quyền, không facts/citation/nội dung phát ra.",
+      "question_id": "A7B-Q010",
+      "request_sha256": "c2a898759f113c63ed2f2bf756daa0e36700c72bab81621111aff505cfe31917",
+      "response_sha256": "0f90c371809dd03dc81f76573961147e18b59b16f9b55ef07185df5d6d78d7e2",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "de7ab1e50fb1918363c990afafccc4dd6aef629b0c371d4acc123fc9c6ae17cd",
+      "not_independent_or_human": true,
+      "notes": "F3không có suggested_assessment: no_information, không tự dựng gợi ý đánh giá hoặc facts/citation.",
+      "question_id": "A7B-Q011",
+      "request_sha256": "ac6fed314c049b8d82c25d324245aa26075bc505fc130ecb307871e678ac3ea8",
+      "response_sha256": "1c0dd7b411a101a81ccd97ca58a89b4f84326133b0e728dfaec30288b8542e1e",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "fail",
+      "gold_sha256": "07eed410cd4453949ecc10d2cdb5a3670fe5322b0bc521f7f1c51feb3234add6",
+      "not_independent_or_human": true,
+      "notes": "Chào/chúc ngày học tập không vào basic_chat; hus_rag/no_information với lời từ chối phạm vi. Control fail, dù không rò facts/citation.",
+      "question_id": "A7B-Q012",
+      "request_sha256": "9517dd4362f3cc2d72aeb48209dcb43ab5053b1ec23f766b2ca7df367c8de04a",
+      "response_sha256": "d03f9e3a2c379acd35c3122fd11fe47db5325f8e1f386ddf7be63191033dc18a",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "fb378ea8046d804a122530a44fbb60d2cc4bc2b93631d02bc9b9edc448eca49b",
+      "not_independent_or_human": true,
+      "notes": "Chưa quyền AI: làm rõ quyền đúng, không dữ kiện hoặc citation AI.",
+      "question_id": "A7B-Q022",
+      "request_sha256": "edad28dda9e98a4f304ba9bcc33373b5e28f29f4a272ff82486f45164de637cd",
+      "response_sha256": "873313d415a522d1b78213d9de6389878de4ba84232091b43759f38928ee8f10",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "19f7ddfd7df47de25d6430aac9d87ad1c2f31236ee7ea44f243536dea2c3cbe3",
+      "not_independent_or_human": true,
+      "notes": "Không có assessment: no_information đúng, không sinh thêm dữ liệu.",
+      "question_id": "A7B-Q023",
+      "request_sha256": "a12fe1a90e8a48a35c3d765cb19728bea21224e6010f1d20ed0efe6c6f36dfc6",
+      "response_sha256": "45d688e55115bd2ad36c65bfe060d0c88149eb96b6bd789a0a02193689c93e88",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "b9978be8ef4921a8f142b855914366912b5f1b70907ab57808a93682e171b02a",
+      "not_independent_or_human": true,
+      "notes": "Đang KHDL hỏi MAT3539 Toán tin: no_information khác ngành, không facts/citation rò scope.",
+      "question_id": "A7B-Q024",
+      "request_sha256": "692e88230296f649d14abf5c16a9289f874e696059ce947eae09ec607c2ef2fe",
+      "response_sha256": "051b308bd655cb651d0baa6dd760515a5b8d80bba3aa4bf3d2133a9d9649ba7f",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "3d5ef422488be6e57e193a4fdcee1b67f17a5b4e676e4ac922d1bf81348e7ad0",
+      "not_independent_or_human": true,
+      "notes": "Opt-infalse: làm rõ quyền AI, không cite/phát nội dung.",
+      "question_id": "A7B-Q034",
+      "request_sha256": "8648cbfb3d82376e00b2d2a7925b82ccfa8ef55725fdfe6d0a3967feb66d5698",
+      "response_sha256": "b0369be6c4c20827dd1678d9f8c11abdfcd43c4aa34cf95ec09262fbbe7b382d",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "c48f243644c39af10176ab95ed233ef2a20c1919f6a6c091b31fc4efeaefeed8",
+      "not_independent_or_human": true,
+      "notes": "Suggested_assessment không tồn tại: no_information, không bịa cách thi/đánh giá.",
+      "question_id": "A7B-Q035",
+      "request_sha256": "c0f3c0e7e430bd5ab63bac4014c4cf5935492e9900c7494d9406fd9eb8882827",
+      "response_sha256": "e40141d6842fdc91c30be049e80578e849fbe63898f6ed34ea64bed30dcce086",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "fail",
+      "gold_sha256": "22add8087dfa2f41f0c086cbfa65210b6cd35c6ee4b2da04422f5f775bd07f20",
+      "not_independent_or_human": true,
+      "notes": "Status needs_clarification và không facts/citation đạt contract control tự động. Nhưng lý do hỏi mã học phần là sai ngữ cảnh: câu so sánh hai CTĐT bị route F3content. Ghi semantic-control fail riêng; không đổi scorer/gold hoặc nâng11/12 thành nghiệm thu controls đầy đủ.",
+      "question_id": "A7B-Q036",
+      "request_sha256": "c93a32fb82f2ecfeaa93459b56482bb8d97875f222a7bf80d93e0104e7dfa3c6",
+      "response_sha256": "f98cabf6475fa9c5e4cd91420a3f95d542e5085c35968b760e340ee725980e44",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "f314fce138ee236e1738b6b94411a3784fefa9566a8cb3ecbdc15eb1bdbe5673",
+      "not_independent_or_human": true,
+      "notes": "Opt-infalse: needs_clarification yêu cầu quyền, không nội dung/citation AI.",
+      "question_id": "A7B-Q046",
+      "request_sha256": "b917ce5d3e25720479958e8bd187021a9c35f63204f986c5289e83187ea6dc83",
+      "response_sha256": "ac2304d7f70ffc0b373743285e7fb1214988332aa549be81424f84fc48036c9e",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "17cf37751f30b916b327f925030ab27dca83830d6031a6de6dc8dabb0f6da489",
+      "not_independent_or_human": true,
+      "notes": "Thiếu fieldassessment: no_information đúng, không tự tạo assessment.",
+      "question_id": "A7B-Q047",
+      "request_sha256": "897a026c2a58c77a6cc3e01cad922849a2061608402db221879087c82986d131",
+      "response_sha256": "3541234e853f2546bf99e5447a41143bc630d7ad113985a474de76daf1e790d4",
+      "status_only_scorer_unchanged": true
+    },
+    {
+      "decision": "pass",
+      "gold_sha256": "8ca484b40710a078a1fd5980796f34b11304a1208cbaffaec2f7dbeba1317e9b",
+      "not_independent_or_human": true,
+      "notes": "Hỏi credits vàcontent đồng thời: needs_clarification yêu cầu chọn một loại thông tin, không facts/citation/search.",
+      "question_id": "A7B-Q048",
+      "request_sha256": "111e3c24900fac8013830cd84c83e42361fad7f8d90bebc7b47973dbbd940d70",
+      "response_sha256": "5e44750561d0f36360901025fb2fd5d9fa7f04290cd05493b0f7052cf360ffcd",
+      "status_only_scorer_unchanged": true
+    }
+  ],
+  "scorer_changed": false,
+  "semantically_appropriate": 10,
+  "total": 12
+}

@@ -1,0 +1,731 @@
+{
+  "expertise": null,
+  "independent_review": null,
+  "instructions": "Write a separate returned review file. Bind every sentence to its hash; do not edit the sealed packet or runtime. Pending is not acceptance. Verify all clauses, examples, assumptions and HUS applicability separately. Fill the sealed packet manifest hash in the separate returned file; no implied approval of all clauses in a sentence.",
+  "packet_manifest_sha256": null,
+  "packet_version": "sentence-edition-r1",
+  "reviewed_at": null,
+  "reviewer": null,
+  "sentences": [
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/overview:s1",
+      "sentence_sha256": "a16317432367c918b7a08cc5746e1c9a5536b7173fd350864cd5f47efa4eea2f"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/overview:s2",
+      "sentence_sha256": "638c9cdf77fbea73a7a2771cbc7efd82fe537a2e436b7aae108a46c016d12d7b"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/0/explanation:s1",
+      "sentence_sha256": "1b64c20894346ffed50feff96cc2fb8e895b21441ed663a3fb2c15d26953ee4a"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/0/explanation:s2",
+      "sentence_sha256": "c6cc762f88f90579ba86085b0b53de8fc3c6dff42209602d0058c5ce713ce44d"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/0/example:s1",
+      "sentence_sha256": "0a67757461196398ba2833c70d338788aa43f441d91a991e5149baa88568e069"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/1/explanation:s1",
+      "sentence_sha256": "4bb597c31bdc9dca0cd46c14c92709260ff4bd074dee9f7b2683ecdf036b930d"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/1/explanation:s2",
+      "sentence_sha256": "3ae23095fad4313f6b939025ca637adc1b826f1c015fdc6d04453cb57a937768"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/1/example:s1",
+      "sentence_sha256": "a7b898e7958282451a4d78061c482b90d92da376cbfbc361ca93c12cc36bea9c"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/2/explanation:s1",
+      "sentence_sha256": "7e232b560ec8deaed290444868aa0ce900049cb500c68d18bdce23c79faea1dd"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/2/explanation:s2",
+      "sentence_sha256": "aab87b864f864bf8f89e2b96c164003a4d92b38a413fa0b47e94ba06268db78d"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/2/example:s1",
+      "sentence_sha256": "338bd641f6c99ee6badfce44c1dd7085ae0faed124a51a15359d611c09f8c471"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/3/explanation:s1",
+      "sentence_sha256": "c2a399650c5d65af2b335b8677368403815caf1946a442a35208fbf7d88e021f"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/3/explanation:s2",
+      "sentence_sha256": "ef2548507f7d65e5d8752dcb5878a2f370a1b8c64bb78953caae31a137ef0a99"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/3/example:s1",
+      "sentence_sha256": "0b1b7df8ef3554860e141433932e50087d8b6595960a6c8e839a6bb2b8f200c2"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/4/explanation:s1",
+      "sentence_sha256": "b4e7bf95acfe9ca29d3f8bea7438464a4c3455563e40807d6a6e3ba5aa690687"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/4/explanation:s2",
+      "sentence_sha256": "96d1591fe33d548127e40cb0ed5ca7479cb9280f4aa50074a230fb5edd925ec9"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/units/4/example:s1",
+      "sentence_sha256": "800f407cf238e461b37f3ff7b324ff3c6d649b59ab82f191559efe5eb468d1ca"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/objectives/0:s1",
+      "sentence_sha256": "93c48f82ad40b634fda7efc08df54b98bfd139853a3c3b8d764fb5c3c8623ed0"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/objectives/1:s1",
+      "sentence_sha256": "c9b41014dbad2b918c1d0fbe5eab60afad2639c374bf6889452d96a0e0a637d4"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/objectives/2:s1",
+      "sentence_sha256": "b0730e8556ba948ad918b34e31c96c343c6b60c505851183e1bfc81b659ea6ab"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/objectives/3:s1",
+      "sentence_sha256": "b5ade5ff913853f811d0ed8480845511c39ae0401435689c6b18c63252f69fb5"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khdl_7460108_2022:MAT2034:/profile/objectives/4:s1",
+      "sentence_sha256": "67ec8965c52f83c7a3c54a8491fa99fbd6865366b0f072f09fdf85422488a9d9"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/overview:s1",
+      "sentence_sha256": "7eb1473f329c45cfc3c6af3d96719691373fe5864a6ecfabac37b55f027616d5"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/overview:s2",
+      "sentence_sha256": "feace6fdc30a9ffa992ed6c7c27ccd6bd217dd7bde395ba7494c5bf65bb03b99"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/0/explanation:s1",
+      "sentence_sha256": "976d0d1756589f185ea7fd51b9a90aea5399bd2abb8210682911cf73288b3ce6"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/0/explanation:s2",
+      "sentence_sha256": "84458955cb8fa50a4646110e9e3f2a2d4b27f7d46fccfb4947663a18a2f98795"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/0/example:s1",
+      "sentence_sha256": "3d95292b65cc21342f69034a0bdd71b3a90dbb144a4d5bd5638bc606749dfc5c"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/1/explanation:s1",
+      "sentence_sha256": "38df09e51dc3e83f825015e3b669a0f35d75b1d4c442d14bc50a9b9461c29303"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/1/explanation:s2",
+      "sentence_sha256": "6fe90298f11a5ddfbe0376eb7c71c6d85664fff049ae0c40437c6cbf2a6768cc"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/1/example:s1",
+      "sentence_sha256": "d0aac925caf17aa42f21c64e278726b49c99342515ad159453482d9f04d4d087"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/2/explanation:s1",
+      "sentence_sha256": "cdc2c87fd149d20397f0485fd881fae177e01fa05a4d87775733ccb6e27d45ca"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/2/explanation:s2",
+      "sentence_sha256": "8e1d526dd4eb29487419a3b55766d8799666e72439f3e38671cf4ed6f95bd05e"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/2/example:s1",
+      "sentence_sha256": "60898327a47d49b80bf5b0db35082a35079bbf42148098cf026891087beef278"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/3/explanation:s1",
+      "sentence_sha256": "7fd0f883dfe374b60361c44a424123526cbdf0969cc02742cf87cf2ad70c84fc"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/3/explanation:s2",
+      "sentence_sha256": "013114062a2dc003d46b0f3c3f829bdf1e3bfbbd7f5ef791a421346cf6a2cada"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/units/3/example:s1",
+      "sentence_sha256": "df92e5c81c47f3f5d14e0376c623edd5e309c4e1bd8f48a97d0a82fc3f009d31"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/objectives/0:s1",
+      "sentence_sha256": "6287631a7620195edbc9947a221eeae666ede1b6168ce3acc3337e1a2829024e"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/objectives/1:s1",
+      "sentence_sha256": "117c6b403adcd1ebe0d26669a48d715ec9525896ad7b867315ec1f9755b46bc7"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/objectives/2:s1",
+      "sentence_sha256": "f2ab705785dc7e0ed6daa525eee02085d2e38c683ec427d458e9bf22e124a984"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "khmtt_7480113qtd_2022:MAT1204:/profile/objectives/3:s1",
+      "sentence_sha256": "367ae42b0f04e70feeaac889f34b46808430076e5db060ddd76d89b6b554c1fd"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/overview:s1",
+      "sentence_sha256": "328b08dfbd071d30082767690b9af04a72d81d622adf18c4c83230ab3cbca783"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/overview:s2",
+      "sentence_sha256": "d48b6d0795748dc7bbb7a1dd96035193a95259d56d671c9197eea9b1c49345dc"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/0/explanation:s1",
+      "sentence_sha256": "a5d179edf2adcca1948f20e31c95b9aebef5950de8ba7d58e8cafebc16d39556"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/0/explanation:s2",
+      "sentence_sha256": "993143abbdceed78cd2f0f4e084bd38c55b68dbbbdba1872ea184e3d1c933d47"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/0/example:s1",
+      "sentence_sha256": "dde658e461d2dd48a740fecc7f0d6f548613e73864dd5b7dd60a51f29f7b600d"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/1/explanation:s1",
+      "sentence_sha256": "c59504e8b90646e35d1622f316b5b971f2d81192389982134bcd75433041b53f"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/1/explanation:s2",
+      "sentence_sha256": "1d6827767295ef37ff4a449c903820541e0701ffef7204b62b145e038dff540f"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/1/example:s1",
+      "sentence_sha256": "e778766912243e99a41f801fcfb5e0aeb5543202741b57df48c8a1c7080cf3ef"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/2/explanation:s1",
+      "sentence_sha256": "d046ef203d2654d8859528149d02a03731db1892269cb170f1b07526600739f0"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/2/explanation:s2",
+      "sentence_sha256": "170bd99b3f8bfe73f591089695590506d0da35c3b4af15d8e1eb00f188e11ca0"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/2/example:s1",
+      "sentence_sha256": "bd0d5842d964abd671d5c4b1d13aa28ac27878aff82bcfb225e7fe392357d808"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/3/explanation:s1",
+      "sentence_sha256": "d5da258e5445e9b6f6049c1048051cf48c634827a699ed905323952e525f85e7"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/3/explanation:s2",
+      "sentence_sha256": "72471cea65b7873b4ac2c9ce551d95636ca3ca8ded50a7eeb83907d220da9cee"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/3/example:s1",
+      "sentence_sha256": "f045f20f4c389276d893b8060c3dfe29d0b7901d80c280847212c6cb39d739bd"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/4/explanation:s1",
+      "sentence_sha256": "673961c9fd146f33edb73a8f6b68773a0fc2887d46e21da3cd4d4baf220e79c8"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/4/explanation:s2",
+      "sentence_sha256": "951c658435e1de7f96d6988bc95d56e7d394628aca5687c79aac7e45059bce5f"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/units/4/example:s1",
+      "sentence_sha256": "bde940a4a8bb5cb574e4a5bac57783ba77bedf487200302d5c230a4bb65a7688"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/objectives/0:s1",
+      "sentence_sha256": "8daf8172bf462efe57d4c705ca404e533fc88d89155d81165be65e52db8bd2c1"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/objectives/1:s1",
+      "sentence_sha256": "4241c017cba6e353735bdfadfa8b3269f133d2e7f96eacbd33e42b5d704772f2"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/objectives/2:s1",
+      "sentence_sha256": "3192c022d9396e6fc8fa21d815dc62f386413bd56d41996f4d8b8745fc14f281"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/objectives/3:s1",
+      "sentence_sha256": "8c14373e4dd95c5464945d5c024c6ffbf7d4af1743d89b906774a6eac8aee3bc"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_hoc_7460101_2022:MAT2300:/profile/objectives/4:s1",
+      "sentence_sha256": "9c97e47ea9a2b3744a173aee0e735da91cc9464da11a66e3afc85db484af15ea"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/overview:s1",
+      "sentence_sha256": "d5c77c1bc644bbb9f8d022128b5c17526310e01f00a6ad054486957397a5295b"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/overview:s2",
+      "sentence_sha256": "de905890328d0abea962b78c8a532caab2be0238656d1ff1a88583ec652b1c98"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/0/explanation:s1",
+      "sentence_sha256": "de5d9550edb87c6175499a782fdc8ebb8a95c74b92ee5860147f2f3c031495bb"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/0/explanation:s2",
+      "sentence_sha256": "9eacfcbc2d175a037072359adf16f92134c14942aba46e8b5df004cb4581973b"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/0/example:s1",
+      "sentence_sha256": "42a8c06dafa7e19630e6f8beb2c6cca3c74d8e1dd63a35846276444f0427183d"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/1/explanation:s1",
+      "sentence_sha256": "bc51a00f9b47dd3bf6b7e996e8e396d14e83dc3c642d0753c87227e0ba95222a"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/1/explanation:s2",
+      "sentence_sha256": "fc6592a8c2e09b834e4778f60ecff95dc1e1e2ac3c0a772877e10b169512811a"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/1/example:s1",
+      "sentence_sha256": "ee0c04182543887887d2f5e23cc88edd28c9841dcca2ddce5d7da7f154ea643c"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/2/explanation:s1",
+      "sentence_sha256": "4eaa5b7670cf5ccb2ecd85c041b19ddfaaecf53f422d9f8eed5911d8e32a8911"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/2/explanation:s2",
+      "sentence_sha256": "2d39b1e27bb29ad7edac5d1437bd44e865cbac7809f2f1d9e53da9f285ebc3d6"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/2/example:s1",
+      "sentence_sha256": "04296d63a319020965132b62e0aa7d2f148c896066835853535a4143e8a6e832"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/3/explanation:s1",
+      "sentence_sha256": "1a9ec998f132102b787f605e817c8eff60496172953cb74233a76ddbfb6887e8"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/3/explanation:s2",
+      "sentence_sha256": "e3de83ed52a07c1717464105ba130c389aa7ffa4cc302a0daf8c3c6e8066a5e1"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/units/3/example:s1",
+      "sentence_sha256": "08e612f20773cb5e7bd5e0349e134e1fdc157ad884e8402fd44d11913fedd8c7"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/objectives/0:s1",
+      "sentence_sha256": "dd9953907ab697ba9944c4a0dc14eab886649f2fe0be6041e8c0f156fbbe2fb6"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/objectives/1:s1",
+      "sentence_sha256": "f2197a1d4bb2573cc31a6c8e56ad1aad88b8428a8b4ac5d58ac483db25d11aa7"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/objectives/2:s1",
+      "sentence_sha256": "23365a905cf998dcffe93f52b1c4c65920baa6f26e4dcfafe770191bd7eb20b7"
+    },
+    {
+      "HUS_syllabus_applicability": null,
+      "comment": null,
+      "decision": "pending",
+      "example_conditions": null,
+      "reference_entailment": null,
+      "sentence_id": "toan_tin_7460117_2022:MAT1202:/profile/objectives/3:s1",
+      "sentence_sha256": "f00509d2a4c847162c8e6787dc41ce3933e09ba3551aa26dfad529920b9f3f93"
+    }
+  ]
+}

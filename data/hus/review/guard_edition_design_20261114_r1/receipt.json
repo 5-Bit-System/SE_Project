@@ -1,0 +1,9 @@
+{
+  "creation_hashes": {
+    "analysis.json": "f3385d0802abb21f980a144adbd065cbd778581a0f085e32c1303ea9596e3a65",
+    "diagnostic.json": "1e6eb1f920401ae5e1a44d3f1d9144a1e3f7d36c26eaf907bcc2b3755e3e7548",
+    "review_template.csv": "6337371e3ea6f63317206a48b7fe197dc1ab889f2375555be7661853c7255c20"
+  },
+  "review_csv_editable": true,
+  "no_runtime_changes": true
+}

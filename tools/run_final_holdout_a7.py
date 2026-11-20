@@ -11,14 +11,17 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from shutil import copytree
+from tempfile import TemporaryDirectory
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from app.hus.rag_loader import HUSRAGData  # noqa: E402
 from app.schemas.hus import HUSQuestion  # noqa: E402
-from app.services.hus_service import get_hus_answerer  # noqa: E402
+from tools.validate_hus_holdout import sha, validate_pack  # noqa: E402
 
 PACK_DIR = ROOT / "data/hus/evaluation/p11_holdout_v1"
 OUT_REPORT = ROOT / "docs/acceptance/hus_final_a7_report.json"
@@ -29,12 +32,40 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
+def _load_holdout_data() -> HUSRAGData:
+    validate_pack(PACK_DIR, ROOT)
+    pack_manifest = json.loads((PACK_DIR / "manifest.json").read_bytes())
+    source = ROOT / pack_manifest["source_release"]
+    # Validate and load the pack's pinned v3 release through an isolated selector.
+    with TemporaryDirectory(prefix="hus-p11-release-") as temporary:
+        root = Path(temporary)
+        release_path = Path("releases", source.name)
+        copied_release = root / release_path
+        copytree(source, copied_release)
+        manifest_bytes = (copied_release / "manifest.json").read_bytes()
+        if sha(manifest_bytes) != pack_manifest["release_manifest_sha256"]:
+            raise ValueError("Copied release differs from the P11 manifest pin")
+        release = json.loads(manifest_bytes)
+        selector = {
+            "schema_version": "2.0",
+            "state": "prepared_not_runtime_activated",
+            "release_id": release["release_id"],
+            "release_path": release_path.as_posix(),
+            "release_sha256": release["release_sha256"],
+            "index_entrypoint": "chunks.jsonl",
+            "generated_reference_requires_opt_in": True,
+        }
+        (root / "CURRENT.json").write_text(json.dumps(selector), encoding="utf-8")
+        return HUSRAGData.load_current(root)
+
+
 def run_a7_evaluation():
+    from app.hus.workspace_answering import WorkspaceAnswerer
+
+    answerer = WorkspaceAnswerer(_load_holdout_data())
     questions = load_jsonl(PACK_DIR / "questions.jsonl")
     gold_items = {g["question_id"]: g for g in load_jsonl(PACK_DIR / "gold.jsonl")}
     evidence_items = {e["evidence_id"]: e for e in load_jsonl(PACK_DIR / "evidence.jsonl")}
-
-    answerer = get_hus_answerer()
 
     scored_cases = []
     category_counts: dict[str, int] = {}

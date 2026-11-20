@@ -1,0 +1,131 @@
+{
+  "earlier_2012_standard_curriculum": {
+    "decision": "4115/QD-DT/2012-11-30",
+    "role": "Historical standard programme, not a complete revision chain",
+    "sha256": "56bad5aa1a09217baca356d8a61a5e28bb791c517133341c7376b15bae3a89d0",
+    "source_review": "data/hus/review/field_edition_20261113_r1/q001_chain.json"
+  },
+  "first_intake_standard_variant_binding": "still_open; industry first intake and historical standard curriculum are separate evidence nodes",
+  "human_reviews": 0,
+  "independent_acceptance": false,
+  "negative_scope": "No CLC borrowing, unknown relabel, MAT3372 substitution or automatic historical/new programme equivalence",
+  "new_direct_first_intake_anchor": {
+    "finding": "Direct first-intake year for the named industry, no explicit standard-variant label in this sentence.",
+    "normalized_end_char": 29958,
+    "normalized_start_char": 29891,
+    "normalized_text_sha256": "1e3d9310065b8adcd37cc46813bc32ccad2e3fb611e389d4caba280fdfa91bca",
+    "range_hash_algorithm": "canonical_json_sha256",
+    "range_sha256": "0fd8acfd99fdb68edefcca2645265f30cc15d669d1fd41082a91fecdb9c6697e",
+    "source_id": "H26",
+    "url": "https://vnu.edu.vn/truc-tuyen-tu-van-tuyen-sinh-dai-hoc-2012-tren-website-dhqghn-post12528.html"
+  },
+  "new_official_2023_documents": [
+    {
+      "academic_content_alignment_verified": false,
+      "admissions_cohort_from_article_2": 2022,
+      "decision": "3568/QD-DHKHTN",
+      "issued_date_printed": "2023-10-18",
+      "latest_validity_or_all_amendments_verified": false,
+      "local_path": "docs/pdf/104.-KHMTTT-chuẩn final QD 3568 Scan final (1).pdf",
+      "major": "computer_science",
+      "programme_code_printed": "7480113QTD",
+      "review_method": "Root AI visual read of first two pages only; H21 local render byte-equal to new official capture.",
+      "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+      "signature": "Visible stamp/signature, not cryptographic signature verification",
+      "source_id": "H21",
+      "url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/104.-khmttt-chuan-final-qd-3568-scan-final.pdf",
+      "variant_printed": "standard",
+      "viewed_physical_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "academic_content_alignment_verified": false,
+      "admissions_cohort_from_article_2": 2022,
+      "decision": "3565/QD-DHKHTN",
+      "issued_date_printed": "2023-10-18",
+      "latest_validity_or_all_amendments_verified": false,
+      "local_path": "docs/pdf/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+      "major": "mathematics",
+      "programme_code_printed": "7460101",
+      "review_method": "Root AI visual read of first two pages only; H21 local render byte-equal to new official capture.",
+      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+      "signature": "Visible stamp/signature, not cryptographic signature verification",
+      "source_id": "H22",
+      "url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/101.-toan-hoc-chuan-final-qd-3565-scan.pdf",
+      "variant_printed": "standard",
+      "viewed_physical_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "academic_content_alignment_verified": false,
+      "admissions_cohort_from_article_2": 2022,
+      "decision": "3567/QD-DHKHTN",
+      "issued_date_printed": "2023-10-18",
+      "latest_validity_or_all_amendments_verified": false,
+      "local_path": "docs/pdf/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+      "major": "mathematics_informatics",
+      "programme_code_printed": "7460117",
+      "review_method": "Root AI visual read of first two pages only; H21 local render byte-equal to new official capture.",
+      "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+      "signature": "Visible stamp/signature, not cryptographic signature verification",
+      "source_id": "H23",
+      "url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/103.-toan-tin-chuan-final-qd-3567-scan.pdf",
+      "variant_printed": "standard",
+      "viewed_physical_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "academic_content_alignment_verified": false,
+      "admissions_cohort_from_article_2": 2022,
+      "decision": "3569/QD-DHKHTN",
+      "issued_date_printed": "2023-10-18",
+      "latest_validity_or_all_amendments_verified": false,
+      "local_path": "docs/pdf/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+      "major": "data_science",
+      "programme_code_printed": "7460108",
+      "review_method": "Root AI visual read of first two pages only; H21 local render byte-equal to new official capture.",
+      "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+      "signature": "Visible stamp/signature, not cryptographic signature verification",
+      "source_id": "H24",
+      "url": "https://hus.vnu.edu.vn/DATA/IMAGES/2024/06/105.-khoa-hoc-du-lieu-chuan-final-qd-3569-scan.pdf",
+      "variant_printed": "standard",
+      "viewed_physical_pages": [
+        1,
+        2
+      ]
+    }
+  ],
+  "number_collision": "3568/QD-DHQGHN/2014 organisational rules is distinct from3568/QD-DHKHTN/2023 curriculum",
+  "question_id": "A7V4-Q001",
+  "remaining_edges": [
+    "Explicit first-intake-to-standard-variant statement for2012, not inferred from later CLC2018",
+    "Complete2012->2023 amendment/rename/replacement chain, including an authoritative2160/2022 document if relevant",
+    "Any later amendment/current validity and cohort-specific full syllabus applicability",
+    "Expert field-by-field HUS coverage; a curriculum list alone is not a detailed syllabus"
+  ],
+  "runtime_decision": "keep_unknown_no_relabel_or_regrade",
+  "syllabus_2024_header": {
+    "chapter_text_reread_pages": [
+      52,
+      53,
+      54
+    ],
+    "course_code_and_title": "MAT1204 / Research Methodology; index page2 locates chapter52",
+    "new_download": false,
+    "observed_physical_pages": [
+      1,
+      2
+    ],
+    "referenced_curriculum_decision": "3568/QD-DHKHTN/2023-10-18",
+    "scope": "computer_science standard only; no transfer to MAT1202 mathematics_informatics or other programme",
+    "source_id": "S06",
+    "source_sha256": "56d751cc897fe12626f05ebaa28842440e3b6402dede058bd280d6f3c1def2d0",
+    "syllabus_decision_printed": "2385/QD-DHKHTN/2024-07-31"
+  }
+}

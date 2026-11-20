@@ -1,0 +1,177 @@
+{
+  "status": "pass_on_tested_local_submission_configuration",
+  "date": "2026-11-11",
+  "git_branch": "hus-llm-rag",
+  "entrypoint": "app.hus.demo:app",
+  "current_release": {
+    "majors": [
+      {
+        "id": "computer_science",
+        "label": "Khoa học máy tính và thông tin",
+        "version": "QD3568-2023"
+      },
+      {
+        "id": "data_science",
+        "label": "Khoa học dữ liệu",
+        "version": "QD3569-2023"
+      },
+      {
+        "id": "mathematics",
+        "label": "Toán học",
+        "version": "QD3565-2023"
+      },
+      {
+        "id": "mathematics_informatics",
+        "label": "Toán tin",
+        "version": "QD3567-2023"
+      }
+    ],
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+    "format": "portable-2.0",
+    "source_state": "selected_for_local_rag_demo",
+    "llm_rewrite_available": false
+  },
+  "settings": {
+    "HUS_RETRIEVAL_MODE": "lexical",
+    "HUS_LLM_ENABLED": false,
+    "HUS_RAG_ROOT": null
+  },
+  "pytest": {
+    "passed": 163,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "chromium_ui_tests": 26,
+    "api_contract_tests": 137
+  },
+  "dedicated_browser_api_checks": [
+    {
+      "case": "fresh_default_v4_lexical_llm_off",
+      "status": "pass"
+    },
+    {
+      "case": "four_major_natural_basic_sources_and_late_reply",
+      "status": "pass",
+      "chat_cases": 50
+    },
+    {
+      "case": "catalog_render_scope_computer_science",
+      "status": "pass",
+      "questions": 498,
+      "f3_questions": 134
+    },
+    {
+      "case": "catalog_render_scope_data_science",
+      "status": "pass",
+      "questions": 474,
+      "f3_questions": 130
+    },
+    {
+      "case": "catalog_render_scope_mathematics",
+      "status": "pass",
+      "questions": 657,
+      "f3_questions": 180
+    },
+    {
+      "case": "catalog_render_scope_mathematics_informatics",
+      "status": "pass",
+      "questions": 495,
+      "f3_questions": 136
+    },
+    {
+      "case": "real_pdf_source_menu_and_delivery",
+      "status": "pass",
+      "source_sha256": "ec3123312b52b36ac9e612344fca7ab7898532942d468a7fa5fc6901c5e46212",
+      "remote_availability_checked": null
+    },
+    {
+      "case": "real_file_source_menu_and_delivery",
+      "status": "pass",
+      "source_sha256": "4838b51f795e858c0672883ff0994a82b8be70e379260189c034e166a0f63517",
+      "remote_availability_checked": null
+    },
+    {
+      "case": "real_web_source_menu_and_delivery",
+      "status": "pass",
+      "source_sha256": null,
+      "remote_availability_checked": false
+    },
+    {
+      "case": "mobile_360_long_f3_keyboard_shift_enter_enter_focus_no_overflow",
+      "status": "pass"
+    },
+    {
+      "case": "mobile_390_long_f3_keyboard_shift_enter_enter_focus_no_overflow",
+      "status": "pass"
+    },
+    {
+      "case": "untrusted_question_rendered_as_text",
+      "status": "pass"
+    },
+    {
+      "case": "invalid_input_and_unknown_scope_source_api",
+      "status": "pass"
+    },
+    {
+      "case": "chat_500_sanitized_and_retry_recovers",
+      "status": "pass"
+    },
+    {
+      "case": "chat_503_sanitized_and_retry_recovers",
+      "status": "pass"
+    },
+    {
+      "case": "malformed_chat_response_rejected_then_retry_recovers",
+      "status": "pass"
+    },
+    {
+      "case": "late503_cannot_overwrite_new_major_status_even_when_abort_ignored",
+      "status": "pass"
+    },
+    {
+      "case": "actual_canonical503_startup_disabled_then_root_restore_reload",
+      "status": "pass"
+    }
+  ],
+  "real_chat_cases": 50,
+  "menu_entries": 2124,
+  "f3_menu_entries": 580,
+  "tested_viewports": [
+    {
+      "width": 1380,
+      "height": 1000
+    },
+    {
+      "width": 360,
+      "height": 844
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "screenshot_review": "Root AI inspected actual desktop/mobile screenshots; rendered sources and composer, no horizontal overflow.",
+  "source_checks": {
+    "pdf": "actual bytes/hash/physical-page fragment, including same PDF different pages",
+    "docx": "actual browser download, MIME/attachment/bytes/hash",
+    "web": "href equals pinned source URL; protocol and label; unverified availability",
+    "ai": "knowledge-AI label/opt-in/no forged source URL"
+  },
+  "enabled_llm_ui_checks": "Synthetic provider only: independent consents/disclosure, actual-use/fallback badges, quota/timeout/busy, late response and active-call capacity.",
+  "error_checks": "Invalid bool422, unknown scope/source404; browser500/503/malformed; actual missing-root503 startup disables UI, restore/reload recovers; late503 cannot replace new-major state.",
+  "initial_harness_wait": "The first intentionally failing config503 hit a networkidle wait timeout; final run uses DOM readiness and observable controls. No application change.",
+  "provider_calls_in_A6": 0,
+  "external_browser_requests": 0,
+  "account_or_advisor_requests": 0,
+  "product_database_modified": false,
+  "protected_existing_files_unchanged": 2598,
+  "code_or_static_modified_by_A6": false,
+  "llm_r3_pins_still_match": true,
+  "remote_web_availability_checked": false,
+  "all_browsers_or_devices_certified": false,
+  "source_academic_or_current_validity_accepted": false,
+  "l5_live_is_separate": "data/hus/evaluation/runs/llm_l5_v4_google_20261111_r1",
+  "evidence": "backups/hus_a6_20261111/",
+  "commit_push_deploy": false
+}

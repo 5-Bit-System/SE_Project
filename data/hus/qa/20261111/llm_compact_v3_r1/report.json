@@ -1,0 +1,190 @@
+{
+  "a7_final_code": {
+    "accepted": false,
+    "ai_completeness": {
+      "denominator": 36,
+      "numerator": 27,
+      "value": 0.75
+    },
+    "all48_exact_responses_unchanged": true,
+    "pins_match": true,
+    "receipt": "data/hus/qa/20261111/a7_v4_r2/report.json",
+    "routed_recall_at_5": {
+      "denominator": 24,
+      "numerator": 19.0,
+      "value": 0.7916666666666666
+    }
+  },
+  "branch": "hus-llm-rag",
+  "commit_push_deploy": false,
+  "date": "2026-11-11",
+  "decision": "Keep LLM off; separate baseline repair/A7 and new-budget L5 required before readiness.",
+  "defaults": {
+    "llm_enabled": false,
+    "release": "hus-data-20261111-v4",
+    "retrieval": "lexical"
+  },
+  "design": "docs/superpowers/specs/2026-11-11-hus-llm-compact-layout-design.md",
+  "history_integrity": {
+    "canonical_rag_outside_llm_unchanged": true,
+    "changed_existing_files": [
+      "app/hus/llm/adapter.py",
+      "app/hus/llm/client.py",
+      "app/hus/llm/contracts.py",
+      "app/hus/llm/evidence.py",
+      "app/hus/llm/output.py",
+      "app/hus/llm/prompts.py",
+      "app/hus/llm/README.md",
+      "tests/hus/llm/fixtures.py",
+      "tests/hus/llm/test_evaluation.py",
+      "tests/hus/llm/test_limits.py",
+      "tests/hus/llm/test_pipeline.py",
+      "tests/hus/llm/test_qualitative_coverage.py",
+      "tests/hus/llm/test_rollback.py",
+      "tests/hus/llm/test_v4_measurement.py",
+      "tests/hus/test_llm_rewrite_ui.py",
+      "tools/evaluate_hus_a7.py",
+      "tools/evaluate_hus_llm.py",
+      "tools/evaluate_hus_llm_v4.py"
+    ],
+    "historical_data_files_unchanged": 2375,
+    "new_provider_calls": 0,
+    "new_retrieval_calls": 0,
+    "old_a7_pins_now_historical": true,
+    "old_artifacts_reproduced": [
+      "llm_l5_v4_google_20261111_r1",
+      "llm_l5_v4_ai_review_20261111_r1",
+      "llm_l5_google_20261110_r1",
+      "llm_l5_ai_review_20261110_r1",
+      "a7_v4_lexical_20261111_r1",
+      "a7_v4_ai_review_20261111_r1"
+    ],
+    "static_files_unchanged": 45
+  },
+  "key_env_template_read_or_edited": false,
+  "kind": "approved compact LLM-v3 implementation; offline only; not model-content acceptance",
+  "limits": {
+    "concurrent_per_process": 1,
+    "coverage_units": 128,
+    "httpx_phase_timeout_seconds": 20,
+    "leaves": 64,
+    "output_tokens": 1024,
+    "prompt_chars": 12000,
+    "raw_output_chars": 8192,
+    "restored_leaf_chars": 3000,
+    "retry": false
+  },
+  "new_compact_tests_in_final_suite": 82,
+  "new_google_calls": 0,
+  "protocol": {
+    "f1_f3": "hus-llm-document-v3",
+    "f2": "hus-llm-evidence-v1"
+  },
+  "real_llm_quality_token_feasibility_latency_gain_measured": false,
+  "source_retrieval_routing_or_canonical_changed": false,
+  "synthetic_diagnostic": {
+    "cases": [
+      {
+        "actual_provider_generation": false,
+        "bullet_items_rendered": 4,
+        "canonical_unchanged": true,
+        "coverage_units": 39,
+        "leaves": 19,
+        "missing_leaf_rejected": true,
+        "prompt_chars": 6789,
+        "prompt_sha256": "8ba96ef97b25b928706541af9c4aa7086a6edf84ecb4c5d53d4d7fe20e9efe2a",
+        "question_id": "L5V4-Q005",
+        "raw_synthetic_chars": 2710,
+        "stress": true,
+        "synthetic_validator_accepted": true,
+        "tokens_or_real_success_measured": false
+      },
+      {
+        "actual_provider_generation": false,
+        "bullet_items_rendered": 4,
+        "canonical_unchanged": true,
+        "coverage_units": 39,
+        "leaves": 19,
+        "missing_leaf_rejected": true,
+        "prompt_chars": 6769,
+        "prompt_sha256": "afa611e985d9b5f7bbde45eca231eac843cbb6e3b701337e202b234ece95e04f",
+        "question_id": "L5V4-Q013",
+        "raw_synthetic_chars": 2710,
+        "stress": true,
+        "synthetic_validator_accepted": true,
+        "tokens_or_real_success_measured": false
+      },
+      {
+        "actual_provider_generation": false,
+        "bullet_items_rendered": 4,
+        "canonical_unchanged": true,
+        "coverage_units": 41,
+        "leaves": 23,
+        "missing_leaf_rejected": true,
+        "prompt_chars": 7328,
+        "prompt_sha256": "45d635567033db73fe94abecda9ec48ecbca0e290ae87c8ca6515fce372d1b0d",
+        "question_id": "L5V4-Q021",
+        "raw_synthetic_chars": 2842,
+        "stress": true,
+        "synthetic_validator_accepted": true,
+        "tokens_or_real_success_measured": false
+      },
+      {
+        "actual_provider_generation": false,
+        "bullet_items_rendered": 4,
+        "canonical_unchanged": true,
+        "coverage_units": 5,
+        "leaves": 5,
+        "missing_leaf_rejected": true,
+        "prompt_chars": 3093,
+        "prompt_sha256": "6475cff467d41213eb8c1a5f37f7e027803e37fd2299d64610ee390f9c061dba",
+        "question_id": "L5V4-Q022",
+        "raw_synthetic_chars": 383,
+        "stress": false,
+        "synthetic_validator_accepted": true,
+        "tokens_or_real_success_measured": false
+      },
+      {
+        "actual_provider_generation": false,
+        "bullet_items_rendered": 4,
+        "canonical_unchanged": true,
+        "coverage_units": 39,
+        "leaves": 19,
+        "missing_leaf_rejected": true,
+        "prompt_chars": 6824,
+        "prompt_sha256": "ac17bc9500334c6e66d53c4cdc6f5c7344e1272c1e4e1e277d59874767ab3b67",
+        "question_id": "L5V4-Q029",
+        "raw_synthetic_chars": 2710,
+        "stress": true,
+        "synthetic_validator_accepted": true,
+        "tokens_or_real_success_measured": false
+      }
+    ],
+    "kind": "synthetic dev diagnostic, not live model success",
+    "limits": "Token feasibility/entailment/readability gain not proven by exact-copy mock output.",
+    "new_provider_calls": 0,
+    "new_retrieval_calls": 0
+  },
+  "technical_review": {
+    "critical": 0,
+    "important": 1,
+    "important_fixed_red_green": "Mixed word/operator corruption; symbols and positions retained in v3;11negative operator regressions incl ratio plus normalization positive.",
+    "independent_rereview": false,
+    "minor": 0
+  },
+  "verification": {
+    "final_llm.xml": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 480,
+      "skipped": 0
+    },
+    "final_regression.xml": {
+      "errors": 0,
+      "failed": 0,
+      "passed": 647,
+      "skipped": 0
+    }
+  },
+  "verification_scope": "647 broad LLM/API/UI/permissions/rollback/A7 checks before final narrow math-prompt/ratio change; then480fullLLM checks on final code. Overlapping counts, not a sum or whole-repo test claim."
+}

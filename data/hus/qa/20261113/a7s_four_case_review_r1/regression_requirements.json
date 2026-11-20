@@ -1,0 +1,26 @@
+[
+  {
+    "evidence": "Q013/minimal contrasts; eight factual/scope negative probes already recorded across groups.",
+    "family": "request for accompanying source conditions",
+    "negative": "Do not ignore arbitrary word kem globally or discard factual certifications/numbers/experience.",
+    "positive": "Conditional wording asks what source says; keep original condition and source scope."
+  },
+  {
+    "evidence": "Q027/Q037 vs imperative equivalents and skill negatives.",
+    "family": "reported/passive presentation wording",
+    "negative": "Presentation/report-writing as a requested academic skill remains a factual requirement; aeroplane bay remains domain text.",
+    "positive": "Source/programme-subject or passive tail asks for presentation of one field."
+  },
+  {
+    "evidence": "Q015 target-only intervention and eleven router probes.",
+    "family": "graduate roles at educational/research workplaces",
+    "negative": "Role OF school/institute/company in training or role of a course in programme does not automatically become graduate careers.",
+    "positive": "Bounded role request by graduates/programme at school/university/institute routes careers."
+  },
+  {
+    "evidence": "Cached wrong-edition/variant/domain/number negatives; existing contract remains required.",
+    "family": "scope/identity and multi-intent",
+    "negative": "Wrong edition/CLC/unknown/domain/number, exclusions and independent multiple fields retain refusal/clarification.",
+    "positive": "Same edition/variant/source and requested one field; preserve canonical quote/citation."
+  }
+]

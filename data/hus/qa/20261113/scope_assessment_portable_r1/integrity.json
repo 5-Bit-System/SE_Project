@@ -1,0 +1,35 @@
+{
+  "current_file_sha256": {
+    ".github/workflows/hus-rag.yml": "c90df99756d3b0148ec5f6e8a9c83f4cf9544eab7b7611b3b288a93e7e647b33",
+    "README.md": "97f517185131b77b5506ad1110e3a56c150138c788f6cb5b376fabb83e9e710a",
+    "app/hus/answer_support.py": "fb0c2197163f961857c8a221b3adcf88900bbee6b8419e1e4d6215db4dac9bda",
+    "app/hus/answering.py": "ae1c8477df2e33328bd6ee7ac4391c8e5b33307ec8a1b2e51841488dc78f191d",
+    "app/hus/question_routing.py": "c5a0c5612c7b74f6efc687e8df9749e8631669f4f3748dfc2c50e9a36c2b77c0",
+    "docs/HUS_F1_SOURCE_EDITION_POLICY.md": "cc73c54e66af9b04ff4fd00babb1bc4b3c73c00e84a4738f3e7a66d2634a5f68",
+    "docs/HUS_RAG_QUICKSTART.md": "92658a83162074b7e660f6e11e246359f17e9e2b03a4b4d6bb4bf18cbd8f6057",
+    "docs/RAG_A7_THREE_CASE_REVIEW_2026_11_13.md": "a23544ba8492886e5dd5007bd143e9820b8bc264d57ed5ebe5b4ca78a52d0f22",
+    "docs/RAG_PROGRESS_AND_NEXT_PLAN.md": "33282236c62dc74b5623fbaa3a17d0bbf167266d1fa1b506b5fb07ee3521a029",
+    "docs/RAG_SCOPE_ASSESSMENT_PORTABLE_2026_11_13.md": "03bc58b35b9a62224f22d62c59ab156f4fd6132fe19128b85c66ed074901dd33",
+    "requirements-rag.txt": "9d147ae7619c3cb4f6694b5a84b375abeefdf247e1ae725c948d34366db2727b",
+    "tests/hus/test_a7_scope_candidate.py": "abb7fbc53c2c05a70b0c96ffb3f2c41488398daedd60972da081de7fe0f36124",
+    "tests/hus/test_baseline_language.py": "72c59710c57a0af8c51b9d52cf42410e30b60cb0faf796443d6ec1c5d49c751c",
+    "tests/hus/test_scope_assessment_language.py": "df611944a83c91c9d380331b4d6446fec32f1f3c3d4e2e2f5a5808f6c54d02f0",
+    "tools/evaluate_hus_a7.py": "19bb074643239de8ca9bfbb42372556ec9bf07901171afbd04b6b7f2481e13eb",
+    "tools/hus_a7_scope_cases.py": "7776534bb22db33aed05ab5e4789196d24d62532f3f977323b3e33087760d4d8",
+    "tools/package_hus_demo.py": "6abce8a3ef6ee2783c64388ded11a036a8fde8de4b451ab0c06d69ad81ee68e7",
+    "tools/run_hus_rag.py": "93ce5a087af5446bb6562e586309df63877a17896d78682194fe778688e9075e",
+    "tools/run_hus_submission.py": "681862833a33c3c058021c311fe7ce2684213aa917167c0e04db1c9124f65017"
+  },
+  "expected_changes": [
+    "app/hus/answer_support.py",
+    "app/hus/answering.py",
+    "app/hus/question_routing.py",
+    "tests/hus/test_baseline_language.py",
+    "tools/evaluate_hus_a7.py",
+    "tools/package_hus_demo.py",
+    "tools/run_hus_submission.py"
+  ],
+  "historical_data_runs_gold_reviews_kits_unchanged": true,
+  "protected_count": 2817,
+  "unchanged_count": 2810
+}

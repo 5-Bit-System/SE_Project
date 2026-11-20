@@ -1,0 +1,151 @@
+[
+  {
+    "course_code": "MAT1202",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Chưa bao phủ generics, functional programming, Java Collections, design patterns, đa luồng/GUI trong tóm tắt đề cương.",
+      "Mục tiêu AI chưa bao phủ rõ UML, debug/test và thái độ/làm việc nhóm trong mục tiêu đề cương."
+    ],
+    "human_reviews": 0,
+    "identity_limit": "Chỉ span OOP trang86–87; không gán header MAT1202 của nhúng trang162. Bìa/mục lục không sửa được erratum trong từng field.",
+    "independent_review": false,
+    "major": "computer_science",
+    "objectives_read": 4,
+    "official_alignment": "partial_not_full_syllabus_coverage",
+    "official_pages": [
+      86,
+      87
+    ],
+    "official_source": "S06",
+    "record_id": "khmtt_7480113qtd_2022:MAT1202",
+    "record_sha256": "92e44d6b58c32d2bba8994821dbee47ac6dc65d4870fdf3ecfc7b5564e23e5fd",
+    "reference_review": {
+      "checked": [
+        "https://docs.python.org/3/tutorial/classes.html"
+      ],
+      "finding": "Python classes hỗ trợ khái niệm chung, không phải bằng chứng HUS hoặc mọi ngữ nghĩa Java/generics.",
+      "not_opened": [
+        "https://www.omg.org/spec/UML/"
+      ]
+    },
+    "reviewer_kind": "ai",
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "source_path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+    "strengths": [
+      "Các chủ đề lớp/đối tượng, đóng gói/bất biến, giao diện, kế thừa/đa hình, hợp thành và ví dụ nhất quán với phạm vi khái niệm đã chọn."
+    ],
+    "units_read": 4
+  },
+  {
+    "course_code": "MAT3561",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Hồ sơ AI không nêu rõ thuật toán trên xâu, mô hình ngôn ngữ, chỉ mục ngược, tìm kiếm/trích rút và thái độ/liên ngành như bộ 2021.",
+      "Đề cương 2021 ghi MAT3508/MAT3509, F2 2023 ghi MAT3533; không chuyển tiên quyết hoặc đánh giá sang bản hiện tại."
+    ],
+    "human_reviews": 0,
+    "identity_limit": "Mã/tên gần nhau không xác minh áp dụng bản2021 vào CTĐT2023/cohort2022; candidate giữ cờ identity và chưa nâng field.",
+    "independent_review": false,
+    "major": "mathematics_informatics",
+    "objectives_read": 4,
+    "official_alignment": "concept_overlap_only_different_edition",
+    "official_pages": [
+      256,
+      257
+    ],
+    "official_source": "S07",
+    "record_id": "toan_tin_7460117_2022:MAT3561",
+    "record_sha256": "e6a20eb37d2bd0f6cdfc10ee25e174ad8fd21fe35240be316b67c2285b9d718a",
+    "reference_review": {
+      "checked": [
+        "https://web.stanford.edu/~jurafsky/slp3/"
+      ],
+      "finding": "Trang draft ghi release19/08/2026, là nguồn khái niệm đang thay đổi, không chứng minh HUS2021/2023 bao phủ cùng nội dung."
+    },
+    "reviewer_kind": "ai",
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "source_path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+    "strengths": [
+      "Có phân đoạn, biểu diễn/ngữ cảnh, nhiệm vụ đầu vào–đầu ra, giới hạn miền và dữ kiện; không hứa văn bản sinh đúng."
+    ],
+    "units_read": 4
+  },
+  {
+    "course_code": "MAT2308",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Reference OpenStax chapter3 introduction không đủ chứng minh mọi ý về biến ngẫu nhiên, kỳ vọng, phương sai và tính đủ so với học phần HUS.",
+      "Khi bổ sung chi tiết nên nêu điều kiện tính xác suất có điều kiện và điều kiện tồn tại moment; chưa thay hồ sơ trong lượt review."
+    ],
+    "human_reviews": 0,
+    "identity_limit": "F2 chỉ xác định môn/ngành/phiên bản, không xác minh nội dung AI; không mượn đề cương Toán tin/CS.",
+    "independent_review": false,
+    "major": "mathematics",
+    "objectives_read": 4,
+    "official_alignment": "no_selected_official_syllabus_for_this_major",
+    "official_pages": [],
+    "official_source": null,
+    "record_id": "toan_hoc_7460101_2022:MAT2308",
+    "record_sha256": "81535ad6ae611a1bd8adc17bac3c6dc6889d01a644fa655eeec3cec3356a4220",
+    "reference_review": {
+      "checked": [
+        "https://openstax.org/books/introductory-statistics-2e/pages/3-introduction"
+      ],
+      "finding": "Mục tiêu chương có xác suất/độc lập/xung khắc; đây là grounding khái niệm một phần, không full-HUS-syllabus evidence."
+    },
+    "reviewer_kind": "ai",
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "source_path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+    "strengths": [
+      "Phân biệt độc lập/xung khắc; khối xác suất/mật độ; phương sai tổng còn hiệp phương sai, kỳ vọng tuyến tính không cần độc lập."
+    ],
+    "units_read": 4
+  },
+  {
+    "course_code": "MAT3383",
+    "decision": "keep_ai_reference_needs_review_no_official_or_academic_promotion",
+    "fields_reviewed": [
+      "content",
+      "objectives"
+    ],
+    "gaps": [
+      "Matplotlib quick start là hướng dẫn API vẽ; chưa đủ làm bằng chứng cho mọi nguyên tắc thiết kế/thị giác/bất định hoặc mục tiêu chính thức HUS.",
+      "Cần reference có chapter/page cho các ý thiết kế nếu biên soạn candidate tiếp theo; chưa thêm nội dung hoặc field đánh giá."
+    ],
+    "human_reviews": 0,
+    "identity_limit": "Không áp nội dung MAT3383 của ngành/edition khác chỉ vì mã trùng.",
+    "independent_review": false,
+    "major": "data_science",
+    "objectives_read": 4,
+    "official_alignment": "no_selected_official_syllabus_for_this_major",
+    "official_pages": [],
+    "official_source": null,
+    "record_id": "khdl_7460108_2022:MAT3383",
+    "record_sha256": "d39a660a21f05a15ae24d0c19b24f25230d12c71ac4ecdb2804c9ce3e2e12f65",
+    "reference_review": {
+      "checked": [
+        "https://matplotlib.org/stable/users/explain/quick_start.html"
+      ],
+      "finding": "Trang stable ghi Matplotlib3.11.2 khi xem; mutable software reference, không liên kết được hiệu lực học vụ."
+    },
+    "reviewer_kind": "ai",
+    "source_file_sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036",
+    "source_path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+    "strengths": [
+      "Có kiểu dữ liệu/kênh thị giác, lựa chọn quan hệ cần biểu diễn, phân phối/bất định và minh bạch trục/màu/bối cảnh; không biến ô tiên quyết trống thành không có điều kiện."
+    ],
+    "units_read": 4
+  }
+]

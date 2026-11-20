@@ -1,0 +1,427 @@
+{
+  "authorization": {
+    "kind": "new_explicit_max1_F2_diagnostic_grant",
+    "max_new_calls": 1,
+    "model_switch": false,
+    "output_tokens_cap": 1024,
+    "preflight_sha256": "11e142923d21e38c856080d1cf19bab7053814d0c76ea32b590a3a0273a5f035",
+    "question_call_id": "call_0c39a5692f6d47a99df6a2764b1dddaa",
+    "recorded_at_utc": "2026-11-14T03:35:00.616493+00:00",
+    "retry": false,
+    "user_reply": "Cho phep toi da 1 call moi"
+  },
+  "budget_remaining": 0,
+  "calls_attempted": 1,
+  "canonical_and_four_credits_unchanged": true,
+  "case_id": "SV30-003",
+  "completed_at_utc": "2026-11-14T03:35:24.969235+00:00",
+  "historical_branch_remains_unknown": true,
+  "kind": "new_authorized_single_F2_diagnostic_check",
+  "persistent_default_changed": false,
+  "pins_match": true,
+  "preflight_sha256": "11e142923d21e38c856080d1cf19bab7053814d0c76ea32b590a3a0273a5f035",
+  "question": "MAT2300 có bao nhiêu tín chỉ?",
+  "raw_rejected_output_or_error_body_saved": false,
+  "result": {
+    "generation": {
+      "fallback_reason": "invalid_output",
+      "model": null,
+      "requested_model": "gemini-3.5-flash-lite",
+      "used": false
+    },
+    "hus_answer": {
+      "citations": [
+        {
+          "availability": "available",
+          "availability_note": "Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+          "citation_id": "1",
+          "content_origin": "structured_source_draft",
+          "dataset": "f2",
+          "display_label": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "document_sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+          "evidence_kind": "pdf",
+          "label": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "locator": {
+            "course_code": "MAT2300",
+            "credits_in_source": 4,
+            "curriculum_id": 1,
+            "entry_id": 370,
+            "group_key": "IV.1",
+            "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+            "pdf_page": 9,
+            "prerequisite_parse_status": "none",
+            "prerequisite_source_text": null,
+            "source_row_number": 18
+          },
+          "media_type": "application/pdf",
+          "metadata": {
+            "course_metadata": {
+              "code": "MAT2300",
+              "field_evidence": {
+                "hours": [
+                  {
+                    "locator": "PDF page=9; printed page=7; row=18; code=MAT2300; column=hours",
+                    "method": "transcription",
+                    "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned.",
+                    "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                    "status": "draft_unverified"
+                  }
+                ],
+                "name_en": [
+                  {
+                    "locator": "PDF page=9; printed page=7; row=18; code=MAT2300; column=name_en",
+                    "method": "transcription",
+                    "note": "Transcribed from supplied 2023 PDF page image on 2026-10-21; academic reviewer not assigned.",
+                    "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                    "status": "draft_unverified"
+                  }
+                ]
+              },
+              "program_id": "toan_hoc_7460101_2022",
+              "values": {
+                "hours": {
+                  "lecture": 45,
+                  "practice": 30,
+                  "self_study": 125
+                },
+                "name_en": "Linear Algebra 1"
+              }
+            },
+            "provenance": {
+              "catalog_review": {
+                "basis": null,
+                "institutional_certification": false,
+                "status": "draft_unverified"
+              },
+              "metadata_source_archive": {
+                "documents": [
+                  {
+                    "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                    "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                    "source_ref": "103. Toán tin-chuẩn final QD 3567 Scan.pdf"
+                  },
+                  {
+                    "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                    "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+                    "source_ref": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf"
+                  },
+                  {
+                    "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                    "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                    "source_ref": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf"
+                  },
+                  {
+                    "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                    "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                    "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf"
+                  },
+                  {
+                    "archive_member": "1. KCT ban hành năm 2023 (áp dụng từ K67)/102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744",
+                    "source_ref": "102. Toán học-tài năng final QD 3566 Scan.pdf"
+                  }
+                ],
+                "filename": "1. KCT ban hành năm 2023 (áp dụng từ K67)-20261019T180055Z-1-001.zip",
+                "scope": "Four runtime catalogs from cohort 2022; QD3566 reference only; no syllabus or semester plan in archive.",
+                "sha256": "35935e648e2139fa6e1a0f063961f942eb68c4fa451a0cf69b78be4331132a25"
+              },
+              "package_path": "f2/hus_source.json",
+              "package_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "portable_record": {
+                "catalog_review": {
+                  "basis": null,
+                  "institutional_certification": false,
+                  "status": "draft_unverified"
+                },
+                "citation": {
+                  "evidence_path": "evidence/canonical_f2.json",
+                  "json_pointer": "/tables/curriculum_courses/80",
+                  "json_pointers": [
+                    "/tables/official_curriculum_entries/79"
+                  ],
+                  "pdf_locators": [
+                    {
+                      "document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                      "page": 9,
+                      "row": 18,
+                      "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                      "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+                    }
+                  ],
+                  "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+                  "source_id": "canonical_f2",
+                  "source_kind": "curriculum_transcription",
+                  "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+                  "title": "Toán học",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                },
+                "course_code": "MAT2300",
+                "course_name": "Đại số tuyến tính 1",
+                "credits": 4,
+                "current_offering": null,
+                "major": "mathematics",
+                "membership": {
+                  "course_code": "MAT2300",
+                  "course_group": "IV.1",
+                  "course_type": "required",
+                  "curriculum_id": 1,
+                  "suggested_semester": null
+                },
+                "name_en": "Linear Algebra 1",
+                "official_syllabus": null,
+                "prerequisites": {
+                  "authorizes_eligibility": false,
+                  "empty_means_no_prerequisite": false,
+                  "external_codes": [],
+                  "has_conflict": false,
+                  "options": [],
+                  "parse_statuses": [
+                    "none"
+                  ],
+                  "raw_variants": [],
+                  "status": "unknown"
+                },
+                "program_id": "toan_hoc_7460101_2022",
+                "record_id": "toan_hoc_7460101_2022:MAT2300",
+                "scope": {
+                  "applicability_status": "catalog_cohort_not_individual_account_binding",
+                  "cohort_year": 2022,
+                  "curriculum_version": "QD3565-2023",
+                  "major": "mathematics",
+                  "program_id": "toan_hoc_7460101_2022",
+                  "program_variant": "standard",
+                  "validity_status": "as_declared_in_canonical_F2"
+                },
+                "source_occurrences": [
+                  {
+                    "course_code": "MAT2300",
+                    "credits_in_source": 4,
+                    "curriculum_id": 1,
+                    "entry_id": 370,
+                    "group_key": "IV.1",
+                    "pdf_document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                    "pdf_page": 9,
+                    "prerequisite_parse_status": "none",
+                    "prerequisite_source_text": null,
+                    "source_row_number": 18
+                  }
+                ]
+              },
+              "prerequisite_pdf_review": {
+                "conflicting_courses": [
+                  {
+                    "course_code": "MAT3325",
+                    "major_code": "7460101"
+                  }
+                ],
+                "corrected_locators": [
+                  {
+                    "course_code": "MAT3327",
+                    "major_code": "7460117",
+                    "old_pdf_page": 12,
+                    "pdf_page": 11
+                  },
+                  {
+                    "course_code": "MAT2034",
+                    "major_code": "7460108",
+                    "old_pdf_page": 11,
+                    "pdf_page": 10
+                  }
+                ],
+                "date": "2026-10-20",
+                "documents": [
+                  {
+                    "file": "103.pdf",
+                    "original_name": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                    "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8"
+                  },
+                  {
+                    "file": "105.pdf",
+                    "original_name": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                    "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2"
+                  },
+                  {
+                    "file": "104.pdf",
+                    "original_name": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                    "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab"
+                  },
+                  {
+                    "file": "101.pdf",
+                    "original_name": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                    "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0"
+                  },
+                  {
+                    "file": "102.pdf",
+                    "original_name": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "sha256": "96d47580e257606b0bb25544286c1fd0a8a0b4144c912cb663b91e1c02112744"
+                  }
+                ],
+                "reference_only_courses": [
+                  {
+                    "course_code": "MAT2320",
+                    "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "pdf_page": 10,
+                    "printed_page": 8,
+                    "source_row_number": 20
+                  },
+                  {
+                    "course_code": "MAT2321",
+                    "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "pdf_page": 10,
+                    "printed_page": 8,
+                    "source_row_number": 21
+                  },
+                  {
+                    "course_code": "MAT2322",
+                    "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "pdf_page": 10,
+                    "printed_page": 8,
+                    "source_row_number": 24
+                  },
+                  {
+                    "course_code": "MAT2313",
+                    "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "pdf_page": 10,
+                    "printed_page": 8,
+                    "source_row_number": 26
+                  },
+                  {
+                    "course_code": "MAT3340",
+                    "pdf_document": "102. Toán học-tài năng final QD 3566 Scan.pdf",
+                    "pdf_page": 11,
+                    "printed_page": 9,
+                    "source_row_number": 38
+                  }
+                ],
+                "report": "docs/VINH_PDF_SOURCE_REVIEW.md",
+                "scope": "Prerequisite cells only; not full academic-policy certification",
+                "unresolved_codes": [
+                  "MAT3402"
+                ]
+              },
+              "prerequisite_review": {
+                "authorizes_eligibility": false,
+                "empty_means_no_prerequisite": false,
+                "external_codes": [],
+                "has_conflict": false,
+                "options": [],
+                "parse_statuses": [
+                  "none"
+                ],
+                "raw_variants": [],
+                "status": "unknown"
+              },
+              "release_identity": {
+                "format": "portable-2.0",
+                "release_id": "hus-data-20261111-v4",
+                "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                "source_state": "selected_for_local_rag_demo"
+              },
+              "source_comparison": {
+                "release_identity": {
+                  "format": "portable-2.0",
+                  "release_id": "hus-data-20261111-v4",
+                  "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+                  "source_state": "selected_for_local_rag_demo"
+                },
+                "source": {
+                  "git_blob_sha": "38be5742a07e47de2ca868c4d570393828d0738e",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+                }
+              },
+              "source_description": "HUS SQL export with prerequisite PDF review dated 2026-10-20; KHMTTT cohort 2022 sign-off recorded 2026-10-31; other catalogs remain draft_unverified; bilingual names and teaching-hour PDF transcription 2026-10-21",
+              "source_manifests": [
+                {
+                  "cohort_year": 2022,
+                  "decision": "QD3565-2023",
+                  "pdf_table_pages": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                  ],
+                  "scope": [
+                    "name_en",
+                    "hours"
+                  ],
+                  "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                  "source_ref": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                  "status": "draft_unverified"
+                }
+              ],
+              "source_row_pointers": [
+                "/tables/official_curriculum_entries/79"
+              ]
+            },
+            "source_row_pointer": "/tables/official_curriculum_entries/79"
+          },
+          "open_url": "/hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9",
+          "pdf_page": 9,
+          "pdf_pages": [
+            9
+          ],
+          "quote": "{\"entry_id\": 370, \"curriculum_id\": 1, \"group_key\": \"IV.1\", \"source_row_number\": 18, \"course_code\": \"MAT2300\", \"credits_in_source\": 4, \"prerequisite_source_text\": null, \"prerequisite_parse_status\": \"none\", \"pdf_document\": \"101. Toán học-chuẩn final QD 3565 Scan.pdf\", \"pdf_page\": 9}",
+          "review_status": "draft_unverified",
+          "source_id": "canonical_f2:101. Toán học-chuẩn final QD 3565 Scan.pdf",
+          "source_url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+        }
+      ],
+      "dataset": "f2",
+      "facts": {
+        "catalog_review": {
+          "basis": null,
+          "institutional_certification": false,
+          "status": "draft_unverified"
+        },
+        "course_code": "MAT2300",
+        "course_name": "Đại số tuyến tính 1",
+        "field": "credits",
+        "has_prerequisite_conflict": false,
+        "prerequisite_status": "unknown",
+        "review_status": "draft_unverified",
+        "unresolved_prerequisites": [],
+        "value": 4
+      },
+      "generated_reference_allowed": false,
+      "major": "mathematics",
+      "release_id": "hus-data-20261111-v4",
+      "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463",
+      "reply": "MAT2300 — Đại số tuyến tính 1 (QD3565-2023)\nSố tín chỉ: 4\n\nTrạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.\n\nNguồn [1]: 101. Toán học-chuẩn final QD 3565 Scan.pdf; trang PDF 9; /hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ.",
+      "status": "answered",
+      "version": "QD3565-2023",
+      "warnings": [
+        "Trạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ."
+      ]
+    },
+    "mode": "hus_rag",
+    "reply": "MAT2300 — Đại số tuyến tính 1 (QD3565-2023)\nSố tín chỉ: 4\n\nTrạng thái xác minh: draft_unverified; dữ kiện chép từ nguồn, chưa xác minh học vụ.\n\nNguồn [1]: 101. Toán học-chuẩn final QD 3565 Scan.pdf; trang PDF 9; /hus/sources/e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0?page=9#page=9; Trang vật lý theo bản chép nguồn; giữ nguyên trạng thái review học vụ."
+  },
+  "trace": {
+    "actual_model": "gemini-3.5-flash-lite",
+    "attempted": true,
+    "error": null,
+    "http_status": 200,
+    "pacing_ms": 0,
+    "prompt_sha256": "9519e93ca040b1169416f4e7a888d6bb134564b4a0d60b06e3dda32f30caf5c7",
+    "provider_envelope": {
+      "content_chars": 438,
+      "content_kind": "text",
+      "finish_reason": "stop",
+      "has_tool_call": false,
+      "stage": "provider_envelope"
+    },
+    "provider_ms": 2180.7371999893803,
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 1058,
+      "total_tokens": 1216
+    },
+    "validation": {
+      "facts_issue": "kind",
+      "stage": "output_schema"
+    }
+  }
+}

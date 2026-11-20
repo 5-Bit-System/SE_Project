@@ -1,0 +1,2053 @@
+{
+  "actual_human_reviews": 0,
+  "cases": [
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E022"
+        ],
+        "evidence_label": null,
+        "expected_answer": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q001",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 8627,
+            "evidence_path": "evidence/f1/f7f470e712738589.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "f7f470e712738589",
+            "source_kind": "crawled_prose",
+            "source_sha256": "6dca569f5ffb42d507aec95640ef432897fbea9cbdd3c35d447113c7487bdbaa",
+            "start_char": 7923,
+            "title": "Tài liệu đính kèm: 104.-KHMTTT-chuẩn-04.11.2023.docx",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/104.-KHMTTT-chu%E1%BA%A9n-04.11.2023.docx"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E022",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "positive_support",
+          "review_status": "include_markdown",
+          "source_ref": {
+            "identity": "3d5549c23ea06616555c5f6917ccfa12",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "## 4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\n\nSinh viên tốt nghiệp ngành Khoa học Máy tính và Thông tin có thể:\n\nLàm chuyên gia kĩ thuật tại các cơ quan quản lí và các doanh nghiệp có hệ thống thông tin và nhu cầu tổ chức, khai thác thông tin hiệu quả;\n\nĐảm nhiệm các vai trò tư vấn, quản lí, phân tích, thiết kế, lập trình cho các dự án công nghệ thông tin;\n\nLàm nghiên cứu viên tại các viện, các trung tâm nghiên cứu và phát triển trong lĩnh vực khoa học và công nghệ thông tin, đặc biệt là phát triển nền tảng trí tuệ nhân tạo;\n\nLàm công tác giảng dạy tại các trường đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề trong lĩnh vực khoa học máy tính và khoa học thông tin.",
+          "version": "2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q051",
+      "question_id": "L5V4-Q001",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Ra trường KHMTTT có những hướng công việc nào trong bản chương trình đã lưu?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E021"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q002",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 664,
+            "evidence_path": "evidence/f1/d6370261338de29f.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "d6370261338de29f",
+            "source_kind": "crawled_prose",
+            "source_sha256": "40e4fdb59358d7ac48c2411851f10c95910f516a5f4ccc21530a41ccd39705eb",
+            "start_char": 340,
+            "title": "Ngành Khoa học máy tính và thông tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khmt-tt"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E021",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "4ab7e793d9bac7880f909865fbe1e67c",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "Chương trình đào tạo ngành Khoa học máy tính và thông tin nhằm đáp ứng nhu cầu đào tạo nhân lực có kiến thức khoa học liên ngành, có khả năng ứng dụng các kiến thức khoa học máy tính và khoa học tính toán nói chung để giải quyết các vấn đề về tổ chức, lưu trữ, tìm kiếm thông tin, phát hiện thông tin và tri thức từ dữ liệu.",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q049",
+      "question_id": "L5V4-Q002",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Ngành KHMTTT đào tạo để xử lý những vấn đề thông tin và dữ liệu nào?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E024"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3558 - Lập trình mobile: credits = 2. Source review: verified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "credits": 2
+        },
+        "expected_field": "credits",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q003",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/250",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/257"
+            ],
+            "pdf_locators": [
+              {
+                "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "page": 11,
+                "row": 43,
+                "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học máy tính và thông tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E024",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "positive_support",
+          "review_status": "verified",
+          "source_ref": {
+            "identity": "khmtt_7480113qtd_2022:MAT3558",
+            "identity_field": "record_id",
+            "json_pointer": "/credits",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": 2,
+          "version": "QD3568-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q055",
+      "question_id": "L5V4-Q003",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Môn Lập trình mobile trong bản chương trình KHMTTT đã chọn có khối lượng bao nhiêu tín chỉ?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E026"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3563 - Một số vấn đề chọn lọc về thị giác máy tính: prerequisites.raw_variants = [\"MAT3562E\"]. Source review: verified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "prerequisites.raw_variants": [
+            "MAT3562E"
+          ]
+        },
+        "expected_field": "prerequisites",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q004",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/257",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/264"
+            ],
+            "pdf_locators": [
+              {
+                "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                "page": 12,
+                "row": 50,
+                "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học máy tính và thông tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E026",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "positive_support",
+          "review_status": "verified",
+          "source_ref": {
+            "identity": "khmtt_7480113qtd_2022:MAT3563",
+            "identity_field": "record_id",
+            "json_pointer": "/prerequisites/raw_variants",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": [
+            "MAT3562E"
+          ],
+          "version": "QD3568-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q059",
+      "question_id": "L5V4-Q004",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Trước môn MAT3563 của KHMTTT, bảng nguồn ghi phải học những mã nào?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q005-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q005",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q005-source",
+          "source_ref": {
+            "field": "content",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "khmtt_7480113qtd_2022:MAT3148",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng."
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q061",
+      "long_unit": {
+        "record_id": "khmtt_7480113qtd_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "question_id": "L5V4-Q005",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "course_code": "MAT3148",
+        "dataset": "f3",
+        "field": "content",
+        "major": "computer_science",
+        "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q006-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phát biểu điều kiện đầu vào và kết quả của thuật toán\n- Giải thích bất biến và quy nạp trong chứng minh tính đúng\n- Phân biệt chia để trị, tham lam và quy hoạch động\n- Liên hệ độ phức tạp với quy mô và cấu trúc dữ liệu",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q006",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q006-source",
+          "source_ref": {
+            "field": "objectives",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "khmtt_7480113qtd_2022:MAT3552E",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phát biểu điều kiện đầu vào và kết quả của thuật toán\n- Giải thích bất biến và quy nạp trong chứng minh tính đúng\n- Phân biệt chia để trị, tham lam và quy hoạch động\n- Liên hệ độ phức tạp với quy mô và cấu trúc dữ liệu"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q063",
+      "question_id": "L5V4-Q006",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Với phần AI tham khảo đã bật, MAT3552E hướng người học tới các năng lực gì?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "opt_in_required",
+        "evidence_ids": [
+          "P11-E027"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Ask for explicit generated-reference opt-in; do not disclose generated content before consent.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "needs_clarification",
+        "must_abstain_from": [
+          "Generated content without opt-in"
+        ],
+        "question_id": "L5V4-Q007",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "authored_by": "Codex",
+            "canonical_identity_citation": {
+              "evidence_path": "evidence/canonical_f2.json",
+              "json_pointer": "/tables/curriculum_courses/245",
+              "json_pointers": [
+                "/tables/official_curriculum_entries/252"
+              ],
+              "pdf_locators": [
+                {
+                  "document": "104.-KHMTTT-chuẩn final QD 3568 Scan final.pdf",
+                  "page": 11,
+                  "row": 29,
+                  "sha256": "bc070d7ae3713f77c36817d960b73dec53dcdeacda5e25e557c37a732abe09ab",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/104.-KHMTTT-chu%E1%BA%A9n%20final%20QD%203568%20Scan%20final%20%281%29.pdf"
+                }
+              ],
+              "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+              "source_id": "canonical_f2",
+              "source_kind": "curriculum_transcription",
+              "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "title": "Khoa học máy tính và thông tin",
+              "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+            },
+            "evidence_path": "f3_records.jsonl",
+            "field": "content",
+            "method": "codex_authored_concept_blueprints_v1",
+            "official_source_citation": false,
+            "record_id": "khmtt_7480113qtd_2022:MAT3550E",
+            "source_id": "generated_f3:khmtt_7480113qtd_2022:MAT3550E",
+            "source_kind": "ai_generated_reference",
+            "title": "AI tham khảo: Nguyên lí hệ điều hành",
+            "url": null
+          },
+          "content_origin": "generated",
+          "evidence_id": "P11-E027",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "generated_reference",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "bdb9862b8c0ee1cefe0eda02367742be",
+            "identity_field": "chunk_id",
+            "json_pointer": "/text",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl"
+          },
+          "value": "MAT3550E — Nguyên lí hệ điều hành.\nPhương án nội dung tham khảo cho học phần Nguyên lí hệ điều hành: Tiến trình và lập lịch; Quản lý bộ nhớ và tài nguyên; Đồng bộ và tổ chức lưu trữ. Các chủ đề này do AI đề xuất, chưa đối chiếu đề cương chính thức.",
+          "version": "QD3568-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q071",
+      "question_id": "L5V4-Q007",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Bạn phác họa các phần sẽ học trong MAT3550E cho mình được không? Mình đang hỏi ở mức kiến thức AI tham khảo.",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "category": "missing_evidence",
+        "evidence_ids": [
+          "P11-E029"
+        ],
+        "evidence_label": null,
+        "expected_answer": "The pinned package has no verified value for the requested official assessment or current offering. Say there is insufficient evidence; do not infer it from generated content.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "official_assessment",
+        "expected_status": "no_information",
+        "must_abstain_from": [
+          "Official assessment percentages/format",
+          "Current teacher, room, schedule, vacancies or registration dates"
+        ],
+        "question_id": "L5V4-Q008",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": null,
+          "content_origin": "generated",
+          "evidence_id": "P11-E029",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "computer_science",
+          "purpose": "absence_check",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "khmtt_7480113qtd_2022:MAT3550E",
+            "identity_field": "record_id",
+            "json_pointer": "/official_assessment",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl"
+          },
+          "value": null,
+          "version": "QD3568-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q065",
+      "question_id": "L5V4-Q008",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "computer_science",
+        "question": "Mình cần tỷ lệ thi cuối kỳ chính thức của MAT3550E, có nguồn đã xác minh không?",
+        "version": "QD3568-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E031"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "introduction",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q009",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 1043,
+            "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "055c47bf412172c0",
+            "source_kind": "crawled_prose",
+            "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+            "start_char": 863,
+            "title": "Khoa học Dữ liệu",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E031",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "21625268a830b8656f4b5bd4f07a9f80",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "Ngành đào tạo Khoa học dữ liệu cung cấp cho sinh viên nền tảng kiến thức dựa trên 3 lĩnh vực: Khoa học máy tính, thống kê và toán học nhằm phân tích, xử lý dữ liệu lớn và phức tạp.",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q073",
+      "question_id": "L5V4-Q009",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "KHDL kết hợp ba nền tảng nào và nhằm làm gì theo mô tả ngành?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E032"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q010",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 2335,
+            "evidence_path": "evidence/f1/055c47bf412172c0.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "055c47bf412172c0",
+            "source_kind": "crawled_prose",
+            "source_sha256": "7b4d463bdd84f00344ac7a99e00bb31cfc1f479a24263c2397670c62a4917dec",
+            "start_char": 2238,
+            "title": "Khoa học Dữ liệu",
+            "url": "http://mim.hus.vnu.edu.vn/vi/khoa-hoc-du-lieu"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E032",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "52b2b2acd330744f909bc2ea49cf5fb7",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "Nghiên cứu viên tại các trung tâm nghiên cứu và phát triển (R&D) trong lĩnh vực khoa học dữ liệu;",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q075",
+      "question_id": "L5V4-Q010",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Học KHDL xong có thể làm nghiên cứu phát triển ở đâu theo nguồn chương trình?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E034"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3397 - Một số vấn đề ứng dụng của khoa học dữ liệu: credits = 4. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "credits": 4
+        },
+        "expected_field": "credits",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q011",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/192",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/199"
+            ],
+            "pdf_locators": [
+              {
+                "document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                "page": 13,
+                "row": 58,
+                "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học dữ liệu",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E034",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "khdl_7460108_2022:MAT3397",
+            "identity_field": "record_id",
+            "json_pointer": "/credits",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": 4,
+          "version": "QD3569-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q079",
+      "question_id": "L5V4-Q011",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Môn Một số vấn đề ứng dụng của khoa học dữ liệu trong bản chương trình KHDL đã chọn có khối lượng bao nhiêu tín chỉ?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E036"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3534 - Khai phá dữ liệu: prerequisites.raw_variants = [\"MAT3507\\nMAT2323\"]. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "prerequisites.raw_variants": [
+            "MAT3507\nMAT2323"
+          ]
+        },
+        "expected_field": "prerequisites",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q012",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/235",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/242"
+            ],
+            "pdf_locators": [
+              {
+                "document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                "page": 12,
+                "row": 43,
+                "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Khoa học dữ liệu",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E036",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "khdl_7460108_2022:MAT3534",
+            "identity_field": "record_id",
+            "json_pointer": "/prerequisites/raw_variants",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": [
+            "MAT3507\nMAT2323"
+          ],
+          "version": "QD3569-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q083",
+      "question_id": "L5V4-Q012",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Trước môn MAT3534 của KHDL, bảng nguồn ghi phải học những mã nào?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q013-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q013",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q013-source",
+          "source_ref": {
+            "field": "content",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "khdl_7460108_2022:MAT3148",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng."
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q085",
+      "long_unit": {
+        "record_id": "khdl_7460108_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "question_id": "L5V4-Q013",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "course_code": "MAT3148",
+        "dataset": "f3",
+        "field": "content",
+        "major": "data_science",
+        "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q014-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt câu hỏi mô tả, dự báo và giải thích cơ chế\n- So sánh các giả thiết về dạng quan hệ và nhiễu dữ liệu\n- Giải thích ảnh hưởng của xử lý thiếu tới kết luận\n- Phân tích độ ổn định của kết quả khi thay đổi giả thiết hợp lý",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q014",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q014-source",
+          "source_ref": {
+            "field": "objectives",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "khdl_7460108_2022:MAT3398",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt câu hỏi mô tả, dự báo và giải thích cơ chế\n- So sánh các giả thiết về dạng quan hệ và nhiễu dữ liệu\n- Giải thích ảnh hưởng của xử lý thiếu tới kết luận\n- Phân tích độ ổn định của kết quả khi thay đổi giả thiết hợp lý"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q087",
+      "question_id": "L5V4-Q014",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Với phần AI tham khảo đã bật, MAT3398 hướng người học tới các năng lực gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "opt_in_required",
+        "evidence_ids": [
+          "P11-E037"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Ask for explicit generated-reference opt-in; do not disclose generated content before consent.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "needs_clarification",
+        "must_abstain_from": [
+          "Generated content without opt-in"
+        ],
+        "question_id": "L5V4-Q015",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "authored_by": "Codex",
+            "canonical_identity_citation": {
+              "evidence_path": "evidence/canonical_f2.json",
+              "json_pointer": "/tables/curriculum_courses/237",
+              "json_pointers": [
+                "/tables/official_curriculum_entries/244"
+              ],
+              "pdf_locators": [
+                {
+                  "document": "105.-Khoa-học-dữ-liệu-chuẩn final QĐ 3569 Scan.pdf",
+                  "page": 12,
+                  "row": 55,
+                  "sha256": "b4b0289701a6c1e2b7d288ea880970a2a9f49d680dc6c3986d9b840d93083ab2",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/105.-Khoa-h%E1%BB%8Dc-d%E1%BB%AF-li%E1%BB%87u-chu%E1%BA%A9n%20final%20Q%C4%90%203569%20Scan.pdf"
+                }
+              ],
+              "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+              "source_id": "canonical_f2",
+              "source_kind": "curriculum_transcription",
+              "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "title": "Khoa học dữ liệu",
+              "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+            },
+            "evidence_path": "f3_records.jsonl",
+            "field": "content",
+            "method": "codex_authored_concept_blueprints_v1",
+            "official_source_citation": false,
+            "record_id": "khdl_7460108_2022:MAT3535",
+            "source_id": "generated_f3:khdl_7460108_2022:MAT3535",
+            "source_kind": "ai_generated_reference",
+            "title": "AI tham khảo: Tìm kiếm thông tin",
+            "url": null
+          },
+          "content_origin": "generated",
+          "evidence_id": "P11-E037",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "generated_reference",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "fd841fdc43517b61933d212e9c27522e",
+            "identity_field": "chunk_id",
+            "json_pointer": "/text",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl"
+          },
+          "value": "MAT3535 — Tìm kiếm thông tin.\nPhương án nội dung tham khảo cho học phần Tìm kiếm thông tin: Biểu diễn tài liệu và truy vấn; Lập chỉ mục và xếp hạng kết quả; Đánh giá truy hồi và phân tích lỗi tìm kiếm. Các chủ đề này do AI đề xuất, chưa đối chiếu đề cương chính thức.",
+          "version": "QD3569-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q095",
+      "question_id": "L5V4-Q015",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Bạn phác họa các phần sẽ học trong MAT3535 cho mình được không? Mình đang hỏi ở mức kiến thức AI tham khảo.",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "category": "missing_evidence",
+        "evidence_ids": [
+          "P11-E039"
+        ],
+        "evidence_label": null,
+        "expected_answer": "The pinned package has no verified value for the requested official assessment or current offering. Say there is insufficient evidence; do not infer it from generated content.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "official_assessment",
+        "expected_status": "no_information",
+        "must_abstain_from": [
+          "Official assessment percentages/format",
+          "Current teacher, room, schedule, vacancies or registration dates"
+        ],
+        "question_id": "L5V4-Q016",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": null,
+          "content_origin": "generated",
+          "evidence_id": "P11-E039",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "data_science",
+          "purpose": "absence_check",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "khdl_7460108_2022:MAT3535",
+            "identity_field": "record_id",
+            "json_pointer": "/official_assessment",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_records.jsonl"
+          },
+          "value": null,
+          "version": "QD3569-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q089",
+      "question_id": "L5V4-Q016",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Mình cần tỷ lệ thi cuối kỳ chính thức của MAT3535, có nguồn đã xác minh không?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E001"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "introduction",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q017",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 105,
+            "evidence_path": "evidence/f1/ce8df97fe49665e9.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "ce8df97fe49665e9",
+            "source_kind": "crawled_prose",
+            "source_sha256": "750a8421ec47d23a4ba6942794f0d1a0a6d5d1a26870800d84f452b93f73c6f6",
+            "start_char": 0,
+            "title": "Ngành Toán học",
+            "url": "http://mim.hus.vnu.edu.vn/vi/toanhoc"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E001",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "e7864b281332873d47213bf53a1bf0f7",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "Khoa Toán - Cơ - Tin học có 2 chương trình đào tạo cử nhân hệ chuẩn và hệ cử nhân tài năng ngành Toán học",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q001",
+      "question_id": "L5V4-Q017",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Bạn kể giúp các hệ đào tạo cử nhân ngành Toán mà khoa giới thiệu được không?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E002"
+        ],
+        "evidence_label": null,
+        "expected_answer": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nCử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các\nviện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lý\nkinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm….;\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình\ntại các trường đại học, cao đẳng, trung học phổ thông.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q018",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 7267,
+            "evidence_path": "evidence/f1/89d4b39494d72217.txt",
+            "raw_original_verified": false,
+            "review_status": "include_markdown",
+            "source_id": "89d4b39494d72217",
+            "source_kind": "crawled_prose",
+            "source_sha256": "c2a0c153a98316cd6b97d57b49c0172f94ff92b66272aeb6d10d8f06ff515147",
+            "start_char": 6819,
+            "title": "Tài liệu đính kèm: CTDT-Toanhoc-130815.pdf",
+            "url": "http://mim.hus.vnu.edu.vn/sites/default/files/CTDT-Toanhoc-130815.pdf"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E002",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics",
+          "purpose": "positive_support",
+          "review_status": "include_markdown",
+          "source_ref": {
+            "identity": "576a32614c1a16f7799e722bd1bd1313",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "4. Vị trí việc làm mà sinh viên có thể đảm nhiệm sau khi tốt nghiệp\nCử nhân khoa học ngành Toán học có năng lực làm việc tại các trung tâm, các\nviện nghiên cứu phát triển trong các viện nghiên cứu và công ty, các cơ quan quản lý\nkinh tế, tài chính, các cơ sở sản xuất và kinh doanh, ngân hàng, tổ chức bảo hiểm….;\nSinh viên tốt nghiệp cũng có thể giảng dạy các môn liên quan tới ngành của mình\ntại các trường đại học, cao đẳng, trung học phổ thông.",
+          "version": "2015"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q003",
+      "question_id": "L5V4-Q018",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Ra trường ngành Toán có thể làm ở đâu theo tài liệu đã lưu?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E004"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3422 - Lý thuyết bản và vỏ mỏng: credits = 4. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "credits": 4
+        },
+        "expected_field": "credits",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q019",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/205",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/212"
+            ],
+            "pdf_locators": [
+              {
+                "document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                "page": 14,
+                "row": 89,
+                "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán học",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E004",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "toan_hoc_7460101_2022:MAT3422",
+            "identity_field": "record_id",
+            "json_pointer": "/credits",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": 4,
+          "version": "QD3565-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q007",
+      "question_id": "L5V4-Q019",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Môn Lý thuyết bản và vỏ mỏng trong bản chương trình Toán học đã chọn có khối lượng bao nhiêu tín chỉ?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E006"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3415 - Cơ học vật liệu composite: prerequisites.raw_variants = [\"MAT3423\"]. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "prerequisites.raw_variants": [
+            "MAT3423"
+          ]
+        },
+        "expected_field": "prerequisites",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q020",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/203",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/210"
+            ],
+            "pdf_locators": [
+              {
+                "document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                "page": 14,
+                "row": 84,
+                "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán học",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E006",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "toan_hoc_7460101_2022:MAT3415",
+            "identity_field": "record_id",
+            "json_pointer": "/prerequisites/raw_variants",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": [
+            "MAT3423"
+          ],
+          "version": "QD3565-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q011",
+      "question_id": "L5V4-Q020",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Trước môn MAT3415 của Toán học, bảng nguồn ghi phải học những mã nào?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q021-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Biểu diễn và không gian bất biến\nBiểu diễn chuyển phần tử nhóm thành ma trận khả nghịch, biến phép nhân nhóm thành nhân ma trận. Không gian con bất biến ổn định dưới tác động của nhóm. Với biểu diễn hữu hạn chiều của nhóm hữu hạn trên trường phức, mỗi không gian con bất biến có phần bù bất biến, cho phép phân rã thành các thành phần không trộn lẫn; không suy điều này cho mọi biểu diễn nhóm.\nKhái niệm thành phần: biểu diễn tuyến tính; không gian bất biến; bất khả quy.\nVí dụ minh họa do AI biên soạn: Phép đổi chỗ hai tọa độ trên R² giữ cả đường x=y và đường x=-y; hai đường này cho một phân rã thích nghi với đối xứng.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q021",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q021-source",
+          "source_ref": {
+            "field": "content",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "toan_hoc_7460101_2022:MAT3311",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Biểu diễn và không gian bất biến\nBiểu diễn chuyển phần tử nhóm thành ma trận khả nghịch, biến phép nhân nhóm thành nhân ma trận. Không gian con bất biến ổn định dưới tác động của nhóm. Với biểu diễn hữu hạn chiều của nhóm hữu hạn trên trường phức, mỗi không gian con bất biến có phần bù bất biến, cho phép phân rã thành các thành phần không trộn lẫn; không suy điều này cho mọi biểu diễn nhóm.\nKhái niệm thành phần: biểu diễn tuyến tính; không gian bất biến; bất khả quy.\nVí dụ minh họa do AI biên soạn: Phép đổi chỗ hai tọa độ trên R² giữ cả đường x=y và đường x=-y; hai đường này cho một phân rã thích nghi với đối xứng."
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q013",
+      "long_unit": {
+        "record_id": "toan_hoc_7460101_2022:MAT3311",
+        "source_chars": 622,
+        "title": "Biểu diễn và không gian bất biến",
+        "unit_index": 2
+      },
+      "question_id": "L5V4-Q021",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "course_code": "MAT3311",
+        "dataset": "f3",
+        "field": "content",
+        "major": "mathematics",
+        "question": "Nội dung MAT3311: Biểu diễn và không gian bất biến?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q022-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt mô hình vật lý và mô hình rời rạc\n- Diễn giải tính nhất quán, ổn định và hội tụ của một sơ đồ\n- Liên hệ bước thời gian với thang vận động của hệ\n- Phân tích bảo toàn và sai số trong kết quả mô phỏng",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q022",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q022-source",
+          "source_ref": {
+            "field": "objectives",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "toan_hoc_7460101_2022:MAT3418",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt mô hình vật lý và mô hình rời rạc\n- Diễn giải tính nhất quán, ổn định và hội tụ của một sơ đồ\n- Liên hệ bước thời gian với thang vận động của hệ\n- Phân tích bảo toàn và sai số trong kết quả mô phỏng"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q015",
+      "question_id": "L5V4-Q022",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Với phần AI tham khảo đã bật, MAT3418 hướng người học tới các năng lực gì?",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "opt_in_required",
+        "evidence_ids": [
+          "P11-E007"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Ask for explicit generated-reference opt-in; do not disclose generated content before consent.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "needs_clarification",
+        "must_abstain_from": [
+          "Generated content without opt-in"
+        ],
+        "question_id": "L5V4-Q023",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "authored_by": "Codex",
+            "canonical_identity_citation": {
+              "evidence_path": "evidence/canonical_f2.json",
+              "json_pointer": "/tables/curriculum_courses/198",
+              "json_pointers": [
+                "/tables/official_curriculum_entries/205"
+              ],
+              "pdf_locators": [
+                {
+                  "document": "101. Toán học-chuẩn final QD 3565 Scan.pdf",
+                  "page": 13,
+                  "row": 80,
+                  "sha256": "e6e33a8a489f7ab77f3db0c727cc4c837ba86f8f17a7eae17c9da08d3c066bd0",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/101.%20To%C3%A1n%20h%E1%BB%8Dc-chu%E1%BA%A9n%20final%20QD%203565%20Scan.pdf"
+                }
+              ],
+              "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+              "source_id": "canonical_f2",
+              "source_kind": "curriculum_transcription",
+              "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "title": "Toán học",
+              "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+            },
+            "evidence_path": "f3_records.jsonl",
+            "field": "content",
+            "method": "codex_authored_concept_blueprints_v1",
+            "official_source_citation": false,
+            "record_id": "toan_hoc_7460101_2022:MAT3408",
+            "source_id": "generated_f3:toan_hoc_7460101_2022:MAT3408",
+            "source_kind": "ai_generated_reference",
+            "title": "AI tham khảo: Cơ học chất lỏng",
+            "url": null
+          },
+          "content_origin": "generated",
+          "evidence_id": "P11-E007",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics",
+          "purpose": "generated_reference",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "c7cce301e6e42fec27b386450f36d3c7",
+            "identity_field": "chunk_id",
+            "json_pointer": "/text",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl"
+          },
+          "value": "MAT3408 — Cơ học chất lỏng.\nPhương án nội dung tham khảo cho học phần Cơ học chất lỏng: Mô tả chuyển động chất lỏng; Các phương trình bảo toàn; Phân tích dòng chảy trong mô hình lý tưởng. Các chủ đề này do AI đề xuất, chưa đối chiếu đề cương chính thức.",
+          "version": "QD3565-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q023",
+      "question_id": "L5V4-Q023",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Bạn phác họa các phần sẽ học trong MAT3408 cho mình được không? Mình đang hỏi ở mức kiến thức AI tham khảo.",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "category": "out_of_scope",
+        "evidence_ids": [],
+        "evidence_label": null,
+        "expected_answer": "Explain the supported HUS scope; do not invoke recommendation, external services or account actions.",
+        "expected_citations": [],
+        "expected_dataset": null,
+        "expected_facts": {},
+        "expected_field": null,
+        "expected_status": "no_information",
+        "must_abstain_from": [
+          "Recommendation ranking",
+          "External actions and personal account access"
+        ],
+        "policy_reason": "Standalone HUS answers F1/F2/F3 and fixed basic conversation only; no ranking, live weather or account/email actions.",
+        "question_id": "L5V4-Q024",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "DEV-Q021",
+      "question_id": "L5V4-Q024",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics",
+        "question": "Hãy xếp hạng môn Toán học theo độ dễ lấy điểm và chọn hộ mình 20 tín chỉ.",
+        "version": "QD3565-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E011"
+        ],
+        "evidence_label": null,
+        "expected_answer": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "introduction",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q025",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 351,
+            "evidence_path": "evidence/f1/1b525683101bf943.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "1b525683101bf943",
+            "source_kind": "crawled_prose",
+            "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+            "start_char": 0,
+            "title": "Ngành Toán Tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E011",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics_informatics",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "44d598308d53629fef5b3c8a7ec61495",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "Chương trình đào tạo ngành Toán Tin (trước đây là Toán - Tin ứng dụng) trình độ đại học đã được bắt đầu đào tạo tại Khoa Toán - Cơ - Tin học từ năm 1993. Cùng với các ngành đào tạo gắn với lĩnh vực Công nghệ thông tin, chương trình đào tạo Toán Tin là một trong các chương trình không ngừng được cập nhật để bắt kịp với sự phát triển của lĩnh vực này.",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q025",
+      "question_id": "L5V4-Q025",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Ngành Toán tin được mở từ khi nào và tên gọi ban đầu là gì theo trang khoa?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f1",
+        "evidence_ids": [
+          "P11-E012"
+        ],
+        "evidence_label": null,
+        "expected_answer": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+        "expected_dataset": "f1",
+        "expected_facts": {},
+        "expected_field": "careers",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q026",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "end_char": 1398,
+            "evidence_path": "evidence/f1/1b525683101bf943.txt",
+            "raw_original_verified": true,
+            "review_status": "include",
+            "source_id": "1b525683101bf943",
+            "source_kind": "crawled_prose",
+            "source_sha256": "750fb04b1daecfba56e219f9cf13c41037724409a047bc6173c74899b9c9e059",
+            "start_char": 1102,
+            "title": "Ngành Toán Tin",
+            "url": "http://mim.hus.vnu.edu.vn/vi/toantin"
+          },
+          "content_origin": "crawled_source_quote",
+          "evidence_id": "P11-E012",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics_informatics",
+          "purpose": "positive_support",
+          "review_status": "include",
+          "source_ref": {
+            "identity": "29eae8734736c0e9d8e2fe500ce56d90",
+            "identity_field": "chunk_id",
+            "json_pointer": "/source_quote",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f1_chunks.jsonl"
+          },
+          "value": "- Làm việc tại các doanh nghiệp, các bộ phận nghiên cứu phát triển, các cơ quan quản lý kinh tế, tài chính có sử dụng kiến thức Toán ứng dụng hay Công nghệ thông tin với các vai trò ví dụ như lập trình viên, chuyên gia phân tích dữ liệu, chuyên gia thống kê, chuyên gia phát triển thuật toán, ...",
+          "version": "unknown"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q027",
+      "question_id": "L5V4-Q026",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Ra trường Toán tin có thể đảm nhiệm công việc nào trong doanh nghiệp theo tài liệu?",
+        "version": null
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E014"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3525 - Thực hành tính toán: credits = 2. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "credits": 2
+        },
+        "expected_field": "credits",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q027",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/229",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/236"
+            ],
+            "pdf_locators": [
+              {
+                "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                "page": 10,
+                "row": 38,
+                "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E014",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics_informatics",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "toan_tin_7460117_2022:MAT3525",
+            "identity_field": "record_id",
+            "json_pointer": "/credits",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": 2,
+          "version": "QD3567-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q031",
+      "question_id": "L5V4-Q027",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Môn Thực hành tính toán trong bản chương trình Toán tin đã chọn có khối lượng bao nhiêu tín chỉ?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f2",
+        "evidence_ids": [
+          "P11-E016"
+        ],
+        "evidence_label": null,
+        "expected_answer": "MAT3565 - Nhập môn khai phá các tập dữ liệu lớn: prerequisites.raw_variants = [\"MAT1202\\nMAT2405\"]. Source review: draft_unverified; institutional_certification=false.",
+        "expected_dataset": "f2",
+        "expected_facts": {
+          "prerequisites.raw_variants": [
+            "MAT1202\nMAT2405"
+          ]
+        },
+        "expected_field": "prerequisites",
+        "expected_status": "answered",
+        "must_abstain_from": [],
+        "question_id": "L5V4-Q028",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "evidence_path": "evidence/canonical_f2.json",
+            "json_pointer": "/tables/curriculum_courses/258",
+            "json_pointers": [
+              "/tables/official_curriculum_entries/265"
+            ],
+            "pdf_locators": [
+              {
+                "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                "page": 12,
+                "row": 52,
+                "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+              }
+            ],
+            "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+            "source_id": "canonical_f2",
+            "source_kind": "curriculum_transcription",
+            "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+            "title": "Toán tin",
+            "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+          },
+          "content_origin": "canonical_source",
+          "evidence_id": "P11-E016",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics_informatics",
+          "purpose": "positive_support",
+          "review_status": "draft_unverified",
+          "source_ref": {
+            "identity": "toan_tin_7460117_2022:MAT3565",
+            "identity_field": "record_id",
+            "json_pointer": "/prerequisites/raw_variants",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f2_records.jsonl"
+          },
+          "value": [
+            "MAT1202\nMAT2405"
+          ],
+          "version": "QD3567-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q035",
+      "question_id": "L5V4-Q028",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Trước môn MAT3565 của Toán tin, bảng nguồn ghi phải học những mã nào?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q029-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng.",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q029",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q029-source",
+          "source_ref": {
+            "field": "content",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "toan_tin_7460117_2022:MAT3148",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mô hình bộ nhớ và trao đổi dữ liệu\nBộ nhớ dùng chung cho phép các luồng truy cập dữ liệu chung, còn mô hình phân tán yêu cầu truyền dữ liệu giữa các tiến trình. Cách đặt dữ liệu ảnh hưởng chi phí truy cập và truyền thông; khả năng nhìn thấy cập nhật cũng cần được hiểu theo mô hình đồng bộ chứ không chỉ theo thứ tự mã nguồn.\nKhái niệm thành phần: shared memory; distributed memory; thread; message passing.\nVí dụ minh họa do AI biên soạn: Một tổng cục bộ được mỗi tiến trình tính riêng rồi gửi về bước kết hợp giúp giảm dữ liệu truyền so với chuyển từng phần tử về một nơi trước khi cộng."
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q037",
+      "long_unit": {
+        "record_id": "toan_tin_7460117_2022:MAT3148",
+        "source_chars": 589,
+        "title": "Mô hình bộ nhớ và trao đổi dữ liệu",
+        "unit_index": 1
+      },
+      "question_id": "L5V4-Q029",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "course_code": "MAT3148",
+        "dataset": "f3",
+        "field": "content",
+        "major": "mathematics_informatics",
+        "question": "Nội dung MAT3148: Mô hình bộ nhớ và trao đổi dữ liệu?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "f3",
+        "evidence_ids": [
+          "L5V4-Q030-source"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt thuật toán quyết định với thủ tục nhận dạng\n- Giải thích phép mã hóa chương trình và đầu vào\n- Diễn giải phép giảm trong lập luận về giới hạn tính toán\n- Phân biệt tính tính được với độ phức tạp đa thức",
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "objectives",
+        "expected_status": "answered",
+        "must_abstain_from": [
+          "Official syllabus claims",
+          "Official exam weights or format"
+        ],
+        "question_id": "L5V4-Q030",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "evidence_id": "L5V4-Q030-source",
+          "source_ref": {
+            "field": "objectives",
+            "path": "data/hus/rag/releases/hus-data-20261111-v4/f3_records.jsonl",
+            "record_id": "toan_tin_7460117_2022:MAT3545",
+            "sha256": "70320f177476937e6437daa4ff2a55bdf2d1e9929fcb05d0d5632399be528036"
+          },
+          "value": "Mục tiêu tham khảo do AI đề xuất:\n- Phân biệt thuật toán quyết định với thủ tục nhận dạng\n- Giải thích phép mã hóa chương trình và đầu vào\n- Diễn giải phép giảm trong lập luận về giới hạn tính toán\n- Phân biệt tính tính được với độ phức tạp đa thức"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q039",
+      "question_id": "L5V4-Q030",
+      "request": {
+        "allow_generated_reference": true,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Với phần AI tham khảo đã bật, MAT3545 hướng người học tới các năng lực gì?",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "academic_verified": false,
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "authorizes_eligibility": false,
+        "category": "opt_in_required",
+        "evidence_ids": [
+          "P11-E017"
+        ],
+        "evidence_label": "kiến thức AI",
+        "expected_answer": "Ask for explicit generated-reference opt-in; do not disclose generated content before consent.",
+        "expected_citations": [],
+        "expected_dataset": "f3",
+        "expected_facts": {},
+        "expected_field": "content",
+        "expected_status": "needs_clarification",
+        "must_abstain_from": [
+          "Generated content without opt-in"
+        ],
+        "question_id": "L5V4-Q031",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [
+        {
+          "citation": {
+            "authored_by": "Codex",
+            "canonical_identity_citation": {
+              "evidence_path": "evidence/canonical_f2.json",
+              "json_pointer": "/tables/curriculum_courses/230",
+              "json_pointers": [
+                "/tables/official_curriculum_entries/237"
+              ],
+              "pdf_locators": [
+                {
+                  "document": "103. Toán tin-chuẩn final QD 3567 Scan.pdf",
+                  "page": 11,
+                  "row": 47,
+                  "sha256": "6c19e390ba61c1766e2826b055fe39b3987db25ef707263f60ce337347d87df8",
+                  "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/docs/pdf/103.%20To%C3%A1n%20tin-chu%E1%BA%A9n%20final%20QD%203567%20Scan.pdf"
+                }
+              ],
+              "source_git_blob": "38be5742a07e47de2ca868c4d570393828d0738e",
+              "source_id": "canonical_f2",
+              "source_kind": "curriculum_transcription",
+              "source_sha256": "e0449d63cd73e90042880941df784d78800a9f7743c2dc99d7b251c4a1a06c6c",
+              "title": "Toán tin",
+              "url": "https://github.com/5-Bit-System/SE_Project/blob/94b7d05988d4118df283ad09a12ff75cef3161fc/database/data/hus_source.json"
+            },
+            "evidence_path": "f3_records.jsonl",
+            "field": "content",
+            "method": "codex_authored_concept_blueprints_v1",
+            "official_source_citation": false,
+            "record_id": "toan_tin_7460117_2022:MAT3531",
+            "source_id": "generated_f3:toan_tin_7460117_2022:MAT3531",
+            "source_kind": "ai_generated_reference",
+            "title": "AI tham khảo: Tính toán phân tán",
+            "url": null
+          },
+          "content_origin": "generated",
+          "evidence_id": "P11-E017",
+          "inheritance_note": "Exposed v3 F1/F2 source unchanged in v4; not independent gold.",
+          "major": "mathematics_informatics",
+          "purpose": "generated_reference",
+          "review_status": "needs_review",
+          "source_ref": {
+            "identity": "24e1b8299a882d81da8a61ca3a7858bf",
+            "identity_field": "chunk_id",
+            "json_pointer": "/text",
+            "path": "data/hus/rag/releases/hus-data-20261031-v3/f3_chunks.jsonl"
+          },
+          "value": "MAT3531 — Tính toán phân tán.\nPhương án nội dung tham khảo cho học phần Tính toán phân tán: Mô hình hệ phân tán và giao tiếp; Đồng bộ và tính nhất quán; Khả năng chịu lỗi và đánh giá hệ thống. Các chủ đề này do AI đề xuất, chưa đối chiếu đề cương chính thức.",
+          "version": "QD3567-2023"
+        }
+      ],
+      "inherited_exposed_question_id": "DEV-Q047",
+      "question_id": "L5V4-Q031",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Bạn phác họa các phần sẽ học trong MAT3531 cho mình được không? Mình đang hỏi ở mức kiến thức AI tham khảo.",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "acceptance": "Accept source-supported paraphrases; evidence IDs are anchors, not a demand to repeat the exact gold wording.",
+        "category": "out_of_scope",
+        "evidence_ids": [],
+        "evidence_label": null,
+        "expected_answer": "Explain the supported HUS scope; do not invoke recommendation, external services or account actions.",
+        "expected_citations": [],
+        "expected_dataset": null,
+        "expected_facts": {},
+        "expected_field": null,
+        "expected_status": "no_information",
+        "must_abstain_from": [
+          "Recommendation ranking",
+          "External actions and personal account access"
+        ],
+        "policy_reason": "Standalone HUS answers F1/F2/F3 and fixed basic conversation only; no ranking, live weather or account/email actions.",
+        "question_id": "L5V4-Q032",
+        "review_status": "pending_independent_review"
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "DEV-Q045",
+      "question_id": "L5V4-Q032",
+      "request": {
+        "allow_generated_reference": false,
+        "allow_llm_rewrite": false,
+        "major": "mathematics_informatics",
+        "question": "Hãy xếp hạng môn Toán tin theo độ dễ lấy điểm và chọn hộ mình 20 tín chỉ.",
+        "version": "QD3567-2023"
+      }
+    },
+    {
+      "gold": {
+        "category": "clarification_required",
+        "evidence_ids": [],
+        "expected_answer": "Clarify without facts/citations; no hidden course history",
+        "expected_dataset": "f2",
+        "expected_facts": {},
+        "expected_field": null,
+        "expected_status": "needs_clarification",
+        "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+        "question_id": "L5V4-Q033",
+        "v2_expected_facts": {}
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "A1-015",
+      "question_id": "L5V4-Q033",
+      "request": {
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "MAT3533 có tên gì, bao nhiêu tín chỉ và tiên quyết gì?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "category": "clarification_required",
+        "evidence_ids": [],
+        "expected_answer": "Clarify without facts/citations; no hidden course history",
+        "expected_dataset": "f2",
+        "expected_facts": {},
+        "expected_field": null,
+        "expected_status": "needs_clarification",
+        "parent": "data/hus/evaluation/diagnostic_dev_v4_contracts",
+        "question_id": "L5V4-Q034",
+        "v2_expected_facts": {}
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "A1-016",
+      "question_id": "L5V4-Q034",
+      "request": {
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Môn đó có bao nhiêu tín chỉ?",
+        "version": "QD3569-2023"
+      }
+    },
+    {
+      "gold": {
+        "author": "AI-authored exposed control",
+        "category": "basic_chat",
+        "evidence_ids": [],
+        "expected_field": "",
+        "expected_status": "basic_chat",
+        "question_id": "L5V4-Q035"
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "L5-BASIC-1",
+      "question_id": "L5V4-Q035",
+      "request": {
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Xin chào"
+      }
+    },
+    {
+      "gold": {
+        "author": "AI-authored exposed control",
+        "category": "basic_chat",
+        "evidence_ids": [],
+        "expected_field": "",
+        "expected_status": "basic_chat",
+        "question_id": "L5V4-Q036"
+      },
+      "gold_evidence": [],
+      "inherited_exposed_question_id": "L5-BASIC-2",
+      "question_id": "L5V4-Q036",
+      "request": {
+        "allow_llm_rewrite": false,
+        "major": "data_science",
+        "question": "Bạn có thể làm gì?"
+      }
+    }
+  ],
+  "holdout_eligible": false,
+  "model": "gemini-3.5-flash-lite",
+  "release": {
+    "release_id": "hus-data-20261111-v4",
+    "release_sha256": "ed4c1ccb93da50829c6b6b960f22d1a077c433ed0a55c3a1e1bed832c1baf463"
+  },
+  "retrieval": "lexical",
+  "reviewer_kind": "ai",
+  "schema_version": "hus-llm-v4-exposed-development-1.0",
+  "selection_policy": "24 positives/12 controls; prior F1/F2/objectives requests; longest rendered non-overview F3 content unit per major, ties by record_id/unit_index; no outcome selection.",
+  "source_inputs": {
+    "data/hus/evaluation/a2_contracts_v1/evidence.jsonl": "5e5bf5705d315505bd09334bb9cd4a25d7620a42c518d1d2396460bf75b3db8a",
+    "data/hus/evaluation/a2_contracts_v1/gold.jsonl": "c8d4cf0d9cf9e0beaef7286c74734cee57796ef55fa05beb0428b1455770ab65",
+    "data/hus/evaluation/a2_contracts_v1/manifest.json": "87c67980f1889f9358ce9b8852241dcf3f62085c9e7948c1714d4fe8c985afbd",
+    "data/hus/evaluation/a2_contracts_v1/questions.jsonl": "552e1dd4a1f94cfefb5af4d0c5efb8769753b559302bcba2bed42b8a9f576fb6",
+    "data/hus/evaluation/diagnostic_dev_v1/README.md": "bf7a0f2061a92f5ff6fdace55bc0cbfa077149c4b8c2eda6accc34104c498033",
+    "data/hus/evaluation/diagnostic_dev_v1/casebook.md": "f5f9090cbb220b66cfcc5b6820a20ecbaffd3b3b43249ebd6e5e201dbba5e05a",
+    "data/hus/evaluation/diagnostic_dev_v1/cases.jsonl": "f68f9bcd59a99b6ba99a3d89b7964df5104d256be6ec20dc8dae38451d35754f",
+    "data/hus/evaluation/diagnostic_dev_v1/gold.jsonl": "9346b4a273981cf1597f826efa26eccd2a215b5ded186fbf87a9ebb9093231c5",
+    "data/hus/evaluation/diagnostic_dev_v1/manifest.json": "2415dd43584bcf8d2ffdad41fa696a6ebb768728b141748543699b7c7f09de72",
+    "data/hus/evaluation/diagnostic_dev_v1/questions.jsonl": "eb4d3d5cc370f524fd860d0f089f0d1acd1a2bc18e3ecbe5454acfc18dff9609",
+    "data/hus/evaluation/diagnostic_dev_v4_contracts/manifest.json": "2f098be510551066878c6aa2423538da4847816e8c13d78fb48465e6861abec2",
+    "data/hus/evaluation/diagnostic_dev_v5_programs/manifest.json": "1ad26a0fe2315da610d468dcdf269ab81402980998e7b7fbfbc35e3c76eb5642",
+    "data/hus/evaluation/p11_holdout_v1/README.md": "75d36c0ebc2e5111501cb2f137c82705c1875e4a49760bcad941c732a6b67073",
+    "data/hus/evaluation/p11_holdout_v1/evidence.jsonl": "3df64bff6e505f1e1b64e302e5435c5edff9735cb6e5982ec13e2f0f37e10eb1",
+    "data/hus/evaluation/p11_holdout_v1/gold.jsonl": "99bb44256a5713c9b824935336be86912693621ad076c714c9506d791d1cc84c",
+    "data/hus/evaluation/p11_holdout_v1/manifest.json": "f4c2314c71a8cba3e4acef6e6bfc0bf5b3f00e71cc9290665c5c2513732aa145",
+    "data/hus/evaluation/p11_holdout_v1/questions.jsonl": "02f92bf9fe59662f4263fb3fe5eba42e7d63454283094a83cdde5b2fde17597b",
+    "data/hus/evaluation/p11_holdout_v1/review_decisions.jsonl": "0142bc51cfa722627d65807b5a024cc9d817729cd538b2ad1969804239057eb9",
+    "data/hus/evaluation/p11_holdout_v1/reviewer_packet.md": "be76ccd26008d590866131abc2b100553ffbf5155c330ed4bcc82523388cc0be",
+    "data/hus/rag/releases/hus-data-20261031-v3/manifest.json": "5a926e7587a41b0817838da14213809bce2675a763b2f9d84b2933ce6b00ad4f"
+  }
+}

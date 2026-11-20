@@ -138,13 +138,19 @@ class HUSHybridRetriever:
     def search_with_trace(self, query: str, *, dataset: str, major: str,
                           version: str | None = None, course_code: str | None = None,
                           field: str | None = None, program_variant: str | None = None,
-                          top_k: int = 5, allow_generated: bool = False) -> HybridSearchResult:
+                          top_k: int = 5, allow_generated: bool = False,
+                          parent_ids: tuple[str, ...] | None = None) -> HybridSearchResult:
         if not isinstance(query, str) or type(top_k) is not int or top_k != POLICY.final_k:
             raise RAGDataError('V5 requires a string query and pinned final top_k=5')
         self._check_canonical()
         scope = dict(dataset=dataset, major=major, version=version, course_code=course_code,
                      field=field, program_variant=program_variant, allow_generated=allow_generated)
         candidates = self._data.chunks(**scope)
+        from app.hus.retrieval import restrict_parents
+
+        candidates = restrict_parents(candidates, parent_ids)
+        if parent_ids is not None:
+            scope['parent_ids'] = parent_ids
         codes = {t.upper() for t in _tokens(query) if COURSE_CODE.fullmatch(t)}
         allowed = {c.chunk_id: c for c in candidates if not codes or c.metadata.get('course_code') in codes}
         lex, vec, fused, hits, vtrace, reason = (), (), (), (), None, None

@@ -1,0 +1,221 @@
+[
+  {
+    "assumptions": "Python binary64; one chosen scale, not universal improvement",
+    "course_code": "MAT2034",
+    "human_reviews": 0,
+    "kind": "floating_cancellation",
+    "result": {
+      "naive": 0.0,
+      "rationalized": 5e-17
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 0
+  },
+  {
+    "assumptions": "f(x)=10^-12(x-1), root1, trial1000; absolute unnormalized residual",
+    "course_code": "MAT2034",
+    "human_reviews": 0,
+    "kind": "absolute_residual",
+    "result": {
+      "position_error": 999,
+      "residual": "999/1000000000000"
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 1
+  },
+  {
+    "assumptions": "Same nonsingular A for two RHS; known LU; no claim for all pivot patterns",
+    "course_code": "MAT2034",
+    "human_reviews": 0,
+    "kind": "factor_reuse",
+    "result": {
+      "solutions": [
+        [
+          "3/5",
+          "-1/5"
+        ],
+        [
+          "-1/5",
+          "2/5"
+        ]
+      ]
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 2
+  },
+  {
+    "assumptions": "Quadratic through(0,0),(1,1),(2,1), compared with monotone piecewise-linear reference",
+    "course_code": "MAT2034",
+    "human_reviews": 0,
+    "kind": "interpolation_overshoot",
+    "result": {
+      "interior_peak": "9/8",
+      "maximum_node_value": 1
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 3
+  },
+  {
+    "assumptions": "Triangular height1 halfwidth1/64 at1/8; nodes0,1/4,...,1; not a universal adaptive algorithm test",
+    "course_code": "MAT2034",
+    "human_reviews": 0,
+    "kind": "missed_narrow_bump",
+    "result": {
+      "coarse_trapezoid": 0,
+      "exact_integral": "1/64"
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 4
+  },
+  {
+    "assumptions": "x+y=1 and2x+2y=2, compatible augmented equations",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "dependent_equations",
+    "result": {
+      "free_direction": [
+        1,
+        -1
+      ],
+      "incompatible_if_second_rhs": 3,
+      "solution_dimension": 1
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 0
+  },
+  {
+    "assumptions": "Anisotropic axis scaling and90degree rotation inR2",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "composition_order",
+    "result": {
+      "rotate_after_scale": [
+        [
+          0,
+          -1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "scale_after_rotate": [
+        [
+          0,
+          -2
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 1
+  },
+  {
+    "assumptions": "v=(1,2) nonzero spans1D; affine liney=1 excludes0",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "line_through_origin",
+    "result": {
+      "scaled_zero": [
+        0,
+        0
+      ],
+      "zero_not_on_y_equals_one": true
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 2
+  },
+  {
+    "assumptions": "B=((1,0),(0,1)), C=((1,0),(1,1)), same vector(2,1)",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "basis_coordinates",
+    "result": {
+      "B_coordinates": [
+        2,
+        1
+      ],
+      "C_coordinates": [
+        1,
+        1
+      ]
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 3
+  },
+  {
+    "assumptions": "Orthogonal projection ontoz=0 inR3; codomain must be specified for surjectivity",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "linear_projection",
+    "result": {
+      "image_basis": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "kernel_basis": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "nullity": 1,
+      "rank": 2
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 4
+  },
+  {
+    "assumptions": "A generating collection containing only0 is not a basis for a line",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "zero_only_counterexample",
+    "result": {
+      "needs_nonzero_generator": true,
+      "span_dimension": 0
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 2
+  },
+  {
+    "assumptions": "Orthogonal projection ontoz=1 sends(x,y,z)to(x,y,1)",
+    "course_code": "MAT2300",
+    "human_reviews": 0,
+    "kind": "affine_plane_counterexample",
+    "result": {
+      "image_of_zero": [
+        0,
+        0,
+        1
+      ],
+      "kernel_rank_nullity_not_applicable_as_written": true,
+      "linear": false
+    },
+    "reviewer_kind": "root_ai",
+    "status": "limited_analytic_check_not_source_quotation_or_full_example_acceptance",
+    "unit_index": 4
+  }
+]

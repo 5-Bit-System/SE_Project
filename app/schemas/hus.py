@@ -21,10 +21,14 @@ class HUSQuestion(BaseModel):
     course_code: str | None = Field(default=None, pattern=r"^[A-Z]{3}\d{4}[A-Z]?$")
     field: Literal["introduction", "careers", "further_study", "objectives", "content",
                    "suggested_assessment", "official_assessment", "credits", "prerequisites",
-                   "name", "hours", "course_info", "program_credits", "program_groups", "group_rules"] | None = None
+                   "name", "hours", "course_info", "program_credits", "program_groups", "group_rules",
+                   "program_course_count", "program_course_list"] | None = None
     group_key: str | None = Field(default=None, max_length=32, pattern=r"^[IVX]+(?:\.[0-9]+)*$")
     program_variant: str | None = Field(default=None, min_length=1, max_length=80)
+    source_id: str | None = Field(default=None, min_length=1, max_length=200,
+                                 pattern=r'^[A-Za-z0-9_:.-]+$', exclude_if=lambda value: value is None)
     allow_generated_reference: bool = Field(default=False, strict=True)
+    allow_llm_rewrite: bool = Field(default=False, strict=True, exclude_if=lambda value: value is False)
 
     @field_validator("course_code", mode="before")
     @classmethod
@@ -92,6 +96,26 @@ class HUSCitation(BaseModel):
         return self
 
 
+class HUSDiagnostic(BaseModel):
+    model_config = ConfigDict(extra='forbid', frozen=True)
+    code: Literal['routing_unknown', 'scope_conflict', 'unsupported_operation',
+                  'retrieval_empty', 'evidence_rejected', 'evidence_unavailable',
+                  'clarification_required', 'permission_required', 'output_rejected',
+                  'provider_error', 'configuration_error', 'context_budget', 'busy', 'quota']
+    suggested_major: HUSMajor | None = Field(default=None, exclude_if=lambda value: value is None)
+    http_status: int | None = Field(default=None, ge=100, le=599, strict=True,
+                                    exclude_if=lambda value: value is None)
+
+
+class HUSSourceChoice(BaseModel):
+    model_config = ConfigDict(extra='forbid', frozen=True)
+    source_id: str
+    version: str
+    program_variant: str | None
+    label: str
+    review_status: str
+
+
 class HUSAnswer(BaseModel):
     reply: str
     status: Literal["answered", "no_information", "needs_clarification"]
@@ -104,7 +128,9 @@ class HUSAnswer(BaseModel):
     release_id: str | None = None
     release_sha256: str | None = None
     generated_reference_allowed: bool = False
-
+    diagnostic: HUSDiagnostic | None = Field(default=None, exclude_if=lambda value: value is None)
+    source_choices: list[HUSSourceChoice] = Field(default_factory=list, exclude_if=lambda value: not value)
+    focus_plan: str | None = Field(default=None, exclude=True)
 
 class HUSRetrievedChunk(BaseModel):
     rank: int = Field(ge=1)
@@ -164,5 +190,3 @@ class HUSChatHistoryResponse(BaseModel):
     account_id: str | None = Field(default=None, max_length=128)
     major: str = Field(min_length=1, max_length=64)
     messages: list[HUSChatMessage] = Field(default_factory=list)
-
-

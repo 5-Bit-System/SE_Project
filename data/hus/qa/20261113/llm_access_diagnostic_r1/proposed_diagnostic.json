@@ -1,0 +1,22 @@
+{
+  "authorization_granted": false,
+  "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+  "family": "f1",
+  "input_tokens_and_cost": "Unknown",
+  "keep_default_llm_disabled": true,
+  "key_handling": "Backend key only; do not print/edit it or attach it to chat.",
+  "max_calls": 1,
+  "max_output_tokens": 1024,
+  "min_interval_seconds": 5,
+  "model_switch": false,
+  "not_full_cohort_acceptance": true,
+  "precondition": "Resolve actual AI Studio key/project access issue and obtain separate explicit one-call approval.",
+  "prepared": "data/hus/evaluation/runs/llm_v3_v4_prepared_20261113_r2",
+  "prepared_manifest_sha256": "f8c5fbd0808343c91220d20798410f93483336bb08a22a557fdf8f5948d6fd52",
+  "prompt_chars": 3607,
+  "prompt_sha256": "d0acd06dae285c783aed132cef10aab754124088bc5bbc8826a979699e0fb329",
+  "provider_calls_performed": 0,
+  "question_id": "L5V4-Q001",
+  "requested_model": "gemini-3.5-flash-lite",
+  "retry": false
+}

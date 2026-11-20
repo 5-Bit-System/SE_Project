@@ -1,0 +1,16 @@
+{
+  "Gemini_used": 0,
+  "Google_calls": 0,
+  "automated_cases_without_flags": 30,
+  "cases": 30,
+  "controls": 6,
+  "flags": {},
+  "human_pending": 30,
+  "human_reviewed": 0,
+  "new_quality_score_or_acceptance": false,
+  "pack_manifest_sha256": "e767b24efff4e5305ef7a6470706f87184c67ee57e410b894154c3e5a60a20c6",
+  "positive_cases": 24,
+  "run_manifest_sha256": "b2c65c35461341264f829a412cd9cf984270655299aa0fc15928c4a724079e71",
+  "synthetic_positive_fallback": 0,
+  "synthetic_used": 24
+}
