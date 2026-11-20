@@ -10,12 +10,12 @@ from app.hus.chat import HUSChatReply, basic_reply
 from app.hus.chat import workspace_chat as chat
 from app.hus.llm_answerer import generate_grounded_answer
 from app.schemas.hus import HUSCitation, HUSQuestion
-from app.services.hus_service import get_hus_answerer
+from app.services.hus_service import get_hus_answerer, workspace_answerer
 
 
 @pytest.fixture(scope="module")
 def answerer():
-    return get_hus_answerer()
+    return workspace_answerer(get_hus_answerer())
 
 
 def test_hus_chat_reply_schema_defaults_and_validation():

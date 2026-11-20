@@ -12,12 +12,12 @@ import pytest
 from app.hus.chat import workspace_chat as chat
 from app.hus.llm_answerer import _redact_key, call_gemini_llm, generate_grounded_answer
 from app.schemas.hus import HUSCitation, HUSQuestion
-from app.services.hus_service import get_hus_answerer
+from app.services.hus_service import get_hus_answerer, workspace_answerer
 
 
 @pytest.fixture(scope="module")
 def answerer():
-    return get_hus_answerer()
+    return workspace_answerer(get_hus_answerer())
 
 
 def _mock_gemini_success_response(text: str = "Nội dung phản hồi chuẩn từ Gemini [1].") -> dict[str, Any]:
