@@ -256,7 +256,7 @@ PROGRAM_CREDIT_PHRASES = (
 
 
 COURSE_FIELD_TERMS = {
-    "credits": CREDIT_TERMS,
+    "credits": ("tin chi",),
     "prerequisites": (
         "tien quyet", "hoc truoc", "truoc mon",
         "dieu kien tien quyet", "yeu cau tien quyet",
