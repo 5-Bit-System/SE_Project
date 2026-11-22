@@ -753,10 +753,16 @@
       } else if (result.hus_answer?.status === 'no_information') {
         setStatus('Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.');
       } else if (result.hus_answer?.status === 'answered') {
-        setStatus(result.hus_answer.facts?.field === 'prerequisites'
-          && result.hus_answer.facts?.prerequisite_status === 'unknown'
-          ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
-          : 'Đã trả lời theo phạm vi dữ liệu đã chọn.');
+        if (result.hus_answer.facts?.field === 'prerequisites'
+            && result.hus_answer.facts?.prerequisite_status === 'unknown') {
+          setStatus('Đã đối chiếu nguồn. Điều kiện tiên quyết vẫn chưa rõ.');
+        } else if (result.generation?.used === true) {
+          setStatus('Gemini đã diễn đạt câu trả lời dựa trên nguồn đã chọn.');
+        } else if (payload.allow_llm_rewrite) {
+          setStatus('Gemini không khả dụng cho lượt này. Đã trả lời từ nguồn đã chọn.');
+        } else {
+          setStatus('Đã trả lời theo phạm vi dữ liệu đã chọn.');
+        }
       } else {
         throw new Error('invalid_response');
       }
