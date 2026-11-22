@@ -65,3 +65,41 @@ def test_workspace_opt_in_runs_grounded_pipeline_and_preserves_sources(monkeypat
             assert len(failures) == 1
     finally:
         get_hus_answerer.cache_clear()
+
+
+def test_course_difficulty_uses_scoped_evidence_or_asks_for_course(monkeypatch):
+    monkeypatch.setenv('HUS_LLM_ENABLED', 'false')
+    monkeypatch.setenv('HUS_RETRIEVAL_MODE', 'lexical')
+    monkeypatch.setenv('HUS_ANSWER_POLICY', 'legacy')
+    monkeypatch.delenv('HUS_RAG_ROOT', raising=False)
+    followup = {
+        'question': 'môn này có khó k', 'major': 'data_science', 'version': 'QD3569-2023',
+        'allow_generated_reference': True, 'allow_llm_rewrite': False,
+    }
+    get_hus_answerer.cache_clear()
+    try:
+        with closing(TestClient(app)) as client:
+            missing = client.post('/hus/chat', json=followup).json()['hus_answer']
+            assert missing['status'] == 'needs_clarification' and 'mã học phần' in missing['reply']
+
+            payload = {**followup, 'course_code': 'MAT3533'}
+            result = client.post('/hus/chat', json=payload).json()
+            answer = result['hus_answer']
+            assert answer['status'] == 'answered' and answer['dataset'] == 'f3'
+            assert {c['metadata']['course_code'] for c in answer['citations']} == {'MAT3533'}
+            assert 'Độ khó tùy vào nền tảng' in result['reply']
+
+            named = client.post('/hus/chat', json={
+                **followup, 'question': 'Giải tích 1 có khó không?',
+            }).json()['hus_answer']
+            assert named['status'] == 'answered'
+            assert {c['metadata']['course_code'] for c in named['citations']} == {'MAT2501'}
+
+            catalog = client.post('/hus/chat', json={
+                **payload, 'allow_generated_reference': False,
+            }).json()
+            assert catalog['hus_answer']['facts']['course_code'] == 'MAT3533'
+            assert catalog['hus_answer']['dataset'] == 'f2' and catalog['hus_answer']['citations']
+            assert 'chưa thể kết luận môn dễ hay khó' in catalog['reply']
+    finally:
+        get_hus_answerer.cache_clear()
