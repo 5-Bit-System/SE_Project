@@ -209,6 +209,11 @@
     return match ? match[1] : null;
   }
 
+  function citedCourseCode(citations) {
+    const codes = new Set((citations || []).map(item => extractCourseCode(item?.metadata?.course_code)).filter(Boolean));
+    return codes.size === 1 ? codes.values().next().value : null;
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
       citationURL,
@@ -280,7 +285,7 @@
     }
     for (let i = convo.length - 1; i >= 0; i--) {
       if (convo[i].role === 'assistant') {
-        const code = extractCourseCode(convo[i].reply);
+        const code = citedCourseCode(convo[i].citations) || extractCourseCode(convo[i].reply);
         if (code) {
           lastResolvedCourseCode = code;
           return;
@@ -741,10 +746,8 @@
       const generationMode = result.generation?.used === true ? 'grounded_llm' : result.generation_mode;
       appendMessage('assistant', result.reply, citations, generationMode);
       recordTurn('assistant', result.reply, citations, generationMode);
-      if (result.hus_answer?.facts?.course_code) {
-        lastResolvedCourseCode = result.hus_answer.facts.course_code;
-      } else {
-        const found = extractCourseCode(result.reply);
+      if (result.hus_answer?.status === 'answered') {
+        const found = result.hus_answer.facts?.course_code || citedCourseCode(citations) || extractCourseCode(result.reply);
         if (found) lastResolvedCourseCode = found;
       }
       if (result.mode === 'basic_chat') {
