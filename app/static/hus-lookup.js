@@ -197,7 +197,7 @@
     if (!text || typeof text !== 'string') return false;
     const trimmed = text.trim();
     if (!FOLLOW_UP_PRONOUN_PATTERN.test(trimmed)) return false;
-    if (COURSE_CODE_PATTERN.test(trimmed)) return false;
+    if (COURSE_CODE_PATTERN.test(trimmed.toUpperCase())) return false;
     if (NAMED_COURSE_PATTERN.test(trimmed)) return false;
     return true;
   }
