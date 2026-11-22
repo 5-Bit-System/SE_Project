@@ -737,12 +737,9 @@
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
       const citations = result.mode === 'hus_rag' ? result.hus_answer?.citations : [];
-      appendMessage('assistant', result.reply,
-        citations,
-        result.generation_mode);
-      recordTurn('assistant', result.reply,
-        citations,
-        result.generation_mode);
+      const generationMode = result.generation?.used === true ? 'grounded_llm' : result.generation_mode;
+      appendMessage('assistant', result.reply, citations, generationMode);
+      recordTurn('assistant', result.reply, citations, generationMode);
       if (result.hus_answer?.facts?.course_code) {
         lastResolvedCourseCode = result.hus_answer.facts.course_code;
       } else {
