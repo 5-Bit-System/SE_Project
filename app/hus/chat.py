@@ -96,6 +96,9 @@ _STUDY_METHOD = (
                r"(?:hoc|on) (?:nhu the nao|the nao|ra sao|tu dau)"),
 )
 _COURSE_REFERENCE = re.compile(r"(?:mon|hoc phan) (?:nay|do|day)")
+_GEMINI_IDENTITY = re.compile(
+    r"ban (?:la|co phai(?: la)?|co dung|dung) gemini(?: (?:a|ha|khong|k|ko|dung khong))?"
+)
 
 
 def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply | None:
@@ -142,6 +145,13 @@ def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> H
 
 
 def workspace_chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
+    if (request.dataset == 'auto' and request.field is None and request.course_code is None
+            and request.group_key is None and _GEMINI_IDENTITY.fullmatch(" ".join(_tokens(request.question)))):
+        return HUSChatReply(
+            mode='basic_chat',
+            reply=('Mình là Trợ lý HUS. Khi bạn bật tùy chọn Gemini, '
+                   'Gemini có thể giúp diễn đạt câu trả lời dựa trên dữ liệu và dẫn chứng của HUS.'),
+        )
     guidance = _workspace_course_guidance(request, answerer)
     if guidance is not None:
         return guidance

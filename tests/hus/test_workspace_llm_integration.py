@@ -44,6 +44,12 @@ def test_workspace_opt_in_runs_grounded_pipeline_and_preserves_sources(monkeypat
             assert original['hus_answer']['citations']
             assert 'generation' not in original and calls == []
 
+            identity = client.post('/hus/chat', json={
+                **payload, 'question': 'bạn là gemini à', 'allow_llm_rewrite': True,
+            }).json()
+            assert identity['mode'] == 'basic_chat' and 'Trợ lý HUS' in identity['reply']
+            assert 'generation' not in identity and calls == []
+
             rewritten = client.post('/hus/chat', json={**payload, 'allow_llm_rewrite': True}).json()
             assert rewritten['generation']['used'] is True
             assert rewritten['hus_answer'] == original['hus_answer']
