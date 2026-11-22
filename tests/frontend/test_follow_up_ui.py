@@ -84,7 +84,7 @@ def test_follow_up_pronoun_resolution_in_ui():
                     }
                 )
         else:
-            assert common_route(route), url
+            assert common_route(route, llm_rewrite_available=True), url
 
     with sync_playwright() as p:
         browser = _launch_browser(p)
@@ -100,7 +100,10 @@ def test_follow_up_pronoun_resolution_in_ui():
         # Step 1: First query explicitly naming course
         question_input = page.locator("#lookup-question")
         send_btn = page.locator("#lookup-send")
+        rewrite = page.get_by_role("checkbox", name="Cho phép gửi câu hỏi tới Gemini để diễn đạt")
         expect(question_input).to_be_visible()
+        expect(rewrite).to_be_enabled()
+        expect(rewrite).not_to_be_checked()
 
         question_input.fill("môn CME1000 có mấy tín chỉ")
         with page.expect_response(lambda r: "/hus/chat" in r.url):
@@ -109,9 +112,11 @@ def test_follow_up_pronoun_resolution_in_ui():
         # Wait for reply
         expect(page.locator(".rag-message-assistant").last).to_contain_text("CME1000")
         assert len(chat_requests) == 1
+        assert chat_requests[0]["allow_llm_rewrite"] is False
         assert "course_code" not in chat_requests[0] or chat_requests[0]["course_code"] is None
 
         # Step 2: Follow-up query using pronoun "môn đó"
+        rewrite.check()
         question_input.fill("môn đó có điều kiện tiên quyết không?")
         with page.expect_response(lambda r: "/hus/chat" in r.url):
             send_btn.click()
@@ -119,6 +124,7 @@ def test_follow_up_pronoun_resolution_in_ui():
         # Wait for second reply
         expect(page.locator(".rag-message-assistant").last).to_contain_text("Điều kiện tiên quyết")
         assert len(chat_requests) == 2
+        assert chat_requests[1]["allow_llm_rewrite"] is True
         # Assert client resolved pronoun and injected course_code="CME1000"
         assert chat_requests[1].get("course_code") == "CME1000"
 
@@ -126,6 +132,7 @@ def test_follow_up_pronoun_resolution_in_ui():
         new_chat_btn = page.locator("#lookup-new-chat")
         new_chat_btn.click()
         expect(page.locator(".rag-message")).to_have_count(1)
+        expect(rewrite).not_to_be_checked()
 
         # Step 4: After clearing, asking "môn đó học như thế nào?" does not carry stale course code
         question_input.fill("môn đó học như thế nào?")
@@ -134,6 +141,7 @@ def test_follow_up_pronoun_resolution_in_ui():
 
         expect(page.locator(".rag-message-assistant").last).to_be_visible()
         assert len(chat_requests) == 3
+        assert chat_requests[2]["allow_llm_rewrite"] is False
         assert "course_code" not in chat_requests[2] or chat_requests[2]["course_code"] is None
 
         browser.close()
