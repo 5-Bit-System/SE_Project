@@ -135,6 +135,12 @@ def test_follow_up_pronoun_resolution_in_ui():
         assert chat_requests[2]["course_code"] == "CME1000"
         assert chat_requests[2]["allow_llm_rewrite"] is True
 
+        question_input.fill("tôi có thể học môn này như thế nào")
+        with page.expect_response(lambda r: urlsplit(r.url).path == "/hus/chat"):
+            send_btn.click()
+        assert chat_requests[3]["course_code"] == "CME1000"
+        assert chat_requests[3]["allow_llm_rewrite"] is True
+
         # Step 3: Click "+ Đoạn chat mới" to clear session context
         new_chat_btn = page.locator("#lookup-new-chat")
         new_chat_btn.click()
@@ -147,8 +153,8 @@ def test_follow_up_pronoun_resolution_in_ui():
             send_btn.click()
 
         expect(page.locator(".rag-message-assistant").last).to_be_visible()
-        assert len(chat_requests) == 4
-        assert chat_requests[3]["allow_llm_rewrite"] is False
-        assert "course_code" not in chat_requests[3] or chat_requests[3]["course_code"] is None
+        assert len(chat_requests) == 5
+        assert chat_requests[4]["allow_llm_rewrite"] is False
+        assert "course_code" not in chat_requests[4] or chat_requests[4]["course_code"] is None
 
         browser.close()
