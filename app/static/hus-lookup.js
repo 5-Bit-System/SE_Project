@@ -196,6 +196,7 @@
   function isFollowUpCourseQuery(text) {
     if (!text || typeof text !== 'string') return false;
     const trimmed = text.trim();
+    if (/^(?:co )?kho(?: lam)? (?:khong|k|ko|kh|hong|hok|ha|a)[\s?!]*$/.test(searchable(trimmed))) return true;
     if (!FOLLOW_UP_PRONOUN_PATTERN.test(trimmed)) return false;
     if (COURSE_CODE_PATTERN.test(trimmed.toUpperCase())) return false;
     if (NAMED_COURSE_PATTERN.test(trimmed)) return false;
