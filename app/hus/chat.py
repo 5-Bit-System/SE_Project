@@ -9,6 +9,7 @@ from app.hus.answering import HUSAnswerer, question_intent
 from app.hus.llm.contracts import HUSGeneration, HUSRewriteHandler
 from app.hus.llm.generation import generate_reply
 from app.hus.llm_answerer import generate_grounded_answer
+from app.hus.question_routing import out_of_scope, unsupported_request
 from app.hus.retrieval import _tokens
 from app.schemas.hus import HUSAnswer, HUSQuestion
 
@@ -85,7 +86,51 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
     return HUSChatReply(mode="hus_rag", reply=reply, hus_answer=answer, generation=generation)
 
 
+_DIFFICULTY_QUESTION = re.compile(
+    r"(?:(?P<subject>.+?) )?(?:co )?kho(?: lam)? (?:khong|k|ko|kh|hong|hok|ha|a)"
+)
+_COURSE_REFERENCE = re.compile(r"(?:mon|hoc phan) (?:nay|do|day)")
+
+
+def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply | None:
+    if request.dataset != "auto" or request.field is not None or request.group_key is not None:
+        return None
+    match = _DIFFICULTY_QUESTION.fullmatch(" ".join(_tokens(request.question)))
+    if not match or out_of_scope(request.question) or unsupported_request(request.question):
+        return None
+
+    subject = match['subject'] or ''
+    if _COURSE_REFERENCE.fullmatch(subject):
+        subject = ''
+    if request.allow_generated_reference:
+        result = chat(request.model_copy(update={'question': f'Nội dung học phần {subject}'.strip()}), answerer)
+        answer = result.hus_answer
+        if answer.status == 'answered':
+            introduction = (
+                'Độ khó tùy vào nền tảng của bạn. Nguồn đang tra cứu chưa đánh giá độ khó. '
+                'Bạn có thể xem các chủ đề dưới đây để biết phần nào cần ôn trước.'
+            )
+            result.reply = introduction + '\n\n' + result.reply
+            return result
+        if not answer.diagnostic or answer.diagnostic.code != 'retrieval_empty':
+            return result
+
+    result = chat(request.model_copy(update={
+        'question': subject or 'Thông tin học phần', 'dataset': 'f2', 'field': 'course_info',
+    }), answerer)
+    if result.hus_answer.status == 'answered':
+        introduction = (
+            'Nguồn hiện có cho biết thông tin học phần dưới đây. '
+            'Chỉ dựa vào số tín chỉ thì chưa thể kết luận môn dễ hay khó.'
+        )
+        result.reply = introduction + '\n\n' + result.reply
+    return result
+
+
 def workspace_chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
+    guidance = _workspace_course_guidance(request, answerer)
+    if guidance is not None:
+        return guidance
     result = chat(request, answerer)
     answer = result.hus_answer
     if answer is None or answer.status != "answered":
