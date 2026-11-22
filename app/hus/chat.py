@@ -89,13 +89,21 @@ def chat(request: HUSQuestion, answerer: HUSAnswerer, *,
 _DIFFICULTY_QUESTION = re.compile(
     r"(?:(?P<subject>.+?) )?(?:co )?kho(?: lam)? (?:khong|k|ko|kh|hong|hok|ha|a)"
 )
+_STUDY_METHOD = (
+    re.compile(r"(?:(?:toi|minh|em) )?(?:(?:co the|nen|muon) )?(?:bat dau )?"
+               r"(?:hoc|on) (?P<subject>.+?) (?:nhu the nao|the nao|ra sao|tu dau)"),
+    re.compile(r"(?P<subject>.+?) (?:(?:co the|nen) )?(?:bat dau )?"
+               r"(?:hoc|on) (?:nhu the nao|the nao|ra sao|tu dau)"),
+)
 _COURSE_REFERENCE = re.compile(r"(?:mon|hoc phan) (?:nay|do|day)")
 
 
 def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply | None:
     if request.dataset != "auto" or request.field is not None or request.group_key is not None:
         return None
-    match = _DIFFICULTY_QUESTION.fullmatch(" ".join(_tokens(request.question)))
+    text = " ".join(_tokens(request.question))
+    difficulty = _DIFFICULTY_QUESTION.fullmatch(text)
+    match = difficulty or _STUDY_METHOD[0].fullmatch(text) or _STUDY_METHOD[1].fullmatch(text)
     if not match or out_of_scope(request.question) or unsupported_request(request.question):
         return None
 
@@ -109,6 +117,9 @@ def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> H
             introduction = (
                 'Độ khó tùy vào nền tảng của bạn. Nguồn đang tra cứu chưa đánh giá độ khó. '
                 'Bạn có thể xem các chủ đề dưới đây để biết phần nào cần ôn trước.'
+                if difficulty else
+                'Bạn có thể bắt đầu bằng phần tổng quan bên dưới. Chọn một chủ đề nền tảng, '
+                'thử làm lại ví dụ bằng tay, rồi làm một bài tương tự để kiểm tra mình đã hiểu chưa.'
             )
             result.reply = introduction + '\n\n' + result.reply
             return result
@@ -122,6 +133,9 @@ def _workspace_course_guidance(request: HUSQuestion, answerer: HUSAnswerer) -> H
         introduction = (
             'Nguồn hiện có cho biết thông tin học phần dưới đây. '
             'Chỉ dựa vào số tín chỉ thì chưa thể kết luận môn dễ hay khó.'
+            if difficulty else
+            'Mình có thông tin về học phần trong khung chương trình. '
+            'Để lên kế hoạch học từng chủ đề, bạn có thể đối chiếu thêm đề cương hoặc tài liệu giảng viên cung cấp.'
         )
         result.reply = introduction + '\n\n' + result.reply
     return result

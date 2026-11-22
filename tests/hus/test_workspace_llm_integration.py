@@ -67,7 +67,7 @@ def test_workspace_opt_in_runs_grounded_pipeline_and_preserves_sources(monkeypat
         get_hus_answerer.cache_clear()
 
 
-def test_course_difficulty_uses_scoped_evidence_or_asks_for_course(monkeypatch):
+def test_course_guidance_uses_scoped_evidence_or_asks_for_course(monkeypatch):
     monkeypatch.setenv('HUS_LLM_ENABLED', 'false')
     monkeypatch.setenv('HUS_RETRIEVAL_MODE', 'lexical')
     monkeypatch.setenv('HUS_ANSWER_POLICY', 'legacy')
@@ -88,6 +88,17 @@ def test_course_difficulty_uses_scoped_evidence_or_asks_for_course(monkeypatch):
             assert answer['status'] == 'answered' and answer['dataset'] == 'f3'
             assert {c['metadata']['course_code'] for c in answer['citations']} == {'MAT3533'}
             assert 'Độ khó tùy vào nền tảng' in result['reply']
+
+            study_question = 'tôi có thể học môn này như thế nào'
+            study = client.post('/hus/chat', json={**payload, 'question': study_question}).json()
+            assert study['hus_answer']['status'] == 'answered'
+            assert {c['metadata']['course_code'] for c in study['hus_answer']['citations']} == {'MAT3533'}
+            assert 'thử làm lại ví dụ' in study['reply']
+
+            study_without_subject = client.post('/hus/chat', json={
+                **followup, 'question': study_question,
+            }).json()
+            assert study_without_subject['hus_answer']['status'] == 'needs_clarification'
 
             named = client.post('/hus/chat', json={
                 **followup, 'question': 'Giải tích 1 có khó không?',
