@@ -654,6 +654,7 @@
     requestController = null;
     busy = false;
     if (generated) generated.checked = true;
+    if (rewrite) rewrite.checked = false;
     if (catalogSearch) catalogSearch.value = '';
     if (question) question.value = '';
     const selected = currentMajor();
