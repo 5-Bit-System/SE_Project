@@ -6,10 +6,19 @@ Khởi động ứng dụng chính theo [README](../README.md) và mở tab **Tr
 tin** trong Workspace. API `/hus/chat/history` lưu theo tài khoản và ngành.
 Kiểm nguồn dữ liệu đang được nạp tại `GET /hus/config`.
 
-Cấu hình Workspace dùng `HUS_RAG_LLM_ENABLED` và `HUS_RAG_LLM_MODEL`. Đặt
-`HUS_RAG_LLM_ENABLED=false` và khởi động lại ứng dụng để chỉ dùng câu trả lời
-từ dữ liệu. Đặt khóa cấu hình ở backend. Sau khi khởi động lại, mở một lượt
-hỏi mới để kiểm tra cách trả lời và mở dẫn chứng.
+Đặt `HUS_LLM_ENABLED=true` và `HUS_LLM_API_KEY` trong `.env` của backend,
+giữ `HUS_LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai`
+và chọn `HUS_LLM_MODEL` nếu cần. Khởi động lại web. Khi
+`GET /hus/config` trả `llm_rewrite_available: true`, người dùng có thể bật ô
+**Cho phép gửi câu hỏi tới Gemini để diễn đạt** trong tab tra cứu. Ô mặc định tắt
+và được đặt lại khi đổi ngành, tài khoản hoặc bắt đầu đoạn chat mới.
+
+Workspace dùng pipeline Gemini có kiểm tra nguồn và đầu ra của HUS RAG.
+`generation.used: true` trong `/hus/chat` xác nhận câu Gemini được dùng.
+Nếu Gemini lỗi hoặc không có khóa, tab vẫn trả lời từ dữ liệu và giữ dẫn chứng.
+Để tắt Gemini, đặt `HUS_LLM_ENABLED=false` và khởi động lại web.
+Các biến `HUS_RAG_LLM_*` tiếp tục áp dụng cho client API cũ không gửi trường
+`allow_llm_rewrite`.
 
 ## Demo độc lập
 
