@@ -245,6 +245,8 @@
   const send = document.getElementById('lookup-send');
   const generated = document.getElementById('lookup-generated');
   if (generated) generated.checked = true;
+  const rewrite = document.getElementById('lookup-rewrite');
+  const rewriteLabel = document.getElementById('lookup-rewrite-label');
   const messages = document.getElementById('lookup-messages');
   const status = document.getElementById('lookup-status');
   const form = document.getElementById('lookup-form');
@@ -305,6 +307,10 @@
       generated.checked = true;
       generated.disabled = unavailable || busy;
     }
+    const canRewrite = config?.llm_rewrite_available === true;
+    if (rewrite) rewrite.disabled = !canRewrite || unavailable || busy;
+    if (rewriteLabel) rewriteLabel.textContent = canRewrite
+      ? 'Cho phép gửi câu hỏi tới Gemini để diễn đạt' : 'Gemini chưa được bật';
     if (send) {
       send.disabled = unavailable || busy || !question.value.trim();
       if (send.firstChild) send.firstChild.textContent = busy ? 'Đang trả lời ' : 'Gửi ';
@@ -708,7 +714,8 @@
     requestController = controller;
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
-      allow_generated_reference: true};
+      allow_generated_reference: true,
+      allow_llm_rewrite: config?.llm_rewrite_available === true && rewrite?.checked === true};
     if (isFollowUpCourseQuery(text) && lastResolvedCourseCode) {
       payload.course_code = lastResolvedCourseCode;
     }
