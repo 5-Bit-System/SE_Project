@@ -90,7 +90,9 @@ def workspace_chat(request: HUSQuestion, answerer: HUSAnswerer) -> HUSChatReply:
     answer = result.hus_answer
     if answer is None or answer.status != "answered":
         return result
-    if request.allow_llm_rewrite:
+    # Workspace sends the user's choice explicitly. An opt-out must not fall
+    # through to the legacy automatic provider used by older API callers.
+    if 'allow_llm_rewrite' in request.model_fields_set:
         mode = "grounded_llm" if result.generation and result.generation.used else "extractive"
         result._generation_mode = mode
         return result
