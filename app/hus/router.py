@@ -13,6 +13,7 @@ from fastapi import APIRouter, HTTPException, Query, Request, Response
 
 from app.hus import chat_history_repository
 from app.hus.chat import HUSChatReply, workspace_chat
+from app.hus.llm.config import llm_rewrite_available
 from app.hus.question_catalog import question_catalog
 from app.hus.rag_loader import RAGDataError
 from app.hus.source_response import source_response
@@ -64,6 +65,7 @@ def config(response: Response) -> dict[str, Any]:
     return {
         "majors": [{"id": major, "label": LABELS[major], "version": version} for major, version in scopes],
         **answerer.data.release_identity,
+        "llm_rewrite_available": llm_rewrite_available(),
     }
 
 

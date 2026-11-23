@@ -196,8 +196,9 @@
   function isFollowUpCourseQuery(text) {
     if (!text || typeof text !== 'string') return false;
     const trimmed = text.trim();
+    if (/^(?:co )?kho(?: lam)? (?:khong|k|ko|kh|hong|hok|ha|a)[\s?!]*$/.test(searchable(trimmed))) return true;
     if (!FOLLOW_UP_PRONOUN_PATTERN.test(trimmed)) return false;
-    if (COURSE_CODE_PATTERN.test(trimmed)) return false;
+    if (COURSE_CODE_PATTERN.test(trimmed.toUpperCase())) return false;
     if (NAMED_COURSE_PATTERN.test(trimmed)) return false;
     return true;
   }
@@ -206,6 +207,11 @@
     if (!text || typeof text !== 'string') return null;
     const match = COURSE_CODE_PATTERN.exec(text);
     return match ? match[1] : null;
+  }
+
+  function citedCourseCode(citations) {
+    const codes = new Set((citations || []).map(item => extractCourseCode(item?.metadata?.course_code)).filter(Boolean));
+    return codes.size === 1 ? codes.values().next().value : null;
   }
 
   if (typeof module !== 'undefined' && module.exports) {
@@ -245,6 +251,8 @@
   const send = document.getElementById('lookup-send');
   const generated = document.getElementById('lookup-generated');
   if (generated) generated.checked = true;
+  const rewrite = document.getElementById('lookup-rewrite');
+  const rewriteLabel = document.getElementById('lookup-rewrite-label');
   const messages = document.getElementById('lookup-messages');
   const status = document.getElementById('lookup-status');
   const form = document.getElementById('lookup-form');
@@ -277,7 +285,7 @@
     }
     for (let i = convo.length - 1; i >= 0; i--) {
       if (convo[i].role === 'assistant') {
-        const code = extractCourseCode(convo[i].reply);
+        const code = citedCourseCode(convo[i].citations) || extractCourseCode(convo[i].reply);
         if (code) {
           lastResolvedCourseCode = code;
           return;
@@ -305,6 +313,10 @@
       generated.checked = true;
       generated.disabled = unavailable || busy;
     }
+    const canRewrite = config?.llm_rewrite_available === true;
+    if (rewrite) rewrite.disabled = !canRewrite || unavailable || busy;
+    if (rewriteLabel) rewriteLabel.textContent = canRewrite
+      ? 'Cho phép gửi câu hỏi tới Gemini để diễn đạt' : 'Gemini chưa được bật';
     if (send) {
       send.disabled = unavailable || busy || !question.value.trim();
       if (send.firstChild) send.firstChild.textContent = busy ? 'Đang trả lời ' : 'Gửi ';
@@ -648,6 +660,7 @@
     requestController = null;
     busy = false;
     if (generated) generated.checked = true;
+    if (rewrite) rewrite.checked = false;
     if (catalogSearch) catalogSearch.value = '';
     if (question) question.value = '';
     const selected = currentMajor();
@@ -708,7 +721,8 @@
     requestController = controller;
     const payload = {...(catalogRequest || {}), question: text, major: selected.id,
       version: catalogRequest?.version || selected.version,
-      allow_generated_reference: true};
+      allow_generated_reference: true,
+      allow_llm_rewrite: config?.llm_rewrite_available === true && rewrite?.checked === true};
     if (isFollowUpCourseQuery(text) && lastResolvedCourseCode) {
       payload.course_code = lastResolvedCourseCode;
     }
@@ -729,16 +743,11 @@
       if (!['basic_chat', 'hus_rag'].includes(result.mode) || typeof result.reply !== 'string'
           || !result.reply.trim()) throw new Error('invalid_response');
       const citations = result.mode === 'hus_rag' ? result.hus_answer?.citations : [];
-      appendMessage('assistant', result.reply,
-        citations,
-        result.generation_mode);
-      recordTurn('assistant', result.reply,
-        citations,
-        result.generation_mode);
-      if (result.hus_answer?.facts?.course_code) {
-        lastResolvedCourseCode = result.hus_answer.facts.course_code;
-      } else {
-        const found = extractCourseCode(result.reply);
+      const generationMode = result.generation?.used === true ? 'grounded_llm' : result.generation_mode;
+      appendMessage('assistant', result.reply, citations, generationMode);
+      recordTurn('assistant', result.reply, citations, generationMode);
+      if (result.hus_answer?.status === 'answered') {
+        const found = result.hus_answer.facts?.course_code || citedCourseCode(citations) || extractCourseCode(result.reply);
         if (found) lastResolvedCourseCode = found;
       }
       if (result.mode === 'basic_chat') {
@@ -748,10 +757,16 @@
       } else if (result.hus_answer?.status === 'no_information') {
         setStatus('Chưa có thông tin đủ căn cứ trong phạm vi đã chọn.');
       } else if (result.hus_answer?.status === 'answered') {
-        setStatus(result.hus_answer.facts?.field === 'prerequisites'
-          && result.hus_answer.facts?.prerequisite_status === 'unknown'
-          ? 'Đã đối chiếu nguồn; điều kiện tiên quyết vẫn chưa rõ.'
-          : 'Đã trả lời theo phạm vi dữ liệu đã chọn.');
+        if (result.hus_answer.facts?.field === 'prerequisites'
+            && result.hus_answer.facts?.prerequisite_status === 'unknown') {
+          setStatus('Đã đối chiếu nguồn. Điều kiện tiên quyết vẫn chưa rõ.');
+        } else if (result.generation?.used === true) {
+          setStatus('Gemini đã diễn đạt câu trả lời dựa trên nguồn đã chọn.');
+        } else if (payload.allow_llm_rewrite) {
+          setStatus('Gemini không khả dụng cho lượt này. Đã trả lời từ nguồn đã chọn.');
+        } else {
+          setStatus('Đã trả lời theo phạm vi dữ liệu đã chọn.');
+        }
       } else {
         throw new Error('invalid_response');
       }

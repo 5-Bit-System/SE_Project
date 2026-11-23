@@ -22,7 +22,7 @@ def open_plan_tools(page):
         }""")
 
 
-def common_route(route, *, authenticated=True):
+def common_route(route, *, authenticated=True, llm_rewrite_available=False):
     path = urlsplit(route.request.url).path
     if path == '/auth/session':
         route.fulfill(json=session_payload(authenticated))
@@ -31,6 +31,7 @@ def common_route(route, *, authenticated=True):
     elif path == '/hus/config':
         route.fulfill(json={
             'release_sha256': 'synthetic-sha256',
+            'llm_rewrite_available': llm_rewrite_available,
             'majors': [
                 {'id': 'computer_science', 'label': 'Khoa học máy tính và thông tin', 'version': 'QD3568-2023'},
                 {'id': 'data_science', 'label': 'Khoa học dữ liệu', 'version': 'QD3569-2023'},

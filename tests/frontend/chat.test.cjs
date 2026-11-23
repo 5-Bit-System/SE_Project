@@ -213,8 +213,11 @@ test('isFollowUpCourseQuery detects follow-up course pronouns and rejects specif
   assert.equal(isFollowUpCourseQuery('môn này có tiên quyết không'), true);
   assert.equal(isFollowUpCourseQuery('môn đó học như thế nào'), true);
   assert.equal(isFollowUpCourseQuery('môn đấy có khó không'), true);
+  assert.equal(isFollowUpCourseQuery('môn này có khó k'), true);
+  assert.equal(isFollowUpCourseQuery('Có khó ko?'), true);
   // Negative cases: contains specific course code or name
   assert.equal(isFollowUpCourseQuery('môn MAT1041 có mấy tín chỉ'), false);
+  assert.equal(isFollowUpCourseQuery('môn này hay mat1041 khó hơn?'), false);
   assert.equal(isFollowUpCourseQuery('môn Giải tích 1 có mấy tín chỉ'), false);
   assert.equal(isFollowUpCourseQuery('giới thiệu ngành khoa học dữ liệu'), false);
   assert.equal(isFollowUpCourseQuery('tổng tín chỉ chương trình'), false);
