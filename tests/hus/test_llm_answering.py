@@ -573,8 +573,8 @@ def test_chat_integration_extractive_mode_when_llm_none(answerer, monkeypatch):
 # ============================================================================
 
 
-def test_prerequisite_enrichment_no_prerequisites(answerer, monkeypatch):
-    """Kịch bản 8A: Môn học không có tiên quyết (MAT2400) -> Prompt ghi rõ 'Không' và liệt kê môn tiếp theo."""
+def test_prerequisite_enrichment_unknown_prerequisites(answerer, monkeypatch):
+    """MAT2400 has blank prerequisite source data and still lists dependent courses."""
     captured_prompts: list[str] = []
 
     def mock_post(client_self, url, *args, **kwargs):
@@ -609,7 +609,7 @@ def test_prerequisite_enrichment_no_prerequisites(answerer, monkeypatch):
     assert len(captured_prompts) == 1
     prompt_str = captured_prompts[0]
 
-    assert "- Điều kiện tiên quyết: Không (môn học không yêu cầu môn tiên quyết)" in prompt_str
+    assert "- Điều kiện tiên quyết: Chưa xác định" in prompt_str
     assert "- Là học phần tiên quyết cho các môn: MAT2403" in prompt_str
 
 

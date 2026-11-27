@@ -339,7 +339,18 @@ def generate_grounded_answer(
         # Prerequisites of this course:
         raw_prereqs = [str(p).strip() for p in (course_fact.get("prerequisites_raw") or []) if p and str(p).strip()]
         prereqs_named = course_fact.get("prerequisites_named") or []
-        if prereqs_named:
+        prereq_status = course_fact.get("prerequisite_status")
+        uncertain_prereqs = {
+            "unknown": "Chưa xác định",
+            "conflict": "Nguồn ghi không thống nhất",
+            "unresolved": "Chưa xác minh",
+        }
+        if prereq_status in uncertain_prereqs:
+            status_text = uncertain_prereqs[prereq_status]
+            if raw_prereqs:
+                status_text += f" (nguồn ghi: {'; '.join(raw_prereqs)})"
+            c_lines.append(f"- Điều kiện tiên quyết: {status_text}")
+        elif prereqs_named:
             prereq_desc = ", ".join(
                 f"{item['course_code']} ({item['course_name']})" if item.get("course_name") else item["course_code"]
                 for item in prereqs_named
@@ -348,7 +359,7 @@ def generate_grounded_answer(
         elif raw_prereqs:
             c_lines.append(f"- Điều kiện tiên quyết: {'; '.join(raw_prereqs)}")
         else:
-            c_lines.append("- Điều kiện tiên quyết: Không (môn học không yêu cầu môn tiên quyết)")
+            c_lines.append("- Điều kiện tiên quyết: Chưa xác định")
 
         # Dependent courses:
         deps = course_fact.get("dependent_courses") or []
@@ -411,7 +422,9 @@ def generate_grounded_answer(
         "3. Tuyệt đối chính xác về số liệu: Giữ nguyên vẹn mã môn, số tín chỉ, phân bổ số tiết và điều kiện tiên quyết theo dữ liệu F2 đã cung cấp. Không tự ý suy diễn hoặc thay đổi số liệu.\n"
         "4. Dẫn nguồn minh bạch: Khi sử dụng thông tin từ các đoạn trích dẫn tài liệu ở trên, hãy gắn số thứ tự trích dẫn dạng [1], [2],... tương ứng vào cuối câu hoặc mệnh đề.\n"
         "5. Giọng điệu cố vấn học vụ: Lịch sự, khách quan và đáng tin cậy. Chỉ trả lời dựa trên dữ liệu đã cung cấp. Nếu dữ liệu trên không đề cập đến thông tin sinh viên hỏi, hãy trung thực thông báo tài liệu chưa có thông tin, tuyệt đối không bịa đặt.\n"
-        "6. Quy tắc điều kiện tiên quyết: Tuyệt đối KHÔNG viết các câu mơ hồ như '(Chưa có thông tin cụ thể trong hệ thống)'. Nếu dữ liệu F2 ghi điều kiện tiên quyết là 'Không', hãy khẳng định rõ ràng là môn học không yêu cầu môn học tiên quyết."
+        "6. Quy tắc điều kiện tiên quyết: Chỉ ghi 'Không' khi nguồn xác nhận không có tiên quyết. "
+        "Giữ nguyên trạng thái chưa xác định, chưa xác minh hoặc nguồn ghi không thống nhất "
+        "khi dữ liệu F2 ghi nhận các trạng thái này."
     )
 
     model = (
